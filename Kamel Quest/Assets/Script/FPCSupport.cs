@@ -5,23 +5,23 @@ using UnityEngine;
 public class FPCSupport : MonoBehaviour
 {
     public GameObject playercam;
-    private GameObject objetInteract;
+    //private GameObject objetInteract;
     [Header ("Button list")]
     public string inventoryButton;
-    public string interactButtonn;
+    //public string interactButtonn;
 
-    [Header ("Tag's list")]
-    public string itemTag = "Item";
+    //[Header ("Tag's list")]
+    //public string itemTag = "Item";
     
     [Header("Inventory's Data")]
     public GameObject invetoryCanvas;
     [HideInInspector] public bool inventoryOpen = false;
 
 
-    [Header("Other")]
-    public Transform itemPrefab;
-    public Transform inventorySlots;
-    public int slotCount = 20; // taille de l'inventaire limité à 20
+    //[Header("Other")]
+    //public Transform itemPrefab;
+   // public Transform inventorySlots;
+   // public int slotCount = 20; // taille de l'inventaire limité à 20
 
 
     // Start is called before the first frame update
