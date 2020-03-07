@@ -1,2 +1,5 @@
 Liste des ajouts :
 06/03 Elouan : Ajout de l'UI inventaire, légère avancé sur la classe item, monster et entity, ajout des sprites de l'inventaire ( provisoire, juste pour les tests)
+07/03 Elouan : Amélioration de l'inventaire, création de la classe entity et test de musique
+07/03 Julien : Ajout du logo et des srpites de personnages, animations de marche du personnage princiapale
+07/03 Settha : Menu principale et pause, début de systeme de combat
