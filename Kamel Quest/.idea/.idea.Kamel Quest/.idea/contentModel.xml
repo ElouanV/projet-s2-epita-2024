@@ -28,11 +28,8 @@
           </e>
         </e>
         <e p="Script" t="Include">
-          <e p="FPCSupport.cs" t="Include" />
-          <e p="ItemSlots.cs" t="Include" />
-          <e p="ItemVariables.cs" t="Include" />
+          <e p="item.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
-          <e p="Pause.cs" t="Include" />
           <e p="UnitStat.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">

@@ -5,13 +5,24 @@ using UnityEngine;
 public class FPCSupport : MonoBehaviour
 {
     public GameObject playercam;
-    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpscomp;
-
+    private GameObject objetInteract;
     [Header ("Button list")]
     public string inventoryButton;
-    public GameObject invetoryCanvas;
+    public string interactButtonn;
+
+    [Header ("Tag's list")]
+    public string itemTag = "Item";
+    
     [Header("Inventory's Data")]
+    public GameObject invetoryCanvas;
     [HideInInspector] public bool inventoryOpen = false;
+
+
+    [Header("Other")]
+    public Transform itemPrefab;
+    public Transform inventorySlots;
+    public int slotCount = 20; // taille de l'inventaire limité à 20
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +32,6 @@ public class FPCSupport : MonoBehaviour
             playercam = GameObject.FindWithTag("MainCamera");
         }
 
-        fpscomp = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         if (invetoryCanvas == null)
         {
             invetoryCanvas = GameObject.Find("Inventory_Panel");
@@ -37,16 +47,16 @@ public class FPCSupport : MonoBehaviour
             ShowOrHideInventory();
         }
     }
+    
+
 
     void ShowOrHideInventory ()
     {
 
-        invetoryCanvas.SetActive(!inventoryOpen); // active l'inventaire
+        invetoryCanvas.SetActive(!inventoryOpen); // active l'inventaire ou le desactive
 
-        fpscomp.enabled = inventoryOpen; // ouvre l'inventaire
-        
-        //Gestion ddu curseur
-        Cursor.visible = !inventoryOpen; // rend le curseur visible
+        //Gestion du curseur
+        Cursor.visible = !inventoryOpen; // rend le curseur visible si l'inventaire et ouvert, invisible si l'interface est fermé
         if (inventoryOpen) // bloque le curseur hors de l'inventaire
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -55,6 +65,7 @@ public class FPCSupport : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+        // inverse le booléen inventoryOpen
         inventoryOpen = !inventoryOpen;
     }
 }
