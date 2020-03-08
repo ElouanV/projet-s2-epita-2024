@@ -10,15 +10,15 @@ public class Entity : MonoBehaviour
     public readonly long[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
     #region constructor
     // Attribut de la classe Entity
-    private long hpmax;
+    protected long hpmax;
     public long currenthp;
-    private int atk;
-    private string name;
-    private int magicatk;
-    private long atkcost;
-    private long xp;
-    private int lvl;
-    private bool isalive;
+    protected int atk;
+    protected string name;
+    protected int magicatk;
+    protected long atkcost;
+    protected long xp;
+    protected int lvl;
+    protected bool isalive;
     
     //getter et setter
     public long Hpmax
@@ -55,13 +55,8 @@ public class Entity : MonoBehaviour
         
     
     // Constructeur
-    public Entity(long hpmax, int atk, string name, int magicatk, int atkcost)
+    public Entity()
     {
-        this.hpmax = hpmax;
-        this.currenthp = hpmax;
-        this.atk = atk;
-        this.name = name;
-        this.magicatk = magicatk;
         this.xp = 0;
         this.lvl = 1;
         this.isalive = true;
@@ -96,7 +91,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    private void LvlUp(long setxp) // appelé si l'entité augmente de niveau
+    protected void LvlUp(long setxp) // appelé si l'entité augmente de niveau
     {
         atk += ATKPROGRESSION[lvl];
         magicatk += MAGICATKPROGRESSION[lvl];
