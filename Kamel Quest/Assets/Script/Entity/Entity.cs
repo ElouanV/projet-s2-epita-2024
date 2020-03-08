@@ -10,14 +10,14 @@ public class Entity : MonoBehaviour
     public readonly long[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
     #region constructor
     // Attribut de la classe Entity
-    protected long hpmax;
+    public long hpmax;
     public long currenthp;
     protected int atk;
-    protected string name;
+    public string name;
     protected int magicatk;
     protected long atkcost;
     protected long xp;
-    protected int lvl;
+    public int lvl;
     protected bool isalive;
     
     //getter et setter
