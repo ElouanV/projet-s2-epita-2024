@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 64023153}
   - component: {fileID: 64023152}
   m_Layer: 5
-  m_Name: Lvl
+  m_Name: EnemyLvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 65260625}
   - component: {fileID: 65260624}
   m_Layer: 5
-  m_Name: Lvl
+  m_Name: PlayerLvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,6 +606,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 881652461}
   state: 0
   dialogue: {fileID: 0}
+  playerHUD: {fileID: 1292016124}
+  enemyHUD: {fileID: 697930776}
 --- !u!4 &576844464
 Transform:
   m_ObjectHideFlags: 0
@@ -816,6 +818,7 @@ GameObject:
   - component: {fileID: 697930773}
   - component: {fileID: 697930775}
   - component: {fileID: 697930774}
+  - component: {fileID: 697930776}
   m_Layer: 5
   m_Name: TextEnemy
   m_TagString: Untagged
@@ -841,7 +844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -145, y: 320}
+  m_AnchoredPosition: {x: -133, y: 320}
   m_SizeDelta: {x: 263.7, y: 71.7}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &697930774
@@ -880,6 +883,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697930772}
   m_CullTransparentMesh: 0
+--- !u!114 &697930776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697930772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b09769ef2222b34e934f0c66ba37ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 2131747483}
+  lvlText: {fileID: 64023152}
 --- !u!1 &825347526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881652459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.2, y: 33.8, z: 80}
+  m_LocalPosition: {x: 61.1, y: 31.5, z: 100}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1111,7 +1128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963429941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.2, y: -3.9, z: 80}
+  m_LocalPosition: {x: -64.4, y: -10, z: 100}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1128,6 +1145,7 @@ GameObject:
   - component: {fileID: 1292016121}
   - component: {fileID: 1292016123}
   - component: {fileID: 1292016122}
+  - component: {fileID: 1292016124}
   m_Layer: 5
   m_Name: TextPlayer
   m_TagString: Untagged
@@ -1153,7 +1171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 140, y: 145}
+  m_AnchoredPosition: {x: 137, y: 145}
   m_SizeDelta: {x: 263.7, y: 71.7}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1292016122
@@ -1192,6 +1210,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292016120}
   m_CullTransparentMesh: 0
+--- !u!114 &1292016124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292016120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b09769ef2222b34e934f0c66ba37ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1527157190}
+  lvlText: {fileID: 65260624}
 --- !u!1 &1425218632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1484,7 @@ GameObject:
   - component: {fileID: 1527157191}
   - component: {fileID: 1527157190}
   m_Layer: 5
-  m_Name: Name
+  m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1764,7 +1796,7 @@ GameObject:
   - component: {fileID: 2131747484}
   - component: {fileID: 2131747483}
   m_Layer: 5
-  m_Name: Name
+  m_Name: EnemyName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
