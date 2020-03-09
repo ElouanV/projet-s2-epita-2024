@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,11 +21,15 @@ public class BattleSystem : MonoBehaviour
     public Transform playerSpawn; //position de spawn
     public Transform enemySpawn;  //position de spawn
 
-    Player playerUnit;
-    Ennemy enemyUnit;
+    Entity playerUnit;
+    private Entity enemyUnit;
     
     public BattleState state;
-    public Text dialogue;
+    public TextMeshProUGUI dialogue;
+    
+    //gestion des HUD de combats (affichage)
+    public BattleUI playerHUD;
+    public BattleUI enemyHUD;
     
     
     // Start is called before the first frame update
@@ -36,20 +42,28 @@ public class BattleSystem : MonoBehaviour
     public void SetupBattle() //faire spawn les entités au bonne endroit et mettre les UI a jour
     {
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-        playerUnit = GetComponent<Player>();
+        playerUnit = playerObject.GetComponent<Entity>();
         
         
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-        enemyUnit = GetComponent<Ennemy>();
-
-        playerUnit.name = name;
+        enemyUnit = enemyObject.GetComponent<Entity>();
+        
+        
+        
+        playerHUD.SetupHUD(playerUnit);
+        enemyHUD.SetupHUD(enemyUnit);
         
         state = BattleState.PLAYERTURN;
     }
 
-   
+    public void PlayerTurn()
+    {
+        throw new NotImplementedException();
+    }
 
-    
+
+
+
 
     public void AttackButton()
     {
