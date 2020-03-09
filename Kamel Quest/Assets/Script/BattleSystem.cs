@@ -42,7 +42,7 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
         enemyUnit = GetComponent<Ennemy>();
 
-        playerUnit.name = name;
+        dialogue.text = playerUnit.name;
         
         state = BattleState.PLAYERTURN;
     }
