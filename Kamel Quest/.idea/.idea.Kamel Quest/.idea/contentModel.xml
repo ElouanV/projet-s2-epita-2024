@@ -22,8 +22,11 @@
           <e p="Pause.cs" t="Include" />
           <e p="PlayerControler.cs" t="Include" />
           <e p="ShowsBubbleText.cs" t="Include" />
+          <e p="ShowsText.cs" t="Include" />
+          <e p="TestMartin.cs" t="Include" />
           <e p="UnitStat.cs" t="Include" />
         </e>
+        <e p="ShowText.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
