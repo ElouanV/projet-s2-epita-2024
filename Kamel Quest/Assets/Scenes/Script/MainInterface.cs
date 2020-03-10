@@ -19,9 +19,9 @@ public class MainInterface : MonoBehaviour
     void Update()
     {
         TxtHp.text = "HP : " +  player.currenthp + " / " + player.hpmax; 
-        TxtLvl.text = "Lvl : " +  player. ;  
-        TxtAtk.text = "Attaque : " +  player. + " / "; 
-        TxtPtsQuete.text = "P.Q. : " +  player. + " / " + ; 
-        TxtArgent.text = "Argent : " +  player. + " / "; 
+        TxtLvl.text = "Lvl : " +  player.Lvl ;  
+        TxtAtk.text = "Attaque : " +  player.atk + " / "; 
+        TxtPtsQuete.text = "P.Q. : " +  player.PtsQuete + " / "; 
+        TxtArgent.text = "Argent : " +  player.argent + " / "; 
     }
 }
