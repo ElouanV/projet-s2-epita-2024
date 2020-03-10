@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class Bouton : MonoBehaviour
 {
     public Entity entity;
-
+    public Player player;
+    
     public void ChangeHp() 
     {
         
-        entity.GetHeal (5);
     }
 }

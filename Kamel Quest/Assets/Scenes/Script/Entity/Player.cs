@@ -7,6 +7,8 @@ public class Player : Entity
     public int argent;
     public int PtsQuete;
     public int Lvl;
+    public string Quete;
+    public int[][] ListeQuetes;
 
 
     public Player (long hpmax,  int atk, string name, int magicatk, int atkcost, int argent, int PtsQuete, int lvl)
