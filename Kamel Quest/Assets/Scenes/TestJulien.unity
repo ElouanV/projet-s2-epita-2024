@@ -9702,12 +9702,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0049bdf1a53c74603b61c3149cb5074e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences:
-  - Bienvenu valeureux chevalier, quel bon vent vous amenes dans notre humble village
-    ?
-  - Tste2
-  - Et 3
+  sentencesArr:
+  - "Salut \xE0 toi, Noble voyageur!$Es-tu pr\xEAt \xE0 accepter ma qu\xEAte ?$$                 [Y]
+    - Yes                           [N] - No"
   speed: 0.02
+  timeForRead: 3
+  scroll: 1
   restart: 1
 --- !u!1 &352527976
 GameObject:
