@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour
     protected long atkcost;
     protected long xp;
     public int lvl;
-    protected bool isalive;
+    public bool isalive;
     
     //getter et setter
     public long Hpmax
@@ -57,9 +57,9 @@ public class Entity : MonoBehaviour
     // Constructeur
     public Entity()
     {
-        this.xp = 0;
-        this.lvl = 1;
-        this.isalive = true;
+        xp = 0;
+        lvl = 1;
+        isalive = true;
     }
     
     #endregion
@@ -116,7 +116,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

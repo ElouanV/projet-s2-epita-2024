@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.Kamel Quest/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.Kamel Quest/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.Kamel Quest/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.Kamel Quest/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
-    </list>
+    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +81,7 @@
       <workItem from="1583791852542" duration="6175000" />
       <workItem from="1583801703366" duration="4931000" />
       <workItem from="1583883266517" duration="11000" />
+      <workItem from="1583883350889" duration="14000" />
     </task>
     <servers />
   </component>
