@@ -15,7 +15,7 @@ public class ShowsText : MonoBehaviour
     void Start()
     {
         Txt = transform.GetChild(0).GetComponent<TextMesh>();
-        first_sentence = sentences[0];
+        first_sentence = sentences[0].Replace("$","\n");
         StartCoroutine(ShowsTxt());
     }
     // OnEnable is called every time this GameObject is Actived
