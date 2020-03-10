@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -33,8 +31,8 @@ public class BattleSystem : MonoBehaviour
     //gestion des HUD de combats (affichage)
     public BattleUI playerHUD;
     public BattleUI enemyHUD;
-
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +48,8 @@ public class BattleSystem : MonoBehaviour
         
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
         enemyUnit = enemyObject.GetComponent<Entity>();
-
-        dialogue.text = "Vous entrez en combat !";
+        
+        
         
         playerHUD.SetupHUD(playerUnit);
         enemyHUD.SetupHUD(enemyUnit);
@@ -59,72 +57,19 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.PLAYERTURN;
     }
 
+    public void PlayerTurn()
+    {
+        throw new NotImplementedException();
+    }
 
 
-
-    
-    //BattleSystem
 
     IEnumerator playerBasicAttack()
     {
         enemyUnit.GetHurt(playerUnit.Atk);
-        enemyHUD.UpdateHp(enemyUnit.currenthp, enemyUnit);
+        enemyHUD.UpdateHp(enemyUnit.currenthp);
         
-        yield return new WaitForSeconds(1f);
-
-        if (playerUnit.currenthp <= 0)
-        {
-            state = BattleState.LOSE;
-            LoseBattle();
-        }
-        else
-        {
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
-        }
-
-       
-        
-    }
-
-    IEnumerator playerHealSpell()
-    {
-        playerUnit.GetHeal(5);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit);
-        yield return new WaitForSeconds(1f);
-        
-        
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-    }
-
-    IEnumerator EnemyTurn()
-    {
-        playerUnit.GetHurt(enemyUnit.Atk);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit);
-        yield return new WaitForSeconds(1f);
-
-        if (enemyUnit.currenthp <= 0)
-        {
-            state = BattleState.WIN;
-            WinBattle();
-        }
-        else
-        {
-            state = BattleState.PLAYERTURN;
-        }
-        
-
-    }
-
-    public void SpellButton()
-    {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-
-        StartCoroutine(playerHealSpell());
+        yield return new WaitForSeconds(2f);
     }
 
 
@@ -139,30 +84,6 @@ public class BattleSystem : MonoBehaviour
 
 
     }
-
-    public void SkipButton()
-    {
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-    }
-
-
-    public void PlayerTurn() // update de l'HUD dialogue
-    {
-        dialogue.text = "C'est votre tour";
-    }
-
-    void LoseBattle()
-    {
-        SceneManager.LoadScene("Game");
-    }
-
-    void WinBattle()
-    {
-        SceneManager.LoadScene("Game");
-    }
-    
-    
     
     
     

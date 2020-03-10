@@ -8,10 +8,11 @@ public class ItemSlots : MonoBehaviour
     public Text textItem;
     public GameObject textDisplay;
     [Header("Item's Data")]
-    public string itemType;
+    public string itemName;
     public string itemID;
     public Sprite itemSprite;
     public string itemDescription;
+    public int count;
     // Start is called before the first frame update
     void Start()
     {
