@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpmax: 10
   currenthp: 10
-  atk: 2
   name: Caml
   lvl: 1
 --- !u!1 &7699370382631973139
