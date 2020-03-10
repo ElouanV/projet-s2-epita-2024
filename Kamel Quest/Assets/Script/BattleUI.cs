@@ -13,9 +13,6 @@ public class BattleUI : MonoBehaviour
     public TextMeshProUGUI lvlText;
     public UnityEngine.UI.Slider hpSlider;
 
-    public TextMeshProUGUI unitHpText;
-    
-
 
     public void SetupHUD(Entity unit)
     {
@@ -23,14 +20,11 @@ public class BattleUI : MonoBehaviour
         lvlText.text = "Lvl " + unit.lvl.ToString();
         hpSlider.maxValue = unit.hpmax;
         hpSlider.value = unit.currenthp;
-        unitHpText.text = unit.currenthp + "/" + unit.hpmax;
-        
 
     }
 
-    public void UpdateHp(long hp, Entity unit)
+    public void UpdateHp(long hp)
     {
         hpSlider.value = hp;
-        unitHpText.text = hp + "/" + unit.hpmax;
     }
 }
