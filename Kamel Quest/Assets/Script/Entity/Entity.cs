@@ -12,7 +12,7 @@ public class Entity : MonoBehaviour
     // Attribut de la classe Entity
     public long hpmax;
     public long currenthp;
-    protected int atk;
+    public int atk;
     public string name;
     protected int magicatk;
     protected long atkcost;

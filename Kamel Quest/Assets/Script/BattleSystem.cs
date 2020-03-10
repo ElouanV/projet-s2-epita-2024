@@ -16,6 +16,7 @@ public enum BattleState
 }
 public class BattleSystem : MonoBehaviour
 {
+    
     public GameObject playerPrefab; //joueur
     public GameObject enemyPrefab;  // enemy
     public Transform playerSpawn; //position de spawn
@@ -63,6 +64,13 @@ public class BattleSystem : MonoBehaviour
 
 
 
+    IEnumerator playerBasicAttack()
+    {
+        enemyUnit.GetHurt(playerUnit.Atk);
+        enemyHUD.UpdateHp(enemyUnit.currenthp);
+        
+        yield return new WaitForSeconds(2f);
+    }
 
 
     public void AttackButton()
@@ -72,7 +80,9 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
-        
+        StartCoroutine(playerBasicAttack());
+
+
     }
     
     

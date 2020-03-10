@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpmax: 20
   currenthp: 20
+  atk: 2
   name: Jesus
   lvl: 666
 --- !u!1 &8863654830440477964
