@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public int argent;
+    public
 
-    public Player (long hpmax,  int atk, string name, int magicatk, int atkcost)
+
+    public Player (long hpmax,  int atk, string name, int magicatk, int atkcost, int argent)
     {
         this.hpmax = hpmax;
         this.atk = atk;
@@ -13,6 +16,8 @@ public class Player : Entity
         this.magicatk = magicatk;
         this.atkcost = atkcost;
         this.currenthp = hpmax;
+        this.argent = argent;
+
     }
     // Start is called before the first frame update
     void Start()
