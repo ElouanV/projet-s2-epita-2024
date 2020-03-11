@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 5075619251829079375}
   - component: {fileID: 7347637829621727271}
   m_Layer: 5
-  m_Name: Possion3
+  m_Name: Potion3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 2534656338269136117}
   - component: {fileID: 1828846934190341698}
   m_Layer: 5
-  m_Name: Possion2
+  m_Name: Potion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1093,7 +1093,6 @@ RectTransform:
   - {fileID: 6335386130670673191}
   - {fileID: 3845613599690661832}
   - {fileID: 3371689142427385275}
-  - {fileID: 3063742726329029597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1964,7 +1963,7 @@ GameObject:
   - component: {fileID: 1596429744639843371}
   - component: {fileID: 2555567632261344360}
   m_Layer: 5
-  m_Name: Possion1
+  m_Name: Potion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2784,41 +2783,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &6577931106291163414
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3063742726329029597}
-  m_Layer: 5
-  m_Name: prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3063742726329029597
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577931106291163414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5837427937785310222}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7400568978961634971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,7 +3365,7 @@ GameObject:
   - component: {fileID: 9133598901703322931}
   - component: {fileID: 6683726269730291818}
   m_Layer: 5
-  m_Name: Possion4
+  m_Name: Potion4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
