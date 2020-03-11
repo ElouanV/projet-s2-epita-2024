@@ -11,7 +11,7 @@ public class Bouton : MonoBehaviour
     //public int c = 0;
 
 
-    public void Update()
+    /*public void Update()
     {
         if (running) 
         {
@@ -27,6 +27,29 @@ public class Bouton : MonoBehaviour
         }
         yield return new WaitForSeconds(7f);
         running = false;
+    }*/
+
+    public void PotionButton()
+    {
+      if(player.argent > 5)
+      {
+        player.currenthp += 5;
+        player.argent -= 5;
+      }
+    }
+
+    public void Equipement()
+    {
+      if(player.argent > 7)
+      {
+        player.hpmax += 10;
+        player.argent -= 7;
+      }
+    }
+
+    public void Offrande42()
+    {
+        player.argent += 42;
     }
 }
 
