@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpmax: 50
-  currenthp: 20
+  currenthp: 30
   atk: 3
   name: etherfictus
   lvl: 1

@@ -1581,10 +1581,7 @@ GameObject:
   - component: {fileID: 1106839242}
   - component: {fileID: 1106839241}
   - component: {fileID: 1106839240}
-  - component: {fileID: 1106839239}
   - component: {fileID: 1106839238}
-  - component: {fileID: 1106839244}
-  - component: {fileID: 1106839245}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1608,20 +1605,6 @@ MonoBehaviour:
   TxtLvl: {fileID: 169837807}
   TxtArgent: {fileID: 323203099}
   player: {fileID: 764906651}
---- !u!114 &1106839239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106839237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 764906650}
-  running: 0
 --- !u!114 &1106839240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1705,36 +1688,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1106839244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106839237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  running: 0
---- !u!114 &1106839245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106839237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdaf542b941007488c281ef213b8388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TxtHp: {fileID: 0}
-  TxtLvl: {fileID: 0}
-  TxtArgent: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1142092263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,5 +1903,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 764906651}
+  player: {fileID: 0}
   running: 0
