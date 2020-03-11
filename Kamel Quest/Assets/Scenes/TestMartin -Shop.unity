@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &669811458
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &819668906
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &1703990670
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840081169 stripped
 GameObject:
@@ -723,16 +723,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846150171fcb61e4ba88d70474d1cfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1840081178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840081169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b6d8f3806c3f84ca2a346ebf91eba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   hpmax: 50
   currenthp: 20
   atk: 3
-  name: ether
+  name: etherfictus
   lvl: 1
   isalive: 0
   argent: 100
-  PtsQuete: 0
-  Lvl: 1
-  Quete: 10
 --- !u!1 &1858762010
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +756,7 @@ GameObject:
   - component: {fileID: 1858762011}
   - component: {fileID: 1858762017}
   - component: {fileID: 1858762015}
+  - component: {fileID: 1858762016}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -830,7 +840,7 @@ RectTransform:
   - {fileID: 1421075747}
   - {fileID: 391697433}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -852,7 +862,23 @@ MonoBehaviour:
   TxtHp: {fileID: 669811460}
   TxtLvl: {fileID: 1421075748}
   TxtArgent: {fileID: 391697434}
-  player: {fileID: 1840081177}
+  player: {fileID: 1840081178}
+--- !u!114 &1858762016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858762010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdaf542b941007488c281ef213b8388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TxtHp: {fileID: 0}
+  TxtLvl: {fileID: 0}
+  TxtArgent: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1858762017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,8 +891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1840081176}
   player: {fileID: 0}
+  running: 0
 --- !u!1 &1917191521
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,5 +982,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
