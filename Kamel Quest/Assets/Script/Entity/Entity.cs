@@ -91,14 +91,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    protected void LvlUp(long setxp) // appelé si l'entité augmente de niveau
-    {
-        atk += ATKPROGRESSION[lvl];
-        magicatk += MAGICATKPROGRESSION[lvl];
-        hpmax += HPMAXPROGRESSION[lvl];
-        xp = setxp;
-        lvl += 1;
-    }
+    
 
     public void GetXp(long xpearned) // augmente l'xp de xpearned points
     {
@@ -112,6 +105,14 @@ public class Entity : MonoBehaviour
         {
             xp += xpearned;
         }
+    }
+    protected void LvlUp(long setxp) // appelé si l'entité augmente de niveau
+    {
+        atk += ATKPROGRESSION[lvl];
+        magicatk += MAGICATKPROGRESSION[lvl];
+        hpmax += HPMAXPROGRESSION[lvl];
+        xp = setxp;
+        lvl += 1;
     }
     // Start is called before the first frame update
     void Start()
