@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1443197002840800988}
   - component: {fileID: 1766482810991282575}
   m_Layer: 5
-  m_Name: Possion2
+  m_Name: Potion2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4832357503676224210}
   - component: {fileID: 1279129076822394688}
   m_Layer: 5
-  m_Name: Possion'
+  m_Name: Potion4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94168672839449091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1174,8 +1174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 0}
+  running: 0
 --- !u!1 &3136309329688986062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1678,7 @@ GameObject:
   - component: {fileID: 5318480930396029062}
   - component: {fileID: 5154440303237982415}
   m_Layer: 5
-  m_Name: Possion3
+  m_Name: Potion3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2668,7 +2668,7 @@ GameObject:
   - component: {fileID: 3737480215878603932}
   - component: {fileID: 6292865906101970932}
   m_Layer: 5
-  m_Name: Possion1
+  m_Name: Potion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
