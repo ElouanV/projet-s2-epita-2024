@@ -21,9 +21,6 @@ public class Bouton : MonoBehaviour
 
     IEnumerator ArgentIE10()
     {
-        
-        
-
         if (player.argent > 10)
         {
           player.argent -= 10;  

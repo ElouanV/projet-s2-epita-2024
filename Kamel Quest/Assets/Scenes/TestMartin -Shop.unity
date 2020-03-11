@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &669811458
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &819668906
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
   player: {fileID: 1840081177}
+  running: 0
 --- !u!1 &1703990670
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,15 +724,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpmax: 50
-  currenthp: 20
+  currenthp: 30
   atk: 3
   name: ether
   lvl: 1
   isalive: 0
   argent: 100
-  PtsQuete: 0
-  Lvl: 1
-  Quete: 10
 --- !u!1 &1858762010
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,8 +862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1840081176}
   player: {fileID: 0}
+  running: 0
 --- !u!1 &1917191521
 GameObject:
   m_ObjectHideFlags: 0
