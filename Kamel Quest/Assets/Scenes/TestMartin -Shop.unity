@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 391697433}
   - component: {fileID: 391697435}
   - component: {fileID: 391697434}
+  - component: {fileID: 391697436}
   m_Layer: 5
   m_Name: TxtArgent
   m_TagString: Untagged
@@ -197,6 +198,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391697432}
   m_CullTransparentMesh: 0
+--- !u!114 &391697436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391697432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  player: {fileID: 1840081177}
 --- !u!1 &669811458
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +223,7 @@ GameObject:
   - component: {fileID: 669811459}
   - component: {fileID: 669811461}
   - component: {fileID: 669811460}
+  - component: {fileID: 669811462}
   m_Layer: 5
   m_Name: TxtHp
   m_TagString: Untagged
@@ -274,6 +290,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669811458}
   m_CullTransparentMesh: 0
+--- !u!114 &669811462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669811458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  player: {fileID: 1840081177}
 --- !u!1 &819668906
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +546,7 @@ GameObject:
   - component: {fileID: 1421075747}
   - component: {fileID: 1421075749}
   - component: {fileID: 1421075748}
+  - component: {fileID: 1421075750}
   m_Layer: 5
   m_Name: TxtLvl
   m_TagString: Untagged
@@ -582,6 +613,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421075746}
   m_CullTransparentMesh: 0
+--- !u!114 &1421075750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421075746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d314a1acd099bed4f99edd955dbff792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 0}
+  player: {fileID: 1840081177}
 --- !u!1 &1703990670
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,16 +711,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38b2c5fc0de648468f4c47980b49c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpmax: 20
-  currenthp: 10
+--- !u!114 &1840081177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840081169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846150171fcb61e4ba88d70474d1cfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpmax: 50
+  currenthp: 20
   atk: 3
-  name: 
+  name: ether
   lvl: 1
   isalive: 0
   argent: 100
   PtsQuete: 0
-  Lvl: 0
-  Quete: 
+  Lvl: 1
+  Quete: 10
 --- !u!1 &1858762010
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,11 +852,7 @@ MonoBehaviour:
   TxtHp: {fileID: 669811460}
   TxtLvl: {fileID: 1421075748}
   TxtArgent: {fileID: 391697434}
-  TxtQuetes: {fileID: 0}
-  ListeQuetes: {fileID: 0}
-  entity: {fileID: 1840081176}
-  player: {fileID: 1840081176}
-  p: 0
+  player: {fileID: 1840081177}
 --- !u!114 &1858762017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entity: {fileID: 1840081176}
+  player: {fileID: 0}
 --- !u!1 &1917191521
 GameObject:
   m_ObjectHideFlags: 0

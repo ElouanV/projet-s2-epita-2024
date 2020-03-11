@@ -18,7 +18,9 @@ public enum BattleState
 }
 public class BattleSystem : MonoBehaviour
 {
+    public bool iscliked;
     
+    public Player player;
     public GameObject playerPrefab; //joueur
     public GameObject enemyPrefab;  // enemy
     public Transform playerSpawn; //position de spawn
@@ -134,10 +136,7 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-
         StartCoroutine(playerBasicAttack());
-
-
     }
 
     public void SkipButton()
