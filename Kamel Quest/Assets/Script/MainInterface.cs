@@ -8,14 +8,7 @@ public class MainInterface : MonoBehaviour
     public Text TxtHp;
     public Text TxtLvl;
     public Text TxtArgent;
-
-    public Text TxtQuetes;
-    public Text ListeQuetes;
-
-    public Entity entity;
     public Player player;
-
-    public int p;
     
 
     // Update is called once per frame
@@ -24,7 +17,7 @@ public class MainInterface : MonoBehaviour
         TxtHp.text = "HP : " +  player.currenthp + " / " + player.hpmax; 
         TxtLvl.text = "Lvl : " +  player.Lvl ;  
         TxtArgent.text = "Argent : " +  player.argent + "€"; 
-        TxtQuetes.text = "Listes des quêtes";
+        //TxtQuetes.text = "Listes des quêtes";
         // ListeQuetes.text = " -" + "quêtes épingnées";
     }
 
