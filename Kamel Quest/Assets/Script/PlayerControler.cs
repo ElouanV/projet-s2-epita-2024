@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     public float moveSpeed;
-    public Animator anim;
-    public bool moving;
+    private Animator anim;
+    private bool moving;
     private Vector2 lastMove;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        lastMove.y = -1;
     }
 
     // Update is called once per frame

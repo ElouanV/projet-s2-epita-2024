@@ -1,0 +1,452 @@
+\documentclass[12pt]{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{color}
+\usepackage{eurosym}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[normalem]{ ulem }
+\usepackage{soul}
+\usepackage{eurosym}
+\pagestyle{fancyplain}
+\lhead{NoCamL}
+\rhead{The Kaml Quest}
+\renewcommand{\footrulewidth}{0.4}
+\lfoot{Info Sup}
+\rfoot{Epita Lyon 2024}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\linespread{1.2}
+
+\begin{document}
+\thispagestyle{empty}
+
+\HRule \\[0.4cm]
+\begin{center} 
+    \fontsize{42}{42}{\textbf{Cahier des charges}}\\
+    \fontsize{42}{42}{\textbf{[The Kaml Quest]}}\\
+\end{center} 
+\HRule \\[0.4cm]
+
+\begin{center}
+ \fontsize{21}{21}{\textbf{- NoCaml -}}
+\end{center}
+
+\begin{figure}
+\center
+\includegraphics[width=0.3\textwidth]{Logo_Kaml.png}
+\end{figure}
+
+\vspace{0.5cm}
+
+\fontsize{14}{14}   
+\begin{center}
+SANTORO Martin (Chef de Projet)
+\end{center}
+\begin{center}
+PHOUPHETLINTHONG Settha
+\end{center}
+\begin{center}
+VINCENT Elouan
+\end{center}
+\begin{center}
+MAYER Julien
+\end{center}
+
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\fontsize{12}{12}
+\textcolor{red}{\section{Introduction}}
+
+\qquad Dans ce cahier des charges, l’équipe NoCamL vous présente son projet informatique de première année à l’EPITA qui sera réalisé sur une durée d’environ 5 mois. Chaque étudiant, dès son inscription à l’EPITA, sait que lors du deuxième semestre, il devra réaliser un projet en groupe. C’est pourquoi le groupe NoCamL a été crée. L’équipe est composée de Martin SAN-TORO, Elouan VINCENT, Settha PHOUPHETLINTHONG.
+\\\\
+
+Le projet "The Kaml Quest" est un jeu vidéo du type RPG (role play game en anglais) tour par tour inspiré de différents jeux comme Pokemon, Dofus ou encore Final Fantasy. Dans un univers médiéval-fantasy, le jeu poussera le joueur à s’immerger à travers une histoire, des musiques, et un gameplay original.
+ 
+\\\\
+Le but de ce projet est donc de développer un jeu vidéo en une période d’environ 5 mois, d’une diﬃculté moyenne, accessible à tout type de joueur, mais également de correspondre aux attentes du jury de l’EPITA. Le développement de ce projet nous permettra aussi de grandement progresser dans le langage qui sera utilisé, le CSharp.
+
+\\\\
+L’équipe de NoCamL fera donc tout son possible pour satisfaire les attentes du jury et correspondre au cahier des charges du projet de second semestre des SUP de l’EPITA, en se pliant aux contraintes qui lui sont imposées. L’équipe NoCaml se devra d’être soudée, communiquer régulièrement, chaque membre devra utiliser son point fort pour combler les points faibles de ses camarades pour relever ce déﬁ.
+\\\\
+Dans ce cahier des charges, vous retrouverez plusieurs parties qui permettent de comprendre notre projet. Il devrait répondre aux questions suivantes : QUOI ? Les détails des origines et la présentation globale du projet. COMMENT ? Avec le détail des différentes parties qui seront traitées pour mener à bien le projet, ainsi que les méthodes employées. Il y ﬁgurera aussi la répartition des tâches au sein de l’équipe ainsi qu’un planning d’avancement estimé. On évoquera aussi le coût estimé pour un tel projet et des moyens de ﬁnancement envisagés par l’équipe NoCamL.
+
+
+
+\newpage
+                                                                                         
+
+        
+\textcolor{red}{\section{Présentation de NoCaml}}
+\textcolor{black}{\subsection{NoCaml}}
+
+\qquad L’équipe NoCaml est composée de quatres membres (qui vous seront présentés plus loin). Ses membres se sont connus durant le début de leur premier semestre à l’EPITA
+\\\\
+Au moment du choix du projet pour le second semestre, que chacun attendait avec hâte, nous avons choisi de réunir un groupe de personnes aux qualités complémentaires, avec une bonne entente, une motivation et surtout un mental à toute épreuve. Toute ces qualités nous servirons grandement aﬁn de relever ce déﬁ : coder un jeu en 4 mois.
+ \\\\
+A travers le nom de ce groupe "NoCaml", vous percevrez peut-être un peu de haine envers le fameux langage préféré des SUPs d’EPITA. En effet cela provient principalement du traumatisme de Martin qui fuit ce langage tant bien que mal depuis le début du projet AFIT. N’y voyez évidemment aucune animosité envers les chameaux qui réprésentent OCaml. Evidemment, en lisant ce nom de groupe, vous vous doutez bien que l’on n’intégrera pas de CamL dans notre projet.
+
+
+     
+\newpage       
+\textcolor{black}{\subsection{L'équipe NoCaml}}
+\textcolor{black}{\subsubsection{Martin Santoro (Chef de Projet)}}
+\qquad Passionné de jeux vidéo depuis mon enfance (5-6 ans) mon tout premier jeu vidéo fut Dofus, auquel j’ai consacré une petite dizaine d’années de ma vie. S’ensuit la découverte de l’e-sport avec le jeu HeartStone et la Lyon e-sport 9. Lors de cette découverte, j’ai eu des étoiles dans les yeux, j’ai compris alors que l’e-sport était une passion pour moi.
+\\\\
+J’ai donc commencé à jouer à League of Legends en équipe de 5, début 2016. J’ai pu avoir l’occasion de faire 2 bootcamps (séance d’une semaine d’entrainement dans un appartement avec le reste de mon équipe) ainsi qu’une LAN oﬃciel de l’éditeur de jeux de League Of Le-gends (Riot Games) : La GamersAssembly. Entre-temps, j’ai compris qu’une équipe e-sport est avant tout une équipe et que créer des relations sociales intra-joueurs est très complexes dans un monde majoritairement irréel. J’ai donc voulu donner un peu de réel au monde des jeux vidéo.
+ \\\\
+C’est pourquoi en 2018 j’ai créé un projet nommé No Mercy. Ce projet était de regrouper/créer plusieurs équipes de League Of Legends dans le but d’évoluer ensemble, de jouer des matchs en interne (équipe A contre équipe B). Ce projet devait se concrétiser via une déclaration d’association (sous loi 1901), malheureusement le manque de sérieux des joueurs ainsi que le manque de temps des administrateurs fut la cause de la ﬁn de notre projet, ﬁn 2018. Mais ce projet ainsi que ma participation à de nombreuses team en tant que capitaine, m’a permis d’apprendre à communiquer en groupe, à donner mon point de vue sans être trop direct, à savoir écouter et faire des concessions tout en gardant calme, sérieux et restant professionnel.
+
+               
+\textcolor{black}{\subsubsection{Settha Phouphetlinthong}}
+\qquad Passionné de jeux vidéo depuis l’enfance, mon tout premier jeu était Pokémon version or sur GameBoy. Au ﬁl des années, j’ai découvert de nouveaux jeux et de nouveaux styles de jeu. Je n’ai pas de préférence de style de jeu ce qui me permet de jouer à n’importe quel jeu sans m’ennuyer ou sans avoir d'apriori négatifs sur le jeu. Je ne suis pas aussi grand "Gameur" que Martin, notre charmant chef de projet, mais programmer m’amuse. J’ai déjà un peu d’expérience sur la création d’un jeu vidéo. Etant redoublant d’EPITA, j’ai déjà fait un projet de S2 durant ma première année à EPITA.
+ 
+\newpage
+\textcolor{black}{\subsubsection{Elouan Vincent}}
+\qquad Je ne dirais pas que je suis aussi passionné de jeux vidéo que mes coéquipiers. Bien sûr, j’y joue un peu, beaucoup. Mais je m'amuse aussi beaucoup avec la musique et la photo.  Choisir un angle de vue, une vitesse d’obturation et la luminosité pour raconter une lecture différente de la réalité, puis une fois la photo prise la retravailler, c'est tout autant mon truc. Finalement concevoir un jeu vidéo, c’est aussi associer la programmation à l’image et à une ambiance sonore . Du coup participer à ce projet est devenu pour moi une évidence qui me permettait d'allier une rigueur au travail et à la puissance  du travail d’équipe. En tant qu'ancien ailier en handball en national junior, je sais qu'on peut vivre de belles aventures  quand on concentre les énergies de chacun vers un même objectif.
+
+
+\textcolor{black}{\subsubsection{Julien Mayer}}
+\qquad Avant même de rejoindre Epita, j’étais déjà intéressé par l’informatique. En plus de mon aspect créatif et dessinateur, qui sera aussi pratique pour notre futur jeu, le milieu de l'informatique m’a toujours attiré, c’est pour ça que j’ai rejoint l’école qui me permet d’obtenir des connaissances et une maîtrise en programmation. J’ai eu l’occasion de créer un jeu vidéo sous Unity il y a quelques années. Je pense que ça m’aidera beaucoup dans la conception et la réalisation de ce projet. Je suis chargé de l’aspect graphique du jeu.
+ \\\\
+\textcolor{red}{\section{Présentation de The Kaml Quest}}
+\textcolor{black}{\subsection{Création du jeu}}
+\textcolor{black}{\subsubsection{Origine}}
+
+\qquad Créer un jeu vidéo n’est pas notre quotidien, l’équipe a donc pris la décision de faire un jeu sur des bases simples, une seule plateforme, PC sous Windows, en local, en campagne individuelle. 
+\\
+\qquad Nous voulions faire un jeu fait aussi bien pour les débutants que pour les vétérans, qui ressembleraient à Undertale, Pokémon, Unreal, à l’inverse des jeux tels que League Of Legends, Counter Strike qui sont compétitifs. 
+\\
+\qquad Outre cette simplicité, l’équipe voulait faire un jeu qui lui corresponde. En plus d'un jeu qui nous amuse, nous avons choisi de nous orienter vers ce type de jeu parce que le personnage suit une histoire, le joueur se met donc facilement dans la peau du personnage qu’il incarne. 
+
+\\
+\qquad Nous sommes partis sur la création d’un monde en 2D avec un monde semi-ouvert, où les combats sont sous forme de tour par tour, cela permettra d’avoir une stratégie dans les combats sans que le jeu soit trop dynamique ni trop complexe pour les débutants.
+
+\newpage
+\textcolor{black}{\subsubsection{Objectifs}}
+
+\qquad  Notre but est de faire un jeu simple et qualitatif, en diﬃculté moyenne pour qu’il soit accessible aux débutants comme aux conﬁrmés. Nous avons une volonté de créer une atmosphère dans notre jeu, dans le but d’immerger le joueur au travers d’un ﬁl conducteur, tout en laissant une liberté aux joueurs, c’est notamment pour ça que nous voulons faire une map semi-ouverte, pour que le joueur puisse découvrir le monde, et prendre ses propres décisions. En plus d'une histoire poignante et d'une liberté de jeu, nous avons aussi comme objectif d’insérer des musiques adaptées, tel que des musiques à thèmes selon les interactions (par exemple en combat nous utiliserons des musiques épiques).
+ \\
+
+\qquad Nous n’avons qu’environ 5 mois pour créer un jeu vidéo complet, nous voulons laisser notre imagination nous guider, cela nous permettra d’apprendre de nouvelles choses même si ces dernières sont complexes. Mais c’est avant tout un plaisir, concevoir un projet complet, en groupe et dans un cadre qui nous pousse à réussir.
+ 
+   
+\textcolor{black}{\subsection{Gameplay}}
+\textcolor{black}{\subsubsection{Mécanique de base}}
+
+\qquad Le jeu sera un RPG (role play game) en 2D, en monde semi-ouvert avec un système de combat en tour par tour. Le personnage se déplacera dans une map en 2D. Lors des combats le joueur contrôlera plusieurs personnages, chaque personnage possédants plusieurs sorts, ces derniers ayant différent coûts, le joueur doit alors faire des choix stratégiques en fonction du mana possédé. Dans ce monde pour entrer en combat, il faut attaquer des monstres, ces derniers se trouvant soit dans le monde, soit dans un donjon (où le boss ﬁnal représentera la ﬁn du jeu). En combat, chaque personnage possède des caractéristiques comme sa vie (hp), ses attaques, son armure, et ses cristaux de mana obtenus à chaque tours. Il y aura aussi un shop où pourront être acheté des sorts, des items, et des objets. On incarne un personnage qui va évoluer (caractéristiques, apparence, etc). Avec des quêtes, il sera accompagné d’acolytes qui vont l’aider dans sa tâche, le joueur contrôlera ainsi plusieurs personnages en combat.
+
+
+\newpage
+
+\textcolor{black}{\subsubsection{Histoire}}
+
+\qquad 
+Notre histoire se déroule dans un monde où la magie règne, où la paix à céder sa place à la guerre. Le protagoniste vit une vie tranquille, sans encombre, jusqu’au jour où, dans son village, un événement va bouleverser sa vie. Une relique sacrée a été volée par un inconnu. Bien que notre jeune héros ne connaisse pas l’utilité de cette relique, il croit comprendre qu’elle est importante pour le village. La sorcière, qui habitait en périphérie du village, révéla une prophétie : "Un jour, la relique du village disparaîtra dans une masse sombre, le village plongera alors dans les ténèbres et le désespoir. Ce jour là, un jeune homme fêtera ses 18 ans, c’est l’élu, seul lui peut récupérer la relique et nous sauver du mal qui nous guette". Évidemment, le seul qui fêtaient ses 18 ans ce jour là, c’est le protagoniste. Il part alors en quête de cette relique, il doit apprendre à se battre. Mais le chemin n’est pas aisé, des adversaires voudront l’en empêcher, il rencontrera des personnes en diﬃculté, qu’il devra aider contre une récompense, il se fera des amis qui se joindront à lui dans sa quête. Ce héros, c’est vous, arriverez-vous à récupérer la relique sacrée en découvrant qui est le voleur ?
+
+
+\newpage
+\textcolor{black}{\subsection{Insipiration}}
+
+\qquad Nous avons donc choisi de faire un jeu de type Jeu de Rôle (RPG) tour par tour. Pour trouver l’idée de ce projet, nous nous sommes inspiré de jeu de notre enfance, de jeu qui perdure dans le temps et de jeu récent. Ce qui nous à pousser à faire un jeu de type RPG, c’est sa présence importante dans l’industrie du jeu vidéo, et notre attirance pour ce genre de jeu. Plusieurs jeux vidéo des plus joués sont des RPG, par exemple League Of Legends de Riot Game, les différents jeux de Blizzard, les jeux d’Ankama, une entreprise française. Cela montre que ce style plaît, et aucun de ces jeux ne se ressemblent, car même quand les mécaniques de jeu se ressemblent, l’histoire et l’univers crée autour reste différent, et c’est ça qui pousse le joueur à découvrir chaque univers crée par le jeu. 
+
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item \itshape [Final Fantasy]\footnote{Voir Annexe p.19} \upshape: La série de RPG lancée par Square Enix en 1987, qui est passée par toutes les époques des jeux vidéo et toutes les plates-formes, est un exemple obligatoire d’inspiration pour son univers de type fantasy, ses personnages aux allures uniques, ses musiques épiques, et surtout pour ses combats de tour par tour. C’est principalement cette caractéristique qui nous intéresse dans ce jeu, car les combats sont au centre de l’intérêt du jeu, et ils se dérouleront tous en tour par tour. 
+    \item \itshape [Pokémon]\footnote{Voir Annexe p.20} \upshape :  Depuis 1996, Pokemon est une icône du jeu vidéo. Tous les membres de l’équipe NoCamL y ont joués pendant leur enfance. Il est donc logique qu’un jeu qui nous a marqué nous inspire dans ce projet. Dans Pokemon, on trouve intéressant le système de progression : à la ﬁn d’un combat, le Pokemon qui a combattu gagne de l’expérience. Cette expérience lui fait gagner des niveaux, et à chaque niveau, des statistiques du Pokémon augmentent comme l’attaque, la défense ou la vitesse. Nous trouvons ce concept intéressant pour la progression dans un jeu semi-ouvert, ainsi, un joueur de niveau 3 n’aura aucun intérêt à combattre un adversaire de niveau 10, il devra d’abord affronter plusieurs adversaires de son niveau pour pouvoir espérer gagner contre l’adversaire niveau 10. Cela force le joueur à découvrir le jeu et a progressé doucement dans son univers. Cela permettra aussi à l’équipe NoCaml d’augmenter la durabilité du jeu, obligeant le joueur à ne pas sauter d’étape dans sa progression dans l’histoire. 
+    \item \itshape [Unrailed!]\footnote{Voir Annexe p.20} \upshape :
+     Unrailed ! est un jeu déjanté de construction de chemin de fer multijoueur, en co-op en ligne et en local. Vous devez travailler en équipe avec vos amis pour construire une voie de chemin de fer à travers des mondes inﬁnis générés de manière procédurale. Ce qui nous intéresse et nous inspire dans ce jeu, ce sont les graphismes. Ils sont sobres, mais eﬃcaces. Le joueur distingue facilement chaque objet du décor. Chaque objet n’est pas détaillé, mais on devine tout de même très facilement ce que chaque décor représente. Nous aimerions donc avoir un décor du même style : agréable, simple, eﬃcace, aﬁn que le joueur puisse apprécier le décor, mais que le décor ne soit pas plus important que le gameplay en lui-même.
+
+    \newpage
+    \item \itshape [Dofus]\footnote{Voir Annexe p.21} \upshape: Dofus est un MMORPG ( jeu de rôles en ligne massivement multijoueur) tour par tour produit par ANKAMA, une entreprise de production française de jeux vidéo. Dofus a fêté son quinzième anniversaire. Il se démarque des autres jeux grâce à son univers cartoon loufoque autour d’un monde fantastique-médiéval. On y trouve une histoire amusante et des séries de quêtes qui guident le joueur tout au long de son aventure. En ﬁnissant ces quêtes, le joueur gagne soit un objet, soit de l’expérience pour son personnage. Nous trouvons ce système intéressant pour raconter une histoire et augmenter l’implication du joueur. Il est plongé dans l’histoire du jeu et voyage en même temps que son personnage. C’est pourquoi nous comptons nous inspirer de ce système de quête et de l’humour décalé présent dans Dofus et l’intégrer à notre manière dans le jeu. Le deuxième point qui nous intéresse, c’est le système pour lancer un combat contre un adversaire : dans la version actuelle de Dofus, le joueur doit cliquer sur un monstre pour lancer un combat, il n’y a pas de notion "d’agression" par les monstres que l’on pourrait retrouver dans l’ancienne version de Dofus, ou Zelda ou encore Pokemon.
+
+\end{itemize}
+
+
+\textcolor{red}{\section{Découpage du projet}}
+\textcolor{black}{\subsection{Graphisme}}
+\qquad NoCamL a pour ambition de proposer un graphisme simple, sans trop de détail mais clair pour que le joueur discerne facilement chaque élement du décor. Comme aucun membre de l’équipe n’a d’expérience dans la modélisation ou le dessin, ce sera une tâche importante à laquelle chaque membre du groupe s’impliquera car elle jouera un rôle essentiel dans l’impression globale du joueur.
+
+
+
+\textcolor{black}{\subsubsection{Le monde }}
+\qquad Une grosse partie du travail sera la modélisation de l’endroit où se déroulera l’histoire. Le monde sera composé d’une ou plusieurs cartes assemblées sur Unity 2D, il sera en partie créé par l’équipe NoCamL, et aussi récupérée pour certaines textures et sprites existants si ils correspondent aux types voulus. Ceux qui seront créés seront réalisés sur des logiciels comme Photoshop, Gimp, ou d’autres logiciels du même genre.
+\\\\
+L’objectif est de créer des "maps" qui incarnent ambiances variées, qui sont différentes, qui représentent des zones et qui évolueront au ﬁl de l’avancée du joueur. Le jeu étant un monde semi-ouvert, il sera nécessaire d'intégrer des barrières physiques sur la carte (comme une forêt épaisse, une chaine de montagne ou un océan) qui restreindra les déplacements du joueur et le guidera sur les lieux où il doit se rendre pour avancer dans sa quête. Le nombre de cartes et leurs tailles dépendra de l’histoire, les contraintes techniques et le temps disponible de l’équipe.
+
+\newpage
+\textcolor{black}{\subsubsection{Les personnages et adversaires}}
+\qquad Cette partie sera composée de deux sous-parties correspondant aux deux scènes possibles dans le jeu : 
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item Hors combat : Les personnages se déplaceront sur 4 orientations. Le jeu fonctionnera avec des sprites qui sont des éléments graphiques qui se déplacent sur l’écran de jeu. De plus, lors des déplacements, il faudra une animation de course, qui se fera grâce à une succession de sprites en grande quantité aﬁn d’avoir un mouvement le plus ﬂuide possible. Il faudra  modéliser les adversaires, les PNJ (personnage non joueur) qui bien qu’immobiles doivent avoir une apparence propre à chacun. 
+    \item En combat : Sur la scène de combat, lors des attaques de chaque personnage, une animation se déclenchera, encore une fois, une succession de sprites sera nécessaire pour animer le combat et le rendre plus vivant. En revanche, ici seules 2 orientations seront nécessaires : de face et de dos.
+
+\end{itemize}
+
+
+
+\textcolor{black}{\subsection{Controle et gameplay}}
+\textcolor{black}{\subsubsection{Déplacement}}
+
+\qquad Le joueur se déplacera sur 2 axes (x et y) et pourra interagir avec divers éléments du monde, personnages non-joueur, porte, monstres. Il pourra également entrer dans certaines maisons ou donjon. Pour cela, un script de déplacement sera donné au joueur aﬁn que lorsqu’il appuie sur une touche précise, le personnage se déplace sur l’axe associé à la touche avec une certaine vitesse. Etant un jeu en 2D, nous devrons enlever la gravité aﬁn que le personnage ne tombe pas par gravité (gravité créée par le moteur de jeu Unity). Le script de déplacement ne sera pas long et diﬃcile à faire.
+
+\newpage
+\textcolor{black}{\subsubsection{Combat}}
+\qquad Un combat s’enclenche lorsque le joueur entre en contact avec un monstre. Le joueur a le tag "Player" et les monstres "Mob", et lorsque les deux entrent en contact, le script de combat se lance et le joueur entre dans une nouvelle scène, celle du combat.
+
+Arrivé sur la scène de combat, la scène de jeu sera sauvegardée pour qu'à la fin du combat, le joueur puisse retourner à sa position de lancement de combat. La position sera sauvegardée indépendamment de la sauvegarde de la progression du jeu (sauvegarde principale). 
+
+Le système de combat fonctionne au tour par tour. A chaque tour, le joueur et le monstre ne peuvent faire qu’une seule action parmi une liste d’action propres à chaque personnage et monstre. Chaque action consomme des cristaux qui fonctionne comme point d’action et qui permette au joueur de lancer une attaque plus ou moins forte. A chaque tour un cristal s’ajoutera à la liste du personnage et les tours se passeront automatiquement lorsqu’un personnage effectue une action. Cela se fera à l’aide de booléens qui détecteront si une action est lancée ou non et termineront le tour à la ﬁn de l’animation.
+
+Chaque personnage et monstres aura des points de vie différents et des dégâts d’attaque personnalisés pour chaque personnage.
+ 
+
+
+\textcolor{black}{\subsubsection{IA des adversaires}}
+\qquad Certains monstres iront vers le joueur lorsqu’il sera à une certaine distance et d’autres seront sur la map et se déplaceront de manière aléatoire. Ce sera le joueur qui décidera d’aller affronter le monstre ou de l’esquiver. 
+
+Lors des combats, le choix des attaques sera aléatoire. Les monstres attaqueront un personnage aléatoirement mais aura un pourcentage de chance plus élevé d’attaquer le personnage avec le moins de point de vie. La fonction d’attaque des monstres ira donc chercher la variable des points de vie de chaque personnage pour ensuite mettre un pourcentage de chance d’attaquer tel personnage équitablement ou va détecter le minimum parmi les différents points de vie et mettre un pourcentage plus élevé à cette variable.
+
+Les attaques seront placées dans une liste et auront trois paramètres : le nom de l’attaque, les dégâts de l’attaque et le coût pour la lancer.
+
+Une fois le combat terminé si le joueur gagne, il sera déplacé dans la scène du jeu principal et aura une interface indiquant les points d’expérience gagnés suite à la victoire et les niveaux de son équipe. En cas de défaite, le joueur sera transporté au village sans avoir rien gagné du combat.
+
+
+
+
+\newpage
+
+\textcolor{black}{\subsection{Interface}}
+\textcolor{black}{\subsubsection{Menu principal}}
+\qquad
+Le menu principal est le premier lien entre le joueur et le jeu, s’il est negligé, l’impact sur l’impression du joueur par rapport au jeu sera importante. Il permet au joueur de régler le jeu comme bon lui semble pour lui garantir la meilleure expérience de jeu. 
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item \textbf{Jeu} : description
+    \begin{itemize}
+     \item \textbf{Chargez une partie}:  — Chargez une partie : Permet au joueur de charger une partie sauvegardée aﬁn de reprendre la progression de sa dernière session de jeu. 
+    \item \textbf{Nouvelle partie} : Permet de recommencer le jeu depuis le début sur une nouvelle partie. 
+    \item \textbf{Retour} : Permet au joueur de revenir au menu précédent.
+    \end{itemize}
+    \item \textbf{Option} :  Ouvre un menu option qui permet de modiﬁer les réglages audio, changer les commandes, la résolution et la taille de la fenêtre.
+    \item \textbf{Quitter} : Quitte le jeu.
+\end{itemize}
+
+\textcolor{black}{\subsubsection{Interface en jeu}}
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item \textbf{Menu en jeu}: Accessible en appuyant sur échap, en pause, le joueur pourra accéder à plusieurs fonctionnalités.
+    \begin{itemize}
+    \item \textbf {Sauvegarder} : Permet de sauvegarder la partie en cours.
+    \item \textbf {Option}: Permet d'accéder au menu option.
+    \item \textbf {Menu} : Permet d'accéder à menu principal.
+    \item \textbf {Quitter} : Quitte le jeu et ferme la fenêtre.
+    \end{itemize}
+    \item \textbf {Interface de combat} : Affichant la barre de vitalité de chaque entité
+    \item \textbf{Interface hors combat} :  Contient une barre d’expérience du personnage, éventuellement une mini-carte permettant au joueur de se repérer dans l’espace.
+
+\end{itemize}
+
+\textcolor{black}{\subsection{Sons}}
+\textcolor{black}{\subsubsection{Composition de la bande son}}
+\qquad
+La musique va être composée en très grande partie ou en intégralité pour ce projet. Certains membres possèdent déjà une partie du matériel et un peu de connaissances qui pourraient les aider dans cette tâche. L’intérêt d’avoir des musiques composées par le groupe est d’intensiﬁer l’immersion du joueur dans le jeu et l’identité du jeu. La bande-son sera donc faite de manière à correspondre à l’univers du jeu et installer une ambiance en fonction de la situation dans laquelle le personnage sera.
+\\\\
+Le temps nécessaire à la création de la ou des bandes-sons ne devra pas être sous-estimé. Il occupera une part importante dans la gestion du temps de notre projet. Un logiciel comme Audacity nous permettra de créer nos propres bande son.
+
+
+
+\textcolor{black}{\subsubsection{Bruitages et effets sonores}}
+\qquad Les bruitages jouent aussi un rôle important dans l’immersion du joueur dans le jeu. Ils aident à réduire la limite entre joueur et avatar, à installer une ambiance et à rendre le jeu réaliste. Nous aimerions faire une grande partie des bruitages nous-même, en enregistrant des sons dans différentes situations. Nous utiliserons sfxr qui est un générateur de bruitage ainsi que Audacity.
+
+   
+\textcolor{black}{\subsection{Communication}}
+\textcolor{black}{\subsubsection{Site internet}}
+\qquad Le site internet du projet sera fait en HTML et CSS par Martin. Il permettra de pouvoir se tenir informé de l’avancement du projet en réel ainsi que des délais prévus. Depuis ce site, les utilisateurs pourront contacter l’équipe NoCaml s’ils ont besoin de plus d’informations sur le projet. Le site aura aussi pour but de faire la publicité du projet.
+ \\
+\newpage
+\textcolor{black}{\subsubsection{Réseaux sociaux et financement}}
+\qquad L’équipe sera aussi présente sur différents réseaux sociaux (Instagram, Twitter) aﬁn d’avoir un contact plus proche avec les utilisateurs, plus de publicité. Les réseaux sociaux sont un moyen direct pour communiquer avec les joueurs. En communiquant sur les réseaux sociaux connus par le public visé, nous augmentons notre visibilité, le nombre de retours sur notre jeu. Au niveau des dépenses prévues, il y en a actuellement très peu, nous n’avons pas prévu d’investir dans des "assets" ou autre chose du style, mais si le besoin s’en fait ressentir nous avons déjà des idées pour ﬁnancer ces dépenses imprévues. Cependant, nous avons tout de même fait une estimation du coût total de notre projet :
+ \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+\textbf{Achats} & \textbf{Coût}\\
+\hline
+{Année à l'EPITA x 3} & 24 000 \euro\\ 
+\hline
+{Coiffeurs pour Martin}  & 3000 \euro \\
+\hline
+{Recherche d'un nom de groupe} & 800 \euro \\ 
+\hline
+{Costume pour les soutenance supplément charisme} & 13 000 \euro \\ 
+\hline
+{DVD, Jaquette, Manuel} & 20 \euro \\ 
+\hline
+{\st{Pot de vin} Cadeau pour Christian} & 666 \euro \\ 
+\hline
+{Clope pour Martin et Settha} & 9999 \euro \\ 
+\hline
+{Fête la veille de la soutenance finale } & $10^{42}$ \euro \\ 
+\hline
+{Sac à dos en peau d'ours ultra résitant pour porter Martin} & 4242 \euro \\ 
+\hline
+\textbf{Total} & \infty \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\textcolor{red}{\section{Challenges et Solutions}}
+\subsection{Challenges}
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item  La phase de combat se découpera en 4 états différents : Le début, le tour du joueur, le tour ennemis, la phase de résultat : Win or Lose. 
+    \item Mettre en place un inventaire auquel on pourra accéder lors des combats.
+    \item Difficulté de l’équilibre de la méta lors des combats.
+    \item Système pnj à choix (en fonction des réponses cela influencera le jeu).
+    \item Système des quêtes, celui-ci est en complément avec le système des pnj à choix. La difficulté sera de mettre en place un interface graphique de l’avancement des quêtes . 
+    \item Gérer et utiliser GitHub.
+\end{itemize}
+
+\subsection{Solutions}
+\begin{itemize}[label=\textbullet, font=\LARGE \color{blue}]
+    \item Utiliser des classes comme lors du tp n°6 en CSharp, c'est-à-dire que chaque phase sera coder dans une fonction et ne pourra se lancer que lorsque la phase précédente se finit.
+    \item Utiliser un système d’inventaire comme lors du tp n4 en csharp. Cet inventaire aura sa propre interface (relativement facile à coder grâce à Unity). 
+    \item Mettre en place des équations équilibrés (résistances, attaques, etc). 
+    \item Créer un système de classe optimale, les choix changent des variables dans la classe, comme une sorte de carte d’identité qui déﬁnirait notre expérience de jeu. (ex -> Dans pokémon on pourrait imaginer que si on choisit Dracaufeu, lors d’un combat où l’on doit battre sa plus grande peur, le terrain soit de type eau, ainsi que le pokémon adverse. Inversement si on choisit d’autres pokémons de départ), en fonction des choix que le personnage fait, il aura des combats différents à certains moments ou pourra accéder au prochain niveau.
+    \item Création de classe quête dans le but de ne pas seulement faire un booléen, mais pouvoir faire des quêtes plus propres. Le joueur pourra voir les quêtes qu’il doit accomplir et les objectifs de quêtes. Cela améliorera l’expérience de jeu du joueur, notamment avec l’importance des quêtes.
+
+
+\end{itemize}
+
+\newpage
+\textcolor{red}{\section{Repartition des taches}}
+
+
+\qquad Voici la répartition des tâches, désignant un responsable et un suppléant pour  chaque tâche.
+\newline
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+\textbf{Partie} & \textbf{Sous-partie} & \textbf{Responsable} & \textbf{Suppléant}\\
+\hline
+\textbf{Musique/Bruitage} & & \textbf{Elouan} & \textbf{Settha} \\ 
+\hline
+\textbf{Gameplay}  & & \textbf{ Settha} & \textbf{ Elouan} \\
+\hline
+&\text{  - Déplacement }  & Julien & Martin \\
+\hline
+&\text{  - Combat }  & Settha & \\
+\hline
+&\text{  - Statistique du personnage }  & Elouan & Settha \\
+\hline
+&\text{  - Quête }  & Elouan & Settha \\
+\hline
+&\text{  - Dialogue }  & Julien & Martin \\
+\hline
+&\text{  - Marchand }  & Martin & Julien \\
+\hline
+\textbf{Graphisme} & & \textbf{Julien} & \textbf{Settha} \\ 
+\hline
+&\text{  - Carte }  & Elouan &  \\
+\hline
+&\text{  - Personnage, PNJ, Monstre }  & Julien &  \\
+\hline
+&\text{  - Animation  }  & Julien &  \\
+\hline
+\textbf{Interface} & & \textbf{Martin}  & \textbf{Settha}   \\ 
+\hline
+&\text{  - Hors combat }  & Julien &  \\
+\hline
+&\text{  - Interface principale }  & Martin &  \\
+\hline
+&\text{  - Interface magasin }  & Martin &  \\
+\hline
+&\text{  - Interface de marchand }  & Martin &  \\
+\hline
+&\text{  - En combat }  & Settha &  \\
+\hline
+\textbf{Communication} & & \textbf{Martin} & Julien  \\ 
+\hline
+&\text{  - Site Internet }  & Martin &  \\
+\hline
+\end{tabular}
+\end{center}
+
+\textcolor{red}{\section{Planning d'avancement}}
+
+\qquad Voici le planning et les différentes tâches à réaliser pour chaque soutenance :
+\qquad
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|} 
+\hline
+& 1ère Soutenance & 2ème Soutenance & Soutenance finale \\ 
+\hline
+\textbf{Gameplay} & 40\% & 70\% & 100\% \\ 
+\hline
+\textbf{IA} & 10\% & 50\% & 100\%  \\
+\hline
+\textbf{Animation} & 30\% & 70\% & 100\%  \\
+\hline
+\textbf{Interface} & 20\% & 60\% & 100\% \\
+\hline
+\textbf{Sons}& 5\% & 60\% & 100\% \\ 
+\hline
+\textbf{Graphisme}& 40\% & 70\% & 100\% \\ 
+\hline
+\textbf{Site web}& 60\% & 100\% & 100\% \\ 
+\hline
+\end{tabular}
+
+\end{center}  
+
+
+
+
+\newpage
+\textcolor{red}{\section{Conclusion}}
+    
+\begin{center}
+\qquad
+En se lançant dans ce projet, l’equipe de NoCamL relève un deﬁ, qui est de développer son premier jeu en 2D en CSharp. NoCamL se lance dans cet objectif avec une grande motivation et se donnera les moyens de le réaliser de sorte à ce qu’il ressemble le plus possible à ce qui est attendu. A travers ce projet, nous souhaitons enrichir nos connaissances et nous forger une expérience dans la gestion de projet et le travail de groupe.
+
+\end{center}
+
+\vspace*{6cm}
+
+\newpage
+\textcolor{red}{\section{Annexes}}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=0.8\textwidth]{FF_IV.jpg}
+\caption{Final Fantasy IV}\label{Logo}
+\end{figure}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=0.8\textwidth]{pokemon-gold.jpg}
+\caption{Pokémon Gold}\label{Logo}
+\end{figure}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=0.8\textwidth]{Unrailed.jpg}
+\caption{Unrailed}\label{Logo}
+\end{figure}
+
+\begin{figure}[h]
+\center
+\includegraphics[width=0.8\textwidth]{Daofus_dialogue.png}
+\caption{Dofus}\label{Logo}
+\end{figure}
+
+\end{document}
+
