@@ -15,9 +15,10 @@
             <e p="Entity.cs" t="Include" />
             <e p="Player.cs" t="Include" />
           </e>
-          <e p="FPCSupport.cs" t="Include" />
+          <e p="Inventory_player.cs" t="Include" />
+          <e p="Items.cs" t="Include" />
           <e p="ItemSlots.cs" t="Include" />
-          <e p="ItemVariables.cs" t="Include" />
+          <e p="ItemsVariable.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="Pause.cs" t="Include" />
           <e p="PlayerControler.cs" t="Include" />
@@ -25,7 +26,6 @@
           <e p="ShowsText.cs" t="Include" />
           <e p="UnitStat.cs" t="Include" />
         </e>
-        <e p="ShowText.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
