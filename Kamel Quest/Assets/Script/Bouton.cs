@@ -33,8 +33,17 @@ public class Bouton : MonoBehaviour
     {
       if(player.argent > 5)
       {
-        player.currenthp += 5;
-        player.argent -= 5;
+        if (player.hpmax - player.currenthp < 5)
+        {
+          player.currenthp = player.hpmax;
+          player.argent -= 5;
+        }
+        else
+        {
+          player.currenthp += 5;
+          player.argent -= 5; 
+        }
+        
       }
     }
 
