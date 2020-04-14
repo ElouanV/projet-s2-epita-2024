@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="" />
+    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Scenes/Script.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Script/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShowsText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ShowsText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,11 +19,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/PlayerControler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UnitStat.cs.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ShowsBubbleText.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ShowsText.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ShowsBubbleText.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PlayerControler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ShowsBubbleText.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitStat.cs.meta" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -24,6 +31,8 @@
         <option value="$PROJECT_DIR$/PlayerControler.cs" />
         <option value="$PROJECT_DIR$/Dialogue.cs" />
         <option value="$PROJECT_DIR$/ShowsBubbleText.cs" />
+        <option value="$PROJECT_DIR$/ShowsText1.cs" />
+        <option value="$PROJECT_DIR$/Quest.cs" />
         <option value="$PROJECT_DIR$/ShowsText.cs" />
       </list>
     </option>
@@ -83,6 +92,7 @@
       <workItem from="1583883266517" duration="11000" />
       <workItem from="1583883350889" duration="14000" />
       <workItem from="1583887319563" duration="16000" />
+      <workItem from="1586893727524" duration="6420000" />
     </task>
     <servers />
   </component>

@@ -5,25 +5,30 @@ using TMPro;
 
 public class ShowsText : MonoBehaviour
 {
-    public string[] sentencesArr;
-    public float speed = 0.02f;
-    public GameObject thisGO;
+    public float Speed = 0.02f;
 
+	private List<string> SentencesList;
     private TextMeshProUGUI Txt;
-    private int index;
-    private bool anim;
+    private int Index;
+    private bool Anim;
+	private bool completed;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        index = 0;
-        anim = false;
+		SentencesList = transform.GetComponent<Quest>().UpdateText();
+		
+		completed = false;
+        Index = 0;
+        Anim = false;
+
         Txt = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        StartCoroutine(ShowsTxt(sentencesArr[index].Replace("$", "\n")));
-        index++;
+        StartCoroutine(ShowsTxt(SentencesList[Index].Replace("$", "\n")));
+		Index++;
     }
 
-// OnEnable is called every time this GameObject is Actived
+	// OnEnable is called every time this GameObject is Actived
     void OnEnable()
     {
         Start();
@@ -31,37 +36,73 @@ public class ShowsText : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && !anim && index < sentencesArr.Length)
+		if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED) UpdateState();
+        else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
-            string sentence = sentencesArr[index].Replace("$", "\n");
-            StartCoroutine(ShowsTxt(sentence));
-            index++;
-            
+			if (Index < SentencesList.Count)
+			{
+            	string Sentence = SentencesList[Index].Replace("$", "\n");
+            	StartCoroutine(ShowsTxt(Sentence));    
+				Index++;     
+			}
+			else UpdateState();
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && index == sentencesArr.Length && !anim)
-        {
-            thisGO.SetActive(false);
-        }
-    }
+	}
+                                                                                                                             
+	void UpdateState()
+	{
+		if (transform.GetComponent<Quest>().State == QuestState.NONE) 
+		{                     
+            transform.GetComponent<Quest>().State = QuestState.ACCEPTED;                     
+            transform.GetComponent<Quest>().UpdateText();                                   
+            Start();  
+		}                                                                      
+                                                                                                
+        else if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED)                  
+        {                                                                                       
+        	if (Input.GetKeyUp("y"))  
+			{                                                          
+        		transform.GetComponent<Quest>().State = QuestState.STARTED;                     
+        		transform.GetComponent<Quest>().UpdateText();                                   
+        		Start();     
+			}
+			else if (Input.GetKeyUp("n"))
+			{
+				transform.GetComponent<Quest>().State = QuestState.STARTED; 
+                transform.GetComponent<Quest>().UpdateText();               
+                Start();      
+          	}                                                                                                   
+        }                                                                                       
+                                                                                                
+        else if (transform.GetComponent<Quest>().State == QuestState.STARTED)                   
+        {     
+			gameObject.SetActive(false);                                                                                  
+        	if (completed)  
+			{                                                                    
+        		transform.GetComponent<Quest>().State = QuestState.COMPLETED;                   
+        		transform.GetComponent<Quest>().UpdateText();   
+			}                                                
+        }                                                                                       
+	}
 
-    IEnumerator ShowsTxt(string str)
+
+	// Display the text
+    IEnumerator ShowsTxt(string Str)
     {
-        anim = true;
+        Anim = true;
         Txt.text = "";
-        int nb_char = str.Length;
+        int Nb_Char = Str.Length;
         
-        for (int i = 1; i <= nb_char; i++)
+        for (int i = 1; i <= Nb_Char; i++)
         {
             if (Input.GetKeyDown(KeyCode.Space)) break;
-            yield return new WaitForSeconds(speed);
-            Txt.text = str.Substring(0, i);
+            yield return new WaitForSeconds(Speed);
+            Txt.text = Str.Substring(0, i);
         }
 
-        Txt.text = str;
-        while(Input.GetKey(KeyCode.Space))
-        {
-            yield return null;
-        }
-        anim = false;
+        Txt.text = Str;
+        while(Input.GetKey(KeyCode.Space)) yield return null;
+        Anim = false;
     }
 }
+
