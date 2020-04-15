@@ -17,5 +17,6 @@ public class Quest1 : Quest
     void OnTriggerEnter2D()
     {
         if (Pnj.GetComponent<Quest>().State == QuestState.STARTED) State == QuestState.COMPLETED;
+        ;
     }
 }
