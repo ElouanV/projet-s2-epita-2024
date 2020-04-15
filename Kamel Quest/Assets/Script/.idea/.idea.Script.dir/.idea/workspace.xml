@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/UnitStat.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MainInterface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pause.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Quest1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ShowsText.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Bouton.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MainMenu.cs.meta" root0="FORCE_HIGHLIGHTING" />
@@ -43,6 +42,7 @@
         <option value="$PROJECT_DIR$/ShowsText1.cs" />
         <option value="$PROJECT_DIR$/Quest.cs" />
         <option value="$PROJECT_DIR$/ShowsText.cs" />
+        <option value="$PROJECT_DIR$/Quest1.cs" />
       </list>
     </option>
   </component>
