@@ -11,15 +11,14 @@ public class ShowsText : MonoBehaviour
     private TextMeshProUGUI Txt;
     private int Index;
     private bool Anim;
-	private bool completed;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-		SentencesList = transform.GetComponent<Quest>().UpdateText();
+		SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		
-		completed = false;
         Index = 0;
         Anim = false;
 
@@ -29,62 +28,26 @@ public class ShowsText : MonoBehaviour
     }
 
 	// OnEnable is called every time this GameObject is Actived
-    void OnEnable()
+    public void OnEnable()
     {
         Start();
     }
 
     void Update()
     {
-		if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED) UpdateState();
+		if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim) transform.GetComponent<Quest>().UpdateState();
         else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
-			if (Index < SentencesList.Count)
+			if (Index == SentencesList.Count) transform.GetComponent<Quest>().UpdateState();
+			else
 			{
             	string Sentence = SentencesList[Index].Replace("$", "\n");
             	StartCoroutine(ShowsTxt(Sentence));    
 				Index++;     
 			}
-			else UpdateState();
         }
 	}
                                                                                                                              
-	void UpdateState()
-	{
-		if (transform.GetComponent<Quest>().State == QuestState.NONE) 
-		{                     
-            transform.GetComponent<Quest>().State = QuestState.ACCEPTED;                     
-            transform.GetComponent<Quest>().UpdateText();                                   
-            Start();  
-		}                                                                      
-                                                                                                
-        else if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED)                  
-        {                                                                                       
-        	if (Input.GetKeyUp("y"))  
-			{                                                          
-        		transform.GetComponent<Quest>().State = QuestState.STARTED;                     
-        		transform.GetComponent<Quest>().UpdateText();                                   
-        		Start();     
-			}
-			else if (Input.GetKeyUp("n"))
-			{
-				transform.GetComponent<Quest>().State = QuestState.STARTED; 
-                transform.GetComponent<Quest>().UpdateText();               
-                Start();      
-          	}                                                                                                   
-        }                                                                                       
-                                                                                                
-        else if (transform.GetComponent<Quest>().State == QuestState.STARTED)                   
-        {     
-			gameObject.SetActive(false);                                                                                  
-        	if (completed)  
-			{                                                                    
-        		transform.GetComponent<Quest>().State = QuestState.COMPLETED;                   
-        		transform.GetComponent<Quest>().UpdateText();   
-			}                                                
-        }                                                                                       
-	}
-
 
 	// Display the text
     IEnumerator ShowsTxt(string Str)

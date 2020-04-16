@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : Entity
 {
     public int argent;
+    public Quest quest;
     
     public Player(long hpmax,  int atk, string name, int magicatk, int atkcost, int argent)
     {
@@ -19,7 +20,6 @@ public class Player : Entity
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

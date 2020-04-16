@@ -4,41 +4,111 @@ using UnityEngine;
 
 public enum QuestState
 {
-	NONE,
-	ACCEPTED,
-   	STARTED,
-	COMPLETED,
-	ENDED
+    NONE,
+    ACCEPTED,
+    DECLINED,
+    STARTED,
+    COMPLETED,
+    ENDED
 }
 
-public class Quest: MonoBehaviour
+public enum QuestType
 {
-	public QuestState State;
-	public List<string> TextForNone;
-	public List<string> TextForStarted; 
-	public List<string> TextForCompleted;
-	public List<string> TextForEnded;
-
-	private List<string> YesOrNo;
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-		YesOrNo = new List<string> {"Acceptes-vous de me venir en aide ?$    	     [Y]- Yes   [N]- No"};
-      
-        State = QuestState.NONE;
-    }
-	
-	public List<string> UpdateText()
-	{
-		List<string> current = new List<string> {};
-		if (State == QuestState.NONE) current = TextForNone;
-		else if (State == QuestState.ACCEPTED) current = YesOrNo;
-		else if (State == QuestState.STARTED) current = TextForStarted;
-		else if (State == QuestState.COMPLETED) current = TextForCompleted;
-		else current = TextForEnded;
-		return current;
-	} 
+    Meeting, // Go to meet someone
+    Killing, // Go to kill an ennemy
+    Finding, // find and Add an object to his inventory
+    Bringing // Bring an object to the PNG
 }
+
+public class Quest : MonoBehaviour
+{
+    public QuestType type;
+    public QuestState State;
+    public GameObject bubble;
+    public GameObject PNG;
+
+    public string title;
+    public string desc;
+    public int exp;
+    public Items reward;
+
+    private bool completed;
+
+    public void UpdateState()
+    {	
+        if (State == QuestState.NONE) 
+        {                     
+            State = QuestState.ACCEPTED;                                    
+            transform.GetComponent<ShowsText>().OnEnable();
+        }                                                                      
+                                                                                                
+        else if (State == QuestState.ACCEPTED)                  
+        {                                                                                       
+            if (Input.GetKeyUp("y"))
+            {
+                //transform.GetComponent<QuestGiver>().SetQuest();
+                StartQuest(type);
+                State = QuestState.STARTED;
+                transform.GetComponent<ShowsText>().OnEnable();
+            }                                                      
+            else if (Input.GetKeyUp("n")) 
+            {
+                State = QuestState.DECLINED;             
+                transform.GetComponent<ShowsText>().OnEnable();
+            }
+        }                                                                                       
+                                                                                                
+        else if (State == QuestState.STARTED)
+        {
+            bubble.SetActive(false);
+            if (completed)
+            {
+                completed = false;
+                State = QuestState.COMPLETED; 
+                transform.GetComponent<ShowsText>().OnEnable();
+            }                                                           
+        }   
+
+        else if (State == QuestState.DECLINED)
+        {
+            bubble.SetActive(false);
+            State = QuestState.NONE;
+        }
+        
+        else if (State == QuestState.COMPLETED)
+        {
+            // To add: Give the reward
+            
+            State = QuestState.ENDED;
+            transform.GetComponent<ShowsText>().OnEnable();
+        }
+        
+        else bubble.SetActive(false);
+    }
+
+    public void StartQuest(QuestType type)
+    {
+        switch (type)
+        {
+            case QuestType.Meeting:
+                PNG.GetComponent<MeetingPNG>().is_active = true;
+                break;
+            case QuestType.Killing:
+                KillingQuest();
+                break;
+            //case QuestType.Finding:
+        }
+    }
+
+    public void MeetingQuest()
+    {
+        completed = true;
+        UpdateState();
+    }
+
+    public void KillingQuest()
+    {
+        completed = true;
+    }
+}
+ 

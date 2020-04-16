@@ -484,7 +484,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6335270464074543324}
   - component: {fileID: 1653855335295295011}
-  - component: {fileID: 5560514391625777954}
+  - component: {fileID: 4674837249642849820}
+  - component: {fileID: 6338500144624989526}
+  - component: {fileID: 3379746001754817862}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -557,7 +559,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5560514391625777954
+--- !u!114 &4674837249642849820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583961392938685282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acd60820b04a45d7875b5773195061a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 6338500144624989526}
+  TextForNone: []
+  TextForStarted: []
+  TextForDeclined: []
+  TextForCompleted: []
+  TextForEnded: []
+--- !u!114 &6338500144624989526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583961392938685282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125253488e208411aa6cba15297d7559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 0
+  title: 
+  desc: 
+  exp: 0
+  reward: {fileID: 0}
+--- !u!114 &3379746001754817862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,14 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0049bdf1a53c74603b61c3149cb5074e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentencesArr:
-  - "Bonjour \xE0 toi valeureux chevalier ! Le syst\xE9me de dialogue avec les PNJ
-    est enfin fonctionnel !"
-  - Il permet d'afficher le texte avec des animation sympa, on peut aussi skip cet
-    animation en pressant "Espace"
-  - Et on peut afficher un nombre inifini de ligne de dialogue !
-  speed: 0.02
-  thisGO: {fileID: 5583961392938685282}
+  Speed: 0.02
 --- !u!1 &7327206943426376745
 GameObject:
   m_ObjectHideFlags: 0
