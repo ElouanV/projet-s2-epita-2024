@@ -45,7 +45,7 @@ public class Quest : MonoBehaviour
         {                                                                                       
             if (Input.GetKeyUp("y"))
             {
-                //transform.GetComponent<QuestGiver>().SetQuest();
+                // Add quest to pregression
                 StartQuest(type);
                 State = QuestState.STARTED;
                 transform.GetComponent<ShowsText>().OnEnable();

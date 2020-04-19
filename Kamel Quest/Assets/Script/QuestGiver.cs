@@ -19,7 +19,7 @@ public class QuestGiver: MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
-	    YesOrNo = new List<string> {"Acceptes-vous de me venir en aide ?$    	     [Y]- Yes   [N]- No"};
+	    YesOrNo = new List<string> {"Acceptes-vous cette quête ?$$    	     [Y]- Yes   [N]- No"};
     }
 	
 	public List<string> UpdateText()
