@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57d73823-522b-4451-a88e-5735fa282c99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Prefab/PNJwithDialogue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Prefab/PNJwithDialogue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scenes/TestJulien.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/TestJulien.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowsText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ShowsText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/ProcessJobs/cfb6b3e5b83edeb2aed490485c30c556.bakert" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-051d2331a0c9740b492363a40c0288d5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-23b14adb36c154d76b7bdb116c6e53c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-3381c8764f9c84e119c904469f8e7de7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-4aa59d2d3a32442e5b3989207ca4e8f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-4ca75992be2614a0b91dc0184ced366c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-4f09acbbe8585416fbdc792bbeaa5b24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-6e7bd565a94f34e4b8d55c57f18b9a89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-7cf137c14c0174096aae5c611a89c3c2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-8a28dca26c1e74160b4d14026a6c3722" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-8cea49197785c42fba361306a554c655" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-95dcf85d08574475f9a00e7e2c4f489b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-ad4fa9d1979ec4c8c89e9d8d44847537" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-c9661db8a5fca498c8874c1e4fc7b92f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-d1560f1d3c10a4336bb4b23abe6f1585" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-d968e26598ba140ec9cdfac8080bd2da" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/UnityTempFile-da90fddea8510428196362bda3278e36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/../../Temp/__Backupscenes/0.backup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/Player.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Entity/Ennemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemsVariable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MeetingPNG.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Entity/Player.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerControler.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity/Entity.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemSlots.cs.meta" root0="FORCE_HIGHLIGHTING" />
@@ -88,12 +67,12 @@
         <option value="$PROJECT_DIR$/QuestDesc.cs" />
         <option value="$PROJECT_DIR$/QuestType.cs" />
         <option value="$PROJECT_DIR$/QuestGoal.cs" />
-        <option value="$PROJECT_DIR$/Entity/Player.cs" />
         <option value="$PROJECT_DIR$/QuestGiver.cs" />
         <option value="$PROJECT_DIR$/MeetingPNG.cs" />
         <option value="$PROJECT_DIR$/ShowsText.cs" />
         <option value="$PROJECT_DIR$/Dialogue.cs" />
         <option value="$PROJECT_DIR$/Quest.cs" />
+        <option value="$PROJECT_DIR$/Entity/Player.cs" />
       </list>
     </option>
   </component>

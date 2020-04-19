@@ -5,8 +5,7 @@ using UnityEngine;
 public class Player : Entity
 {
     public int argent;
-    public Quest quest;
-    
+
     public Player(long hpmax,  int atk, string name, int magicatk, int atkcost, int argent)
     {
         this.hpmax = hpmax;
