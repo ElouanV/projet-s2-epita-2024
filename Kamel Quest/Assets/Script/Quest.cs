@@ -24,7 +24,6 @@ public class Quest : MonoBehaviour
 {
     public QuestType type;
     public QuestState State;
-    public GameObject bubble;
     public GameObject PNG;
 
     public string title;
@@ -60,7 +59,7 @@ public class Quest : MonoBehaviour
                                                                                                 
         else if (State == QuestState.STARTED)
         {
-            bubble.SetActive(false);
+            gameObject.SetActive(false);
             if (completed)
             {
                 completed = false;
@@ -71,7 +70,7 @@ public class Quest : MonoBehaviour
 
         else if (State == QuestState.DECLINED)
         {
-            bubble.SetActive(false);
+            gameObject.SetActive(false);
             State = QuestState.NONE;
         }
         
@@ -80,10 +79,8 @@ public class Quest : MonoBehaviour
             // To add: Give the reward
             
             State = QuestState.ENDED;
-            transform.GetComponent<ShowsText>().OnEnable();
+            gameObject.SetActive(false);
         }
-        
-        else bubble.SetActive(false);
     }
 
     public void StartQuest(QuestType type)
@@ -103,7 +100,7 @@ public class Quest : MonoBehaviour
     public void MeetingQuest()
     {
         completed = true;
-        UpdateState();
+        if (State == QuestState.STARTED) UpdateState();
     }
 
     public void KillingQuest()

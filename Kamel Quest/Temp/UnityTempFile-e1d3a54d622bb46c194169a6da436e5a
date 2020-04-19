@@ -292,6 +292,7 @@
 "Assets/Script/BattleSystem.cs"
 "Assets/Script/BattleUI.cs"
 "Assets/Script/Bouton.cs"
+"Assets/Script/Dialogue.cs"
 "Assets/Script/Entity/Ally.cs"
 "Assets/Script/Entity/Ennemy.cs"
 "Assets/Script/Entity/Entity.cs"

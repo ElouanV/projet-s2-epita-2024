@@ -6,6 +6,7 @@ using TMPro;
 public class ShowsText : MonoBehaviour
 {
     public float Speed = 0.02f;
+	public bool quest;
 
 	private List<string> SentencesList;
     private TextMeshProUGUI Txt;
@@ -17,7 +18,8 @@ public class ShowsText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
+		if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
+		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
 		
         Index = 0;
         Anim = false;
@@ -35,10 +37,11 @@ public class ShowsText : MonoBehaviour
 
     void Update()
     {
-		if (transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim) transform.GetComponent<Quest>().UpdateState();
+		if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim) transform.GetComponent<Quest>().UpdateState();
         else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
-			if (Index == SentencesList.Count) transform.GetComponent<Quest>().UpdateState();
+			if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
+			else if (Index == SentencesList.Count) gameObject.SetActive(false);//transform.GetComponent<Dialogue>().CloseBubble;
 			else
 			{
             	string Sentence = SentencesList[Index].Replace("$", "\n");
