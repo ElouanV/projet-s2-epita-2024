@@ -2978,6 +2978,10 @@ MonoBehaviour:
   lvl: 1
   isalive: 0
   argent: 42
+  armurelvl: 0
+  epeelvl: 0
+  bouclierlvl: 0
+  casquelvl: 0
 --- !u!1 &1565586778 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5655695056924285763, guid: 3639bca5b4c21e148bc7876dc7884c23,
@@ -4107,6 +4111,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 7272710337719815389, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: OFFRANDE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710337774813673, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Offrande
+      objectReference: {fileID: 0}
     - target: {fileID: 7272710337774813674, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -4136,6 +4150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710337774813675, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: "+42\u20AC"
       objectReference: {fileID: 0}
     - target: {fileID: 7272710338013559798, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
@@ -4172,10 +4191,20 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Offrande42
       objectReference: {fileID: 0}
+    - target: {fileID: 7272710338193359883, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 7272710338193359884, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710338193359885, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: Potion
       objectReference: {fileID: 0}
     - target: {fileID: 7272710338818997522, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
@@ -4330,7 +4359,7 @@ PrefabInstance:
     - target: {fileID: 7272710339055993179, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7272710339055993180, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
@@ -4346,6 +4375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339195581485, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Soin
       objectReference: {fileID: 0}
     - target: {fileID: 7272710339195581486, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
@@ -4397,16 +4431,66 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PotionButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917104, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: "-10\u20AC || +1 potion"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917104, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917104, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917104, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917105, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339236917118, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339345441395, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Soin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339345441397, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: "-5\u20AC  || + 5HP"
+      objectReference: {fileID: 0}
     - target: {fileID: 7272710339492099008, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339492099009, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Text
+      value: Soin
       objectReference: {fileID: 0}
     - target: {fileID: 7272710339492099011, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1559945315}
+    - target: {fileID: 7272710339492099023, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Soin
+      objectReference: {fileID: 0}
     - target: {fileID: 7272710339601154528, guid: 8c93ced5ba2e7b841bce589d6da44833,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4471,6 +4555,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Equipement
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272710339601154543, guid: 8c93ced5ba2e7b841bce589d6da44833,
+        type: 3}
+      propertyPath: m_Name
+      value: Potion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c93ced5ba2e7b841bce589d6da44833, type: 3}
