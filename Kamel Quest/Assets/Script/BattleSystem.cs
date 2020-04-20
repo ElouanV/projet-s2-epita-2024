@@ -19,13 +19,25 @@ public enum BattleState
 public class BattleSystem : MonoBehaviour
 {
 
+    //prefab pour afficher les personnages dans le combat
     public GameObject playerPrefab; //joueur
     public GameObject enemyPrefab;  // enemy
+    public GameObject ally1Prefab; 
+    public GameObject ally2Prefab;
+    
+    
     public Transform playerSpawn; //position de spawn
     public Transform enemySpawn;  //position de spawn
+    public Transform ally1Spawn; //position de spawn
+    public Transform ally2Spawn;
+    
+    
+    
 
     Entity playerUnit;
     private Entity enemyUnit;
+    private Entity ally1Unit;
+    private Entity ally2Unit;
     
     public BattleState state;
     public TextMeshProUGUI dialogue;
@@ -47,7 +59,12 @@ public class BattleSystem : MonoBehaviour
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
         
+        GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+        ally1Unit = playerObject.GetComponent<Entity>();
         
+        GameObject ally2Object = Instantiate(ally1Prefab, ally1Spawn);
+        ally2Unit = playerObject.GetComponent<Entity>();
+
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
         enemyUnit = enemyObject.GetComponent<Entity>();
 
