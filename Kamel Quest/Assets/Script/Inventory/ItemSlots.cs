@@ -26,6 +26,7 @@ public class ItemSlots : MonoBehaviour
         {
             full = true;
         }
+        GetComponent<Image>().color = new Color(1f,1f,1f,0f);
         GetComponent<Image>().sprite = itemSprite;
         textItem.text = itemDescription;
     }
@@ -34,34 +35,28 @@ public class ItemSlots : MonoBehaviour
     {
         DisableText();
     }
+
     public void ActiveText ()
     {
         textDisplay.SetActive(true);
     }
+
     public void DisableText ()
     {
         textDisplay.SetActive(false);   
-    }
-
-    public void AddItem()
-    {
-        itemCount +=1;
-    }
-    
-    public void UseItem()
-    {
-        itemCount -=1;
-
     }
 
     public void ChangeSprite(Sprite newsprite)
     {
 
         GetComponent<Image>().sprite = newsprite;
+        GetComponent<Image>().color = new Color(1f,1f,1f,1f); //Rends le sprite opaque
     }
+
     public void RemoveSprite()
     {
         Debug.Log(" Doit supprimer le sprite du slot");
+        GetComponent<Image>().color = new Color(1f,1f,1f,1f); // Rends le sprite transparant (Opacité à 0%)
     }
 
 }

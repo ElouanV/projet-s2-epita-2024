@@ -7,26 +7,16 @@ public class Items : MonoBehaviour
     public int itemID;
     public string itemName;
     public string itemDescription;
-    public int itemCount;
 
-    public Items (int ID, string name, string description,int count)
+    public Items (int ID, string name, string description)
     {
         this.itemID = ID;
         this.itemName = name;
         this.itemDescription = description;
-        this.itemCount = count;
     }
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   /* public Items healPotion = new Items(1,"Heal Potion","This potion will heal one of your unite");
+    public Items strenghtPotion = new Items(2,"Strenght Potion", "This potion will improve the strenght of one of your unite");
+    public Items regenerationPotion = new Items(3,"Generation Potion", "This potion will heal your unite each turn in fight");
+*/
 }

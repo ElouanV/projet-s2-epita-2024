@@ -2,17 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The main <c>Inventory_test</c> class.
+/// Contains all methods for performing the player's inventory.
+/// <para> The inventory is composed by 20 inventorySlots, each slot can countain 64 items with the same ID </para>
+/// <list type="bullet">
+/// <item>
+/// <term>Start</term>
+/// <description>Is called before the first frame update</description>
+/// </item>
+/// <item>
+/// <term>Update</term>
+/// <description>Is called once per frame</description>
+/// </item>
+/// <item>
+/// <term>AddToInventory</term>
+/// <description>Add an item in the inventory</description>
+/// </item>
+/// <item>
+/// <term>RemoveFromInventory</term>
+/// <description>Remove an item in the inventory</description>
+/// </item>
+/// </list>
+/// </summary>
+
 public class Inventory_test : MonoBehaviour
 {
-    [Header ("En cours de développement")]
-     //rien
-   
-    
+    /// <summary>
+    /// Contains all the variables used
+    /// </summary>
+    /// <remarks>
+    /// Some of then are only use for test
+    /// </remarks>
+    [Header ("Automatically set")]
     public GameObject playercam;
+    public GameObject invetoryCanvas;
+    public bool inventoryOpen = false;
     
     [Header ("Button list")]
     public string inventoryButton;
-    [Header("Pour mes test")]
+
+    [Header("For Test")]
     public string testButton;
     public string test2Button = "Test2";
     public string test3Button = "Test3";
@@ -20,18 +50,19 @@ public class Inventory_test : MonoBehaviour
     public Sprite monsterRelicSprite;
     
     [Header("Inventory's Data")]
-    public GameObject invetoryCanvas;
-    [HideInInspector] public bool inventoryOpen = false;
-
+    
     public Transform inventorySlots;
-    public int slotCount = 20; // Inventory's size,, limit to 20
-     
 
     [Header("ItemSlot")]
     public GameObject[] arrItemsSlot = new GameObject[20];
     
-
-    // Start is called before the first frame update
+    ///<summary>
+    /// <para>Start is called before the first frame update</para>
+    /// <para> This function set the playercam to the main camera and set inventorycanvas to the canvas inventory_panel </para>
+    /// <returns>
+    /// Return void
+    /// </returns>
+    ///</summary>
     void Start()
     {
         if (playercam == null)
@@ -46,7 +77,14 @@ public class Inventory_test : MonoBehaviour
         invetoryCanvas.SetActive(false);
     }
 
-    // Update is called once per frame
+    ///<summary>
+    ///<para> Update is called once per frame </para>
+    ///<para> This function call the function ShowOrHideInventory() when the inventory key button is pressed down</para>
+    ///<remarks>
+    /// Currently, this function allowed us to test both functions AddToInventory and RemoveFromInventory by pressing a test button
+    ///</remarks>
+    ///</summary>
+ 
     void Update()
     {
         if (Input.GetButtonDown(inventoryButton))
@@ -67,6 +105,19 @@ public class Inventory_test : MonoBehaviour
         }
     }
     
+    ///<summary>
+    ///<para> This function add an item to the inventory </para>
+    ///<para> 
+    /// This function take five parametres : <param> ID </param> is the ID of the item which will be added, it will be used to find the inventory slots where the item is already present
+    /// <param> name </param> is a string, the name of the item
+    /// <param> counttoadd </param> is the number of item to add 
+    /// <param> description </param> is the description of the item, will be only use if we have to add item in an empty slot
+    /// <param> sprite </param> is the sprite of the item, will be only use if we have to add item in an empty slot
+    ///<remakrs> 
+    /// If the number of item exced 64 in a slot, this function will create a new item in the next slot
+    ///</remarks>
+    ///</summary>
+
     // Ajoute un élèment pas encore présent dans l'inventaire
     // Debug.Log pour tester la fonction
     // Amélioration : Créer une limite de stack pour éviter de faire exploser le PC du jury à la soutenance finale
@@ -83,10 +134,19 @@ public class Inventory_test : MonoBehaviour
             Debug.Log("Test : Le script arrive entre dans la boucle à l'index " + i);
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
             Debug.Log("Test : Le script compare les ID d'item " + item.itemID + " celui en paramètre" + ID);
-            if (item.itemID == ID)
+            if (item.itemID == ID && item.itemCount <64)
             {
-                item.itemCount += counttoadd;
-                done = true;
+                if (item.itemCount + counttoadd <= 64)
+                {
+                    item.itemCount += counttoadd;
+                    done = true;
+                    counttoadd = 0;
+                }
+                else
+                {
+                    counttoadd = counttoadd - 64 + item.itemCount;
+                    item.itemCount = 64;
+                }
                 Debug.Log("Test : Le script ajoute l'item existant");
             }
             i+=1;
@@ -104,9 +164,8 @@ public class Inventory_test : MonoBehaviour
             item.itemSprite = sprite;
             item.itemCount = counttoadd;
         }
-
-        
     }
+
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
     void RemoveFromInventory(int ID,int count)
