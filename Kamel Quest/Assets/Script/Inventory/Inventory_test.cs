@@ -166,6 +166,15 @@ public class Inventory_test : MonoBehaviour
         }
     }
 
+    ///<summary>
+    ///<para> This function remove an item from the inventory </para>
+    ///<para> 
+    /// This function take two parametres : <param> ID </param> is the ID of the item which will be removed, it will be used to find the inventory slots where the item is already present
+    /// <param> count </param> is the number of item to remove
+    ///<remakrs> 
+    /// If the number of item drop to  in a slot, this function will remove item in another slots
+    ///</remarks>
+    ///</summary>
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
     void RemoveFromInventory(int ID,int count)
@@ -210,7 +219,12 @@ public class Inventory_test : MonoBehaviour
     }
 
 
-    // affiche / enleve l'inventaire sur l'écran, ajoute le curseur de la souris si besoin
+    ///<summary>
+    ///This function allow to display or hide the inventory interface.
+    ///<remakrs> 
+    /// The mouse cursor is visvle only when the inventory is open.
+    ///</remarks>
+    ///</summary>
     void ShowOrHideInventory ()
     {
         invetoryCanvas.SetActive(!inventoryOpen); // active l'inventaire ou le desactive
