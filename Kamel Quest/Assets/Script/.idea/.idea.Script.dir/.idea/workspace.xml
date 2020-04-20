@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536dab2f-34a1-417a-99aa-1cea14173ba9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Quest/Quest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest/Quest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quest/QuestGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest/QuestGiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quest/QuestGoal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quest/QuestGoal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/Inventory_test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/Inventory_test.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,12 +16,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Quest/QuestGiver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/PickingItem.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/PickingItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Quest/Quest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/Inventory_test.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerControler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerControler.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Bouton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/Items.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Bouton.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/Inventory_test.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity/Ennemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity/Entity.cs.meta" root0="FORCE_HIGHLIGHTING" />
@@ -49,6 +52,8 @@
         <option value="$PROJECT_DIR$/Quest.cs" />
         <option value="$PROJECT_DIR$/Quest/Quest.cs" />
         <option value="$PROJECT_DIR$/Quest/QuestGiver.cs" />
+        <option value="$PROJECT_DIR$/Inventory/Inventory_test.cs" />
+        <option value="$PROJECT_DIR$/Inventory/PickingItem.cs" />
       </list>
     </option>
   </component>
