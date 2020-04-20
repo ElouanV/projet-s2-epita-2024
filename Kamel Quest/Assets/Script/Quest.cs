@@ -81,6 +81,8 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             gameObject.SetActive(false);
         }
+        
+        else if (State == QuestState.ENDED) gameObject.SetActive(false);
     }
 
     public void StartQuest(QuestType type)
