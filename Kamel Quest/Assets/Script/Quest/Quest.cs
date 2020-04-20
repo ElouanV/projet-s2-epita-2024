@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,7 +45,7 @@ public class Quest : MonoBehaviour
         {                                                                                       
             if (Input.GetKeyUp("y"))
             {
-                // Add quest to pregression
+                //transform.GetComponent<QuestGiver>().SetQuest();
                 StartQuest(type);
                 State = QuestState.STARTED;
                 transform.GetComponent<ShowsText>().OnEnable();
@@ -81,6 +81,8 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             gameObject.SetActive(false);
         }
+        
+        else if (State == QuestState.ENDED) gameObject.SetActive(false);
     }
 
     public void StartQuest(QuestType type)

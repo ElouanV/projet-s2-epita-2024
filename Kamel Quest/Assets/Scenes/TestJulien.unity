@@ -8308,6 +8308,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 773815095635882336, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1998634433302744058}
     - target: {fileID: 2439522007959865490, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8363,25 +8368,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583961392938685282, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6335270464074543324, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -518
+      value: -21.9
       objectReference: {fileID: 0}
     - target: {fileID: 6335270464074543324, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -478
+      value: -127
       objectReference: {fileID: 0}
     - target: {fileID: 6335270464074543324, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 7327206943426376745, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_Name
       value: PNJwithDialogue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120271961011545147, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27831065d483e4315a5816d04b127baa, type: 3}
@@ -37902,7 +37917,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   State: 0
-  bubble: {fileID: 1367581256}
   PNG: {fileID: 854189886}
   title: 
   desc: 
@@ -53024,6 +53038,16 @@ PrefabInstance:
       propertyPath: TextForEnded.Array.data[0]
       value: Reviens me voir quand tu veux !
       objectReference: {fileID: 0}
+    - target: {fileID: 5440687833120064496, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -162.8193
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583961392938685282, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5937342465009412576, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -53033,6 +53057,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.027727699
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.015989235
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051641362658927334, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0005389299
       objectReference: {fileID: 0}
     - target: {fileID: 6338500144624989526, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
