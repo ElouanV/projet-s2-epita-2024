@@ -122,7 +122,7 @@ public class Inventory_test : MonoBehaviour
     // Debug.Log pour tester la fonction
     // Amélioration : Créer une limite de stack pour éviter de faire exploser le PC du jury à la soutenance finale
     // A faire : Si l'inventaire est plein, doit retourner faux afin que dans la boutique, un achat ne puisse pas être fait si l'inventaire est plein
-    void AddToInventory(int ID, string name, int counttoadd, string description, Sprite sprite)
+    public void AddToInventory(int ID, string name, int counttoadd, string description, Sprite sprite)
     {
         int i = 0;
         bool done = false;
@@ -168,7 +168,7 @@ public class Inventory_test : MonoBehaviour
 
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
-    void RemoveFromInventory(int ID,int count)
+    public void RemoveFromInventory(int ID,int count)
     {
         int i =0;
         bool found = false;

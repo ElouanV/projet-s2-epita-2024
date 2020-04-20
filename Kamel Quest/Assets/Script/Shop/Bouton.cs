@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +7,9 @@ public class Bouton : MonoBehaviour
 {
     public Player player;
     public bool running = false;
+    public GameObject potion;
+    public Sprite healPotionSprite;
+    public GameObject player1;
     //public bool isclicked = false;
     //public int c = 0;
 
@@ -51,8 +54,7 @@ public class Bouton : MonoBehaviour
     {
       if(player.argent > 7)
       {
-        player.hpmax += 10;
-        player.argent -= 7;
+        player1.GetComponent<Inventory_test>().AddToInventory(1, "potion", 1, "potion", healPotionSprite);
       }
     }
 
@@ -60,6 +62,8 @@ public class Bouton : MonoBehaviour
     {
         player.argent += 42;
     }
+
+    
 }
 
 // public void Update()
