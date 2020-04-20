@@ -10,6 +10,6 @@ public class MeetingPNG : MonoBehaviour
     
     void OnTriggerEnter2D()
     {
-        if (is_active) questgiver.GetComponent<Quest>().MeetingQuest();
+        if (is_active) questgiver.GetComponent<Quest>().CompletedQuest();
     }
 }

@@ -24,64 +24,64 @@ public class Quest : MonoBehaviour
 {
     public QuestType type;
     public QuestState State;
-    public GameObject PNG;
+    public GameObject Target;
 
     public string title;
     public string desc;
     public int exp;
     public Items reward;
 
-    private bool completed;
+    public bool completed;
 
     public void UpdateState()
-    {	
-        if (State == QuestState.NONE) 
-        {                     
-            State = QuestState.ACCEPTED;                                    
+    {
+        if (State == QuestState.NONE)
+        {
+            State = QuestState.ACCEPTED;
             transform.GetComponent<ShowsText>().OnEnable();
-        }                                                                      
-                                                                                                
-        else if (State == QuestState.ACCEPTED)                  
-        {                                                                                       
+        }
+
+        else if (State == QuestState.ACCEPTED)
+        {
             if (Input.GetKeyUp("y"))
             {
                 // To add: Add quest to progression
-                StartQuest(type);
                 State = QuestState.STARTED;
                 transform.GetComponent<ShowsText>().OnEnable();
-            }                                                      
-            else if (Input.GetKeyUp("n")) 
+                StartQuest(type);
+            }
+            else if (Input.GetKeyUp("n"))
             {
-                State = QuestState.DECLINED;             
+                State = QuestState.DECLINED;
                 transform.GetComponent<ShowsText>().OnEnable();
             }
-        }                                                                                       
-                                                                                                
+        }
+
         else if (State == QuestState.STARTED)
         {
-            gameObject.SetActive(false);
             if (completed)
             {
                 completed = false;
-                State = QuestState.COMPLETED; 
+                State = QuestState.COMPLETED;
                 transform.GetComponent<ShowsText>().OnEnable();
-            }                                                           
-        }   
+            }
+            else gameObject.SetActive(false);
+        }
 
         else if (State == QuestState.DECLINED)
         {
             gameObject.SetActive(false);
             State = QuestState.NONE;
         }
-        
+
         else if (State == QuestState.COMPLETED)
         {
             // To add: Give the reward
-            
+
             State = QuestState.ENDED;
             gameObject.SetActive(false);
         }
-        
+
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
     }
 
@@ -90,24 +90,20 @@ public class Quest : MonoBehaviour
         switch (type)
         {
             case QuestType.Meeting:
-                PNG.GetComponent<MeetingPNG>().is_active = true;
+                Target.GetComponent<MeetingPNG>().is_active = true;
                 break;
-            case QuestType.Killing:
-                KillingQuest();
+            case QuestType.Finding:
+                if (completed) UpdateState();
+                else Target.GetComponent<PickingItem>().is_active = true;
                 break;
             //case QuestType.Finding:
         }
     }
 
-    public void MeetingQuest()
+    public void CompletedQuest()
     {
         completed = true;
         if (State == QuestState.STARTED) UpdateState();
-    }
-
-    public void KillingQuest()
-    {
-        completed = true;
     }
 }
  
