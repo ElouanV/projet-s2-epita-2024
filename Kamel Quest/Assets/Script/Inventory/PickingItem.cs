@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickingItem : MonoBehaviour
 {
     public GameObject Player;
-    public Sprite healPotionSprite; // temp 
     public bool quest;
     
     // Only for the quest
@@ -17,6 +16,7 @@ public class PickingItem : MonoBehaviour
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
         Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
+        Debug.Log("[PickingItem] OnTriggerEnter2D: The item have been destroyed from the map and add to your inventory.");
         if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
     }
 }
