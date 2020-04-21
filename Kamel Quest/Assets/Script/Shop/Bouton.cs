@@ -95,7 +95,7 @@ public class Bouton : MonoBehaviour
     {
       if(player.argent > 7)
       {
-        player1.GetComponent<Inventory_test>().AddToInventory(1, "potion", 1, "potion", healPotionSprite);
+        player1.GetComponent<Inventory_test>().AddToInventory(0, 1);
       }
     }
 

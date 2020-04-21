@@ -38,6 +38,7 @@ public class Inventory_test : MonoBehaviour
     public GameObject playercam;
     public GameObject invetoryCanvas;
     public bool inventoryOpen = false;
+    public GameObject itemList;
     
     [Header ("Button list")]
     public string inventoryButton;
@@ -93,27 +94,25 @@ public class Inventory_test : MonoBehaviour
         }
        if (Input.GetButtonDown(testButton))
         {
-            AddToInventory(1,"HealPotion",1,"Ceci est un test, en voici la déscription",healPotionSprite);
+            AddToInventory(1,1);
         }
         if (Input.GetButtonDown(test2Button))
         {
-           AddToInventory(2,"MonsterLoot",1,"You've earn it by killing a monster",monsterRelicSprite);
+           RemoveFromInventory(1,1);
         }
         if  (Input.GetButtonDown(test3Button))
         {
-            RemoveFromInventory(1,1);
+            
         }
     }
     
     ///<summary>
     ///<para> This function add an item to the inventory </para>
     ///<para> 
-    /// This function take five parametres : <param> ID </param> is the ID of the item which will be added, it will be used to find the inventory slots where the item is already present
-    /// <param> name </param> is a string, the name of the item
+    /// This function take two parametres : <param> ID </param> is the ID of the item which will be added, it will be used to find the inventory slots where the item is already present
     /// <param> counttoadd </param> is the number of item to add 
-    /// <param> description </param> is the description of the item, will be only use if we have to add item in an empty slot
-    /// <param> sprite </param> is the sprite of the item, will be only use if we have to add item in an empty slot
-    ///<remakrs> 
+    /// We use the gameobject "ItemList" to find information of the item using his ID
+    /// <remakrs> 
     /// If the number of item exced 64 in a slot, this function will create a new item in the next slot
     ///</remarks>
     ///</summary>
@@ -122,7 +121,7 @@ public class Inventory_test : MonoBehaviour
     // Debug.Log pour tester la fonction
     // Amélioration : Créer une limite de stack pour éviter de faire exploser le PC du jury à la soutenance finale
     // A faire : Si l'inventaire est plein, doit retourner faux afin que dans la boutique, un achat ne puisse pas être fait si l'inventaire est plein
-    public void AddToInventory(int ID, string name, int counttoadd, string description, Sprite sprite)
+    public void AddToInventory(int ID,int counttoadd)
     {
         int i = 0;
         bool done = false;
@@ -155,15 +154,17 @@ public class Inventory_test : MonoBehaviour
         Debug.Log("Test : Le script arrive sort dans la boucle");
         if (!done)
         {
+            Transform goitem = itemList.transform.GetChild(ID);
+            Items myitem = goitem.GetComponent<Items>();
             //Créer un nouvel item
             Debug.Log("Test : Le script créer un nouvel item");
-            item.textItem.text = name;
+            item.textItem.text = myitem.itemName;
             item.itemID = ID;
             item.full = true;
-            item.itemName = name;
-            item.ChangeSprite(sprite);
-            item.itemDescription = description;
-            item.itemSprite = sprite;
+            item.itemName = myitem.itemName;
+            item.ChangeSprite(myitem.sprite);
+            item.itemDescription = myitem.itemDescription;
+            item.itemSprite = myitem.sprite;
             item.itemCount = counttoadd;
             item.nbrItem.text = Convert.ToString(counttoadd);
         }
@@ -252,6 +253,5 @@ public class Inventory_test : MonoBehaviour
 
     // A faire ?
     // ClearInventory() permtrais de supprimer tous les items de l'inventaire, peut être utile dans certains cas ?
-    // Alléger les fonctions ci-dessus en 
 }
 
