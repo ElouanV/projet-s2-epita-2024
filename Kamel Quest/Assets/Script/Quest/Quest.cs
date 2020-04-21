@@ -64,7 +64,7 @@ public class Quest : MonoBehaviour
             {
                 completed = false;
                 State = QuestState.COMPLETED;
-                transform.GetComponent<ShowsText>().OnEnable();
+                if (transform.parent.parentGetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
             }
             else gameObject.SetActive(false);
         }
@@ -96,7 +96,6 @@ public class Quest : MonoBehaviour
                 break;
             case QuestType.Finding:
                 if (completed) UpdateState();
-                else Target.GetComponent<PickingItem>().is_active = true;
                 break;
             //case QuestType.Finding:
         }

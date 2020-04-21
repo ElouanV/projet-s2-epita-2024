@@ -10,9 +10,8 @@ public class PickingItem : MonoBehaviour
     
     // Only for the quest
     public GameObject questgiver;
-    public bool is_active;
 
-    
+
     void OnTriggerEnter2D()
     {
         Items item = transform.GetComponent<Items>();
