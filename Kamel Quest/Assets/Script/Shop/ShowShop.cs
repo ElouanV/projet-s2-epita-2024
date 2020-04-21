@@ -9,6 +9,8 @@ public class ShowShop : MonoBehaviour
     public bool is_shop = false;
     public GameObject ShopCanvas;
     public GameObject Bubble;
+    public GameObject MainInterface;
+    public GameObject Shop_MainInterface;
 
     void OnTriggerEnter2D()
     {
@@ -35,6 +37,8 @@ public class ShowShop : MonoBehaviour
     void showshop()
     {
         ShopCanvas.SetActive(!is_shop);
+        MainInterface.SetActive(is_shop);
+        
 
         Cursor.visible = !is_shop; 
         if (is_shop) 

@@ -9,9 +9,10 @@ public class Player : Entity
     public int epeelvl;
     public int bouclierlvl;
     public int casquelvl;
+    public int armure;
 
 
-    public Player(long hpmax,  int atk, string name, int magicatk, int atkcost, int argent, int armurelvl, int epeelvl, int bouclierlvl, int casquelvl)
+    public Player(long hpmax, int armure,  int atk, string name, int magicatk, int atkcost, int argent, int armurelvl, int epeelvl, int bouclierlvl, int casquelvl)
     {
         this.argent = argent;
         this.currenthp = hpmax;
@@ -20,6 +21,7 @@ public class Player : Entity
         this.hpmax = hpmax;
         this.atk = atk;
         this.name = name;
+        this.armure = armure;
         //Equipement Automatiquement à 0
         this.armurelvl = armurelvl;
         this.epeelvl = epeelvl;
