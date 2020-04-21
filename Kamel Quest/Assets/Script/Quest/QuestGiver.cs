@@ -21,7 +21,7 @@ public class QuestGiver: MonoBehaviour
     {
 	    YesOrNo = new List<string> {"Acceptes-vous cette quête ?$					   	     [Y]- Yes		   [N]- No"};
     }
-	
+	// Update what the PNG say depending of the quest state
 	public List<string> UpdateText()
 	{
 		List<string> current = new List<string> {};

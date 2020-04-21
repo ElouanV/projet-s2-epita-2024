@@ -33,6 +33,7 @@ public class Quest : MonoBehaviour
 
     public bool completed;
 
+    // This willupdate the state of the quest if it's needed
     public void UpdateState()
     {
         if (State == QuestState.NONE)
@@ -85,6 +86,7 @@ public class Quest : MonoBehaviour
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
     }
 
+    // This will active the target of the quest depending of the type
     public void StartQuest(QuestType type)
     {
         switch (type)
@@ -100,6 +102,7 @@ public class Quest : MonoBehaviour
         }
     }
 
+    // This function is call if the quest is completed
     public void CompletedQuest()
     {
         completed = true;

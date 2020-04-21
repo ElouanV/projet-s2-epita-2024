@@ -26,6 +26,10 @@ public class ItemSlots : MonoBehaviour
         {
             full = true;
         }
+        // C'est pas beau! :) Je te conseil:
+        // full = itemCount != 0;
+        // Cordialement, Julien
+  
         GetComponent<Image>().color = new Color(1f,1f,1f,0f);
         GetComponent<Image>().sprite = itemSprite;
         textItem.text = itemDescription;

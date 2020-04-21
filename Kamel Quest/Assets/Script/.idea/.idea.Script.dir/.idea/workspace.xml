@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="536dab2f-34a1-417a-99aa-1cea14173ba9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Script.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/PickingItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/PickingItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quest/MeetingPNG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest/MeetingPNG.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dialogu/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dialogu/Dialogue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dialogu/ShowsBubbleText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dialogu/ShowsBubbleText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dialogu/ShowsText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dialogu/ShowsText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/ItemSlots.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/ItemSlots.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quest/Quest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest/Quest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quest/QuestGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Quest/QuestGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/../../Temp/__Backupscenes/0.backup" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +21,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Interface/MainInterface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Quest/MeetingPNG.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Quest/QuestGiver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Inventory/PickingItem.cs.meta" root0="FORCE_HIGHLIGHTING" />
@@ -34,9 +39,17 @@
     <setting file="file://$PROJECT_DIR$/Entity/Entity.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entity/Entity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Inventory/Items.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/ItemSlots.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/Items.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Inventory/Inventory_test.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Inventory/ItemSlots.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dialogu/Dialogue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dialogu.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dialogu/ShowsBubbleText.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dialogu/Dialogue.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dialogu/ShowsText.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interface/Pause.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interface/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -56,12 +69,16 @@
         <option value="$PROJECT_DIR$/Dialogue.cs" />
         <option value="$PROJECT_DIR$/QuestGiver.cs" />
         <option value="$PROJECT_DIR$/Quest.cs" />
-        <option value="$PROJECT_DIR$/Quest/QuestGiver.cs" />
         <option value="$PROJECT_DIR$/Inventory/Inventory_test.cs" />
         <option value="$PROJECT_DIR$/Quest/IsPicked.cs" />
         <option value="$PROJECT_DIR$/Quest/MeetingPNG.cs" />
-        <option value="$PROJECT_DIR$/Quest/Quest.cs" />
         <option value="$PROJECT_DIR$/Inventory/PickingItem.cs" />
+        <option value="$PROJECT_DIR$/Inventory/ItemSlots.cs" />
+        <option value="$PROJECT_DIR$/Dialogu/ShowsText.cs" />
+        <option value="$PROJECT_DIR$/Quest/Quest.cs" />
+        <option value="$PROJECT_DIR$/Quest/QuestGiver.cs" />
+        <option value="$PROJECT_DIR$/Dialogu/Dialogue.cs" />
+        <option value="$PROJECT_DIR$/Dialogu/ShowsBubbleText.cs" />
       </list>
     </option>
   </component>

@@ -7,12 +7,14 @@ public class ShowsBubbleText : MonoBehaviour
     public GameObject Bubble;
 	public bool is_trigger;
     
+	// Display the bubble is the player is next to the PNG
     void OnTriggerEnter2D()
     {
 		is_trigger = true;
 		Bubble.SetActive(true);
     }
 
+    // Close the bubble when the player goes away
 	void OnTriggerExit2D()
     {
 		is_trigger = false;
