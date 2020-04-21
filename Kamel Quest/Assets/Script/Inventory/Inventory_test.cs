@@ -180,7 +180,7 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
-    void RemoveFromInventory(int ID,int count)
+    public void RemoveFromInventory(int ID,int count)
     {
         int i =0;
         bool found = false;
