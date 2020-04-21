@@ -64,7 +64,7 @@ public class Quest : MonoBehaviour
             {
                 completed = false;
                 State = QuestState.COMPLETED;
-                if (transform.parent.parentGetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
+                if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
             }
             else gameObject.SetActive(false);
         }
