@@ -17,7 +17,7 @@ public class PickingItem : MonoBehaviour
     {
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
-        Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, item.itemName, 1, item.itemDescription, healPotionSprite);
+        Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
         if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
     }
 }
