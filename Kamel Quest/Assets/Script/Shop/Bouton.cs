@@ -16,6 +16,7 @@ public class Bouton : MonoBehaviour
     public GameObject DescriptionBouclier;
     public GameObject DescriptionCasque;
     //Information du shop (Text)
+
     
     //UGRADE
     public int[] UGRADE_ARMURELVL = {100, 500, 1000};
@@ -67,49 +68,6 @@ public class Bouton : MonoBehaviour
     public void DisableTextCasque ()
     {
         DescriptionCasque.SetActive(false);   
-    }
-
-    //Information du shop
-    public int If_I_Up_Armure()
-    {
-      return (ADD_ARMURE[player.armurelvl]); 
-    }
-
-    public int Cost_Up_Armure()
-    {
-      return (UGRADE_ARMURELVL[player.armurelvl]);
-    }
-
-     public int If_I_Up_Epee()
-     {
-      return (ADD_ATTACK[player.epeelvl]);
-     }
-
-    public int Cost_Up_Epee()
-    {
-      return (UGRADE_EPEELVL[player.epeelvl]);
-    }
-
-
-   public int If_I_Up_Bouclier()
-   {
-      return (ADD_HPMAX[player.bouclierlvl]);
-   }
-
-    public int Cost_Up_Bouclier()
-    {
-      return (UGRADE_BOUCLIERLVL[player.bouclierlvl]);
-    }
-
-
-   public int If_I_Up_Casque()
-   {
-     return (ADD_ARMURE[player.armurelvl]);
-   }
-   
-    public int Cost_Up_Casque()
-    {
-      return (UGRADE_CASQUELVL[player.casquelvl]);
     }
 
 

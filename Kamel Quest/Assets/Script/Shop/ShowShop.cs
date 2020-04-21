@@ -29,6 +29,7 @@ public class ShowShop : MonoBehaviour
     {
         if (is_trigger && Input.GetKeyUp(KeyCode.Space))
         {
+            
             Bubble.SetActive(false);
             showshop();
         }
