@@ -60,10 +60,10 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerObject.GetComponent<Entity>();
         
         GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
-        ally1Unit = playerObject.GetComponent<Entity>();
+        ally1Unit = ally1Object.GetComponent<Entity>();
         
-        GameObject ally2Object = Instantiate(ally1Prefab, ally1Spawn);
-        ally2Unit = playerObject.GetComponent<Entity>();
+        GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+        ally2Unit = ally2Object.GetComponent<Entity>();
 
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
         enemyUnit = enemyObject.GetComponent<Entity>();
@@ -109,6 +109,7 @@ public class BattleSystem : MonoBehaviour
         playerUnit.GetHeal(5);
         playerHUD.UpdateHp(playerUnit.currenthp, playerUnit);
         yield return new WaitForSeconds(1f);
+        
         
         
         state = BattleState.ENEMYTURN;
@@ -158,6 +159,15 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
+    }
+
+    public void InventoryButton()
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            
+        }
+        throw new NotImplementedException();
     }
 
 
