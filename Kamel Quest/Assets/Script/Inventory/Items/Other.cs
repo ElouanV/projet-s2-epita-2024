@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Here is the constructor of Other items
+/// </summary>
 public class Other : Items
 {
     

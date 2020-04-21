@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 /// <summary>
 /// The main <c>Inventory_test</c> class.
 /// Contains all methods for performing the player's inventory.
@@ -139,6 +139,7 @@ public class Inventory_test : MonoBehaviour
                 if (item.itemCount + counttoadd <= 64)
                 {
                     item.itemCount += counttoadd;
+                    item.nbrItem.text = Convert.ToString(item.itemCount);
                     done = true;
                     counttoadd = 0;
                 }
@@ -156,6 +157,7 @@ public class Inventory_test : MonoBehaviour
         {
             //Créer un nouvel item
             Debug.Log("Test : Le script créer un nouvel item");
+            item.textItem.text = name;
             item.itemID = ID;
             item.full = true;
             item.itemName = name;
@@ -163,6 +165,7 @@ public class Inventory_test : MonoBehaviour
             item.itemDescription = description;
             item.itemSprite = sprite;
             item.itemCount = counttoadd;
+            item.nbrItem.text = Convert.ToString(counttoadd);
         }
     }
 

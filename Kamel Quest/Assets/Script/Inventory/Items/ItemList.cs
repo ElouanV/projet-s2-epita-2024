@@ -1,7 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// The main <c>ItemList</c> class.
+/// Contains all existing items of the game in an arrays of item
+/// <remarks>
+/// It doesn't work yet, because we can not use "new" to create an item, i'm trying to find a solution
+/// </remarks>
+/// </summary>
 public class ItemList : MonoBehaviour
 {
 
