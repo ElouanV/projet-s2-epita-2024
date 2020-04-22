@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpmax: 20
-  currenthp: 10
-  atk: 5
-  name: Csharp
+  currenthp: 20
+  atk: 1
+  name: Assembleur
   lvl: 2024
   isalive: 1
 --- !u!1 &4405086069842338852
