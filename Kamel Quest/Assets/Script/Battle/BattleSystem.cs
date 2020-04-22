@@ -18,7 +18,15 @@ public enum BattleState
 }
 public class BattleSystem : MonoBehaviour
 {
+    /*
+     * je mettrai les commentaires XML plus tard
+     */
+    
+    
+    //gestion de team
+    //private Team team;
 
+    
     //prefab pour afficher les personnages dans le combat
     public GameObject playerPrefab; //joueur
     public GameObject enemyPrefab;  // enemy
@@ -34,7 +42,7 @@ public class BattleSystem : MonoBehaviour
     
     
 
-    Entity playerUnit;
+    private Entity playerUnit;
     private Entity enemyUnit;
     private Entity ally1Unit;
     private Entity ally2Unit;
@@ -50,6 +58,7 @@ public class BattleSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
         state = BattleState.START;
         SetupBattle();
     }
@@ -70,8 +79,9 @@ public class BattleSystem : MonoBehaviour
 
         dialogue.text = "Vous entrez en combat !";
         
-        playerHUD.SetupHUD(playerUnit);
-        enemyHUD.SetupHUD(enemyUnit);
+        
+        playerHUD.SetupHUD(playerUnit, ally1Unit, ally2Unit);
+        enemyHUD.SetupHUD(enemyUnit, enemyUnit, enemyUnit);
         
         state = BattleState.PLAYERTURN;
     }

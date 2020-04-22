@@ -39,6 +39,7 @@ public class Quest : MonoBehaviour
         if (State == QuestState.NONE)
         {
             State = QuestState.ACCEPTED;
+            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             transform.GetComponent<ShowsText>().OnEnable();
         }
 
@@ -46,14 +47,20 @@ public class Quest : MonoBehaviour
         {
             if (Input.GetKeyUp("y"))
             {
+                Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been accepted.");
+
                 // To add: Add quest to progression
                 State = QuestState.STARTED;
+                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
                 transform.GetComponent<ShowsText>().OnEnable();
                 StartQuest(type);
             }
             else if (Input.GetKeyUp("n"))
             {
+                Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been declined.");
+
                 State = QuestState.DECLINED;
+                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
                 transform.GetComponent<ShowsText>().OnEnable();
             }
         }
@@ -64,15 +71,17 @@ public class Quest : MonoBehaviour
             {
                 completed = false;
                 State = QuestState.COMPLETED;
-                transform.GetComponent<ShowsText>().OnEnable();
+                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
+                if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
             }
             else gameObject.SetActive(false);
         }
 
         else if (State == QuestState.DECLINED)
         {
-            gameObject.SetActive(false);
             State = QuestState.NONE;
+            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
+            gameObject.SetActive(false);
         }
 
         else if (State == QuestState.COMPLETED)
@@ -80,10 +89,12 @@ public class Quest : MonoBehaviour
             // To add: Give the reward
 
             State = QuestState.ENDED;
+            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
         }
 
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
+        
     }
 
     // This will active the target of the quest depending of the type
@@ -96,7 +107,6 @@ public class Quest : MonoBehaviour
                 break;
             case QuestType.Finding:
                 if (completed) UpdateState();
-                else Target.GetComponent<PickingItem>().is_active = true;
                 break;
             //case QuestType.Finding:
         }
@@ -105,6 +115,7 @@ public class Quest : MonoBehaviour
     // This function is call if the quest is completed
     public void CompletedQuest()
     {
+        Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
         completed = true;
         if (State == QuestState.STARTED) UpdateState();
     }

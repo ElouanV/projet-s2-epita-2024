@@ -25,5 +25,6 @@ public class Stuff : Items
         this.type = 1;
         this.sprite = sprite;
     }
+    
 
 }

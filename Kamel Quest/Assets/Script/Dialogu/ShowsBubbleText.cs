@@ -12,6 +12,8 @@ public class ShowsBubbleText : MonoBehaviour
     {
 		is_trigger = true;
 		Bubble.SetActive(true);
+		Debug.Log("[ShowsBubbleText] OnTriggerEnter2D: The bubble is now active.");
+
     }
 
     // Close the bubble when the player goes away
@@ -19,5 +21,7 @@ public class ShowsBubbleText : MonoBehaviour
     {
 		is_trigger = false;
         Bubble.SetActive(false);
+        Debug.Log("[ShowsBubbleText] OnTriggerExit2D: The bubble is now inactive.");
+
     }
 }

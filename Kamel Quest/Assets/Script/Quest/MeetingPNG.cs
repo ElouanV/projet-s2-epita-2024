@@ -10,6 +10,7 @@ public class MeetingPNG : MonoBehaviour
     
     void OnTriggerEnter2D()
     {
+        Debug.Log("[MeetingPNG] OnTriggerEnter2D: The target have been trigger.");
         if (is_active) questgiver.GetComponent<Quest>().CompletedQuest();
     }
 }

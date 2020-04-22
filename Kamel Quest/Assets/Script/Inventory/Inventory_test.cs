@@ -94,7 +94,7 @@ public class Inventory_test : MonoBehaviour
         }
        if (Input.GetButtonDown(testButton))
         {
-            AddToInventory(1,1);
+            AddToInventory(1,4);
         }
         if (Input.GetButtonDown(test2Button))
         {
@@ -146,6 +146,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     counttoadd = counttoadd - 64 + item.itemCount;
                     item.itemCount = 64;
+                    item.nbrItem.text = Convert.ToString(item.itemCount);
                 }
                 Debug.Log("Test : Le script ajoute l'item existant");
             }
@@ -183,18 +184,22 @@ public class Inventory_test : MonoBehaviour
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
     public void RemoveFromInventory(int ID,int count)
     {
+        Debug.Log("La fonction est appelée");
         int i =0;
         bool found = false;
         ItemSlots item = arrItemsSlot[i].GetComponent<ItemSlots>();
         while (i < 20 && !found && count != 0)
         {
+            Debug.Log("La fonction entre dans la boucle while");
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
             if(item.itemID == ID)
             {
                 if (item.itemCount > count)
                 // Si le montant a supprimer est inférieur au nombre d'item contenus dans le slot
                 {
+                    Debug.Log(" supprime x fois l'item avec l'id correspondant");
                     item.itemCount -= count;
+                    item.nbrItem.text = Convert.ToString(item.itemCount);
                     count = 0;
                     found = true;
                 }
@@ -204,6 +209,7 @@ public class Inventory_test : MonoBehaviour
                     // Delete item
                     // Pour rendre plus propre, créer une fonction dans item slots qui réinitialise toute les variables
                     item.itemCount = 0;
+                    item.nbrItem.text = Convert.ToString(item.itemCount);
                     item.RemoveSprite();
                     item.itemID = 0;
                     item.full = false;

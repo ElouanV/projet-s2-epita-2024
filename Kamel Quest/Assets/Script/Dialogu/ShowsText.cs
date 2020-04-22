@@ -15,10 +15,10 @@ public class ShowsText : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
-    void Start()
+    // OnEnable is called every time the GO is active
+    public void OnEnable()
     {
-		if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
+	    if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
 		
         Index = 0;
@@ -29,22 +29,17 @@ public class ShowsText : MonoBehaviour
 		Index++;
     }
 
-	// OnEnable is called every time this GameObject is Actived
-    public void OnEnable()
-    {
-        Start();
-    }
-
     void Update()
     {
 	    // Needed to accept the quest with Y
-		if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim) transform.GetComponent<Quest>().UpdateState();
+		if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") || Input.GetKeyUp("n"))
+			transform.GetComponent<Quest>().UpdateState();
 		// Press space to show the next sentence
         else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
 	        // Once all the sentence have been said, this will update the state of the quest
 			if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
-			else if (Index == SentencesList.Count) gameObject.SetActive(false);//transform.GetComponent<Dialogue>().CloseBubble;
+			else if (Index == SentencesList.Count) gameObject.SetActive(false);
 			// This display the current sentence
 			else
 			{
@@ -59,7 +54,8 @@ public class ShowsText : MonoBehaviour
 	// Display the text
     IEnumerator ShowsTxt(string Str)
     {
-        Anim = true;
+	    Debug.Log("[ShowsText] ShowsTxt: Displaying sentence "+(Index+1)+"/"+SentencesList.Count+".");
+	    Anim = true;
         Txt.text = "";
         int Nb_Char = Str.Length;
         

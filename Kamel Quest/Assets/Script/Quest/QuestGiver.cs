@@ -24,6 +24,8 @@ public class QuestGiver: MonoBehaviour
 	// Update what the PNG say depending of the quest state
 	public List<string> UpdateText()
 	{
+		Debug.Log("[QuestGiver] UpdateText: The text of the quest '"+quest.title+"' have been updated.");
+
 		List<string> current = new List<string> {};
 		if (quest.State == QuestState.NONE) current = TextForNone;
 		else if (quest.State == QuestState.ACCEPTED) current = YesOrNo;
