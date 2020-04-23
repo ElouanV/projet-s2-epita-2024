@@ -25,17 +25,23 @@ public class BattleSystem : MonoBehaviour
     
     //gestion de team
     //private Team team;
+    
+    
 
     
     //prefab pour afficher les personnages dans le combat
     public GameObject playerPrefab; //joueur
     public GameObject enemyPrefab;  // enemy
+    public GameObject enemy1Prefab;  // enemy
+    public GameObject enemy2Prefab;  // enemy
     public GameObject ally1Prefab; 
     public GameObject ally2Prefab;
     
     
     public Transform playerSpawn; //position de spawn
     public Transform enemySpawn;  //position de spawn
+    public Transform enemy1Spawn;  //position de spawn
+    public Transform enemy2Spawn;  //position de spawn
     public Transform ally1Spawn; //position de spawn
     public Transform ally2Spawn;
     
@@ -44,6 +50,8 @@ public class BattleSystem : MonoBehaviour
 
     private Entity playerUnit;
     private Entity enemyUnit;
+    private Entity enemy1Unit;
+    private Entity enemy2Unit;
     private Entity ally1Unit;
     private Entity ally2Unit;
     
@@ -76,12 +84,18 @@ public class BattleSystem : MonoBehaviour
 
         GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
         enemyUnit = enemyObject.GetComponent<Entity>();
+        
+        GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+        enemy1Unit = enemy1Object.GetComponent<Entity>();
+        
+        GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+        enemy2Unit = enemy2Object.GetComponent<Entity>();
 
         dialogue.text = "Vous entrez en combat !";
         
         
         playerHUD.SetupHUD(playerUnit, ally1Unit, ally2Unit);
-        enemyHUD.SetupHUD(enemyUnit, enemyUnit, enemyUnit);
+        enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
         
         state = BattleState.PLAYERTURN;
     }
