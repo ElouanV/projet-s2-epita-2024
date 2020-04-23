@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6465593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5456103935912537003, guid: 3099e8d85d67c0246bea56d6cf6c94a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 734744512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &21813235
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +644,18 @@ CanvasRenderer:
 --- !u!1 &360378037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5456103935338950141, guid: 3099e8d85d67c0246bea56d6cf6c94a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 734744512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &416894502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5456103935676021034, guid: 3099e8d85d67c0246bea56d6cf6c94a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 734744512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &447298287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5456103935881765716, guid: 3099e8d85d67c0246bea56d6cf6c94a4,
     type: 3}
   m_PrefabInstance: {fileID: 734744512}
   m_PrefabAsset: {fileID: 0}
@@ -4051,6 +4069,9 @@ MonoBehaviour:
   DescriptionEpee: {fileID: 957915103}
   DescriptionBouclier: {fileID: 269656523}
   DescriptionCasque: {fileID: 1342700898}
+  sword: {fileID: 447298287}
+  shield: {fileID: 6465593}
+  armor: {fileID: 416894502}
   UGRADE_ARMURELVL: 64000000f4010000e8030000
   UGRADE_EPEELVL: 64000000f4010000e8030000
   UGRADE_BOUCLIERLVL: 64000000f4010000e8030000

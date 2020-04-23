@@ -17,6 +17,9 @@ public class Bouton : MonoBehaviour
     public GameObject DescriptionCasque;
     //Information du shop (Text)
 
+    public GameObject sword;
+    public GameObject shield;
+    public GameObject armor;
     
     //UGRADE
     public int[] UGRADE_ARMURELVL = {100, 500, 1000};
@@ -28,6 +31,7 @@ public class Bouton : MonoBehaviour
     public int[] ADD_ARMURE = {1, 5, 10};
     public int[] ADD_ATTACK = {2, 4, 12};
     public int[] ADD_HPMAX = {5, 500, 100};
+
 
     //DESCRIPTION
     public void ActiveTextArmure ()
@@ -111,6 +115,7 @@ public class Bouton : MonoBehaviour
         player.argent -= UGRADE_EPEELVL[player.epeelvl];
         player.atk += ADD_ATTACK[player.epeelvl];
         player.epeelvl += 1;
+        sword.GetComponent<EquipementSlot>().Upgrade();
       } 
     }
 
@@ -121,6 +126,7 @@ public class Bouton : MonoBehaviour
         player.argent -= UGRADE_ARMURELVL[player.armurelvl];
         player.hpmax += ADD_HPMAX[player.armurelvl];
         player.armurelvl += 1;
+        armor.GetComponent<EquipementSlot>().Upgrade();
       } 
     }
 
@@ -131,6 +137,7 @@ public class Bouton : MonoBehaviour
         player.argent -= UGRADE_BOUCLIERLVL[player.bouclierlvl];
         player.hpmax += ADD_HPMAX[player.bouclierlvl];
         player.bouclierlvl += 1;
+        shield.GetComponent<EquipementSlot>().Upgrade();
       }
     }
 

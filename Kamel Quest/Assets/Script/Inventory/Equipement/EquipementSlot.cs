@@ -37,6 +37,8 @@ public class EquipementSlot : MonoBehaviour
     public int Lvl;
     [Header("For Test")]
     public string buttonTest;
+
+
     ///<summary>
     /// <para>Start is called before the first frame update</para>
     /// <para> Set sprite, slot lvl, and text </para>

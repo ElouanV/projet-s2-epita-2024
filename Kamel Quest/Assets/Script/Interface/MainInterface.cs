@@ -17,10 +17,10 @@ public class MainInterface : MonoBehaviour
     public Text TxtLvl_Bouclier;
     public Text TxtLvl_Casque;
 
-    
-
     public Player player;
     public GameObject PnjWithDialogue;
+
+
 
     public bool Test = false;
     
@@ -39,7 +39,7 @@ public class MainInterface : MonoBehaviour
         TxtAtk.text = "Atk : " +  player.atk ;  
         TxtArmure.text = "Armure : " +  player.armure; 
 
-        TxtLvl_Armure.text = "Lvl Armure : " +  player.armurelvl + "/3";
+        TxtLvl_Armure.text = "Lvl Armure : " +  player.armurelvl + "/3" ;
         TxtLvl_Epee.text = "Lvl Epee : " +  player.epeelvl + "/3"; 
         TxtLvl_Bouclier.text = "Lvl Bouclier : " +  player.bouclierlvl + "/3"; 
         TxtLvl_Casque.text ="Lvl Casque : " +  player.casquelvl + "/3"; 

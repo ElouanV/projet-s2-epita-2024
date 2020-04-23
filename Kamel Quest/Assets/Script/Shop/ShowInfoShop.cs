@@ -19,15 +19,15 @@ public class ShowInfoShop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TxtInfoArmure.text = "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_ARMURELVL[player.armurelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ARMURE[player.armurelvl] + " Armure.";
-        TxtInfEpee.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_EPEELVL[player.epeelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ATTACK[player.epeelvl] + " Attack.";
-        TxtInfoBouclier.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_BOUCLIERLVL[player.bouclierlvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_HPMAX[player.bouclierlvl] + " HP MAX.";
-        TxtInfoCasque.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_CASQUELVL[player.casquelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ARMURE[player.casquelvl] + " Armure.";
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        TxtInfoArmure.text = "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_ARMURELVL[player.armurelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ARMURE[player.armurelvl] + " Armure.";
+        TxtInfEpee.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_EPEELVL[player.epeelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ATTACK[player.epeelvl] + " Attack.";
+        TxtInfoBouclier.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_BOUCLIERLVL[player.bouclierlvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_HPMAX[player.bouclierlvl] + " HP MAX.";
+        TxtInfoCasque.text =  "Cout : " + transform.parent.GetComponent<Bouton>().UGRADE_CASQUELVL[player.casquelvl] + " € | " + "Gain : " + transform.parent.GetComponent<Bouton>(). ADD_ARMURE[player.casquelvl] + " Armure.";
     }
 }
