@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Slider = UnityEngine.UIElements.Slider;
-// Author : Settha
 
 public class BattleUI : MonoBehaviour
 {
@@ -47,18 +46,33 @@ public class BattleUI : MonoBehaviour
         
         
         //alliés
-        
-        ally1NameText.text = ally1.name;
-        ally1LvlText.text = "Lvl " + ally1.lvl;
-        ally1HpSlider.maxValue = ally1.hpmax;
-        ally1HpSlider.value = ally1.currenthp;
-        ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
-        
-        ally2NameText.text = ally2.name;
-        ally2LvlText.text = "Lvl " + ally2.lvl;
-        ally2HpSlider.maxValue = ally2.hpmax;
-        ally2HpSlider.value = ally2.currenthp;
-        ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
+
+        if (ally1 != null)
+        {
+            ally1NameText.text = ally1.name;
+            ally1LvlText.text = "Lvl " + ally1.lvl;
+            ally1HpSlider.maxValue = ally1.hpmax;
+            ally1HpSlider.value = ally1.currenthp;
+            ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
+        }
+        /*else
+        {
+            ally1NameText.; = null;
+            ally1LvlText.text = null;
+            ally1HpSlider.maxValue = ;
+            ally1HpSlider.value = null;
+            ally1HpText.text = null;
+        }*/
+
+        if (ally2 != null)
+        {
+            ally2NameText.text = ally2.name;
+            ally2LvlText.text = "Lvl " + ally2.lvl;
+            ally2HpSlider.maxValue = ally2.hpmax;
+            ally2HpSlider.value = ally2.currenthp;
+            ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
+        }
+ 
         
 
 

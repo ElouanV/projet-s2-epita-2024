@@ -6,8 +6,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
-// Author : Settha
 
 public enum BattleState
 {
@@ -74,41 +74,86 @@ public class BattleSystem : MonoBehaviour
 
     public void SetupBattle() //faire spawn les entités au bonne endroit et mettre les UI a jour
     {
+        Random random = new Random();
+        int numberEnemi = random.Next(1, 3);
+
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
-        
+
         GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
         ally1Unit = ally1Object.GetComponent<Entity>();
-        
+
         GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
         ally2Unit = ally2Object.GetComponent<Entity>();
 
-        GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-        enemyUnit = enemyObject.GetComponent<Entity>();
-        
-        GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-        enemy1Unit = enemy1Object.GetComponent<Entity>();
-        
-        GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
-        enemy2Unit = enemy2Object.GetComponent<Entity>();
+
+        if (numberEnemi == 1)
+        {
+            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+        }
+
+        if (numberEnemi == 2)
+        {
+            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+
+            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+            enemyUnit = enemy1Object.GetComponent<Entity>();
+        }
+
+        if (numberEnemi == 3)
+        {
+            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+
+            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+            enemyUnit = enemy1Object.GetComponent<Entity>();
+
+            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+            enemy2Unit = enemy2Object.GetComponent<Entity>();
+        }
+
+
+
+
+
+
+
 
         dialogue.text = "Vous entrez en combat !";
-        
-        
+
+
         playerHUD.SetupHUD(playerUnit, ally1Unit, ally2Unit);
-        enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
-        
+
+        if (numberEnemi == 1)
+        {
+            enemyHUD.SetupHUD(enemyUnit, null, null);
+        }
+
+        if (numberEnemi == 2)
+        {
+            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, null);
+        }
+
+        if (numberEnemi == 3)
+        {
+            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
+        }
+
         state = BattleState.PLAYERTURN;
     }
 
 
 
 
-    
+
+
     //BattleSystem
 
     IEnumerator playerBasicAttack()
     {
+        
         enemyUnit.GetHurt(playerUnit.Atk);
         enemyHUD.UpdateHp(enemyUnit.currenthp, enemyUnit);
         
@@ -211,6 +256,14 @@ public class BattleSystem : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
     
+    
+    //bouton choix adversaire
+
+    void attackEnemy(Entity unit, Entity player)
+    {
+        throw new NotImplementedException();
+    }
+
     
     
     
