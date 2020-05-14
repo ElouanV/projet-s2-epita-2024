@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Authors : Julien and Settha
+
 public class PlayerControler : MonoBehaviour
 {
     public float moveSpeed;

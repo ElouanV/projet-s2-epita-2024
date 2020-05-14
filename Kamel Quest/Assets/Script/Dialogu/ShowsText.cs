@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+// Author : Julien
 public class ShowsText : MonoBehaviour
 {
     public float Speed = 0.02f;

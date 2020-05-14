@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+// Author : Elouan
 /// <summary>
 /// The main <c>Inventory_test</c> class.
 /// Contains all methods for performing the player's inventory.
@@ -102,7 +103,7 @@ public class Inventory_test : MonoBehaviour
         }
         if  (Input.GetButtonDown(test3Button))
         {
-            
+            AddToInventory(4,1);
         }
     }
     

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// Authors : Martin
 public class ShowInfoShop : MonoBehaviour
 {
     public GameObject MainInterface;

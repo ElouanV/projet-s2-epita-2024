@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Elouan
+///<summary>
+/// The <c> Ally </c> class which herit from Entity class.
+/// Is used to create the player's team.
+///</summary>
 public class Ally : Entity
 {
+    ///<summary>
+    /// Constructor of ally class which take in parameters all stat of entity.
+    ///</summary>
     public Ally (long hpmax,  int atk, string name, int magicatk, int atkcost)
     {
         this.hpmax = hpmax;
@@ -12,16 +19,5 @@ public class Ally : Entity
         this.magicatk = magicatk;
         this.atkcost = atkcost;
         this.currenthp = hpmax;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

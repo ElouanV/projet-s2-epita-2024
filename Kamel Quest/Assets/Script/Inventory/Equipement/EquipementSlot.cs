@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+// Author : Elouan
 ///<system>
 /// The main <c>EquipementSlot</c> class.
 /// Contains all methods for performing each slot of equipment inventory
@@ -37,8 +38,6 @@ public class EquipementSlot : MonoBehaviour
     public int Lvl;
     [Header("For Test")]
     public string buttonTest;
-
-
     ///<summary>
     /// <para>Start is called before the first frame update</para>
     /// <para> Set sprite, slot lvl, and text </para>
@@ -95,8 +94,8 @@ public class EquipementSlot : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown(buttonTest))
-            {
-                Upgrade();
-            }
+        {
+            Upgrade();
+        }
     }
 }

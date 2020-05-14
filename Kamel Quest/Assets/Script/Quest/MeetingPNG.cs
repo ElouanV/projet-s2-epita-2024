@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Authors : Julien
 public class MeetingPNG : MonoBehaviour
 {
     // Start is called before the first frame update

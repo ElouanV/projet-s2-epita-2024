@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Settha
 public class UnitStat : MonoBehaviour
 {
     // Start is called before the first frame update

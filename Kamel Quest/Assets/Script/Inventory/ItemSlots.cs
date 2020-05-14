@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+// Author : Elouan
 /// <summary>
 /// The main <c>ItemSlots</c> class.
 /// Contains all methods for performing each slot of inventory

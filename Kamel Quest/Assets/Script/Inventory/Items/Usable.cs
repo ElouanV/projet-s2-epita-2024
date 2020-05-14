@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Author : Elouan
 /// <summary>
 /// Here is the constructor of Usable items
 ///<remaks>

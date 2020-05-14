@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Author : Settha
 
 public class Team : MonoBehaviour
 {

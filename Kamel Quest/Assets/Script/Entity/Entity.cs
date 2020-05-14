@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Elouan
+///<summary>
+/// The <c> Entity </c> class which class Ennemy, Player and Ally herit.
+/// Is create all entity attribute.
+///</summary>
 public class Entity : MonoBehaviour
 {
     public readonly long[] LEVELUPXPNEEDED = {50, 125, 225, 350, 500, 700, 950, 1200, 1600};
@@ -113,16 +117,5 @@ public class Entity : MonoBehaviour
         hpmax += HPMAXPROGRESSION[lvl];
         xp = setxp;
         lvl += 1;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

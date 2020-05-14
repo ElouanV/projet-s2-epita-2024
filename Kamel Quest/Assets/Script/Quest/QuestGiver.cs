@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Authors : Julien
 public class QuestGiver: MonoBehaviour
 {
 	public Quest quest;

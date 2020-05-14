@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Julien
 public class ShowsBubbleText : MonoBehaviour
 {
     public GameObject Bubble;

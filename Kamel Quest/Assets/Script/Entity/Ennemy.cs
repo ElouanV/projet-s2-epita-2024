@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Elouan
+///<summary>
+/// The <c> Ennemy </c> class which herit from Entity class.
+/// Is used to create ennemy team.
+///</summary>
 public class Ennemy : Entity
 {
+    ///<summary>
+    /// Constructor of ennemy class which take in parameters all stat of entity
+    ///</summary>
     public Ennemy(long hpmax,  int atk, string name, int magicatk, int atkcost)
     {
         this.hpmax = hpmax;
@@ -13,15 +20,5 @@ public class Ennemy : Entity
         this.atkcost = atkcost;
         this.currenthp = hpmax;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

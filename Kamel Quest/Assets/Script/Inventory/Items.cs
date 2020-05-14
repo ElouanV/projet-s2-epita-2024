@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Author : Elouan
 /// <summary>
 /// The main <c>Items</c> class.
 /// Mother class which class Usable, Stuff, Others herit.

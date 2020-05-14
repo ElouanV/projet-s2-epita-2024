@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Authors : Julien
 public enum QuestState
 {
     NONE,

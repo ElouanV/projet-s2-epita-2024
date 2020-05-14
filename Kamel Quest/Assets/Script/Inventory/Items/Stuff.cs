@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Author : Elouan
 /// <summary>
 /// Here is the constructor of Stuff items
 ///<remaks>
@@ -25,6 +25,9 @@ public class Stuff : Items
         this.type = 1;
         this.sprite = sprite;
     }
+    
+
+
     
 
 }

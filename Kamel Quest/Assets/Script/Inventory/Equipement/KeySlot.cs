@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-
+// Author : Elouan
 ///<system>
 /// The main <c>KeySlot</c> class.
 /// Contains all methods for performing each slot of equipment inventory

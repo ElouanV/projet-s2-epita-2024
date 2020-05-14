@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Slider = UnityEngine.UIElements.Slider;
+// Author : Settha
 
 public class BattleUI : MonoBehaviour
 {

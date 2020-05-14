@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Authors : Julien
 public class PickingItem : MonoBehaviour
 {
     public GameObject Player;
