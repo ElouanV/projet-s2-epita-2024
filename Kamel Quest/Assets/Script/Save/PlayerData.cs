@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 //Author : Elouan
 
 [System.Serializable]
-public class PlayerData : MonoBehaviour
+public class PlayerData
 {
     // Player 
     [Header("Player")]
@@ -31,6 +31,7 @@ public class PlayerData : MonoBehaviour
     public int qualityIndex;
     public bool isFullScreen;
     public int resolutionIndex;
+
 
     // Constructor
 
@@ -73,5 +74,4 @@ public class PlayerData : MonoBehaviour
             }
         }
     }
-
 }
