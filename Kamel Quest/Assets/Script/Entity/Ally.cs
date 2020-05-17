@@ -11,7 +11,7 @@ public class Ally : Entity
     ///<summary>
     /// Constructor of ally class which take in parameters all stat of entity.
     ///</summary>
-    public Ally (long hpmax,  int atk, string name, int magicatk, int atkcost)
+    public Ally (int hpmax,  int atk, string name, int magicatk, int atkcost)
     {
         this.hpmax = hpmax;
         this.atk = atk;

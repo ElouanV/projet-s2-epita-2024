@@ -14,11 +14,14 @@ public class Player : Entity
     public int bouclierlvl;
     public int casquelvl;
     public int armure;
+    public int[] inventoryID;
+    public int[] inventoryCount;
+    public Ally[] team;
 
     ///<summary>
     /// Constructor of player class which take in parameters all stat of player.
     ///</summary>
-    public Player(long hpmax, int armure,  int atk, string name, int magicatk, int atkcost, int argent, int armurelvl, int epeelvl, int bouclierlvl, int casquelvl)
+    public Player(int hpmax, int armure,  int atk, string name, int magicatk, int atkcost, int argent, int armurelvl, int epeelvl, int bouclierlvl, int casquelvl)
     {
         this.argent = argent;
         this.currenthp = hpmax;
@@ -33,5 +36,10 @@ public class Player : Entity
         this.epeelvl = epeelvl;
         this.bouclierlvl = bouclierlvl;
         this.casquelvl = casquelvl;
+        // Inventory
+        inventoryID = new int[20];
+        inventoryCount = new int[20];
+        // Player's ally
+        team = new Ally[2];
     }
 }
