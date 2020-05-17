@@ -52,6 +52,7 @@ public class Inventory_test : MonoBehaviour
     public string test3Button = "Test3";
     public Sprite healPotionSprite;
     public Sprite monsterRelicSprite;
+    public Player player;
     
     [Header("Inventory's Data")]
     
@@ -122,6 +123,9 @@ public class Inventory_test : MonoBehaviour
     /// <remakrs> 
     /// If the number of item exced 64 in a slot, this function will create a new item in the next slot
     ///</remarks>
+    ///<remarks>
+    /// It update both player's inventory array 
+    ///</remarks>
     ///<return>
     /// A bool to confirm is the addition has been done succesfully 
     ///</return>
@@ -147,6 +151,7 @@ public class Inventory_test : MonoBehaviour
                 if (item.itemCount + counttoadd <= 64)
                 {
                     item.itemCount += counttoadd;
+                    player.inventoryCount[i] += counttoadd; // Add to player inventory array
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     done = true;
                     counttoadd = 0;
@@ -155,6 +160,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     counttoadd = counttoadd - 64 + item.itemCount;
                     item.itemCount = 64;
+                    player.inventoryCount[i] = 64;  // Add to player inventory array
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                 }
                 Debug.Log("Test : Le script ajoute l'item existant");
@@ -178,6 +184,9 @@ public class Inventory_test : MonoBehaviour
             item.itemCount = counttoadd;
             item.nbrItem.text = Convert.ToString(counttoadd);
             done = true;
+            //Player inventory array : 
+            player.inventoryCount[i] = counttoadd;
+            player.inventoryID[i] = ID;
         }
         return done;
     }
@@ -189,6 +198,9 @@ public class Inventory_test : MonoBehaviour
     /// <param> count </param> is the number of item to remove
     ///<remakrs> 
     /// If the number of item drop to  in a slot, this function will remove item in another slots
+    ///</remarks>
+    ///<remarks>
+    /// It update both player's inventory array 
     ///</remarks>
     ///<return>
     /// A bool to confirm is the deletion has been done succesfully 
@@ -213,6 +225,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     Debug.Log(" supprime x fois l'item avec l'id correspondant");
                     item.itemCount -= count;
+                    player.inventoryCount[i] -= count;
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     count = 0;
                     found = true;
@@ -230,6 +243,9 @@ public class Inventory_test : MonoBehaviour
                     item.itemName = "";
                     item.itemDescription = "";
                     count -= item.itemCount;
+                    //Player inventory array
+                    player.inventoryCount[i] = 0;
+                    player.inventoryID[i] = 0;
                 }
             }
             i+=1;
