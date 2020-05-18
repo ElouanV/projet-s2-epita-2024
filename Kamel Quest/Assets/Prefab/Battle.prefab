@@ -783,7 +783,7 @@ RectTransform:
   - {fileID: 435942007714660693}
   - {fileID: 435942006907288122}
   m_Father: {fileID: 435942007355709959}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1061,7 +1061,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435942007355709959}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1216,7 +1216,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435942007800170143}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -2377,8 +2377,8 @@ RectTransform:
   - {fileID: 435942007730641182}
   - {fileID: 435942008285499977}
   - {fileID: 435942007322860499}
-  - {fileID: 435942006911312479}
   - {fileID: 435942006875305042}
+  - {fileID: 435942006911312479}
   - {fileID: 435942006857352780}
   - {fileID: 435942008704038147}
   m_Father: {fileID: 435942007781107615}
@@ -4057,8 +4057,8 @@ RectTransform:
   - {fileID: 435942006776974022}
   - {fileID: 435942008323854991}
   - {fileID: 435942008344073156}
-  - {fileID: 435942006917113455}
   - {fileID: 435942008101221797}
+  - {fileID: 435942006917113455}
   - {fileID: 435942008751144173}
   - {fileID: 435942008386756959}
   m_Father: {fileID: 435942007781107615}
@@ -4614,7 +4614,7 @@ RectTransform:
   - {fileID: 435942007972656661}
   - {fileID: 435942007115562148}
   m_Father: {fileID: 435942007800170143}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4865,6 +4865,8 @@ MonoBehaviour:
   dialogue: {fileID: 435942008417554269}
   playerHUD: {fileID: 435942007800170136}
   enemyHUD: {fileID: 435942007355709952}
+  ChooseEnemyCanvas: {fileID: 0}
+  BattleButtonCanvas: {fileID: 0}
 --- !u!1 &435942008129988610
 GameObject:
   m_ObjectHideFlags: 0

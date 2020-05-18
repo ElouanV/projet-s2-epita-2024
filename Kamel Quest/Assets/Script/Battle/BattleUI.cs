@@ -10,7 +10,7 @@ using Slider = UnityEngine.UIElements.Slider;
 public class BattleUI : MonoBehaviour
 {
 
-    
+     
     
     //joueur
     public TextMeshProUGUI nameText;
@@ -55,6 +55,7 @@ public class BattleUI : MonoBehaviour
             ally1HpSlider.maxValue = ally1.hpmax;
             ally1HpSlider.value = ally1.currenthp;
             ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
+            Debug.Log("ca marche");
         }
         /*else
         {
@@ -72,6 +73,7 @@ public class BattleUI : MonoBehaviour
             ally2HpSlider.maxValue = ally2.hpmax;
             ally2HpSlider.value = ally2.currenthp;
             ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
+            Debug.Log(ally2.currenthp);
         }
  
         
@@ -79,9 +81,9 @@ public class BattleUI : MonoBehaviour
 
     }
 
-    public void UpdateHp(long hp, Entity unit)
+    public void UpdateHp(long hp, Entity unit, UnityEngine.UI.Slider slider, TextMeshProUGUI hpText)
     {
-        hpSlider.value = hp;
-        unitHpText.text = hp + "/" + unit.hpmax;
+        slider.value = hp;
+        hpText.text = hp + "/" + unit.hpmax;
     }
 }

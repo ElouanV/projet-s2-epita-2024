@@ -30,8 +30,6 @@
           </e>
           <e p="Interface" t="Include">
             <e p="MainInterface.cs" t="Include" />
-            <e p="MainMenu.cs" t="Include" />
-            <e p="Pause.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
             <e p="Equipement" t="Include">
@@ -48,11 +46,22 @@
             <e p="ItemSlots.cs" t="Include" />
             <e p="PickingItem.cs" t="Include" />
           </e>
+          <e p="LevelLoader.cs" t="Include" />
+          <e p="Menu" t="Include">
+            <e p="MainMenu.cs" t="Include" />
+            <e p="Pause.cs" t="Include" />
+            <e p="SettingMenu.cs" t="Include" />
+          </e>
           <e p="PlayerControler.cs" t="Include" />
           <e p="Quest" t="Include">
             <e p="MeetingPNG.cs" t="Include" />
+            <e p="Progression.cs" t="Include" />
             <e p="Quest.cs" t="Include" />
             <e p="QuestGiver.cs" t="Include" />
+          </e>
+          <e p="Save" t="Include">
+            <e p="PlayerData.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
           </e>
           <e p="Shop" t="Include">
             <e p="Bouton.cs" t="Include" />
