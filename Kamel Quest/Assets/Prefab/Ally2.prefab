@@ -48,6 +48,9 @@ MonoBehaviour:
   currenthp: 20
   atk: 1
   name: Assembleur
+  magicatk: 0
+  atkcost: 0
+  xp: 0
   lvl: 2024
   isalive: 1
 --- !u!1 &4405086069842338852

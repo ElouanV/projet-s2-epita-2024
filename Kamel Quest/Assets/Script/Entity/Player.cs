@@ -46,7 +46,7 @@ public class Player : Entity
         inventoryID = new int[20];
         inventoryCount = new int[20];
         // Player's ally
-        team = new Ally[2];
+        this.team = new Ally[2];
     }
 
 

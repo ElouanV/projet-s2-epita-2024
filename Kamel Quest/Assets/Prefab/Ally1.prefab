@@ -129,5 +129,8 @@ MonoBehaviour:
   currenthp: 20
   atk: 5
   name: Python
+  magicatk: 0
+  atkcost: 0
+  xp: 0
   lvl: 2024
   isalive: 1

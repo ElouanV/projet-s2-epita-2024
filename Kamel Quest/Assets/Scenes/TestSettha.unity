@@ -881,6 +881,24 @@ PrefabInstance:
       propertyPath: ChooseEnemyCanvas
       value: 
       objectReference: {fileID: 1948601490}
+    - target: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 4134555351264803691, guid: 0a5547e3e13bbb84db28f444746c2273,
+        type: 3}
+    - target: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: enemy1Prefab
+      value: 
+      objectReference: {fileID: 8425857221086636919, guid: 526f43ba2322b8b449dbc6c91f9c62e4,
+        type: 3}
+    - target: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: enemy2Prefab
+      value: 
+      objectReference: {fileID: 4083699458219170192, guid: c1c091fab0a24c5408eb73ea0890dfa5,
+        type: 3}
     - target: {fileID: 435942008300944874, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
       propertyPath: m_AnchorMax.y
