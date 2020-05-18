@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 // Author : Elouan
 /// <summary>
 /// The main <c>Inventory_test</c> class.
@@ -42,7 +43,8 @@ public class Inventory_test : MonoBehaviour
     public GameObject itemList;
     
     [Header ("Button list")]
-    public string inventoryButton;
+    public string inventoryButton = "Inventory";
+    public string menuButton = "Menu";
 
     [Header("For Test")]
     public string testButton;
@@ -50,6 +52,7 @@ public class Inventory_test : MonoBehaviour
     public string test3Button = "Test3";
     public Sprite healPotionSprite;
     public Sprite monsterRelicSprite;
+    public Player player;
     
     [Header("Inventory's Data")]
     
@@ -105,6 +108,10 @@ public class Inventory_test : MonoBehaviour
         {
             AddToInventory(4,1);
         }
+        if (Input.GetButtonDown(menuButton))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
     
     ///<summary>
@@ -116,14 +123,19 @@ public class Inventory_test : MonoBehaviour
     /// <remakrs> 
     /// If the number of item exced 64 in a slot, this function will create a new item in the next slot
     ///</remarks>
+    ///<remarks>
+    /// It update both player's inventory array 
+    ///</remarks>
+    ///<return>
+    /// A bool to confirm is the addition has been done succesfully 
+    ///</return>
     ///</summary>
 
     // Ajoute un élèment pas encore présent dans l'inventaire
     // Debug.Log pour tester la fonction
-    // Amélioration : Créer une limite de stack pour éviter de faire exploser le PC du jury à la soutenance finale
-    // A faire : Si l'inventaire est plein, doit retourner faux afin que dans la boutique, un achat ne puisse pas être fait si l'inventaire est plein
-    public void AddToInventory(int ID,int counttoadd)
+    public bool AddToInventory(int ID,int counttoadd)
     {
+
         int i = 0;
         bool done = false;
         ItemSlots item = arrItemsSlot[0].GetComponent<ItemSlots>();
@@ -139,6 +151,7 @@ public class Inventory_test : MonoBehaviour
                 if (item.itemCount + counttoadd <= 64)
                 {
                     item.itemCount += counttoadd;
+                    player.inventoryCount[i] += counttoadd; // Add to player inventory array
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     done = true;
                     counttoadd = 0;
@@ -147,6 +160,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     counttoadd = counttoadd - 64 + item.itemCount;
                     item.itemCount = 64;
+                    player.inventoryCount[i] = 64;  // Add to player inventory array
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                 }
                 Debug.Log("Test : Le script ajoute l'item existant");
@@ -154,7 +168,7 @@ public class Inventory_test : MonoBehaviour
             i+=1;
         }
         Debug.Log("Test : Le script arrive sort dans la boucle");
-        if (!done)
+        if (!done && i <20)
         {
             Transform goitem = itemList.transform.GetChild(ID);
             Items myitem = goitem.GetComponent<Items>();
@@ -169,7 +183,12 @@ public class Inventory_test : MonoBehaviour
             item.itemSprite = myitem.sprite;
             item.itemCount = counttoadd;
             item.nbrItem.text = Convert.ToString(counttoadd);
+            done = true;
+            //Player inventory array : 
+            player.inventoryCount[i] = counttoadd;
+            player.inventoryID[i] = ID;
         }
+        return done;
     }
 
     ///<summary>
@@ -180,10 +199,16 @@ public class Inventory_test : MonoBehaviour
     ///<remakrs> 
     /// If the number of item drop to  in a slot, this function will remove item in another slots
     ///</remarks>
+    ///<remarks>
+    /// It update both player's inventory array 
+    ///</remarks>
+    ///<return>
+    /// A bool to confirm is the deletion has been done succesfully 
+    ///</return>
     ///</summary>
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
-    public void RemoveFromInventory(int ID,int count)
+    public bool RemoveFromInventory(int ID,int count)
     {
         Debug.Log("La fonction est appelée");
         int i =0;
@@ -200,6 +225,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     Debug.Log(" supprime x fois l'item avec l'id correspondant");
                     item.itemCount -= count;
+                    player.inventoryCount[i] -= count;
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     count = 0;
                     found = true;
@@ -217,6 +243,9 @@ public class Inventory_test : MonoBehaviour
                     item.itemName = "";
                     item.itemDescription = "";
                     count -= item.itemCount;
+                    //Player inventory array
+                    player.inventoryCount[i] = 0;
+                    player.inventoryID[i] = 0;
                 }
             }
             i+=1;
@@ -226,7 +255,13 @@ public class Inventory_test : MonoBehaviour
             // Si le nombre d'item présent dans l'inventaire n'était pas suffisant
             Debug.Log("You ask to remove to much time the item or you try to remove an item which was'nt in the inventory."
             +"All counter of this item have been set to 0 and items which correcpund to the enter ID have been removed");
+            return false;
         }
+        else
+        {
+            return true;
+        }
+
     }
 
 

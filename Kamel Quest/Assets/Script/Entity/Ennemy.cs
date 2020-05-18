@@ -11,7 +11,7 @@ public class Ennemy : Entity
     ///<summary>
     /// Constructor of ennemy class which take in parameters all stat of entity
     ///</summary>
-    public Ennemy(long hpmax,  int atk, string name, int magicatk, int atkcost)
+    public Ennemy(int hpmax,  int atk, string name, int magicatk, int atkcost)
     {
         this.hpmax = hpmax;
         this.atk = atk;

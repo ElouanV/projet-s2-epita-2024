@@ -8,28 +8,28 @@ using UnityEngine;
 ///</summary>
 public class Entity : MonoBehaviour
 {
-    public readonly long[] LEVELUPXPNEEDED = {50, 125, 225, 350, 500, 700, 950, 1200, 1600};
+    public readonly int[] LEVELUPXPNEEDED = {50, 125, 225, 350, 500, 700, 950, 1200, 1600};
     public readonly int[] ATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
     public readonly int[] MAGICATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
-    public readonly long[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
+    public readonly int[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
     #region constructor
     // Attribut de la classe Entity
-    public long hpmax;
-    public long currenthp;
+    public int hpmax;
+    public int currenthp;
     public int atk;
     public string name;
-    protected int magicatk;
-    protected long atkcost;
-    protected long xp;
+    public int magicatk;
+    public int atkcost;
+    public int xp;
     public int lvl;
     public bool isalive;
     
     //getter et setter
-    public long Hpmax
+    public int Hpmax
     { 
         get => hpmax; 
     }
-    public long CurrentHp
+    public int CurrentHp
     {
         get => currenthp;
     }
@@ -41,7 +41,7 @@ public class Entity : MonoBehaviour
     {
         get => magicatk;
     }
-    public long Xp
+    public int Xp
     {
         get => xp;
     }
@@ -70,7 +70,7 @@ public class Entity : MonoBehaviour
     
     
 
-    public void GetHurt(long damage) // inflige damage points de dégats à l'entité
+    public void GetHurt(int damage) // inflige damage points de dégats à l'entité
     {
         if (currenthp > damage)
         {
@@ -83,7 +83,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public void GetHeal(long heal) // soigne l'entité de heal points de vie
+    public void GetHeal(int heal) // soigne l'entité de heal points de vie
     {
         if (currenthp + heal <= hpmax)
         {
@@ -97,7 +97,7 @@ public class Entity : MonoBehaviour
 
     
 
-    public void GetXp(long xpearned) // augmente l'xp de xpearned points
+    public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
         if (xp + xpearned >= LEVELUPXPNEEDED[lvl])
         {
@@ -110,7 +110,7 @@ public class Entity : MonoBehaviour
             xp += xpearned;
         }
     }
-    protected void LvlUp(long setxp) // appelé si l'entité augmente de niveau
+    protected void LvlUp(int setxp) // appelé si l'entité augmente de niveau
     {
         atk += ATKPROGRESSION[lvl];
         magicatk += MAGICATKPROGRESSION[lvl];
