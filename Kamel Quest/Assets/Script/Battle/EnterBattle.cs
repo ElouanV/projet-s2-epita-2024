@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 public class EnterBattle : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool is_active;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && is_active)
         {
             SceneManager.LoadScene("FightScene");
         }

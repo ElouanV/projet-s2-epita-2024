@@ -58,10 +58,10 @@ public class Quest : MonoBehaviour
             {
                 Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been accepted.");
 
-                // To add: Add quest to progression
                 State = QuestState.STARTED;
                 Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
                 transform.GetComponent<ShowsText>().OnEnable();
+
                 StartQuest(type);
             }
             else if (Input.GetKeyUp("n"))
@@ -123,6 +123,9 @@ public class Quest : MonoBehaviour
                 Target.GetComponent<MeetingPNG>().is_active = true;
                 break;
             case QuestType.Killing:
+				Target.GetComponent<EnterBattle>().is_active = true;
+				if (completed) UpdateState();
+				break;
 			case QuestType.Bringing:
                 if (completed) UpdateState();
                 break;	
