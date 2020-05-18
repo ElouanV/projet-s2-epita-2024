@@ -16,7 +16,6 @@ public enum QuestType
 {
     Meeting, // Go to meet someone
     Killing, // Go to kill an ennemy
-    Finding, // find and Add an object to his inventory
     Bringing // Bring an object to the PNG
 }
 
@@ -26,14 +25,17 @@ public class Quest : MonoBehaviour
     public QuestState State;
     public GameObject Target;
     public GameObject Player;
-    public bool BackToPNJ;
-
+    
     public string title;
     public string desc;
     public int exp;
     public Items reward;
 
+	public bool BackToPNJ;
     public bool completed;
+
+	public bool anex;
+	public GameObject scene;
 
     // This willupdate the state of the quest if it's needed
     public void UpdateState()
@@ -98,7 +100,9 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
-            Player.GetComponent<Progression>().NextQuest();
+            if (anex) scene.SetActive(false);
+			else Player.GetComponent<Progression>().NextQuest();
+			
         }
 
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
@@ -113,10 +117,9 @@ public class Quest : MonoBehaviour
             case QuestType.Meeting:
                 Target.GetComponent<MeetingPNG>().is_active = true;
                 break;
-            case QuestType.Finding:
+            case QuestType.Killing:
                 if (completed) UpdateState();
                 break;
-            //case QuestType.Finding:
         }
     }
 

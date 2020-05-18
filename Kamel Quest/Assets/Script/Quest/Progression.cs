@@ -9,7 +9,10 @@ public class Progression : MonoBehaviour
     public int Nb_Quest;
     public int Current;
     public int prog_percent;
-    
+
+    public List<GameObject> ProgAnex;
+    public GameObject CurrentQuestAnex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +35,6 @@ public class Progression : MonoBehaviour
 
     public void NextQuest()
     {
-        
         DeletedQuest();
         Current++;
         prog_percent = (Current) * 100 / Prog.Count;
