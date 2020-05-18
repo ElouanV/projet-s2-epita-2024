@@ -209,6 +209,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 435942008254205875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685497040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435942007472811360, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+    type: 3}
+  m_PrefabInstance: {fileID: 435942008254205875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035597324
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +296,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1035597327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 435942008254205878}
+        m_MethodName: ChooseEnemy1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1035597327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +670,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1776469426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 435942008254205878}
+        m_MethodName: ChooseEnemy2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1776469426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +718,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776469423}
   m_CullTransparentMesh: 0
+--- !u!1 &1948601490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435942007393924415, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+    type: 3}
+  m_PrefabInstance: {fileID: 435942008254205875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &435942008254205875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 435942007163630158, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435942007163630158, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
@@ -776,7 +810,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 435942008254205876}
+      objectReference: {fileID: 435942008254205878}
+    - target: {fileID: 435942007163630158, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 435942007163630158, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 435942007163630159, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -797,6 +841,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 435942007393924415, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435942007393924415, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: m_Name
+      value: ChooseEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 435942007472811360, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 435942007723105177, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -807,6 +866,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 578959689}
+    - target: {fileID: 435942007800170136, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: battleButton
+      value: 
+      objectReference: {fileID: 685497040}
+    - target: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: BattleButtonCanvas
+      value: 
+      objectReference: {fileID: 685497040}
+    - target: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+        type: 3}
+      propertyPath: ChooseEnemyCanvas
+      value: 
+      objectReference: {fileID: 1948601490}
     - target: {fileID: 435942008300944874, guid: 0739e264b6cd9a84aa21b183b928aaf2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -824,9 +898,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0739e264b6cd9a84aa21b183b928aaf2, type: 3}
---- !u!1 &435942008254205876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 435942008109034535, guid: 0739e264b6cd9a84aa21b183b928aaf2,
+--- !u!114 &435942008254205878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 435942008109034533, guid: 0739e264b6cd9a84aa21b183b928aaf2,
     type: 3}
   m_PrefabInstance: {fileID: 435942008254205875}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28789fb4958508546b7609dada8184de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

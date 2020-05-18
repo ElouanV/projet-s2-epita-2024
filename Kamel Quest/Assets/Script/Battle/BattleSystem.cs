@@ -13,7 +13,11 @@ public enum BattleState
 {
     START,
     PLAYERTURN,
+    PLAYERTURN1,
+    PLAYERTURN2,
     ENEMYTURN,
+    ENEMYTURN1,
+    ENEMYTURN2,
     WIN,
     LOSE
 }
@@ -62,6 +66,9 @@ public class BattleSystem : MonoBehaviour
     //gestion des HUD de combats (affichage)
     public BattleUI playerHUD;
     public BattleUI enemyHUD;
+    public GameObject ChooseEnemyCanvas;
+    public GameObject BattleButtonCanvas;
+    
 
 
     // Start is called before the first frame update
@@ -107,14 +114,14 @@ public class BattleSystem : MonoBehaviour
     
     //BattleSystem
 
-    IEnumerator playerBasicAttack()
+    IEnumerator playerBasicAttack(Entity plUnit, Entity enUnit)
     {
-        enemyUnit.GetHurt(playerUnit.Atk);
-        enemyHUD.UpdateHp(enemyUnit.currenthp, enemyUnit);
+        enUnit.GetHurt(plUnit.Atk);
+        enemyHUD.UpdateHp(enUnit.currenthp, enUnit);
         
         yield return new WaitForSeconds(1f);
 
-        if (playerUnit.currenthp <= 0)
+        if (plUnit.currenthp <= 0)
         {
             state = BattleState.LOSE;
             LoseBattle();
@@ -124,10 +131,8 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
-
-       
-        
     }
+    
 
     IEnumerator playerHealSpell()
     {
@@ -173,11 +178,8 @@ public class BattleSystem : MonoBehaviour
 
     public void AttackButton()
     {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-        StartCoroutine(playerBasicAttack());
+        BattleButtonCanvas.SetActive(false);
+        ChooseEnemyCanvas.SetActive(true);
     }
 
     public void SkipButton()
@@ -192,7 +194,7 @@ public class BattleSystem : MonoBehaviour
         {
             
         }
-        throw new NotImplementedException();
+        throw new NotImplementedException("FIXE ME BITCH");
     }
 
 
@@ -201,6 +203,44 @@ public class BattleSystem : MonoBehaviour
         dialogue.text = "C'est votre tour";
     }
 
+    public void ChooseEnemy()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        BattleButtonCanvas.SetActive(true);
+        ChooseEnemyCanvas.SetActive(false);
+        StartCoroutine(playerBasicAttack(playerUnit,enemyUnit));
+    }
+    public void ChooseEnemy1()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        BattleButtonCanvas.SetActive(true);
+        ChooseEnemyCanvas.SetActive(false);
+        StartCoroutine(playerBasicAttack(playerUnit,enemy1Unit));
+    }
+    public void ChooseEnemy2()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        BattleButtonCanvas.SetActive(true);
+        ChooseEnemyCanvas.SetActive(false);
+        StartCoroutine(playerBasicAttack(playerUnit,enemy2Unit));
+    }
+    
+    
+    
+    
+    
+    
+    
+    //End Battle
     void LoseBattle()
     {
         SceneManager.LoadScene("Game");

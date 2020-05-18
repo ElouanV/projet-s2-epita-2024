@@ -11,7 +11,7 @@ using Slider = UnityEngine.UIElements.Slider;
 public class BattleUI : MonoBehaviour
 {
 
-    public GameObject battleButton;
+    
     
     //joueur
     public TextMeshProUGUI nameText;
@@ -29,6 +29,7 @@ public class BattleUI : MonoBehaviour
     public TextMeshProUGUI ally2LvlText;
     public UnityEngine.UI.Slider ally2HpSlider;
     public TextMeshProUGUI ally2HpText;
+    
     
     
     
