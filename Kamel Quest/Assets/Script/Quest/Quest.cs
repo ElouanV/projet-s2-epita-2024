@@ -25,6 +25,8 @@ public class Quest : MonoBehaviour
     public QuestType type;
     public QuestState State;
     public GameObject Target;
+    public GameObject Player;
+    public bool BackToPNJ;
 
     public string title;
     public string desc;
@@ -71,8 +73,13 @@ public class Quest : MonoBehaviour
             {
                 completed = false;
                 State = QuestState.COMPLETED;
+                if (!BackToPNJ)
+                {
+                    State = QuestState.ENDED;
+                    Player.GetComponent<Progression>().NextQuest();
+                    Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
+                else if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
                 Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
-                if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
             }
             else gameObject.SetActive(false);
         }
@@ -91,6 +98,7 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
+            Player.GetComponent<Progression>().NextQuest();
         }
 
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
