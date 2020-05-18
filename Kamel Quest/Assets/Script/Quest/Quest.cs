@@ -32,10 +32,14 @@ public class Quest : MonoBehaviour
     public Items reward;
 
 	public bool BackToPNJ;
-    public bool completed;
-
 	public bool anex;
 	public GameObject scene;
+
+    private bool completed;
+	public void Completed(bool value)
+	{
+		completed = value;
+	}
 
     // This willupdate the state of the quest if it's needed
     public void UpdateState()
@@ -45,6 +49,7 @@ public class Quest : MonoBehaviour
             State = QuestState.ACCEPTED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             transform.GetComponent<ShowsText>().OnEnable();
+			Debug.Log("TEST_ALPHA");
         }
 
         else if (State == QuestState.ACCEPTED)
@@ -77,7 +82,7 @@ public class Quest : MonoBehaviour
                 State = QuestState.COMPLETED;
                 if (!BackToPNJ)
                 {
-                    State = QuestState.ENDED;
+                    UpdateState();
                     Player.GetComponent<Progression>().NextQuest();
                     Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
                 else if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
@@ -118,8 +123,9 @@ public class Quest : MonoBehaviour
                 Target.GetComponent<MeetingPNG>().is_active = true;
                 break;
             case QuestType.Killing:
+			case QuestType.Bringing:
                 if (completed) UpdateState();
-                break;
+                break;	
         }
     }
 

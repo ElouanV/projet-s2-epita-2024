@@ -9,7 +9,7 @@ public class IsKilled : MonoBehaviour
 
     public void UpdateState()
     {
-        QuestGiver.GetComponent<Quest>().completed = true;
+        QuestGiver.GetComponent<Quest>().Completed(true);
         QuestGiver.GetComponent<Quest>().UpdateState();
     }
 }

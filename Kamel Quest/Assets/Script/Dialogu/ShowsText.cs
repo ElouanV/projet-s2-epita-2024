@@ -20,8 +20,7 @@ public class ShowsText : MonoBehaviour
     {
 	    if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
-		
-        Index = 0;
+	    Index = 0;
         Anim = false;
 
         Txt = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -32,18 +31,22 @@ public class ShowsText : MonoBehaviour
     void Update()
     {
 	    // Needed to accept the quest with Y
-		if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") || Input.GetKeyUp("n"))
-			transform.GetComponent<Quest>().UpdateState();
-		// Press space to show the next sentence
-        else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
+	    if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") ||
+	        Input.GetKeyUp("n"))
+	    {
+		    Debug.Log("TEST_BETA");
+		    transform.GetComponent<Quest>().UpdateState();
+	    }
+	    // Press space to show the next sentence
+	    else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
 	        // Once all the sentence have been said, this will update the state of the quest
-			if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
-			else if (Index == SentencesList.Count) gameObject.SetActive(false);
+	        if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
+	        else if (Index == SentencesList.Count) gameObject.SetActive(false);
 			// This display the current sentence
 			else
 			{
-            	string Sentence = SentencesList[Index].Replace("$", "\n");
+				string Sentence = SentencesList[Index].Replace("$", "\n");
             	StartCoroutine(ShowsTxt(Sentence));    
 				Index++;     
 			}
