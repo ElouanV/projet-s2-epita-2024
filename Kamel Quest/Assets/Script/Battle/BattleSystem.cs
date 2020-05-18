@@ -82,10 +82,11 @@ public class BattleSystem : MonoBehaviour
     public void SetupBattle() //faire spawn les entités au bonne endroit et mettre les UI a jour
     {
         Random random = new Random();
-        int numberEnemi = random.Next(1, 3);
+        int numberEnemi = 3; //random.Next(1, 3);
 
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
+        
 
         GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
         ally1Unit = ally1Object.GetComponent<Entity>();
@@ -106,7 +107,7 @@ public class BattleSystem : MonoBehaviour
             enemyUnit = enemyObject.GetComponent<Entity>();
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemyUnit = enemy1Object.GetComponent<Entity>();
+            enemy1Unit = enemy1Object.GetComponent<Entity>();
         }
 
         if (numberEnemi == 3)
@@ -115,7 +116,7 @@ public class BattleSystem : MonoBehaviour
             enemyUnit = enemyObject.GetComponent<Entity>();
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemyUnit = enemy1Object.GetComponent<Entity>();
+            enemy1Unit = enemy1Object.GetComponent<Entity>();
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
@@ -162,7 +163,19 @@ public class BattleSystem : MonoBehaviour
     {
 
         enUnit.GetHurt(plUnit.Atk);
-        enemyHUD.UpdateHp(enUnit.currenthp, enUnit); 
+        if (enUnit == enemyUnit)
+        {
+            enemyHUD.UpdateHp(enUnit.currenthp, enUnit, enemyHUD.hpSlider, enemyHUD.unitHpText); 
+        }
+        if (enUnit == enemy1Unit)
+        {
+            enemyHUD.UpdateHp(enUnit.currenthp, enUnit, enemyHUD.ally1HpSlider, enemyHUD.ally1HpText); 
+        }
+        if (enUnit == enemy2Unit)
+        {
+            enemyHUD.UpdateHp(enUnit.currenthp, enUnit, enemyHUD.ally2HpSlider, enemyHUD.ally2HpText); 
+        }
+        
         yield return new WaitForSeconds(1f);
 
         if (plUnit.currenthp <= 0)
@@ -181,7 +194,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator playerHealSpell()
     {
         playerUnit.GetHeal(5);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit);
+        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText);
         yield return new WaitForSeconds(1f);
         
         
@@ -193,7 +206,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         playerUnit.GetHurt(enemyUnit.Atk);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit);
+        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText);
         yield return new WaitForSeconds(1f);
 
         if (enemyUnit.currenthp <= 0)
@@ -238,7 +251,7 @@ public class BattleSystem : MonoBehaviour
         {
             
         }
-        throw new NotImplementedException("FIXE ME BITCH");
+        throw new NotImplementedException("FIXE ME BITCH !");
     }
 
 
@@ -253,8 +266,9 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        BattleButtonCanvas.SetActive(true);
         ChooseEnemyCanvas.SetActive(false);
+        BattleButtonCanvas.SetActive(true);
+       
         StartCoroutine(playerBasicAttack(playerUnit,enemyUnit));
     }
     public void ChooseEnemy1()
@@ -263,8 +277,8 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        BattleButtonCanvas.SetActive(true);
         ChooseEnemyCanvas.SetActive(false);
+        BattleButtonCanvas.SetActive(true);
         StartCoroutine(playerBasicAttack(playerUnit,enemy1Unit));
     }
     public void ChooseEnemy2()
@@ -273,8 +287,8 @@ public class BattleSystem : MonoBehaviour
         {
             return;
         }
-        BattleButtonCanvas.SetActive(true);
         ChooseEnemyCanvas.SetActive(false);
+        BattleButtonCanvas.SetActive(true);
         StartCoroutine(playerBasicAttack(playerUnit,enemy2Unit));
     }
     
