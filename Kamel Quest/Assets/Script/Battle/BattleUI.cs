@@ -83,7 +83,10 @@ public class BattleUI : MonoBehaviour
 
     public void UpdateHp(long hp, Entity unit, UnityEngine.UI.Slider slider, TextMeshProUGUI hpText)
     {
+        
         slider.value = hp;
         hpText.text = hp + "/" + unit.hpmax;
+
     }
+    
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,6 +61,8 @@ public class BattleSystem : MonoBehaviour
     private Entity ally1Unit;
     private Entity ally2Unit;
     
+    
+    
     public BattleState state;
     public TextMeshProUGUI dialogue;
     
@@ -82,7 +85,7 @@ public class BattleSystem : MonoBehaviour
     public void SetupBattle() //faire spawn les entités au bonne endroit et mettre les UI a jour
     {
         Random random = new Random();
-        int numberEnemi = 3; //random.Next(1, 3);
+        int numberEnemy = random.Next(1, 3);
 
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
@@ -95,22 +98,34 @@ public class BattleSystem : MonoBehaviour
         ally2Unit = ally2Object.GetComponent<Entity>();
 
 
-        if (numberEnemi == 1)
-        {
-            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-            enemyUnit = enemyObject.GetComponent<Entity>();
-        }
-
-        if (numberEnemi == 2)
+        if (numberEnemy == 1)
         {
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
+            enemy1Unit.isalive = false;
+
+            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+            enemy2Unit = enemy2Object.GetComponent<Entity>();
+            enemy2Unit.isalive = false;
         }
 
-        if (numberEnemi == 3)
+        if (numberEnemy == 2)
+        {
+            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+
+            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+            enemy1Unit = enemy1Object.GetComponent<Entity>();
+
+            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+            enemy2Unit = enemy2Object.GetComponent<Entity>();
+            enemy2Unit.isalive = false;
+        }
+
+        if (numberEnemy == 3)
         {
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
@@ -134,17 +149,17 @@ public class BattleSystem : MonoBehaviour
 
         playerHUD.SetupHUD(playerUnit, ally1Unit, ally2Unit);
 
-        if (numberEnemi == 1)
+        if (numberEnemy == 1)
         {
             enemyHUD.SetupHUD(enemyUnit, null, null);
         }
 
-        if (numberEnemi == 2)
+        if (numberEnemy == 2)
         {
             enemyHUD.SetupHUD(enemyUnit, enemy1Unit, null);
         }
 
-        if (numberEnemi == 3)
+        if (numberEnemy == 3)
         {
             enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
         }
@@ -178,58 +193,170 @@ public class BattleSystem : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
 
-        if (plUnit.currenthp <= 0)
+        if (!playerUnit.isalive && !ally1Unit.isalive && !ally2Unit.isalive )
         {
             state = BattleState.LOSE;
             LoseBattle();
         }
         else
         {
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
+            if (!enUnit.isalive && enUnit == playerUnit)
+            {
+                enemyUnit = null;
+            }
+            if (!enUnit.isalive && enUnit == ally1Unit)
+            {
+                enemy1Unit = null;
+            }
+            if (!enUnit.isalive && enUnit == ally2Unit)
+            {
+                enemy2Unit = null;
+            }
+            
+            Random random = new Random();
+            int selectAlly = random.Next(1, 3);
+            switch (state)
+            {
+                case BattleState.PLAYERTURN :
+                    state = BattleState.ENEMYTURN;
+                    if (selectAlly == 1)
+                    {
+                        StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
+                    }
+                    if (selectAlly == 2)
+                    {
+                        StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
+                    }
+                    if (selectAlly == 3)
+                    {
+                        StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
+                    }
+                
+                    break;
+                case BattleState.PLAYERTURN1:
+                    state = BattleState.ENEMYTURN1;
+                    if (selectAlly == 1 && playerUnit.isalive)
+                    {
+                        StartCoroutine(EnemyTurn(playerUnit, enemy1Unit));
+                    }
+                    if (selectAlly == 2 && ally1Unit.isalive)
+                    {
+                        StartCoroutine(EnemyTurn(ally1Unit, enemy1Unit));
+                    }
+                    if (selectAlly == 3 && ally2Unit.isalive)
+                    {
+                        StartCoroutine(EnemyTurn(ally2Unit, enemy1Unit));
+                    }
+                    break;
+                case BattleState.PLAYERTURN2:
+                    state = BattleState.ENEMYTURN2;
+                    if (selectAlly == 1)
+                    {
+                        StartCoroutine(EnemyTurn(playerUnit, enemy2Unit));
+                    }
+                    if (selectAlly == 2)
+                    {
+                        StartCoroutine(EnemyTurn(ally1Unit, enemy2Unit));
+                    }
+                    if (selectAlly == 3)
+                    {
+                        StartCoroutine(EnemyTurn(ally2Unit, enemy2Unit));
+                    }
+                    break;
+            }
         }
     }
     
 
-    IEnumerator playerHealSpell()
+    //FIXE ME
+    IEnumerator playerHealSpell(Entity plUnit, Entity enUnit)
     {
-        playerUnit.GetHeal(5);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText);
+        plUnit.GetHeal(5);
+        playerHUD.UpdateHp(plUnit.currenthp, plUnit, playerHUD.hpSlider, playerHUD.unitHpText);
         yield return new WaitForSeconds(1f);
         
-        
-        
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
+        switch (state)
+        {
+            case BattleState.PLAYERTURN :
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn(plUnit, enemyUnit));
+                break;
+            case BattleState.PLAYERTURN1:
+                state = BattleState.ENEMYTURN1;
+                StartCoroutine(EnemyTurn(plUnit, enemy1Unit));
+                break;
+            case BattleState.PLAYERTURN2:
+                state = BattleState.ENEMYTURN2;
+                StartCoroutine(EnemyTurn(plUnit, enemy2Unit));
+                break;
+        }
     }
 
-    IEnumerator EnemyTurn()
+    IEnumerator EnemyTurn(Entity plUnit, Entity enUnit)
     {
-        playerUnit.GetHurt(enemyUnit.Atk);
-        playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText);
+        plUnit.GetHurt(enemyUnit.Atk);
+        if (plUnit == playerUnit)
+        {
+            playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText); 
+        }
+        if (plUnit == ally1Unit)
+        {
+            playerHUD.UpdateHp(ally1Unit.currenthp, ally1Unit, playerHUD.ally1HpSlider, playerHUD.ally1HpText); 
+        }
+        if (plUnit == ally2Unit)
+        {
+            playerHUD.UpdateHp(plUnit.currenthp, plUnit, playerHUD.ally2HpSlider, playerHUD.ally2HpText); 
+        }
         yield return new WaitForSeconds(1f);
 
-        if (enemyUnit.currenthp <= 0)
+        if (!enemyUnit.isalive  && !enemy1Unit.isalive   && !enemy2Unit.isalive)
         {
             state = BattleState.WIN;
             WinBattle();
         }
         else
         {
-            state = BattleState.PLAYERTURN;
+            if (!plUnit.isalive && plUnit == playerUnit)
+            {
+                playerUnit = null;
+            }
+            if (!plUnit.isalive && plUnit == ally1Unit)
+            {
+                ally1Unit = null;
+            }
+            if (!plUnit.isalive && plUnit == ally2Unit)
+            {
+                ally2Unit = null;
+            }
+
+            switch (state)
+            {
+                case BattleState.ENEMYTURN :
+                    state = BattleState.PLAYERTURN1;
+                    break;
+                case BattleState.ENEMYTURN1:
+                    state = BattleState.PLAYERTURN2;
+                    break;
+                case BattleState.ENEMYTURN2:
+                    state = BattleState.PLAYERTURN;
+                    break;
+            }
+            
         }
         
 
     }
-
+    
+    
+    //FIXE ME !
     public void SpellButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state != BattleState.PLAYERTURN || state != BattleState.PLAYERTURN1 || state != BattleState.PLAYERTURN2)
         {
             return;
         }
 
-        StartCoroutine(playerHealSpell());
+        StartCoroutine(playerHealSpell(playerUnit, enemyUnit));
     }
 
 
@@ -239,10 +366,25 @@ public class BattleSystem : MonoBehaviour
         ChooseEnemyCanvas.SetActive(true);
     }
 
-    public void SkipButton()
+    
+    //FIXE plUnit random
+    public void SkipButton(Entity plUnit, Entity enUnit)
     {
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
+        switch (state)
+        {
+            case BattleState.PLAYERTURN :
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn(plUnit, enemyUnit));
+                break;
+            case BattleState.PLAYERTURN1:
+                state = BattleState.ENEMYTURN1;
+                StartCoroutine(EnemyTurn(plUnit, enemy1Unit));
+                break;
+            case BattleState.PLAYERTURN2:
+                state = BattleState.ENEMYTURN2;
+                StartCoroutine(EnemyTurn(plUnit, enemy2Unit));
+                break;
+        }
     }
 
     public void InventoryButton()
@@ -262,34 +404,67 @@ public class BattleSystem : MonoBehaviour
 
     public void ChooseEnemy()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || enemyUnit == null)
         {
             return;
         }
         ChooseEnemyCanvas.SetActive(false);
         BattleButtonCanvas.SetActive(true);
-       
-        StartCoroutine(playerBasicAttack(playerUnit,enemyUnit));
+        
+        switch (state)
+        {
+            case BattleState.PLAYERTURN :
+                StartCoroutine(playerBasicAttack(playerUnit, enemyUnit));
+                break;
+            case BattleState.PLAYERTURN1:
+                StartCoroutine(playerBasicAttack(ally1Unit, enemyUnit));
+                break;
+            case BattleState.PLAYERTURN2:
+                StartCoroutine(playerBasicAttack(ally2Unit, enemyUnit));
+                break;
+        }
     }
     public void ChooseEnemy1()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemy1Unit.isalive)
         {
             return;
         }
         ChooseEnemyCanvas.SetActive(false);
         BattleButtonCanvas.SetActive(true);
-        StartCoroutine(playerBasicAttack(playerUnit,enemy1Unit));
+        switch (state)
+        {
+            case BattleState.PLAYERTURN :
+                StartCoroutine(playerBasicAttack(playerUnit, enemy1Unit));
+                break;
+            case BattleState.PLAYERTURN1:
+                StartCoroutine(playerBasicAttack(ally1Unit, enemy1Unit));
+                break;
+            case BattleState.PLAYERTURN2:
+                StartCoroutine(playerBasicAttack(ally2Unit, enemy1Unit));
+                break;
+        }
     }
     public void ChooseEnemy2()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemy2Unit.isalive)
         {
             return;
         }
         ChooseEnemyCanvas.SetActive(false);
         BattleButtonCanvas.SetActive(true);
-        StartCoroutine(playerBasicAttack(playerUnit,enemy2Unit));
+        switch (state)
+        {
+            case BattleState.PLAYERTURN :
+                StartCoroutine(playerBasicAttack(playerUnit, enemy2Unit));
+                break;
+            case BattleState.PLAYERTURN1:
+                StartCoroutine(playerBasicAttack(ally1Unit, enemy2Unit));
+                break;
+            case BattleState.PLAYERTURN2:
+                StartCoroutine(playerBasicAttack(ally2Unit, enemy2Unit));
+                break;
+        }
     }
     
     

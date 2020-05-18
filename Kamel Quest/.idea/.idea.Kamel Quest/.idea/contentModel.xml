@@ -30,6 +30,7 @@
           </e>
           <e p="Interface" t="Include">
             <e p="MainInterface.cs" t="Include" />
+            <e p="ShopInerface.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
             <e p="Equipement" t="Include">
@@ -54,6 +55,7 @@
           </e>
           <e p="PlayerControler.cs" t="Include" />
           <e p="Quest" t="Include">
+            <e p="IsKilled.cs" t="Include" />
             <e p="MeetingPNG.cs" t="Include" />
             <e p="Progression.cs" t="Include" />
             <e p="Quest.cs" t="Include" />

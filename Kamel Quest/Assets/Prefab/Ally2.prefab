@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpmax: 20
   currenthp: 20
-  atk: 1
+  atk: 2
   name: Assembleur
   magicatk: 0
   atkcost: 0

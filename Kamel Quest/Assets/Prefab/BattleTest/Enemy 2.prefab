@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpmax: 20
   currenthp: 20
-  atk: 2
+  atk: 3
   name: Caml
   magicatk: 0
   atkcost: 0

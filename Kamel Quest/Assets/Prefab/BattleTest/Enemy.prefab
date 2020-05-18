@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpmax: 20
   currenthp: 20
-  atk: 2
+  atk: 1
   name: A
   magicatk: 0
   atkcost: 0
