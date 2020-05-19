@@ -105,7 +105,7 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
-            if (anex) scene.SetActive(false);
+            if (anex) Destroy(scene);
 			else Player.GetComponent<Progression>().NextQuest();
 			
         }
