@@ -11,6 +11,8 @@ public class ShowShop : MonoBehaviour
     public GameObject Bubble;
     public GameObject MainInterface;
     public GameObject Shop_MainInterface;
+    public Player player;
+    public bool inventoryOpen = false;
 
     void OnTriggerEnter2D()
     {
@@ -37,11 +39,11 @@ public class ShowShop : MonoBehaviour
 
     void showshop()
     {
-        ShopCanvas.SetActive(!is_shop);
+        ShopCanvas.SetActive(!is_shop&& !inventoryOpen);
         MainInterface.SetActive(is_shop);
         
 
-        Cursor.visible = !is_shop; 
+        Cursor.visible = !is_shop&& !inventoryOpen; 
         if (is_shop) 
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -51,5 +53,6 @@ public class ShowShop : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
         is_shop = !is_shop;
+        player.GetComponent<Inventory_test>().shopOpen = is_shop;
     }
 }

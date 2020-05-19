@@ -39,7 +39,9 @@ public class Inventory_test : MonoBehaviour
     [Header ("Automatically set")]
     public GameObject playercam;
     public GameObject invetoryCanvas;
+    public GameObject shopPNJ;
     public bool inventoryOpen = false;
+    public bool shopOpen = false;
     public GameObject itemList;
     
     [Header ("Button list")]
@@ -47,13 +49,14 @@ public class Inventory_test : MonoBehaviour
     public string menuButton = "Menu";
 
     [Header("For Test")]
-    public string testButton;
+    public string testButton = "Test";
     public string test2Button = "Test2";
     public string test3Button = "Test3";
     
     
     [Header("Inventory's Data")]
     public Transform inventorySlots;
+
 
     [Header("ItemSlot")]
     public GameObject[] arrItemsSlot = new GameObject[20];
@@ -308,27 +311,24 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
     void ShowOrHideInventory ()
     {
-        invetoryCanvas.SetActive(!inventoryOpen); // active l'inventaire ou le desactive
+        invetoryCanvas.SetActive(!inventoryOpen&&!shopOpen); // active l'inventaire ou le desactive
 
-        //Gestion du curseur
-        // Rend le curseur visible si l'inventaire et ouvert, invisible si l'interface est fermé
+            //Gestion du curseur
+            // Rend le curseur visible si l'inventaire et ouvert, invisible si l'interface est fermé
         Cursor.visible = !inventoryOpen; 
         if (inventoryOpen) 
-        // Bloque le curseur hors de l'inventaire
+            // Bloque le curseur hors de l'inventaire
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
         else 
-        // Débloque le curseur dans l'inventaire
+            // Débloque le curseur dans l'inventaire
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        // inverse le booléen inventoryOpen
-        inventoryOpen = !inventoryOpen;
+            // inverse le booléen inventoryOpen
+        inventoryOpen = (!inventoryOpen && !shopOpen); 
+        shopPNJ.GetComponent<ShowShop>().inventoryOpen = inventoryOpen;
     }
-
-
-    // A faire ?
-    // ClearInventory() permtrais de supprimer tous les items de l'inventaire, peut être utile dans certains cas ?
 }
 
