@@ -54,9 +54,6 @@ public class Inventory_test : MonoBehaviour
     
     [Header("Inventory's Data")]
     public Transform inventorySlots;
-    public Player player;
-
-
 
     [Header("ItemSlot")]
     public GameObject[] arrItemsSlot = new GameObject[20];
@@ -169,6 +166,10 @@ public class Inventory_test : MonoBehaviour
                 Debug.Log("[Add to inventory] : Le script ajoute l'item existant");
             }
             i+=1;
+        }
+        if (i != 0)
+        {
+            i-=1;
         }
         Debug.Log("[Add to inventory] : Le script arrive sort dans la boucle");
         if (!done && i <20)
