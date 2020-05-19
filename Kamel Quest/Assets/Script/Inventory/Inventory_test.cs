@@ -50,13 +50,13 @@ public class Inventory_test : MonoBehaviour
     public string testButton;
     public string test2Button = "Test2";
     public string test3Button = "Test3";
-    public Sprite healPotionSprite;
-    public Sprite monsterRelicSprite;
-    public Player player;
+    
     
     [Header("Inventory's Data")]
-    
     public Transform inventorySlots;
+    public Player player;
+
+
 
     [Header("ItemSlot")]
     public GameObject[] arrItemsSlot = new GameObject[20];
@@ -74,7 +74,6 @@ public class Inventory_test : MonoBehaviour
         {
             playercam = GameObject.FindWithTag("MainCamera");
         }
-
         if (invetoryCanvas == null)
         {
             invetoryCanvas = GameObject.Find("Inventory_Panel");
@@ -133,25 +132,27 @@ public class Inventory_test : MonoBehaviour
 
     // Ajoute un élèment pas encore présent dans l'inventaire
     // Debug.Log pour tester la fonction
-    public bool AddToInventory(int ID,int counttoadd)
+    public bool AddToInventory(int ID, int counttoadd)
     {
 
         int i = 0;
         bool done = false;
         ItemSlots item = arrItemsSlot[0].GetComponent<ItemSlots>();
-        Debug.Log("Test : Le script arrive jusqu'au GetComponent");
+        Debug.Log("[Add to inventory] : Le script arrive jusqu'au GetComponent");
         while (i < 20 && !done && item.full)
         {
             //Vérifie si l'item est déja présent dans l'inventaire, si oui augmente item.count
-            Debug.Log("Test : Le script arrive entre dans la boucle à l'index " + i);
+            Debug.Log("[Add to inventory] : Le script arrive entre dans la boucle à l'index " + i);
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
-            Debug.Log("Test : Le script compare les ID d'item " + item.itemID + " celui en paramètre" + ID);
+            Debug.Log("[Add to inventory] : Le script compare les ID d'item " + item.itemID + " celui en paramètre" + ID);
             if (item.itemID == ID && item.itemCount <64)
             {
                 if (item.itemCount + counttoadd <= 64)
                 {
                     item.itemCount += counttoadd;
-                    player.inventoryCount[i] += counttoadd; // Add to player inventory array
+                     //Player's inventory array
+                    transform.GetComponent<Player>().inventoryCount[i] += counttoadd;
+                    //
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     done = true;
                     counttoadd = 0;
@@ -159,21 +160,23 @@ public class Inventory_test : MonoBehaviour
                 else
                 {
                     counttoadd = counttoadd - 64 + item.itemCount;
+                    // Player's inventory array 
+                    transform.GetComponent<Player>().inventoryCount[i] = 64;
+                    //
                     item.itemCount = 64;
-                    player.inventoryCount[i] = 64;  // Add to player inventory array
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                 }
-                Debug.Log("Test : Le script ajoute l'item existant");
+                Debug.Log("[Add to inventory] : Le script ajoute l'item existant");
             }
             i+=1;
         }
-        Debug.Log("Test : Le script arrive sort dans la boucle");
+        Debug.Log("[Add to inventory] : Le script arrive sort dans la boucle");
         if (!done && i <20)
         {
             Transform goitem = itemList.transform.GetChild(ID);
             Items myitem = goitem.GetComponent<Items>();
             //Créer un nouvel item
-            Debug.Log("Test : Le script créer un nouvel item");
+            Debug.Log("[Add to inventory] : Le script créer un nouvel item");
             item.textItem.text = myitem.itemName;
             item.itemID = ID;
             item.full = true;
@@ -182,11 +185,14 @@ public class Inventory_test : MonoBehaviour
             item.itemDescription = myitem.itemDescription;
             item.itemSprite = myitem.sprite;
             item.itemCount = counttoadd;
+            //Player's inventory array 
+            Debug.Log("Indice " + i);
+            transform.GetComponent<Player>().inventoryCount[i] = counttoadd;
+            transform.GetComponent<Player>().inventoryID[i] = ID;
+            //
+            Debug.Log("[Add to inventory] Indice " + i);
             item.nbrItem.text = Convert.ToString(counttoadd);
             done = true;
-            //Player inventory array : 
-            player.inventoryCount[i] = counttoadd;
-            player.inventoryID[i] = ID;
         }
         return done;
     }
@@ -208,24 +214,26 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
     // Supprime count fois l'item de l'inventaire
     // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
-    public bool RemoveFromInventory(int ID,int count)
+    public bool RemoveFromInventory(int ID, int count)
     {
-        Debug.Log("La fonction est appelée");
+        Debug.Log("[Remove from inventory] : La fonction est appelée");
         int i =0;
         bool found = false;
         ItemSlots item = arrItemsSlot[i].GetComponent<ItemSlots>();
         while (i < 20 && !found && count != 0)
         {
-            Debug.Log("La fonction entre dans la boucle while");
+            Debug.Log("[Remove from inventory] : La fonction entre dans la boucle while");
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
             if(item.itemID == ID)
             {
                 if (item.itemCount > count)
                 // Si le montant a supprimer est inférieur au nombre d'item contenus dans le slot
                 {
-                    Debug.Log(" supprime x fois l'item avec l'id correspondant");
+                    Debug.Log("[Remove from inventory] :  supprime x fois l'item avec l'id correspondant");
                     item.itemCount -= count;
-                    player.inventoryCount[i] -= count;
+                    //Player inventory array 
+                    transform.GetComponent<Player>().inventoryID[i] -= count;
+                    //
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     count = 0;
                     found = true;
@@ -236,6 +244,10 @@ public class Inventory_test : MonoBehaviour
                     // Delete item
                     // Pour rendre plus propre, créer une fonction dans item slots qui réinitialise toute les variables
                     item.itemCount = 0;
+                    //Player inventory array
+                    transform.GetComponent<Player>().inventoryID[i] = 0;
+                    transform.GetComponent<Player>().inventoryCount[i] = 0;
+                    //
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     item.RemoveSprite();
                     item.itemID = 0;
@@ -243,9 +255,6 @@ public class Inventory_test : MonoBehaviour
                     item.itemName = "";
                     item.itemDescription = "";
                     count -= item.itemCount;
-                    //Player inventory array
-                    player.inventoryCount[i] = 0;
-                    player.inventoryID[i] = 0;
                 }
             }
             i+=1;
@@ -253,7 +262,7 @@ public class Inventory_test : MonoBehaviour
         if (count != 0)
         {
             // Si le nombre d'item présent dans l'inventaire n'était pas suffisant
-            Debug.Log("You ask to remove to much time the item or you try to remove an item which was'nt in the inventory."
+            Debug.Log("[Remove from inventory] : You ask to remove to much time the item or you try to remove an item which was'nt in the inventory."
             +"All counter of this item have been set to 0 and items which correcpund to the enter ID have been removed");
             return false;
         }
@@ -263,6 +272,31 @@ public class Inventory_test : MonoBehaviour
         }
 
     }
+
+
+    public bool isInInventory(int ID, int needed)
+    {
+        int[] IDarray = transform.GetComponent<Player>().inventoryID;
+        int[] countarray = transform.GetComponent<Player>().inventoryCount;
+        int total = 0;
+        for (int i = 0; i < 20; i++)
+        {
+            if (IDarray[i] == ID)
+            {
+                total += countarray[i];
+            }
+        }
+        if (total >= needed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 
 
     ///<summary>
