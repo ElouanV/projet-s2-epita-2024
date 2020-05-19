@@ -46,7 +46,6 @@ public class Inventory_test : MonoBehaviour
     
     [Header ("Button list")]
     public string inventoryButton = "Inventory";
-    public string menuButton = "Menu";
 
     [Header("For Test")]
     public string testButton = "Test";
@@ -106,10 +105,6 @@ public class Inventory_test : MonoBehaviour
         if  (Input.GetButtonDown(test3Button))
         {
             AddToInventory(4,1);
-        }
-        if (Input.GetButtonDown(menuButton))
-        {
-            SceneManager.LoadScene("Menu");
         }
     }
     

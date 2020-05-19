@@ -863,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1171514989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2363,18 +2363,23 @@ PrefabInstance:
     - target: {fileID: 4186555353637042929, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 4186555353637042929, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186555353709187017, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 151044313}
+    - target: {fileID: 4186555353709187017, guid: cbdbfde9ad2ba204e898a261fa155f5e,
+        type: 3}
+      propertyPath: m_Value
+      value: -14.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4186555354481846884, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2383,17 +2388,17 @@ PrefabInstance:
     - target: {fileID: 4186555354575814706, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 4186555354575814706, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 4186555354575814706, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186555354686809622, guid: cbdbfde9ad2ba204e898a261fa155f5e,
         type: 3}
@@ -2509,6 +2514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OptionMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186555354998570049, guid: cbdbfde9ad2ba204e898a261fa155f5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbdbfde9ad2ba204e898a261fa155f5e, type: 3}
