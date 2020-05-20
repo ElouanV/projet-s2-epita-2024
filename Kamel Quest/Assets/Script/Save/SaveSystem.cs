@@ -10,7 +10,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
         // Create path to %userprofile%\AppData\Local\Packages\<productname>\LocalState.
-        string path = Application.persistentDataPath + "/player/currentSave.kamelquest";
+        string path = Application.persistentDataPath + "/player/player_save.kamelquest";
         // Create file strea
         FileStream stream = new FileStream(path,FileMode.Create);
         // Use the constructor of player data with player and audioMixer in parameter.
@@ -25,7 +25,7 @@ public static class SaveSystem
     public static PlayerData LoadPlayer()
     {
         // Get the path and load data only if file exist
-        string path = Application.persistentDataPath + "/player/currentSave.kameelquest";
+        string path = Application.persistentDataPath + "/player/player_save.kameelquest";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
