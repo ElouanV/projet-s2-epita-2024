@@ -50,14 +50,14 @@
             <e p="ItemSlots.cs" t="Include" />
             <e p="PickingItem.cs" t="Include" />
           </e>
-          <e p="LevelLoader.cs" t="Include" />
           <e p="Menu" t="Include">
             <e p="MainMenu.cs" t="Include" />
-            <e p="Pause.cs" t="Include" />
+            <e p="PauseMenu.cs" t="Include" />
             <e p="SettingMenu.cs" t="Include" />
           </e>
           <e p="PlayerControler.cs" t="Include" />
           <e p="Quest" t="Include">
+            <e p="GivingExpected.cs" t="Include" />
             <e p="IsKilled.cs" t="Include" />
             <e p="MeetingPNG.cs" t="Include" />
             <e p="Progression.cs" t="Include" />
@@ -68,6 +68,7 @@
             <e p="PlayerData.cs" t="Include" />
             <e p="SaveSystem.cs" t="Include" />
           </e>
+          <e p="SceneLoader.cs" t="Include" />
           <e p="Shop" t="Include">
             <e p="Bouton.cs" t="Include" />
             <e p="InterfaceShop.cs" t="Include" />

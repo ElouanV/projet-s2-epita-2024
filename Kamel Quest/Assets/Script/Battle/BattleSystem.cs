@@ -234,70 +234,22 @@ public class BattleSystem : MonoBehaviour
             if (!enUnit.isalive && enUnit == enemyUnit)
             {
                 enemyUnit.GetComponentInChildren<Renderer>().enabled = false;
-                enemyUnit = null;
+                
             }
             if (!enUnit.isalive && enUnit == enemy1Unit)
             {
-                enemy1Unit.GetComponentInChildren<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
-                enemy1Unit = null;
+                enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
+                
             }
             if (!enUnit.isalive && enUnit == enemy2Unit)
             {
-                enemy2Unit.GetComponentInChildren<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
-                enemy2Unit = null;
+                enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
+                
             }
             
             Random random = new Random();
             int selectAlly = random.Next(1, 4);
-            switch (state)
-            {
-                case BattleState.PLAYERTURN :
-                    state = BattleState.ENEMYTURN;
-                    if (selectAlly == 1)
-                    {
-                        StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
-                    }
-                    if (selectAlly == 2)
-                    {
-                        StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
-                    }
-                    if (selectAlly == 3)
-                    {
-                        StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
-                    }
-                
-                    break;
-                case BattleState.PLAYERTURN1:
-                    state = BattleState.ENEMYTURN1;
-                    if (selectAlly == 1 && playerUnit.isalive)
-                    {
-                        StartCoroutine(EnemyTurn(playerUnit, enemy1Unit));
-                    }
-                    if (selectAlly == 2 && ally1Unit.isalive)
-                    {
-                        StartCoroutine(EnemyTurn(ally1Unit, enemy1Unit));
-                    }
-                    if (selectAlly == 3 && ally2Unit.isalive)
-                    {
-                        StartCoroutine(EnemyTurn(ally2Unit, enemy1Unit));
-                    }
-                    break;
-                case BattleState.PLAYERTURN2:
-                    state = BattleState.ENEMYTURN2;
-                    if (selectAlly == 1)
-                    {
-                        StartCoroutine(EnemyTurn(playerUnit, enemy2Unit));
-                    }
-                    if (selectAlly == 2)
-                    {
-                        StartCoroutine(EnemyTurn(ally1Unit, enemy2Unit));
-                    }
-                    if (selectAlly == 3)
-                    {
-                        StartCoroutine(EnemyTurn(ally2Unit, enemy2Unit));
-                    }
-                    break;
-            } 
+            changingStateEnemy(plUnit, enUnit, selectAlly);
         }
     }
     
@@ -353,31 +305,19 @@ public class BattleSystem : MonoBehaviour
             if (!plUnit.isalive && plUnit == playerUnit)
             {
                 playerUnit.GetComponentInChildren<Renderer>().enabled = false;
-                playerUnit = null;
+                
             }
             if (!plUnit.isalive && plUnit == ally1Unit)
             {
                 ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
-                ally1Unit = null;
+                
             }
             if (!plUnit.isalive && plUnit == ally2Unit)
             {
                 ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
-                ally2Unit = null;
             }
 
-            switch (state)
-            {
-                case BattleState.ENEMYTURN :
-                    state = BattleState.PLAYERTURN1;
-                    break;
-                case BattleState.ENEMYTURN1:
-                    state = BattleState.PLAYERTURN2;
-                    break;
-                case BattleState.ENEMYTURN2:
-                    state = BattleState.PLAYERTURN;
-                    break;
-            }
+            changingStatePlayer();
             
         }
         
@@ -520,14 +460,262 @@ public class BattleSystem : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-    
-    
 
-    
-    
-    
-    
-    
 
- 
+
+    void changingStatePlayer()
+    {
+        if (!playerUnit.isalive && !ally1Unit.isalive && !ally2Unit.isalive)
+        {
+            state = BattleState.WIN;
+            LoseBattle();
+        }
+        else
+        {
+
+            switch (state)
+            {
+                case BattleState.ENEMYTURN:
+                    if (ally1Unit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN1;
+                    }
+                    else if (ally2Unit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN2;
+                    }
+                    else
+                    {
+                        state = BattleState.PLAYERTURN;
+                    }
+
+                    break;
+
+                case BattleState.ENEMYTURN1:
+                    if (ally2Unit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN2;
+                    }
+                    else if (playerUnit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN;
+                    }
+                    else
+                    {
+                        state = BattleState.PLAYERTURN1;
+                    }
+
+                    break;
+
+                case BattleState.ENEMYTURN2:
+                    if (ally2Unit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN2;
+                    }
+                    else if (playerUnit.isalive)
+                    {
+                        state = BattleState.PLAYERTURN;
+                    }
+                    else
+                    {
+                        state = BattleState.PLAYERTURN1;
+                    }
+
+                    break;
+
+            }
+        }
+    }
+
+void changingStateEnemy(Entity plUnit, Entity enUnit, int selectEntity)
+    {
+        if (!enemyUnit.isalive && !enemy1Unit.isalive && !enemy2Unit.isalive)
+        {
+            state = BattleState.WIN;
+            WinBattle();
+        }
+        else
+        {
+            switch (state)
+            {
+                case BattleState.PLAYERTURN:
+                    if (enemyUnit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
+                        }
+                    }
+                    else if (enemy1Unit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN1;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemy1Unit));
+                        }
+                    }
+                    else
+                    {
+                        state = BattleState.ENEMYTURN;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
+                        }
+                    }
+
+
+
+
+                    break;
+                case BattleState.PLAYERTURN1:
+                    if (enemy1Unit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN1;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemy1Unit));
+                        }
+                    }
+                    else if (enemy2Unit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN2;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemy2Unit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemy2Unit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemy2Unit));
+                        }
+                    }
+                    else
+                    {
+                        state = BattleState.ENEMYTURN;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
+                        }
+                    }
+
+                    break;
+
+                case BattleState.PLAYERTURN2:
+                    if (enemyUnit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemyUnit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemyUnit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemyUnit));
+                        }
+                    }
+                    else if (enemy1Unit.isalive)
+                    {
+                        state = BattleState.ENEMYTURN1;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemy1Unit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemy1Unit));
+                        }
+                    }
+                    else
+                    {
+                        state = BattleState.ENEMYTURN2;
+                        if (selectEntity == 1)
+                        {
+                            StartCoroutine(EnemyTurn(playerUnit, enemy2Unit));
+                        }
+
+                        if (selectEntity == 2)
+                        {
+                            StartCoroutine(EnemyTurn(ally1Unit, enemy2Unit));
+                        }
+
+                        if (selectEntity == 3)
+                        {
+                            StartCoroutine(EnemyTurn(ally2Unit, enemy2Unit));
+                        }
+                    }
+
+                    break;
+            }
+        }
+    }
 }
+
+
