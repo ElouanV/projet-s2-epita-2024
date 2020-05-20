@@ -115,10 +115,12 @@ public class BattleSystem : MonoBehaviour
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
             enemy1Unit.isalive = false;
+            enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
+            enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
         }
 
         if (numberEnemy == 2)
@@ -148,6 +150,7 @@ public class BattleSystem : MonoBehaviour
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
+            enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
         }
 
         if (numberEnemy == 3)
@@ -249,7 +252,7 @@ public class BattleSystem : MonoBehaviour
             
             Random random = new Random();
             int selectAlly = random.Next(1, 4);
-            changingStateEnemy(plUnit, enUnit, selectAlly);
+            changingStateEnemy(selectAlly);
         }
     }
     
@@ -527,7 +530,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-void changingStateEnemy(Entity plUnit, Entity enUnit, int selectEntity)
+void changingStateEnemy(int selectEntity)
     {
         if (!enemyUnit.isalive && !enemy1Unit.isalive && !enemy2Unit.isalive)
         {
