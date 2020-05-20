@@ -28,6 +28,9 @@
             <e p="Entity.cs" t="Include" />
             <e p="Player.cs" t="Include" />
           </e>
+          <e p="HealHouse" t="Include">
+            <e p="HealDialogue.cs" t="Include" />
+          </e>
           <e p="Interface" t="Include">
             <e p="MainInterface.cs" t="Include" />
             <e p="ShopInerface.cs" t="Include" />
