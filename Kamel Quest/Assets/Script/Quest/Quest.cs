@@ -14,9 +14,10 @@ public enum QuestState
 
 public enum QuestType
 {
-    Meeting, // Go to meet someone
-    Killing, // Go to kill an ennemy
-    Bringing // Bring an object to the PNG
+    Meeting, // Meet someone
+    Killing, // Kill an ennemy
+    Bringing, // Bring an object to the PNG
+	Giving // Give an item from your inventory
 }
 
 public class Quest : MonoBehaviour
@@ -36,7 +37,13 @@ public class Quest : MonoBehaviour
 	public GameObject scene;
 
     private bool completed;
-	public void Completed(bool value)
+
+	public bool CompletedGet()
+	{ 
+		return completed;
+	}
+
+	public void CompletedSet(bool value)
 	{
 		completed = value;
 	}
@@ -49,7 +56,6 @@ public class Quest : MonoBehaviour
             State = QuestState.ACCEPTED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             transform.GetComponent<ShowsText>().OnEnable();
-			Debug.Log("TEST_ALPHA");
         }
 
         else if (State == QuestState.ACCEPTED)
@@ -76,6 +82,7 @@ public class Quest : MonoBehaviour
 
         else if (State == QuestState.STARTED)
         {
+			if (type == QuestType.Giving) completed = CompletedGivingQuest();
             if (completed)
             {
                 completed = false;
@@ -105,7 +112,7 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
-            if (anex) scene.SetActive(false);
+            if (anex) Destroy(scene);
 			else Player.GetComponent<Progression>().NextQuest();
 			
         }
@@ -129,6 +136,10 @@ public class Quest : MonoBehaviour
 			case QuestType.Bringing:
                 if (completed) UpdateState();
                 break;	
+			case QuestType.Giving:
+				completed = CompletedGivingQuest();
+				if (completed) UpdateState();
+                break;
         }
     }
 
@@ -139,5 +150,27 @@ public class Quest : MonoBehaviour
         completed = true;
         if (State == QuestState.STARTED) UpdateState();
     }
+
+	public bool CompletedGivingQuest()
+	{
+		if (type == QuestType.Giving)                                                       
+		{                                                                                   
+			int ID = GetComponent<GivingExpected>().ID;                                      
+			int Count = GetComponent<GivingExpected>().Count; 
+			Debug.Log("Looking for item '"+ID+"' in Count : "+Count+".");           
+			bool tmp = Player.GetComponent<Inventory_test>().isInInventory(ID, Count);  
+			Debug.Log("isInInventory return "+tmp);           
+  
+			if (tmp)
+			{
+				Debug.Log("Items Found");
+				Debug.Log(Count+" item '"+ID+"' have been removed from your inventory");
+				//Player.GetComponent<Inventory_test>().RemoveFromInventory(ID, Count);
+			}
+			else Debug.Log("Items not Found"); 
+			return tmp;
+		}   
+		return false;                                                                                
+	}
 }
  

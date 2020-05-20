@@ -15,15 +15,16 @@ public class Player : Entity
     public int bouclierlvl;
     public int casquelvl;
     public int armure;
-    public int[] inventoryID;
-    public int[] inventoryCount;
-    public Ally[] team;
+    public int[] inventoryID = new int[20];
+    public int[] inventoryCount = new int[20];
+    public Ally[] team = new Ally[2];
+
 
 
     // To save settings
     public AudioMixer audioMixer;
 
-    
+
     ///<summary>
     /// Constructor of player class which take in parameters all stat of player.
     ///</summary>
@@ -78,5 +79,41 @@ public class Player : Entity
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
+    }
+
+
+
+
+    public bool isInInventory(int ID, int needed)
+    {
+
+        int total = 0;
+        for (int i = 0; i < 20; i++)
+        {
+            if (inventoryID[i] == ID)
+            {
+                total += inventoryID[i];
+            }
+        }
+        if (total >= needed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public int HowMuchInInventory(int ID)
+    {
+        int total = 0;
+        for (int i = 0; i<20; i++)
+        {
+            if (inventoryID[i] == ID)
+            {
+                total += inventoryID[i];
+            }
+        }
+        return total;
     }
 }

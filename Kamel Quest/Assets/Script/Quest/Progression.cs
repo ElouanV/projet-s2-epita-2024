@@ -5,13 +5,16 @@ using UnityEngine;
 public class Progression : MonoBehaviour
 {
     public List<GameObject> Prog;
-    public GameObject CurrentQuest;
-    public int Nb_Quest;
-    public int Current;
-    public int prog_percent;
+    private GameObject CurrentQuest;
+    private int Nb_Quest;
+    private int Current;
+    
 
     public List<GameObject> ProgAnex;
-    public GameObject CurrentQuestAnex;
+    private int CurrentAnex;
+    private int[] ActiveQuest = new int[]{1};
+    
+    public int prog_percent;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class Progression : MonoBehaviour
         prog_percent = 0;
         Nb_Quest = Prog.Count;
         Current = 0;
+        CurrentAnex = 0;
         CurrentQuest = Prog[Current];
         InstallQuest();
     }
@@ -28,9 +32,15 @@ public class Progression : MonoBehaviour
         CurrentQuest.SetActive(true);
     }
 
+    public void InstallQuestAnex()
+    {
+        ProgAnex[CurrentAnex].SetActive(true);
+        CurrentAnex++;
+    }
+
     public void DeletedQuest()
     {
-        CurrentQuest.SetActive(false);
+        Destroy(CurrentQuest);
     }
 
     public void NextQuest()
@@ -38,7 +48,12 @@ public class Progression : MonoBehaviour
         DeletedQuest();
         Current++;
         prog_percent = (Current) * 100 / Prog.Count;
-        CurrentQuest = Prog[Current];
-        InstallQuest();
+        if (Current < Nb_Quest)
+        {
+            CurrentQuest = Prog[Current];
+
+            InstallQuest();
+            foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
+        }
     }
 }
