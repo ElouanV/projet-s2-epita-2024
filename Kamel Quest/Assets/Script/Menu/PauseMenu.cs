@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
-                Debug.Log("appel resume");
                 Resume();
             }
             else
@@ -32,6 +31,10 @@ public class PauseMenu : MonoBehaviour
     public void StopTime()
     {
         PauseMenuUI.SetActive(true);
+        player.GetComponent<Inventory_test>().pauseMenuOpen = true;
+        player.GetComponent<Inventory_test>().ShowOrHideInventory();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -39,6 +42,9 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
+        player.GetComponent<Inventory_test>().pauseMenuOpen = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1f;
         isPaused = false;
     }
