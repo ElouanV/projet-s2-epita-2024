@@ -7755,21 +7755,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 278899631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5694990960631f94182478f506689f9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 631ebe6272e4c0b4e8fda5134f8cc4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playercam: {fileID: 2060306322}
   invetoryCanvas: {fileID: 750482734}
+  shopPNJ: {fileID: 0}
   inventoryOpen: 0
+  shopOpen: 0
   itemList: {fileID: 1372992098}
   inventoryButton: Inventory
   menuButton: Menu
   testButton: Test
   test2Button: Test2
   test3Button: Test3
-  healPotionSprite: {fileID: 0}
-  monsterRelicSprite: {fileID: 0}
-  player: {fileID: 0}
   inventorySlots: {fileID: 0}
   arrItemsSlot:
   - {fileID: 1983736396}
@@ -7778,7 +7777,7 @@ MonoBehaviour:
   - {fileID: 36223184}
   - {fileID: 1161574577}
   - {fileID: 2036815099}
-  - {fileID: 0}
+  - {fileID: 546886962}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -7808,12 +7807,40 @@ MonoBehaviour:
   - {fileID: 1198255551}
   - {fileID: 1859811655}
   - {fileID: 879370508}
-  CurrentQuest: {fileID: 0}
-  Nb_Quest: 0
-  Current: 0
+  ProgAnex:
+  - {fileID: 578979274}
   prog_percent: 0
-  ProgAnex: []
-  CurrentQuestAnex: {fileID: 0}
+--- !u!114 &278899640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278899631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9fb43e8f0a82145a664565b173ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpmax: 0
+  currenthp: 0
+  atk: 0
+  name: 
+  magicatk: 0
+  atkcost: 0
+  xp: 0
+  lvl: 0
+  isalive: 0
+  argent: 0
+  armurelvl: 0
+  epeelvl: 0
+  bouclierlvl: 0
+  casquelvl: 0
+  armure: 0
+  inventoryID: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  inventoryCount: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  team: []
+  audioMixer: {fileID: 0}
 --- !u!1 &280278296
 GameObject:
   m_ObjectHideFlags: 0
@@ -15770,6 +15797,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &546886962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5456103935246418406, guid: 3099e8d85d67c0246bea56d6cf6c94a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1708754263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &548428790
 GameObject:
   m_ObjectHideFlags: 0
@@ -16838,7 +16871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &578979275
 Transform:
   m_ObjectHideFlags: 0
@@ -22662,7 +22695,6 @@ MonoBehaviour:
   exp: 0
   reward: {fileID: 0}
   BackToPNJ: 1
-  completed: 0
   anex: 0
   scene: {fileID: 0}
 --- !u!114 &777676096
@@ -26515,7 +26547,6 @@ MonoBehaviour:
   exp: 0
   reward: {fileID: 0}
   BackToPNJ: 1
-  completed: 0
   anex: 0
   scene: {fileID: 0}
 --- !u!114 &872322960
@@ -29110,6 +29141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5095c2579c7b95a4498341dc066c69ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_active: 0
 --- !u!114 &978988681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38980,7 +39012,6 @@ MonoBehaviour:
   exp: 0
   reward: {fileID: 0}
   BackToPNJ: 1
-  completed: 0
   anex: 0
   scene: {fileID: 0}
 --- !u!114 &1367581260
@@ -40103,7 +40134,6 @@ MonoBehaviour:
   exp: 0
   reward: {fileID: 0}
   BackToPNJ: 1
-  completed: 0
   anex: 1
   scene: {fileID: 578979274}
 --- !u!114 &1407344264
@@ -57145,7 +57175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1859811656
 Transform:
   m_ObjectHideFlags: 0
@@ -59930,7 +59960,6 @@ MonoBehaviour:
   exp: 0
   reward: {fileID: 0}
   BackToPNJ: 0
-  completed: 0
   anex: 0
   scene: {fileID: 0}
 --- !u!114 &1969215481
