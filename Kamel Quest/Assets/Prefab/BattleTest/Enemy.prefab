@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpmax: 20
-  currenthp: 20
+  currenthp: 5
   atk: 1
   name: A
   magicatk: 0
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7152930139536384079, guid: 2b5c8118b740e454692105a268c23e7a,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

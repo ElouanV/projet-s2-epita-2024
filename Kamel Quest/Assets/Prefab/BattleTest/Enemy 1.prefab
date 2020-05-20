@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpmax: 20
-  currenthp: 10
+  currenthp: 5
   atk: 2
   name: B
   magicatk: 0

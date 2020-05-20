@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,15 +30,15 @@ public class BattleSystem : MonoBehaviour
     
     //gestion de team
     //private Team team;
-    
-    
+
+    public GameObject[] enemyList = new GameObject[3];
 
     
     //prefab pour afficher les personnages dans le combat
     public GameObject playerPrefab; //joueur
-    public GameObject enemyPrefab;  // enemy
-    public GameObject enemy1Prefab;  // enemy
-    public GameObject enemy2Prefab;  // enemy
+    private GameObject enemyPrefab;  // enemy
+    private GameObject enemy1Prefab;  // enemy
+    private GameObject enemy2Prefab;  // enemy
     public GameObject ally1Prefab; 
     public GameObject ally2Prefab;
     
@@ -78,14 +77,18 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
+        
         state = BattleState.START;
         SetupBattle();
     }
 
-    public void SetupBattle() //faire spawn les entités au bonne endroit et mettre les UI a jour
+    public void SetupBattle() //faire spawn les entités au bon endroit et mettre les UI a jour
     {
         Random random = new Random();
-        int numberEnemy = random.Next(1, 3);
+        int numberEnemy = random.Next(1, 4);
+        int wichEnemy = random.Next(0, 3);
+        
+        
 
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
@@ -100,6 +103,12 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 1)
         {
+            enemyPrefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 3);
+            enemy1Prefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 3);
+            enemy2Prefab = enemyList[wichEnemy];
+            
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
 
@@ -114,6 +123,22 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 2)
         {
+            enemyPrefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 3);
+            enemy1Prefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 3);
+            enemy2Prefab = enemyList[wichEnemy];
+            
+            /*GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+
+            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+            enemy1Unit = enemy1Object.GetComponent<Entity>();
+
+            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+            enemy2Unit = enemy2Object.GetComponent<Entity>();
+            enemy2Unit.isalive = false;*/
+            
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
 
@@ -127,6 +152,12 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 3)
         {
+            enemyPrefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 2);
+            enemy1Prefab = enemyList[wichEnemy];
+            wichEnemy = random.Next(0, 2);
+            enemy2Prefab = enemyList[wichEnemy];
+            
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
 
@@ -200,21 +231,24 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            if (!enUnit.isalive && enUnit == playerUnit)
+            if (!enUnit.isalive && enUnit == enemyUnit)
             {
+                enemyUnit.GetComponentInChildren<Renderer>().enabled = false;
                 enemyUnit = null;
             }
-            if (!enUnit.isalive && enUnit == ally1Unit)
+            if (!enUnit.isalive && enUnit == enemy1Unit)
             {
+                enemy1Unit.GetComponentInChildren<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
                 enemy1Unit = null;
             }
-            if (!enUnit.isalive && enUnit == ally2Unit)
+            if (!enUnit.isalive && enUnit == enemy2Unit)
             {
+                enemy2Unit.GetComponentInChildren<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
                 enemy2Unit = null;
             }
             
             Random random = new Random();
-            int selectAlly = random.Next(1, 3);
+            int selectAlly = random.Next(1, 4);
             switch (state)
             {
                 case BattleState.PLAYERTURN :
@@ -263,7 +297,7 @@ public class BattleSystem : MonoBehaviour
                         StartCoroutine(EnemyTurn(ally2Unit, enemy2Unit));
                     }
                     break;
-            }
+            } 
         }
     }
     
@@ -271,7 +305,7 @@ public class BattleSystem : MonoBehaviour
     //FIXE ME
     IEnumerator playerHealSpell(Entity plUnit, Entity enUnit)
     {
-        plUnit.GetHeal(5);
+        plUnit.GetHeal(plUnit.MagicAtk);
         playerHUD.UpdateHp(plUnit.currenthp, plUnit, playerHUD.hpSlider, playerHUD.unitHpText);
         yield return new WaitForSeconds(1f);
         
@@ -318,14 +352,17 @@ public class BattleSystem : MonoBehaviour
         {
             if (!plUnit.isalive && plUnit == playerUnit)
             {
+                playerUnit.GetComponentInChildren<Renderer>().enabled = false;
                 playerUnit = null;
             }
             if (!plUnit.isalive && plUnit == ally1Unit)
             {
+                ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
                 ally1Unit = null;
             }
             if (!plUnit.isalive && plUnit == ally2Unit)
             {
+                ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
                 ally2Unit = null;
             }
 
@@ -404,7 +441,7 @@ public class BattleSystem : MonoBehaviour
 
     public void ChooseEnemy()
     {
-        if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || enemyUnit == null)
+        if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemyUnit.isalive)
         {
             return;
         }
@@ -485,12 +522,6 @@ public class BattleSystem : MonoBehaviour
     }
     
     
-    //bouton choix adversaire
-
-    void attackEnemy(Entity unit, Entity player)
-    {
-        throw new NotImplementedException();
-    }
 
     
     
