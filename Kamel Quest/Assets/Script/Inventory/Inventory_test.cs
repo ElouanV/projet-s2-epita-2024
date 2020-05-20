@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 // Author : Elouan
 /// <summary>
 /// The main <c>Inventory_test</c> class.
@@ -52,6 +51,7 @@ public class Inventory_test : MonoBehaviour
     public string testButton = "Test";
     public string test2Button = "Test2";
     public string test3Button = "Test3";
+    public string MenuButton = "Menu";
     
     
     [Header("Inventory's Data")]
