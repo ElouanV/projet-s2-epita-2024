@@ -82,7 +82,6 @@ public class Quest : MonoBehaviour
 
         else if (State == QuestState.STARTED)
         {
-			if (type == QuestType.Giving) completed = CompletedGivingQuest();
             if (completed)
             {
                 completed = false;
@@ -165,12 +164,18 @@ public class Quest : MonoBehaviour
 			{
 				Debug.Log("Items Found");
 				Debug.Log(Count+" item '"+ID+"' have been removed from your inventory");
-				//Player.GetComponent<Inventory_test>().RemoveFromInventory(ID, Count);
+				Player.GetComponent<Inventory_test>().RemoveFromInventory(ID, Count);
 			}
 			else Debug.Log("Items not Found"); 
 			return tmp;
 		}   
 		return false;                                                                                
+	}
+
+	public void CheckInventoryGiving()
+	{
+		if (State == QuestState.STARTED) completed = CompletedGivingQuest(); 
+		if (completed) UpdateState();
 	}
 }
  
