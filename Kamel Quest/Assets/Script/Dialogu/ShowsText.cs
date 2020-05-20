@@ -17,7 +17,7 @@ public class ShowsText : MonoBehaviour
 
     // OnEnable is called every time the GO is active
     public void OnEnable()
-    {
+    {                                                 
 	    if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
 	    Index = 0;
@@ -31,12 +31,8 @@ public class ShowsText : MonoBehaviour
     void Update()
     {
 	    // Needed to accept the quest with Y
-	    if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") ||
-	        Input.GetKeyUp("n"))
-	    {
-		    Debug.Log("TEST_BETA");
-		    transform.GetComponent<Quest>().UpdateState();
-	    }
+	    if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") || Input.GetKeyUp("n"))
+			transform.GetComponent<Quest>().UpdateState();
 	    // Press space to show the next sentence
 	    else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {

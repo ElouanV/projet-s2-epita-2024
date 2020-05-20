@@ -280,11 +280,14 @@ public class Inventory_test : MonoBehaviour
         int total = 0;
         for (int i = 0; i < 20; i++)
         {
+			Debug.Log("Comparing ID "+IDarray[i]+" with the item "+ID);
             if (IDarray[i] == ID)
             {
+				
                 total += countarray[i];
             }
         }
+		Debug.Log("We found "+total+" item with the ID :"+ID+" in your full inventory");
         if (total >= needed)
         {
             return true;

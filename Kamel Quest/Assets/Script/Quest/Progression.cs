@@ -48,9 +48,12 @@ public class Progression : MonoBehaviour
         DeletedQuest();
         Current++;
         prog_percent = (Current) * 100 / Prog.Count;
-        CurrentQuest = Prog[Current];
-        
-        InstallQuest();
-        foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
+        if (Current < Nb_Quest)
+        {
+            CurrentQuest = Prog[Current];
+
+            InstallQuest();
+            foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
+        }
     }
 }
