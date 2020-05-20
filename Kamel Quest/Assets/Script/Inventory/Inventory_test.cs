@@ -231,7 +231,7 @@ public class Inventory_test : MonoBehaviour
                 {
                     item.itemCount -= count;
                     //Player inventory array 
-                    transform.GetComponent<Player>().inventoryID[i] -= count;
+                    transform.GetComponent<Player>().inventoryCount[i] -= count;
                     //
                     item.nbrItem.text = Convert.ToString(item.itemCount);
                     count = 0;
