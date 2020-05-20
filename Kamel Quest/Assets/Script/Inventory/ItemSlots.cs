@@ -57,7 +57,7 @@ public class ItemSlots : MonoBehaviour
         full = (itemCount != 0);
         GetComponent<Image>().color = new Color(1f,1f,1f,0f);
         GetComponent<Image>().sprite = itemSprite;
-        textItem.text = itemDescription;
+        textItem.text = itemName;
         nbrItem.text = Convert.ToString(itemCount);
     }
     ///<summary>
@@ -82,7 +82,6 @@ public class ItemSlots : MonoBehaviour
     ///</summary>
     public void ChangeSprite(Sprite newsprite)
     {
-
         GetComponent<Image>().sprite = newsprite;
         GetComponent<Image>().color = new Color(1f,1f,1f,1f); //Rends le sprite opaque
     }

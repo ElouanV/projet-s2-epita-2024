@@ -17,7 +17,8 @@ public class Player : Entity
     public int armure;
     public int[] inventoryID = new int[20];
     public int[] inventoryCount = new int[20];
-    public Ally[] team;
+    public Ally[] team = new Ally[2];
+
 
 
     // To save settings
@@ -102,5 +103,17 @@ public class Player : Entity
         {
             return false;
         }
+    }
+    public int HowMuchInInventory(int ID)
+    {
+        int total = 0;
+        for (int i = 0; i<20; i++)
+        {
+            if (inventoryID[i] == ID)
+            {
+                total += inventoryID[i];
+            }
+        }
+        return total;
     }
 }

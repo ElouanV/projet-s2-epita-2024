@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// Author : Settha
+// Author : Elouan
+
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Game");
+        gameObject.SetActive(false);
     }
 
     public void QuitGame()
     {
         Debug.Log("QUIT!");
         Application.Quit();
+    }
+
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
