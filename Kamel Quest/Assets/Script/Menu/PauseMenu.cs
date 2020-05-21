@@ -62,6 +62,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
         SaveSystem.SavePlayer(player, audioMixer);
         Debug.Log("Data have been save");
+        PlayerPrefs.SetInt("SaveExist",1);
     }
 
 }

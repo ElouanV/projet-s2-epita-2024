@@ -83,7 +83,9 @@ public class ItemSlots : MonoBehaviour
     public void ChangeSprite(Sprite newsprite)
     {
         GetComponent<Image>().sprite = newsprite;
+        Debug.Log("Le sprite a été changé");
         GetComponent<Image>().color = new Color(1f,1f,1f,1f); //Rends le sprite opaque
+        Debug.Log("La couleur du sprite  a été changé");
     }
     ///<summary>
     /// RemoveSprite set the Image color to "0f" and make is visible, but it doesn't work yet.

@@ -83,11 +83,14 @@ public class Player : Entity
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
         bouclierlvl = data.playerEquipmentsLevel[2];
+            //TODO : LoadEquipment();
         //Load player's inventory
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
         LoadInventory();
         //Load player's team
+            //TODO
+        // Load quest datas
             //TODO
         //Load player's position
         Vector3 position;
@@ -95,7 +98,8 @@ public class Player : Entity
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
-        Debug.Log("Your party have been load successfully ! You can play !");
+        Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
+        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 
     private void LoadInventory()
@@ -108,6 +112,11 @@ public class Player : Entity
                 myinventory.AddToInventory(inventoryID[i], inventoryCount[i]);
             }
         }
+    }
+
+    private void LoadEquipment()
+    {
+        Debug.Log("[LoadEquipment] : This function isn't implemented yet, that's why equipment arn't loaded correctly on the inventory");
     }
 
 
@@ -144,14 +153,49 @@ public class Player : Entity
         return total;
     }
 
+    private void CreateNewParty()
+    {
+        Debug.Log("We are creating a new party, please wait");
+
+        // Create player statitics
+        argent = 0;
+        lvl = 1;
+        xp = 0;
+        //Load equipments levels
+        armurelvl = 1;
+        epeelvl = 1;
+        bouclierlvl = 1;
+            //TODO : LoadEquipment();
+        //Load player's inventory
+        inventoryCount = new int[20];
+        inventoryID  = new int[20];
+        //Load player's team
+            //TODO
+        // Load quest datas
+            //TODO
+        //Load player's position
+        Vector3 position;
+        position.x = 0; // Position du tuto à set
+        position.y = 0; // Position du tuto à set      
+        position.z = 0;
+        transform.position = position;
+    }
     void Start()
     {
-        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("Load",0));
-        if (PlayerPrefs.GetInt("Load",0) == 1)
+        // Open while data's are loading to fix the invisible sprite bug
+        Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
+        myinventory.ShowOrHideInventory();
+        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
+        if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
-            
             LoadPlayerData();
         }
-        PlayerPrefs.DeleteKey("Load");
+        if (PlayerPrefs.GetInt("LoadData",0) == 2)
+        {
+            CreateNewParty();
+        }
+        // Hide inventory to start the game
+        myinventory.ShowOrHideInventory();
+        PlayerPrefs.DeleteKey("LoadData");
     }
 }

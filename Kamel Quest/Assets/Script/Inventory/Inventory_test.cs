@@ -90,6 +90,7 @@ public class Inventory_test : MonoBehaviour
             arrItemsSlot[i] = inventorySlots.GetChild(i);
         }
         inventoryCanvas.SetActive(false);
+        Debug.Log("Close inventory");
     }
 
     ///<summary>
@@ -187,6 +188,7 @@ public class Inventory_test : MonoBehaviour
             item.full = true;
             item.itemName = myitem.itemName;
             item.ChangeSprite(myitem.sprite);
+            Debug.Log(" [AddToInventory] : La fonction changesperite a été appelé");
             item.itemDescription = myitem.itemDescription;
             item.itemSprite = myitem.sprite;
             item.itemCount = counttoadd;
