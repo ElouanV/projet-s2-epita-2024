@@ -18,6 +18,7 @@ public class Player : Entity
     public int[] inventoryID = new int[20];
     public int[] inventoryCount = new int[20];
     public Ally[] team = new Ally[2];
+    public int nbrOfKey = 0;
 
 
 
@@ -50,18 +51,40 @@ public class Player : Entity
         this.team = new Ally[2];
     }
 
+// FOR THE INVENTORY
 
+    public bool isInInventory(int ID, int needed)
+    {
 
-
-
-
-
-
-
-
-
-
-
+        int total = 0;
+        for (int i = 0; i < 20; i++)
+        {
+            if (inventoryID[i] == ID)
+            {
+                total += inventoryID[i];
+            }
+        }
+        if (total >= needed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public int HowMuchInInventory(int ID)
+    {
+        int total = 0;
+        for (int i = 0; i<20; i++)
+        {
+            if (inventoryID[i] == ID)
+            {
+                total += inventoryID[i];
+            }
+        }
+        return total;
+    }
 
 
 // SAVE MANAGER
@@ -70,6 +93,26 @@ public class Player : Entity
     {
         SaveSystem.SavePlayer(this, audioMixer);
     }
+
+    private void Start()
+    {
+        // Open while data's are loading to fix the invisible sprite bug
+        Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
+        myinventory.ShowOrHideInventory();
+        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
+        if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
+        {
+            LoadPlayerData();
+        }
+        if (PlayerPrefs.GetInt("LoadData",0) == 2)
+        {
+            CreateNewParty();
+        }
+        // Hide inventory to start the game
+        myinventory.ShowOrHideInventory();
+        PlayerPrefs.DeleteKey("LoadData");
+    }
+
     public void LoadPlayerData()
     {
         Debug.Log("We are downloading your party, please wait");
@@ -79,6 +122,7 @@ public class Player : Entity
         argent = data.playerMoney;
         lvl = data.playerLevel;
         xp = data.playerXP;
+        
         //Load equipments levels
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
@@ -120,38 +164,6 @@ public class Player : Entity
     }
 
 
-    public bool isInInventory(int ID, int needed)
-    {
-
-        int total = 0;
-        for (int i = 0; i < 20; i++)
-        {
-            if (inventoryID[i] == ID)
-            {
-                total += inventoryID[i];
-            }
-        }
-        if (total >= needed)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    public int HowMuchInInventory(int ID)
-    {
-        int total = 0;
-        for (int i = 0; i<20; i++)
-        {
-            if (inventoryID[i] == ID)
-            {
-                total += inventoryID[i];
-            }
-        }
-        return total;
-    }
 
     private void CreateNewParty()
     {
@@ -161,6 +173,7 @@ public class Player : Entity
         argent = 0;
         lvl = 1;
         xp = 0;
+        nbrOfKey = 0;
         //Load equipments levels
         armurelvl = 1;
         epeelvl = 1;
@@ -180,22 +193,5 @@ public class Player : Entity
         position.z = 0;
         transform.position = position;
     }
-    void Start()
-    {
-        // Open while data's are loading to fix the invisible sprite bug
-        Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
-        myinventory.ShowOrHideInventory();
-        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
-        if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
-        {
-            LoadPlayerData();
-        }
-        if (PlayerPrefs.GetInt("LoadData",0) == 2)
-        {
-            CreateNewParty();
-        }
-        // Hide inventory to start the game
-        myinventory.ShowOrHideInventory();
-        PlayerPrefs.DeleteKey("LoadData");
-    }
+
 }
