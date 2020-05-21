@@ -31,9 +31,9 @@ public static class SaveSystem
     public static void SavePlayer(Player player, AudioMixer audioMixer)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        // Create path to %userprofile%\AppData\Local\Packages\<productname>\LocalState.
+        // Create path to %userprofile%\AppData\Local\Packages\<productname>\LocalState for Windows.
         string path = Application.persistentDataPath + "/player/player_save.kq";
-        // Create file strea
+        // Create file stream
         FileStream stream = new FileStream(path,FileMode.Create);
         // Use the constructor of player data with player and audioMixer in parameter.
         PlayerData data = new PlayerData(player, audioMixer);

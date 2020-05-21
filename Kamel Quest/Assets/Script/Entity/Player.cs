@@ -52,12 +52,27 @@ public class Player : Entity
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// SAVE MANAGER
+
     public void SavePlayerData()
     {
         SaveSystem.SavePlayer(this, audioMixer);
     }
     public void LoadPlayerData()
     {
+        Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
         PlayerData data = SaveSystem.LoadPlayer();
         // Load player statitics
@@ -71,6 +86,7 @@ public class Player : Entity
         //Load player's inventory
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
+        LoadInventory();
         //Load player's team
             //TODO
         //Load player's position
@@ -79,9 +95,20 @@ public class Player : Entity
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
+        Debug.Log("Your party have been load successfully ! You can play !");
     }
 
-
+    private void LoadInventory()
+    {
+        Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
+        for (int i = 0; i < 20; i++)
+        {
+            if (inventoryID[i] > 0)
+            {
+                myinventory.AddToInventory(inventoryID[i], inventoryCount[i]);
+            }
+        }
+    }
 
 
     public bool isInInventory(int ID, int needed)
@@ -115,5 +142,16 @@ public class Player : Entity
             }
         }
         return total;
+    }
+
+    void Start()
+    {
+        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("Load",0));
+        if (PlayerPrefs.GetInt("Load",0) == 1)
+        {
+            
+            LoadPlayerData();
+        }
+        PlayerPrefs.DeleteKey("Load");
     }
 }
