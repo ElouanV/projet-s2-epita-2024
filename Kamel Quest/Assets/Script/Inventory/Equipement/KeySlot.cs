@@ -31,20 +31,14 @@ public class KeySlot : MonoBehaviour
 {
     [Header("Sprite")]
     public Sprite keySprite;
+
     [Header("Number Of Key possess")]
     public int nbrKey;
     
-
     [Header("Text")]
     public Text keyText;
     public string textKey;
-
-
-    [Header("For Test")]
-    public string buttonTest;
-
-
-
+    
     ///<summary>
     /// <para>Start is called before the first frame update</para>
     /// <para> Set sprite, number of key, and text </para>
@@ -71,18 +65,5 @@ public class KeySlot : MonoBehaviour
             textKey = Convert.ToString(nbrKey);
             keyText.text = textKey;
         }
-    }
-
-
-    ///<summary>
-    /// Update is called every frame, it used only to test this script
-    /// Is only here to test Upgrade fonction by pressing a key
-    ///</summary>
-    void Update()
-    {
-        if (Input.GetButtonDown(buttonTest))
-            {
-                AddKey();
-            }
     }
 }

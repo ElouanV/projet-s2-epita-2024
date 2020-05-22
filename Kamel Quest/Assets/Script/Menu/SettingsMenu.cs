@@ -10,7 +10,7 @@ using UnityEngine.UI;
 ///
 ///</summary>
 
-public class SettingMenu : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
     // For audio settings
     public AudioMixer audioMixer;
