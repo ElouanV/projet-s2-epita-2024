@@ -14,6 +14,7 @@ public class PickingItem : MonoBehaviour
     void OnTriggerEnter2D()
     {
         if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
+
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
         Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
