@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 //Author : Elouan
-
+/// <summary>
+/// The main <c>PlayerData</c> class.
+/// Contains all methods for performing the convertion of all you player's data to string, float, int , bool or arrays.
+/// <para> The inventory is composed by 20 inventorySlots, each slot can countain 64 items with the same ID </para>
+/// <remaks> To save our data, we can only use arrays, bool, string, int and float variables. 
+/// </summary>
 [System.Serializable]
 public class PlayerData
 {
@@ -14,6 +19,7 @@ public class PlayerData
     public int playerKey;
     public float[] playerPosition;
     public int[] playerEquipmentsLevel;
+    public bool[] finishedquestprogress;
 
     // Player's team
     [Header("Player's team")]
@@ -33,7 +39,10 @@ public class PlayerData
 
 
     // Constructor
-
+    ///<summary> Thie methhod is the constructor of our PlayerData, it will be called to load a game and save a game.
+    ///<param Name = "player"> is the player we need to save datas </param>
+    ///<para> This constructor convert all player datas we need to save to types which are accept by our SaveSystem.</para>
+    ///</summary>
     public PlayerData(Player player)
     {   
         // Player
@@ -47,7 +56,7 @@ public class PlayerData
         playerPosition[0] = player.transform.position.x;
         playerPosition[1] = player.transform.position.y;
         playerPosition[2] = player.transform.position.z;
-            // Pick up variable to define player's equipment levels
+            // Pick up variable to define player's equipments levels
         playerEquipmentsLevel = new int[3];
         playerEquipmentsLevel[0] = player.armurelvl;
         playerEquipmentsLevel[1] = player.epeelvl;
@@ -58,8 +67,23 @@ public class PlayerData
 
         // Player's team
         playerTeamHp = new int[2];
-        playerTeamHp[0] = Player.team[0].currenthp;
-        playerTeamHp[1] = Player.team[1].currenthp;
+        playerTeamHp[0] = player.team[0].currenthp;
+        playerTeamHp[1] = player.team[1].currenthp;
+
+        // Quest progress
+        finishedquestprogress = new bool[player.Prog.Length];
+        for (int i = 0; i < player.Prog.Length; i++)
+        {
+            if (player.Prog[i] == null)
+            {
+                finishedquestprogress[i] = true;
+            }
+            else
+            {
+                finishedquestprogress[i] = false;
+            }
+        }
+
 
         // Settings
         qualityIndex = QualitySettings.GetQualityLevel();
