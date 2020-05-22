@@ -33,9 +33,9 @@ public class HealDialogue : MonoBehaviour
 
     void HealTeam()
     {
-        foreach (GameObject allier in Player.team)
+        foreach (Entity allier in Player.team)
         {
-            allier.GetComponent<Entity>().currenthp = allier.GetComponent<Entity>().hpmax;
+            allier.currenthp = allier.hpmax;
         }
     }
 }
