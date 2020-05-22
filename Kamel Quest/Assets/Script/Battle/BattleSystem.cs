@@ -29,7 +29,8 @@ public class BattleSystem : MonoBehaviour
     
     
     //gestion de team
-    public GameObject[] team = Player.team;
+    public Player player;
+    public GameObject[] team;
     public GameObject[] allyList;
     
     //private Team team;
@@ -80,7 +81,7 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
-        
+        team = player._team;
         allyList = new GameObject[team.Length];
         
         state = BattleState.START;
@@ -102,17 +103,42 @@ public class BattleSystem : MonoBehaviour
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
             
+            ally1Prefab = allyList[0];
+            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+            ally1Unit = ally1Object.GetComponent<Entity>();
+            ally1Unit.isalive = false;
+            
+            ally2Prefab = allyList[1];
+            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+            ally2Unit = ally2Object.GetComponent<Entity>();
+            ally2Unit.isalive = false;
+            
             
         }
         if (allyList.Length == 1)
         {
+            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
+            playerUnit = playerObject.GetComponent<Entity>();
+            
             ally1Prefab = allyList[0];
             GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
             ally1Unit = ally1Object.GetComponent<Entity>();
+
+            ally2Prefab = allyList[1];
+            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+            ally2Unit = ally2Object.GetComponent<Entity>();
+            ally2Unit.isalive = false;
         }
 
         if (allyList.Length == 2)
         {
+            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
+            playerUnit = playerObject.GetComponent<Entity>();
+            
+            ally1Prefab = allyList[0];
+            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+            ally1Unit = ally1Object.GetComponent<Entity>();
+            
             ally2Prefab = allyList[1];
             GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
             ally2Unit = ally2Object.GetComponent<Entity>();
