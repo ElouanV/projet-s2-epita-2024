@@ -33,7 +33,7 @@ public class HealDialogue : MonoBehaviour
 
     void HealTeam()
     {
-        foreach (Ally allier in player.team)
+        foreach (Entity allier in Player.team)
         {
             allier.currenthp = allier.hpmax;
         }
