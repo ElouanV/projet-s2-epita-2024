@@ -142,6 +142,10 @@ public class Player : Entity
         //Load player's team
             //TODO
         // Load quest datas
+        for (int i = 0; i < data.finishedquest.Length; i++)
+        {
+            
+        }
             //TODO LoadQuestProgress();
         //Load player's position
         Vector3 position;
@@ -205,14 +209,12 @@ public class Player : Entity
         armurelvl = 1;
         epeelvl = 1;
         bouclierlvl = 1;
-            //TODO : LoadEquipment();
         //Load player's inventory
         inventoryCount = new int[20];
         inventoryID  = new int[20];
         //Load player's team
             //TODO
         // Load quest datas
-            //TODO
         //Load player's position
         Vector3 position;
         position.x = 0; // Position du tuto à set
