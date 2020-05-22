@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
 {
     // For audio settings
     public AudioMixer audioMixer;
+    public Slider VolumeSlider;
     
     // For resolution settings
     public Dropdown dropDownResolution;
@@ -29,7 +30,10 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     private void Start()
     {
+
         resolutions = Screen.resolutions;
+        VolumeSlider.value = PlayerPrefs.GetFloat("volume",0);
+        SetVolume(PlayerPrefs.GetFloat("volume", 0));
 
         dropDownResolution.ClearOptions();
         List<string> options = new List<string>();
@@ -60,6 +64,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume",volume);
+        PlayerPrefs.SetFloat("volume",volume);
     }
     
     ///<summary>

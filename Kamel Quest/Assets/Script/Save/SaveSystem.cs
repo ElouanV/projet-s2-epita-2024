@@ -28,7 +28,7 @@ public static class SaveSystem
     ///<remakrs> This function use BinaryFormatter(), which convert data to a binary file, which is harder to understand than a simple JSON file or an XML file. So it's safer.</remarks>
     ///<return> This function return nothing, it's just write on the binary file </return>
     ///</summary>
-    public static void SavePlayer(Player player, AudioMixer audioMixer)
+    public static void SavePlayer(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         // Create path to %userprofile%\AppData\Local\Packages\<productname>\LocalState for Windows.
@@ -36,7 +36,7 @@ public static class SaveSystem
         // Create file stream
         FileStream stream = new FileStream(path,FileMode.Create);
         // Use the constructor of player data with player and audioMixer in parameter.
-        PlayerData data = new PlayerData(player, audioMixer);
+        PlayerData data = new PlayerData(player);
         // Formate data in binary and write it on the file stream
         formatter.Serialize(stream,data);
         // Then close the file stream

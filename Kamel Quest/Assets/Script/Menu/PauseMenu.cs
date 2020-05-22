@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
+
 // Author : Settha and Elouan
 
 /// <summary>
@@ -36,7 +36,6 @@ public class PauseMenu : MonoBehaviour
     private static bool isPaused = false;
     public GameObject PauseMenuUI;
     public GameObject OptionsUI;
-    public AudioMixer audioMixer;
     public Player player;
     private string menukey = "Menu";
 
@@ -106,7 +105,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
-        SaveSystem.SavePlayer(player, audioMixer);
+        SaveSystem.SavePlayer(player);
         PlayerPrefs.SetInt("SaveExist",1);
     }
 
