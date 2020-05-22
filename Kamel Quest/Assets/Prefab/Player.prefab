@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1980183056467891387}
   - component: {fileID: 6763344778050296581}
+  - component: {fileID: 1851615711339402265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53,6 +54,43 @@ MonoBehaviour:
   xp: 0
   lvl: 2024
   isalive: 1
+--- !u!114 &1851615711339402265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849586132926228480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9fb43e8f0a82145a664565b173ac92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpmax: 0
+  currenthp: 0
+  atk: 0
+  name: 
+  magicatk: 0
+  atkcost: 0
+  xp: 0
+  lvl: 0
+  isalive: 0
+  argent: 0
+  armurelvl: 0
+  epeelvl: 0
+  bouclierlvl: 0
+  casquelvl: 0
+  armure: 0
+  inventoryID: 
+  inventoryCount: 
+  _team:
+  - {fileID: 3162261496189199295, guid: 32ce00dc9d3f4534f8181dd7b2d2e498, type: 3}
+  - {fileID: 816219172268709440, guid: 31b3ba20b2d05c84797b56632bf3ae84, type: 3}
+  nbrOfKey: 0
+  swordslot: {fileID: 0}
+  shieldslot: {fileID: 0}
+  armorslot: {fileID: 0}
+  keyslot: {fileID: 0}
 --- !u!1 &7601890627735493220
 GameObject:
   m_ObjectHideFlags: 0
