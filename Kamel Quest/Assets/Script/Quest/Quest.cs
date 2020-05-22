@@ -145,9 +145,10 @@ public class Quest : MonoBehaviour
 
     // This function is call if the quest is completed
     public void CompletedQuest()
-    {
-        Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
+    { 
         completed = true;
+		if (type == QuestType.Bringing) Player.GetComponent<Inventory_test>().RemoveFromInventory(Target.GetComponent<Items>().itemID , 1);
+		Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
         if (State == QuestState.STARTED) UpdateState();
     }
 
