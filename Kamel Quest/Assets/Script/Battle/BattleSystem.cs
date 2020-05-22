@@ -23,10 +23,13 @@ public enum BattleState
 }
 public class BattleSystem : MonoBehaviour
 {
-
-
+    /*
+     * je mettrai les commentaires XML plus tard
+     */
+    
+    
     //gestion de team
-    //public Entity[] team = Player.team;
+    public Entity[] team = Player.team;
     public GameObject[] allyList;
     
     //private Team team;
@@ -77,8 +80,8 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
-
-        allyList = Player.team;
+        
+        allyList = new GameObject[team.Length];
         
         state = BattleState.START;
         SetupBattle();
@@ -91,42 +94,19 @@ public class BattleSystem : MonoBehaviour
         int wichEnemy = random.Next(0, 3);
 
 
-        if (allyList.Length == 0)
-        {
+        
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
-            
-            
-            GameObject ally1Object = Instantiate(playerPrefab, ally1Spawn);
-            ally1Unit = ally1Object.GetComponent<Entity>();
-            ally1Unit.isalive = false;
-            ally1Unit.GetComponentInChildren<Renderer>().enabled = false;    
-            
-            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
-            ally2Unit = ally2Object.GetComponent<Entity>();
-            ally2Unit.isalive = false;
-            ally2Unit.GetComponentInChildren<Renderer>().enabled = false;    
-        }
 
-        if (allyList[0] != null)
+            if (allyList.Length == 1)
         {
             ally1Prefab = allyList[0];
             GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
             ally1Unit = ally1Object.GetComponent<Entity>();
-            
-            
-            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
-            ally2Unit = ally2Object.GetComponent<Entity>();
-            ally2Unit.isalive = false;
-            ally2Unit.GetComponentInChildren<Renderer>().enabled = false;    
         }
 
-        if (allyList[0] != null)
+        if (allyList.Length == 2)
         {
-            ally1Prefab = allyList[0];
-            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
-            ally1Unit = ally1Object.GetComponent<Entity>();
-            
             ally2Prefab = allyList[1];
             GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
             ally2Unit = ally2Object.GetComponent<Entity>();
@@ -136,7 +116,6 @@ public class BattleSystem : MonoBehaviour
         
 
 
-        //apparition des ennemies
         if (numberEnemy == 1)
         {
             enemyPrefab = enemyList[wichEnemy];
@@ -145,11 +124,8 @@ public class BattleSystem : MonoBehaviour
             wichEnemy = random.Next(0, 3);
             enemy2Prefab = enemyList[wichEnemy];
             
-            
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
-            enemyUnit.isalive = true;
-            enemyUnit.GetComponentInChildren<Renderer>().enabled = true;
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
@@ -170,16 +146,21 @@ public class BattleSystem : MonoBehaviour
             wichEnemy = random.Next(0, 3);
             enemy2Prefab = enemyList[wichEnemy];
             
-
-            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            /*GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
-            enemyUnit.isalive = true;
-            enemyUnit.GetComponentInChildren<Renderer>().enabled = true;
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
-            enemy1Unit.isalive = true;
-            enemy1Unit.GetComponentInChildren<Renderer>().enabled = true;
+
+            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+            enemy2Unit = enemy2Object.GetComponent<Entity>();
+            enemy2Unit.isalive = false;*/
+            
+            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+            enemyUnit = enemyObject.GetComponent<Entity>();
+
+            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+            enemy1Unit = enemy1Object.GetComponent<Entity>();
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
@@ -197,18 +178,12 @@ public class BattleSystem : MonoBehaviour
             
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
-            enemyUnit.isalive = true;
-            enemyUnit.GetComponentInChildren<Renderer>().enabled = true;
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
-            enemy1Unit.isalive = true;
-            enemy1Unit.GetComponentInChildren<Renderer>().enabled = true;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
-            enemy2Unit.isalive = true;
-            enemy2Unit.GetComponentInChildren<Renderer>().enabled = true;
         }
 
 
@@ -225,12 +200,12 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 1)
         {
-            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
+            enemyHUD.SetupHUD(enemyUnit, null, null);
         }
 
         if (numberEnemy == 2)
         {
-            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
+            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, null);
         }
 
         if (numberEnemy == 3)
