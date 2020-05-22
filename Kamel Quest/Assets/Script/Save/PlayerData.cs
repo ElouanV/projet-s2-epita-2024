@@ -15,6 +15,11 @@ public class PlayerData
     public float[] playerPosition;
     public int[] playerEquipmentsLevel;
 
+
+    // Quest Progress
+    [Header("Quest Progress")]
+    public bool[] finishedquest;
+    
     // Player's team
     [Header("Player's team")]
     public int[] playerTeamHp;
@@ -58,9 +63,27 @@ public class PlayerData
 
         // Player's team
         playerTeamHp = new int[2];
-        playerTeamHp[0] = Player.team[0].GetComponent<Entity>().currenthp;
-        playerTeamHp[1] = Player.team[1].GetComponent<Entity>().currenthp;
+        Entity ally1 = Player.team[0].GetComponent<Entity>();
+        Entity ally2 = Player.team[1].GetComponent<Entity>();
+        playerTeamHp[0] = ally1.currenthp;
+        playerTeamHp[1] = ally2.currenthp;
+        allyLevel[0] = ally1.lvl;
+        allyLevel[1] = ally2.lvl;
 
+        //Quest Progress
+        List<GameObject> prog = player.GetComponent<Progression>().Prog;
+        int length = prog.Count;
+        for (int i = 0; i < length; i++)
+        {
+            if (prog[i] == null)
+            {
+                finishedquest[i] = true;
+            }
+            else
+            {
+                finishedquest[i] = false;
+            }
+        }
         // Settings
         qualityIndex = QualitySettings.GetQualityLevel();
         isFullScreen = Screen.fullScreen;

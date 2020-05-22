@@ -6,8 +6,9 @@ public class HealDialogue : MonoBehaviour
 {
 
     public Player  player;
-    
 	public bool is_trigger;
+    
+
     
     void Update()
     {
