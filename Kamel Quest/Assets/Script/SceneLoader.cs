@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour
 {
     public GameObject loadingScreen;
+    public GameObject Canvas;
     public Slider loadingslider;
 
 
-    public void LoadLevel(int sceneIndex)
+    public void LoadScene(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
         
@@ -19,6 +20,7 @@ public class SceneLoader : MonoBehaviour
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        Canvas.SetActive(false);
         loadingScreen.SetActive(true);
         while (!operation.isDone)
         {

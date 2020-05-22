@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject SceneLoader;
     public GameObject noSave;
     public void PlayGame()
     {
@@ -22,7 +23,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         PlayerPrefs.SetInt("LoadData",2);
-        SceneManager.LoadScene("Game");
+        SceneLoader.GetComponent<SceneLoader>().LoadScene(1);
         Debug.Log("Prefs Load : " + PlayerPrefs.GetInt("LoadData",0));
     }
 
@@ -32,7 +33,7 @@ public class MainMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("SaveExist",0) == 1)
         {
             PlayerPrefs.SetInt("LoadData",1);
-            SceneManager.LoadScene("Game");
+            SceneLoader.GetComponent<SceneLoader>().LoadScene(1);
         }
         else
         {

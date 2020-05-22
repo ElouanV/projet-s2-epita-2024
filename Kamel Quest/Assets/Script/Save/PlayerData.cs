@@ -12,6 +12,7 @@ public class PlayerData
     public int playerLevel;
     public int playerXP;
     public int playerMoney;
+    public int playerKey;
     public float[] playerPosition;
     public int[] playerEquipmentsLevel;
 
@@ -41,6 +42,7 @@ public class PlayerData
         playerLevel = player.lvl;
         playerXP = player.xp;
         playerMoney = player.argent;
+        playerKey = player.nbrOfKey;
 
             // Pick up variable to define player's position in a float array
         playerPosition = new float[3];
