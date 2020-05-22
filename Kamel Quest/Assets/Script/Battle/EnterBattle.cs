@@ -14,6 +14,8 @@ public class EnterBattle : MonoBehaviour
     {
         if (other.CompareTag("Player") && is_active)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("FightScene");
         }
     }
