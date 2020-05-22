@@ -6,6 +6,7 @@ public class PickingItem : MonoBehaviour
 {
     public GameObject Player;
     public bool quest;
+    public bool active;
 
     // Only for the quest
     public GameObject questgiver;
@@ -13,8 +14,9 @@ public class PickingItem : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
 
+        if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
+        active = true;
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
         Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
