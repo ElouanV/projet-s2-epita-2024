@@ -24,8 +24,7 @@ public class QuestGiver: MonoBehaviour
 	// Update what the PNG say depending of the quest state
 	public List<string> UpdateText()
 	{
-		Debug.Log("[QuestGiver] UpdateText: The text of the quest '"+quest.title+"' have been updated.");
-
+		if (quest.type == QuestType.Giving) transform.GetComponent<Quest>().CheckInventoryGiving();
 		List<string> current = new List<string> {};
 		if (quest.State == QuestState.NONE) current = TextForNone;
 		else if (quest.State == QuestState.ACCEPTED) current = YesOrNo;
@@ -33,6 +32,7 @@ public class QuestGiver: MonoBehaviour
 		else if (quest.State == QuestState.DECLINED) current = TextForDeclined;
 		else if (quest.State == QuestState.COMPLETED) current = TextForCompleted;
 		else current = TextForEnded;
+		Debug.Log("[QuestGiver] UpdateText: The text of the quest '"+quest.title+"' have been updated.");
 		return current;
 	}
 }

@@ -19,12 +19,7 @@ public class ShowsText : MonoBehaviour
     public void OnEnable()
     {   
 		Debug.Log("Starting ShowsText");
-		if (quest)
-		{
-			transform.GetComponent<Quest>().CheckInventoryGiving();
-				                             
-	    	SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
-		}
+		if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
 	    Index = 0;
         Anim = false;

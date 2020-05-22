@@ -24,13 +24,14 @@ public class Quest : MonoBehaviour
 {
     public QuestType type;
     public QuestState State;
-    public GameObject Target;
+    public GameObject Target; // No use if quest state is Giving
     public GameObject Player;
     
     public string title;
     public string desc;
     public int exp;
-    public Items reward;
+    public int rewardID;
+    public int rewardCount;
 
 	public bool BackToPNJ;
 	public bool anex;
@@ -106,7 +107,7 @@ public class Quest : MonoBehaviour
 
         else if (State == QuestState.COMPLETED)
         {
-            // To add: Give the reward
+	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
 
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
@@ -172,10 +173,11 @@ public class Quest : MonoBehaviour
 		return false;                                                                                
 	}
 
-	public void CheckInventoryGiving()
+	public bool CheckInventoryGiving()
 	{
 		if (State == QuestState.STARTED) completed = CompletedGivingQuest(); 
 		if (completed) UpdateState();
+		return completed;
 	}
 }
  

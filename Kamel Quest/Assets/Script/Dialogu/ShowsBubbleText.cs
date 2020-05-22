@@ -22,6 +22,10 @@ public class ShowsBubbleText : MonoBehaviour
 		is_trigger = false;
         Bubble.SetActive(false);
         Debug.Log("[ShowsBubbleText] OnTriggerExit2D: The bubble is now inactive.");
-
     }
+
+	public void ExecuteTriggerExit2D()
+	{
+		OnTriggerExit2D();
+	}
 }

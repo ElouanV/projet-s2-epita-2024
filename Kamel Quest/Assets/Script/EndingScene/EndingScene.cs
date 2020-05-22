@@ -17,6 +17,6 @@ public class EndingScene : MonoBehaviour
 }
 
 
-x  0
-y -6.38
-z -30
+//x  0
+//y -6.38
+//z -30
