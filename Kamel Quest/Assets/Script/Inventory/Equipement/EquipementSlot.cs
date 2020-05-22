@@ -32,12 +32,13 @@ public class EquipementSlot : MonoBehaviour
     public Sprite itemSpriteLvl1;
     public Sprite itemSpriteLvl2;
     public Sprite itemSpriteLvl3;
+    
     [Header("Text")]
     public Text itemText;
+
     [Header("Lvl")]
     public int Lvl;
-    [Header("For Test")]
-    public string buttonTest;
+
     ///<summary>
     /// <para>Start is called before the first frame update</para>
     /// <para> Set sprite, slot lvl, and text </para>
@@ -86,16 +87,5 @@ public class EquipementSlot : MonoBehaviour
     public void ChangeSprite(Sprite newSprite)
     {
         GetComponent<Image>().sprite = newSprite;
-    }
-
-    ///<summary>
-    /// Is only here to test Upgrade fonction by pressing a key
-    ///</summary>
-    void Update()
-    {
-        if (Input.GetButtonDown(buttonTest))
-        {
-            Upgrade();
-        }
     }
 }

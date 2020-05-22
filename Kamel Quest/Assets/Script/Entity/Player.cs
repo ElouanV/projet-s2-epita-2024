@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 // Author : Elouan
 ///<summary>
 /// The <c> Player </c> class which herit from Entity class.
@@ -17,14 +16,9 @@ public class Player : Entity
     public int armure;
     public int[] inventoryID = new int[20];
     public int[] inventoryCount = new int[20];
-    public Ally[] team = new Ally[2];
+    //public Ally[] team = new Ally[2]; ligne 45
+    public static Entity[] team = new Entity[2];
     public int nbrOfKey = 0;
-
-
-
-    // To save settings
-    public AudioMixer audioMixer;
-
 
     ///<summary>
     /// Constructor of player class which take in parameters all stat of player.
@@ -48,7 +42,7 @@ public class Player : Entity
         inventoryID = new int[20];
         inventoryCount = new int[20];
         // Player's ally
-        this.team = new Ally[2];
+        //this.team = new Ally[2];
     }
 
 // FOR THE INVENTORY
@@ -88,10 +82,22 @@ public class Player : Entity
 
 
 // SAVE MANAGER
+    ///<summary>
+    ///
+    /// 
+    ///
+    ///
+    ///
+    ///</summary>
+
+    public GameObject swordslot;
+    public GameObject shieldslot;
+    public GameObject armorslot;
+    public GameObject keyslot;
 
     public void SavePlayerData()
     {
-        SaveSystem.SavePlayer(this, audioMixer);
+        SaveSystem.SavePlayer(this);
     }
 
     private void Start()
@@ -127,7 +133,7 @@ public class Player : Entity
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
         bouclierlvl = data.playerEquipmentsLevel[2];
-            //TODO : LoadEquipment();
+        LoadEquipment();
         //Load player's inventory
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
@@ -135,7 +141,7 @@ public class Player : Entity
         //Load player's team
             //TODO
         // Load quest datas
-            //TODO
+            //TODO LoadQuestProgress();
         //Load player's position
         Vector3 position;
         position.x = data.playerPosition[0];
@@ -156,14 +162,34 @@ public class Player : Entity
                 myinventory.AddToInventory(inventoryID[i], inventoryCount[i]);
             }
         }
+        Debug.Log("[LoadInventory] : The inventory have been loaded");
     }
 
     private void LoadEquipment()
     {
-        Debug.Log("[LoadEquipment] : This function isn't implemented yet, that's why equipment arn't loaded correctly on the inventory");
+        for (int i = 1; i < epeelvl; i++)
+        {
+            swordslot.GetComponent<EquipementSlot>().Upgrade();
+        }
+        for (int i = 1; i < bouclierlvl; i++)
+        {
+            shieldslot.GetComponent<EquipementSlot>().Upgrade();
+        }
+        for (int i = 1; i < armurelvl; i++)
+        {
+            armorslot.GetComponent<EquipementSlot>().Upgrade();
+        }
+        for (int i = 0; i < nbrOfKey; i++)
+        {
+            keyslot.GetComponent<KeySlot>().AddKey();
+        }
+        Debug.Log("[LoadEquipement] : The inventory have been loaded with equipments and keys");
     }
 
-
+    private void LoadQuestProgress()
+    {
+        Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
+    }
 
     private void CreateNewParty()
     {

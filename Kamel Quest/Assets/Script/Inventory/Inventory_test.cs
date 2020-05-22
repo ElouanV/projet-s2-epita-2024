@@ -218,14 +218,12 @@ public class Inventory_test : MonoBehaviour
     /// A bool to confirm is the deletion has been done succesfully 
     ///</return>
     ///</summary>
-    // Supprime count fois l'item de l'inventaire
-    // Amélioration : La fonction devras renvoyer un booléen qui permettra de savoir si la suppresion à bien été effectuer, pour une vente par exemple
     public bool RemoveFromInventory(int ID, int count)
     {
-        int i =0;
+        int i =20;
         bool found = false;
         ItemSlots item = arrItemsSlot[i].GetComponent<ItemSlots>();
-        while (i < 20 && !found && count != 0)
+        while (i > 0 && !found && count != 0)
         {
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
             if(item.itemID == ID)
@@ -260,7 +258,7 @@ public class Inventory_test : MonoBehaviour
                     count -= item.itemCount;
                 }
             }
-            i+=1;
+            i-=1;
         }
         if (count != 0)
         {
@@ -277,6 +275,19 @@ public class Inventory_test : MonoBehaviour
     }
 
 
+
+    ///<summary>
+    ///<para> This function verify is there is enought item in the inventory </para>
+    ///<para> 
+    ///<param Name = "ID"> Is the item which we want to verify the number in the inventory </param>
+    ///<param Name = "needed"> Is the number of item we need</param>
+    ///<remarks>
+    /// It use both player's inventory array 
+    ///</remarks>
+    ///<return>
+    /// A true if there is enough object and false if not
+    ///</return>
+    ///</summary>
     public bool isInInventory(int ID, int needed)
     {
         int[] IDarray = transform.GetComponent<Player>().inventoryID;

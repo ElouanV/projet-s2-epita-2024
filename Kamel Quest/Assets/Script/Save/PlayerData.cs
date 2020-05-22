@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 //Author : Elouan
 
 [System.Serializable]
@@ -28,7 +27,6 @@ public class PlayerData
 
     // Settings
     [Header("Settings")]
-    public float volumeSetting;
     public int qualityIndex;
     public bool isFullScreen;
     public int resolutionIndex;
@@ -36,7 +34,7 @@ public class PlayerData
 
     // Constructor
 
-    public PlayerData(Player player, AudioMixer audioMixer)
+    public PlayerData(Player player)
     {   
         // Player
         playerLevel = player.lvl;
@@ -60,11 +58,10 @@ public class PlayerData
 
         // Player's team
         playerTeamHp = new int[2];
-        playerTeamHp[0] = player.team[0].currenthp;
-        playerTeamHp[1] = player.team[1].currenthp;
+        playerTeamHp[0] = Player.team[0].currenthp;
+        playerTeamHp[1] = Player.team[1].currenthp;
 
         // Settings
-        audioMixer.GetFloat(audioMixer.name, out volumeSetting);
         qualityIndex = QualitySettings.GetQualityLevel();
         isFullScreen = Screen.fullScreen;
         Resolution[] resolutions = Screen.resolutions;

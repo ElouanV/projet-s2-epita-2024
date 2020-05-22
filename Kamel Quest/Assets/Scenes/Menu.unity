@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 1696e3fd06e0b1743b86b9a29f38e1ed, type: 2}
+  VolumeSlider: {fileID: 372938515}
   dropDownResolution: {fileID: 1962701151}
 --- !u!1 &175700997
 GameObject:
@@ -825,6 +826,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191764838}
   m_CullTransparentMesh: 0
+--- !u!114 &372938515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4186555353709187017, guid: cbdbfde9ad2ba204e898a261fa155f5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4186555353210166075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &403954666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &2000665472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2577,7 +2590,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 61a142eabd236224b913290376624295, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.479
   m_Pitch: 1
   Loop: 1
   Mute: 0
