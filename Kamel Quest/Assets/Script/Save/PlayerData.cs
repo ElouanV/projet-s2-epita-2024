@@ -71,10 +71,10 @@ public class PlayerData
         playerTeamHp[1] = Player.team[1].GetComponent<Entity>().currenthp;
 
         // Quest progress
-        finishedquestprogress = new bool[player.Prog.Length];
-        for (int i = 0; i < player.Prog.Length; i++)
+        finishedquestprogress = new bool[player.GetComponent<Progression>().Prog.Count];
+        for (int i = 0; i < player.GetComponent<Progression>().Prog.Count; i++)
         {
-            if (player.Prog[i] == null)
+            if (player.GetComponent<Progression>().Prog[i] == null)
             {
                 finishedquestprogress[i] = true;
             }
