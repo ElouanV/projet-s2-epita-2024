@@ -75,10 +75,46 @@ public class BattleUI : MonoBehaviour
             ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
             Debug.Log(ally2.currenthp);
         }
- 
-        
+    }
+
+    public void SetupHUDPlayer(Player unit, Ally ally1, Ally ally2)
+    {
+        nameText.text = unit.name;
+        lvlText.text = "Lvl " + unit.lvl;
+        hpSlider.maxValue = unit.hpmax;
+        hpSlider.value = unit.currenthp;
+        unitHpText.text = unit.currenthp + "/" + unit.hpmax;
 
 
+        //alliés
+
+        if (ally1 != null)
+        {
+            ally1NameText.text = ally1.name;
+            ally1LvlText.text = "Lvl " + ally1.lvl;
+            ally1HpSlider.maxValue = ally1.hpmax;
+            ally1HpSlider.value = ally1.currenthp;
+            ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
+            Debug.Log("ca marche");
+        }
+        /*else
+        {
+            ally1NameText.; = null;
+            ally1LvlText.text = null;
+            ally1HpSlider.maxValue = ;
+            ally1HpSlider.value = null;
+            ally1HpText.text = null;
+        }*/
+
+        if (ally2 != null)
+        {
+            ally2NameText.text = ally2.name;
+            ally2LvlText.text = "Lvl " + ally2.lvl;
+            ally2HpSlider.maxValue = ally2.hpmax;
+            ally2HpSlider.value = ally2.currenthp;
+            ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
+            Debug.Log(ally2.currenthp);
+        }
     }
 
     public void UpdateHp(long hp, Entity unit, UnityEngine.UI.Slider slider, TextMeshProUGUI hpText)

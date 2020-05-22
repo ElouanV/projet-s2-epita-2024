@@ -58,8 +58,8 @@ public class PlayerData
 
         // Player's team
         playerTeamHp = new int[2];
-        playerTeamHp[0] = player.team[0].currenthp;
-        playerTeamHp[1] = player.team[1].currenthp;
+        playerTeamHp[0] = Player.team[0].currenthp;
+        playerTeamHp[1] = Player.team[1].currenthp;
 
         // Settings
         qualityIndex = QualitySettings.GetQualityLevel();

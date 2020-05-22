@@ -22,11 +22,16 @@
             <e p="ShowsBubbleText.cs" t="Include" />
             <e p="ShowsText.cs" t="Include" />
           </e>
+          <e p="EndingScene" t="Include">
+            <e p="EndingScene.cs" t="Include" />
+          </e>
           <e p="Entity" t="Include">
             <e p="Ally.cs" t="Include" />
             <e p="Ennemy.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
+            <e p="Patrol.cs" t="Include" />
             <e p="Player.cs" t="Include" />
+            <e p="SpawnEntity.cs" t="Include" />
           </e>
           <e p="HealHouse" t="Include">
             <e p="HealDialogue.cs" t="Include" />
@@ -53,7 +58,7 @@
           <e p="Menu" t="Include">
             <e p="MainMenu.cs" t="Include" />
             <e p="PauseMenu.cs" t="Include" />
-            <e p="SettingMenu.cs" t="Include" />
+            <e p="SettingsMenu.cs" t="Include" />
           </e>
           <e p="PlayerControler.cs" t="Include" />
           <e p="Quest" t="Include">

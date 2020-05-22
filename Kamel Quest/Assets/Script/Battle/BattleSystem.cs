@@ -29,6 +29,9 @@ public class BattleSystem : MonoBehaviour
     
     
     //gestion de team
+    public Entity[] team = Player.team;
+    public GameObject[] allyList;
+    
     //private Team team;
 
     public GameObject[] enemyList = new GameObject[3];
@@ -78,6 +81,8 @@ public class BattleSystem : MonoBehaviour
     {
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
         
+        allyList = new GameObject[team.Length];
+        
         state = BattleState.START;
         SetupBattle();
     }
@@ -87,18 +92,28 @@ public class BattleSystem : MonoBehaviour
         Random random = new Random();
         int numberEnemy = random.Next(1, 4);
         int wichEnemy = random.Next(0, 3);
+
+
         
+            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
+            playerUnit = playerObject.GetComponent<Entity>();
+
+            if (allyList.Length == 1)
+        {
+            ally1Prefab = allyList[0];
+            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+            ally1Unit = ally1Object.GetComponent<Entity>();
+        }
+
+        if (allyList.Length == 2)
+        {
+            ally2Prefab = allyList[1];
+            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+            ally2Unit = ally2Object.GetComponent<Entity>();
+        }
         
 
-        GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-        playerUnit = playerObject.GetComponent<Entity>();
         
-
-        GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
-        ally1Unit = ally1Object.GetComponent<Entity>();
-
-        GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
-        ally2Unit = ally2Object.GetComponent<Entity>();
 
 
         if (numberEnemy == 1)
