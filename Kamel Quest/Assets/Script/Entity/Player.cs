@@ -17,7 +17,8 @@ public class Player : Entity
     public int[] inventoryID = new int[20];
     public int[] inventoryCount = new int[20];
     //public Ally[] team = new Ally[2]; ligne 45
-    public static Entity[] team = new Entity[2];
+    public static GameObject[] team = new GameObject[2];
+    public GameObject[] _team;
     public int nbrOfKey = 0;
 
     ///<summary>
@@ -42,7 +43,7 @@ public class Player : Entity
         inventoryID = new int[20];
         inventoryCount = new int[20];
         // Player's ally
-        //this.team = new Ally[2];
+        _team = new GameObject[2];
     }
 
 // FOR THE INVENTORY

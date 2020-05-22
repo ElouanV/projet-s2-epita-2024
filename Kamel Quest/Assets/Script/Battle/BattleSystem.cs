@@ -29,7 +29,7 @@ public class BattleSystem : MonoBehaviour
     
     
     //gestion de team
-    public Entity[] team = Player.team;
+    public GameObject[] team = Player.team;
     public GameObject[] allyList;
     
     //private Team team;
@@ -95,10 +95,16 @@ public class BattleSystem : MonoBehaviour
 
 
         
+        
+
+        if (allyList.Length == 0)
+        {
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
-
-            if (allyList.Length == 1)
+            
+            
+        }
+        if (allyList.Length == 1)
         {
             ally1Prefab = allyList[0];
             GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
