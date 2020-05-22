@@ -66,6 +66,7 @@ public class MainMenu : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("SaveExist",0) == 1)
         {
+            PlayerPrefs.SetInt("LoadData", 1);
             SceneLoader.GetComponent<SceneLoader>().LoadScene(1);
         }
         else
