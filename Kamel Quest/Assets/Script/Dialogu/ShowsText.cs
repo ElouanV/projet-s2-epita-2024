@@ -13,6 +13,8 @@ public class ShowsText : MonoBehaviour
     private int Index;
     private bool Anim;
 
+    public bool battle;
+
 
 
     // OnEnable is called every time the GO is active
@@ -24,7 +26,7 @@ public class ShowsText : MonoBehaviour
 	    Index = 0;
         Anim = false;
 
-        Txt = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        Txt = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         StartCoroutine(ShowsTxt(SentencesList[Index].Replace("$", "\n")));
 		Index++;
     }
@@ -39,7 +41,11 @@ public class ShowsText : MonoBehaviour
         {
 	        // Once all the sentence have been said, this will update the state of the quest
 	        if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
-	        else if (Index == SentencesList.Count) gameObject.SetActive(false);
+	        else if (Index == SentencesList.Count)
+	        {
+		        if (battle) transform.parent.parent.GetComponent<EnterBattle>.EnterBattle();
+		        gameObject.SetActive(false);
+	        }
 			// This display the current sentence
 			else
 			{
