@@ -71,16 +71,18 @@ public class PlayerData
     
         // TEAM
         playerTeamHp = new int[2];
-        Entity ally1 = Player.team[0].GetComponent<Entity>();
-        Entity ally2 = Player.team[1].GetComponent<Entity>();
+        Entity ally1 = player._team[0].GetComponent<Entity>();
+        Entity ally2 = player._team[1].GetComponent<Entity>();
         playerTeamHp[0] = ally1.currenthp;
         playerTeamHp[1] = ally2.currenthp;
-        allyxp[0] = ally1.xp;
-        allyxp[1] = ally2.xp;
+        allyxp = new int[2];
+        allyxp[0] = ally1.Xp;
+        allyxp[1] = ally2.Xp;
 
         // QUEST
         List<GameObject> prog = player.GetComponent<Progression>().Prog;
         int length = prog.Count;
+        finishedquest = new bool[length];
         for (int i = 0; i < length; i++)
         {
             if (prog[i] == null)

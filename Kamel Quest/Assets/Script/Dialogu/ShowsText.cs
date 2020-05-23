@@ -24,7 +24,7 @@ public class ShowsText : MonoBehaviour
 	    Index = 0;
         Anim = false;
 
-        Txt = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        Txt = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         StartCoroutine(ShowsTxt(SentencesList[Index].Replace("$", "\n")));
 		Index++;
     }
