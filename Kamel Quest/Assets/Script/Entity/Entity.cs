@@ -97,6 +97,7 @@ public class Entity : MonoBehaviour
 
     public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
+        Debug.Log("xp :" + xp + " xpearned : " + xpearned +  "needed" + LEVELUPXPNEEDED[lvl]);
         if (xp + xpearned >= LEVELUPXPNEEDED[lvl])
         {
             xp = xp + xpearned - LEVELUPXPNEEDED[lvl];
