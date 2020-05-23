@@ -148,10 +148,10 @@ public class Player : Entity
             // Hide inventory to start the game
             myinventory.ShowOrHideInventory();
         }
-        if (PlayerPrefs.GetInt("LoadData",0) == 3)
+        if (PlayerPrefs.GetInt("LoadData",0) == 3) // If the player start a battle
         {
             LoadPlayerForBattle();
-        }   // If the player start a battle
+        }   
         
         PlayerPrefs.DeleteKey("LoadData");
     }
