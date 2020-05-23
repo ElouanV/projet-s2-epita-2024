@@ -10,7 +10,7 @@ public class Patrol : MonoBehaviour
     //vitesse et différentes positions possibles pour l'entité
     public int speed;
     public Transform[] patrolPosition;
-    public int randomPosition;
+    private int randomPosition;
     
     //temps d'attente
     private float waitAtSpot;
@@ -34,8 +34,7 @@ public class Patrol : MonoBehaviour
             }
             else
             {
-                transform.position = Vector2.MoveTowards(transform.position, patrolPosition[randomPosition].position,
-                    speed * Time.deltaTime);
+                randomPosition = Random.Range(0, patrolPosition.Length);
                 waitAtSpot = startWaitAtSpot;
             }
         }
