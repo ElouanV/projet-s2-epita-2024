@@ -19,7 +19,8 @@ public class PlayerData
 
     // Quest Progress
     [Header("Quest Progress")]
-    public bool[] finishedquest;
+    public int questfinish;
+    public bool[] finishedquestannex;
     
     // Player's team
     [Header("Player's team")]
@@ -80,20 +81,12 @@ public class PlayerData
         allyxp[1] = ally2.Xp;
 
         // QUEST
-        List<GameObject> prog = player.GetComponent<Progression>().Prog;
-        int length = prog.Count;
-        finishedquest = new bool[length];
-        for (int i = 0; i < length; i++)
-        {
-            if (prog[i] == null)
-            {
-                finishedquest[i] = true;
-            }
-            else
-            {
-                finishedquest[i] = false;
-            }
-        }
+            // For main quest
+        Progression progression = player.GetComponent<Progression>();
+        questfinish = progression.CurrentGet;
+            // Annex quest
+        finishedquestannex = progression.AnnexCompleted;
+
 
         // SETTINGS
         qualityIndex = QualitySettings.GetQualityLevel();

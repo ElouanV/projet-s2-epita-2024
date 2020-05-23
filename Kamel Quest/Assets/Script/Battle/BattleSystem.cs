@@ -73,9 +73,6 @@ public class BattleSystem : MonoBehaviour
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
-
-    /// count des drop
-    public int count_drop;
     
 
 
@@ -512,6 +509,8 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
+        Drop();
+        Xp();
         SceneManager.LoadScene("Game");
     }
 
@@ -775,18 +774,35 @@ void changingStateEnemy(int selectEntity)
         foreach (GameObject enemy in enemyList)
         {
             Random random = new Random();
-            int nombre = random.Next(0,10);
+            int alea = random.Next(0,10);
             Entity enemy2 = enemy.GetComponent<Entity>();
-            if (count_drop == 1)
+            if ( enemy2.lvl == 1 && alea <= 5)
             {
-                playerPrefab .GetComponent<Player>().AddToInventory(enemy2.item_id);
-                count_drop = 0;
+                playerPrefab.GetComponent<Player>().AddToInventory(enemy2.item_id);
             }
-            else 
+            if ( enemy2.lvl == 2 && alea <= 7)
             {
-                count_drop += 1;
+                playerPrefab.GetComponent<Player>().AddToInventory(enemy2.item_id);
+            }
+            else
+            {
+                playerPrefab.GetComponent<Player>().AddToInventory(enemy2.item_id);
             }
         }
+    }
+    
+    /// tableau des xp
+    public readonly int[] LVL_MOB_TO_XP = {5, 15, 25};
+
+    public int Xp ()
+    {
+        int res = 0;
+        foreach (GameObject enemy in enemyList)
+        {
+            Entity enemy2 = enemy.GetComponent<Entity>();
+            res += LVL_MOB_TO_XP[enemy2.lvl];
+        }
+        return res;
     }
 }
 
