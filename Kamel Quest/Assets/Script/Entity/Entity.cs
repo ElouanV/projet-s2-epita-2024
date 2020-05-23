@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 // Author : Elouan
 ///<summary>
@@ -11,6 +12,11 @@ public class Entity : MonoBehaviour
     public int[] LEVELUPXPNEEDED = new int[10];
     public int[] ATKPROGRESSION = new int[10];
     public int[] HPMAXPROGRESSION = new int[10];
+    //liste d'effet
+    public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison"};
+    public List<string> effectList = new List<string>();
+    
+ 
     // Attribut de la classe Entity
     public int hpmax;
     public int currenthp;
@@ -22,6 +28,9 @@ public class Entity : MonoBehaviour
     public int lvl;
     public bool isalive;
     public int item_id;
+    
+    //Pour le battle system
+    public bool is_defence = false;
         
     //getter et setter
     public int Hpmax
@@ -112,11 +121,36 @@ public class Entity : MonoBehaviour
         }
     }
     
-    protected void LvlUp(int setxp) // appelé si l'entité augmente de niveau
+    protected void LvlUp(int setxp) // appellée si l'entité augmente de niveau
     {
         atk += ATKPROGRESSION[lvl];
         hpmax += HPMAXPROGRESSION[lvl];
         GetXp(setxp);
         lvl += 1;
+    }
+
+    //effet possible et ajout dans la liste des effets
+
+
+    public void AddEffect(string effect)
+    {
+        effectList.Append(effect);
+    }
+
+    public void RemoveEffect(string effect)
+    {
+        if (!effectList.Contains(effect))
+        {
+            return;
+        }
+        effectList.Remove(effect);
+    }
+    
+    
+    
+    
+    public bool loot()
+    {
+        return true;
     }
 }

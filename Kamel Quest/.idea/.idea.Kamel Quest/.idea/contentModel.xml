@@ -76,7 +76,6 @@
           <e p="SceneLoader.cs" t="Include" />
           <e p="Shop" t="Include">
             <e p="Bouton.cs" t="Include" />
-            <e p="InterfaceShop.cs" t="Include" />
             <e p="ShowInfoShop.cs" t="Include" />
             <e p="ShowShop.cs" t="Include" />
           </e>

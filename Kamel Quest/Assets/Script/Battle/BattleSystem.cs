@@ -27,6 +27,10 @@ public class BattleSystem : MonoBehaviour
      * je mettrai les commentaires XML plus tard
      */
     
+    //compteur de tour
+    private int nbTurn;
+    private bool loot;
+    
     
     //gestion de team
     public Player player;
@@ -84,6 +88,7 @@ public class BattleSystem : MonoBehaviour
 
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
         allyList = player._team;
+        //player.gameObject.SetActive(false);
         
         state = BattleState.START;
         SetupBattle();
@@ -94,25 +99,26 @@ public class BattleSystem : MonoBehaviour
         Random random = new Random();
         int numberEnemy = random.Next(1, 4);
         int wichEnemy = random.Next(0, 3);
-
-
+        
+        
         
         
 
         if (allyList.Length == 0)
         {
+ 
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
             
-            ally1Prefab = allyList[0];
-            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+            GameObject ally1Object = Instantiate(playerPrefab, ally1Spawn);
             ally1Unit = ally1Object.GetComponent<Entity>();
             ally1Unit.isalive = false;
+            ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
             
-            ally2Prefab = allyList[1];
-            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
             ally2Unit = ally2Object.GetComponent<Entity>();
             ally2Unit.isalive = false;
+            ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
             
             
         }
@@ -120,29 +126,51 @@ public class BattleSystem : MonoBehaviour
         {
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
+            if (!playerUnit.isalive)
+            {
+                playerUnit.GetComponentInChildren<Renderer>().enabled = false;
+            }
             
             ally1Prefab = allyList[0];
             GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
             ally1Unit = ally1Object.GetComponent<Entity>();
+            if (!ally1Unit.isalive)
+            {
+                ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
+            }
 
-            ally2Prefab = allyList[1];
-            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+
+            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
             ally2Unit = ally2Object.GetComponent<Entity>();
             ally2Unit.isalive = false;
+            ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
         }
 
         if (allyList.Length == 2)
         {
             GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
             playerUnit = playerObject.GetComponent<Entity>();
+            if (!playerUnit.isalive)
+            {
+                playerUnit.GetComponentInChildren<Renderer>().enabled = false;
+            }
             
             ally1Prefab = allyList[0];
             GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
             ally1Unit = ally1Object.GetComponent<Entity>();
+            if (!ally1Unit.isalive)
+            {
+                ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
+            }
             
             ally2Prefab = allyList[1];
             GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
             ally2Unit = ally2Object.GetComponent<Entity>();
+            if (!ally2Unit.isalive)
+            {
+                ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
+            }
+
         }
         
 
@@ -331,7 +359,16 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn(Entity plUnit, Entity enUnit)
     {
-        plUnit.GetHurt(enemyUnit.Atk);
+        if (plUnit.is_defence)
+        {
+            plUnit.GetHurt(enUnit.Atk/2);
+            plUnit.is_defence = false;
+        }
+        else
+        {
+            plUnit.GetHurt(enemyUnit.Atk);
+        }
+
         if (plUnit == playerUnit)
         {
             playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText); 
@@ -396,23 +433,24 @@ public class BattleSystem : MonoBehaviour
 
     
     //FIXE plUnit random
-    public void SkipButton(Entity plUnit, Entity enUnit)
+    public void SkipButton()
     {
         switch (state)
         {
-            case BattleState.PLAYERTURN :
-                state = BattleState.ENEMYTURN;
-                StartCoroutine(EnemyTurn(plUnit, enemyUnit));
+            case BattleState.PLAYERTURN:
+                playerUnit.is_defence = true;
                 break;
-            case BattleState.PLAYERTURN1:
-                state = BattleState.ENEMYTURN1;
-                StartCoroutine(EnemyTurn(plUnit, enemy1Unit));
+            case BattleState.ENEMYTURN1:
+                ally1Unit.is_defence = true;
                 break;
             case BattleState.PLAYERTURN2:
-                state = BattleState.ENEMYTURN2;
-                StartCoroutine(EnemyTurn(plUnit, enemy2Unit));
+                ally2Unit.is_defence = true;
                 break;
         }
+        
+        Random random = new Random();
+        int randomEntity = random.Next(1, 4);
+        changingStateEnemy(randomEntity);
     }
 
     public void InventoryButton()
@@ -510,6 +548,7 @@ public class BattleSystem : MonoBehaviour
     void WinBattle()
     {
         Drop();
+        if (loot) Drop();
         Xp();
         SceneManager.LoadScene("Game");
     }
@@ -804,6 +843,38 @@ void changingStateEnemy(int selectEntity)
         }
         return res;
     }
+    
+
+    //compteur de tour
+    private int countTurn(BattleState state, BattleState currentState, int i)
+    {
+        if (state == currentState)
+        {
+            
+        }
+
+        throw new NotImplementedException();
+    }
+
+    //Potions a utiliser dans le combat en fonction du nombre de tour passé
+    public void healPotion(Entity unit)
+    {
+        unit.GetHeal(5);
+        changingStatePlayer();
+    }
+    
+    public void regenerationPotion(Entity unit, int nbTurn)
+    {
+        throw new  NotImplementedException();
+    }
+    
+    public void getloot(Entity unit)
+    {
+        loot = unit.loot();
+    }
+
+
+    
 }
 
 

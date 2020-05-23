@@ -59,6 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9fb43e8f0a82145a664565b173ac92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LEVELUPXPNEEDED: 
+  ATKPROGRESSION: 
+  HPMAXPROGRESSION: 
   hpmax: 30
   currenthp: 28
   atk: 7
@@ -69,6 +72,8 @@ MonoBehaviour:
   lvl: 1
   isalive: 1
   drop_item: []
+  item_id: 0
+  is_defence: 0
   argent: 300
   armurelvl: 1
   epeelvl: 1
@@ -100,6 +105,7 @@ MonoBehaviour:
   Prog:
   - {fileID: 0}
   ProgAnex: []
+  AnnexCompleted: 
   prog_percent: 0
 --- !u!1001 &8343094994226060709
 PrefabInstance:
@@ -192,6 +198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962520302724863047, guid: 7f15a35b76f5447818cc1cc64ec198e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302819357672, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
