@@ -13,13 +13,19 @@ public class Progression : MonoBehaviour
     public List<GameObject> ProgAnex;
     private int CurrentAnex;
     private int[] ActiveQuest = new int[]{0,1, 2, 2};
-    public bool[] AnexCompleted = new bool[ProgAnex.Count];
+    public bool[] AnnexCompleted;
     
     public int prog_percent;
 
+
+    public int CurrentGet
+    {
+        get => Current;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        AnnexCompleted = new bool[ProgAnex.Count];
         prog_percent = 0;
         Nb_Quest = Prog.Count;
         Current = 0;
@@ -37,7 +43,7 @@ public class Progression : MonoBehaviour
     {
         GameObject Quest = ProgAnex[CurrentAnex];
         Quest.SetActive(true);
-        Quest.GetChild(0).GetChild(1).GetChild(1).GetComponent<Quest>().UpdateQuestID(CurrentAnex);
+        Quest.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Quest>().UpdateQuestID(CurrentAnex);
         
         CurrentAnex++;
     }
@@ -50,7 +56,7 @@ public class Progression : MonoBehaviour
     public void UpdateAnexCompleted(GameObject QuestAnex, int QuestID)
     {
         Destroy(QuestAnex);
-        ProgAnex[QuestID] = true;
+        AnnexCompleted[QuestID] = true;
     }
 
     public void NextQuest()

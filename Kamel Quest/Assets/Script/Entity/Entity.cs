@@ -8,10 +8,9 @@ using UnityEngine;
 ///</summary>
 public class Entity : MonoBehaviour
 {
-    public readonly int[] LEVELUPXPNEEDED = {50, 125, 225, 350, 500, 700, 950, 1200, 1600};
-    public readonly int[] ATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
-    public readonly int[] MAGICATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
-    public readonly int[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
+    public int[] LEVELUPXPNEEDED;
+    public int[] ATKPROGRESSION;
+    public int[] HPMAXPROGRESSION;
     // Attribut de la classe Entity
     public int hpmax;
     public int currenthp;
@@ -112,7 +111,6 @@ public class Entity : MonoBehaviour
     protected void LvlUp(int setxp) // appelé si l'entité augmente de niveau
     {
         atk += ATKPROGRESSION[lvl];
-        magicatk += MAGICATKPROGRESSION[lvl];
         hpmax += HPMAXPROGRESSION[lvl];
         GetXp(setxp);
         lvl += 1;

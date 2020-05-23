@@ -178,7 +178,7 @@ public class Player : Entity
         //Load player's team
             //TODO
         // Load quest datas
-        for (int i = 0; i < data.finishedquest.Length; i++)
+        for (int i = 0; i < data.finishedquestannex.Length; i++)
         {
             
         }
@@ -287,7 +287,7 @@ public class Player : Entity
         //Load player's team
             //TODO
         // Load quest datas
-        for (int i = 0; i < data.finishedquest.Length; i++)
+        for (int i = 0; i < data.finishedquestannex.Length; i++)
         {
             
         }
