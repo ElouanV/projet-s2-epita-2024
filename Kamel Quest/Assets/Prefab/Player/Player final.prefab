@@ -68,6 +68,7 @@ MonoBehaviour:
   xp: 0
   lvl: 1
   isalive: 1
+  drop_item: []
   argent: 300
   armurelvl: 1
   epeelvl: 1
