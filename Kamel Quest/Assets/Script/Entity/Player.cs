@@ -184,7 +184,7 @@ public class Player : Entity
         
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
-        LoadQuestProgress(data.questfinsh);
+        LoadQuestProgress(data.questfinish);
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
             // Load quest datas
         
@@ -242,7 +242,7 @@ public class Player : Entity
     private void LoadQuestProgress(int lastquest)
     {
         Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
-        Progression progression = player.GetComponent<Progression>();
+        Progression progression = transform.GetComponent<Progression>();
         for (int i = 0; i < lastquest; i++)
         {
             progression.NextQuest();
@@ -251,9 +251,9 @@ public class Player : Entity
 
     private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
     {
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < questprogress.Length; i++)
         {
-            UpdateAnexCompleted(progression.ProgAnex[i], i);
+            progression.UpdateAnexCompleted(progression.ProgAnex[i], i);
         }
     }
 
