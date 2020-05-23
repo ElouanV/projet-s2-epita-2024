@@ -39,7 +39,6 @@
           </e>
           <e p="Interface" t="Include">
             <e p="MainInterface.cs" t="Include" />
-            <e p="ShopInerface.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
             <e p="Equipement" t="Include">
