@@ -68,6 +68,7 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("LoadData", 1);
             SceneLoader.GetComponent<SceneLoader>().LoadScene(1);
+            PlayerPrefs.DeleteKey("SaveExist");
         }
         else
         {
