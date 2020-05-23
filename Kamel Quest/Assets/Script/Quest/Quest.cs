@@ -110,6 +110,7 @@ public class Quest : MonoBehaviour
         else if (State == QuestState.COMPLETED)
         {
 	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
+	        Player.GetXp(exp);
 
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
