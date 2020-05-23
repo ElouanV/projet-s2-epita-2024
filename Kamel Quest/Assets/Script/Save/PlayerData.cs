@@ -25,7 +25,6 @@ public class PlayerData
     // Player's team
     [Header("Player's team")]
     public int[] playerTeamHp;
-    public int[] allyxp;
 
     // Inventory
     [Header("Inventory")]
@@ -76,9 +75,6 @@ public class PlayerData
         Entity ally2 = player._team[1].GetComponent<Entity>();
         playerTeamHp[0] = ally1.currenthp;
         playerTeamHp[1] = ally2.currenthp;
-        allyxp = new int[2];
-        allyxp[0] = ally1.Xp;
-        allyxp[1] = ally2.Xp;
 
         // QUEST
             // For main quest
