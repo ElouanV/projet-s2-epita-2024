@@ -509,6 +509,8 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
+        Drop();
+        Xp();
         SceneManager.LoadScene("Game");
     }
 
