@@ -118,7 +118,7 @@ public class Player : Entity
     ///
     ///
     ///</summary>
-
+    [Header ("For save")]
     public GameObject swordslot;
     public GameObject shieldslot;
     public GameObject armorslot;
@@ -181,12 +181,13 @@ public class Player : Entity
         LoadInventory();
         //Load player's team
             //TODO
-        // Load quest datas
-        for (int i = 0; i < data.finishedquestannex.Length; i++)
-        {
-            
-        }
-            //TODO LoadQuestProgress();
+        
+        // QUEST 
+        Progression progression = transform.GetComponent<Progression>();
+        LoadQuestProgress(data.questfinsh);
+        LoadQuestProgressAnnex(data.finishedquestannex, progression);
+            // Load quest datas
+        
         //Load player's position
         Vector3 position;
         position.x = data.playerPosition[0];
@@ -238,9 +239,22 @@ public class Player : Entity
         Debug.Log("[LoadEquipement] : The inventory have been loaded with equipments and keys");
     }
 
-    private void LoadQuestProgress()
+    private void LoadQuestProgress(int lastquest)
     {
         Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
+        Progression progression = player.GetComponent<Progression>();
+        for (int i = 0; i < lastquest; i++)
+        {
+            progression.NextQuest();
+        }
+    }
+
+    private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            UpdateAnexCompleted(progression.ProgAnex[i], i);
+        }
     }
 
     private void CreateNewParty()

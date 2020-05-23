@@ -83,7 +83,7 @@ public class PlayerData
         // QUEST
             // For main quest
         Progression progression = player.GetComponent<Progression>();
-        questfinish = progression.CurrentGet;
+        questfinish = progression.CurrentGetSet;
             // Annex quest
         finishedquestannex = progression.AnnexCompleted;
 
