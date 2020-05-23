@@ -74,6 +74,9 @@ public class BattleSystem : MonoBehaviour
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
+
+    //gestion du drop
+    public int luckcount = 0;
     
 
 
