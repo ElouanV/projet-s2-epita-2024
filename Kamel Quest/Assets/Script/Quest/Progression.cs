@@ -18,9 +18,10 @@ public class Progression : MonoBehaviour
     public int prog_percent;
 
 
-    public int CurrentGet
+    public int CurrentGetSet
     {
-        get => Current;
+        get => Current; 
+        set => Current = value;
     }
     // Start is called before the first frame update
     void Start()
