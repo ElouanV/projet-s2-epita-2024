@@ -8,9 +8,9 @@ using UnityEngine;
 ///</summary>
 public class Entity : MonoBehaviour
 {
-    public int[] LEVELUPXPNEEDED;
-    public int[] ATKPROGRESSION;
-    public int[] HPMAXPROGRESSION;
+    public int[] LEVELUPXPNEEDED = new int[10];
+    public int[] ATKPROGRESSION = new int[10];
+    public int[] HPMAXPROGRESSION = new int[10];
     // Attribut de la classe Entity
     public int hpmax;
     public int currenthp;
@@ -21,7 +21,6 @@ public class Entity : MonoBehaviour
     public int xp;
     public int lvl;
     public bool isalive;
-    public GameObject[] drop_item = new GameObject[3];
     public int item_id;
         
     //getter et setter
@@ -59,7 +58,10 @@ public class Entity : MonoBehaviour
         get => item_id;
     }
 
-
+    void Start()
+    {
+        //Debug.Log(LEVELUPXPNEEDED.Length);
+    }
         
     
     // Constructeur
@@ -97,6 +99,8 @@ public class Entity : MonoBehaviour
 
     public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
+        Debug.Log("xp : " + xp + "xpearned : " + xpearned + "lvl : " + lvl );
+        Debug.Log(LEVELUPXPNEEDED.Length);
         if (xp + xpearned >= LEVELUPXPNEEDED[lvl])
         {
             xp = xp + xpearned - LEVELUPXPNEEDED[lvl];

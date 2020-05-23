@@ -27,6 +27,9 @@ public class Player : Entity
     ///</summary>
     public Player(int hpmax, int armure,  int atk, string name, int magicatk, int atkcost, int argent, int armurelvl, int epeelvl, int bouclierlvl, int casquelvl)
     {
+        LEVELUPXPNEEDED = new int[10];
+        ATKPROGRESSION = new int[10];
+        HPMAXPROGRESSION = new int[10];
         this.argent = argent;
         this.currenthp = hpmax;
         this.atkcost = atkcost;
@@ -130,6 +133,7 @@ public class Player : Entity
     {
         
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
+        Debug.Log("[Player] : Start : " + LEVELUPXPNEEDED.Length);
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
             // Open while data's are loading to fix the invisible sprite bug

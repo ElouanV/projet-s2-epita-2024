@@ -90,7 +90,6 @@ public class Inventory_test : MonoBehaviour
             arrItemsSlot[i] = inventorySlots.GetChild(i);
         }
         inventoryCanvas.SetActive(false);
-        Debug.Log("Close inventory");
     }
 
     ///<summary>
@@ -188,12 +187,10 @@ public class Inventory_test : MonoBehaviour
             item.full = true;
             item.itemName = myitem.itemName;
             item.ChangeSprite(myitem.sprite);
-            Debug.Log(" [AddToInventory] : La fonction changesperite a été appelé");
             item.itemDescription = myitem.itemDescription;
             item.itemSprite = myitem.sprite;
             item.itemCount = counttoadd;
             //Player's inventory array 
-            Debug.Log("Indice " + i);
             transform.GetComponent<Player>().inventoryCount[i] = counttoadd;
             transform.GetComponent<Player>().inventoryID[i] = ID;
             //
@@ -295,14 +292,12 @@ public class Inventory_test : MonoBehaviour
         int total = 0;
         for (int i = 0; i < 20; i++)
         {
-			Debug.Log("Comparing ID "+IDarray[i]+" with the item "+ID);
             if (IDarray[i] == ID)
             {
 				
                 total += countarray[i];
             }
         }
-		Debug.Log("We found "+total+" item with the ID :"+ID+" in your full inventory");
         if (total >= needed)
         {
             return true;
