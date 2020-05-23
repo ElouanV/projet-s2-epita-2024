@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3da387cc4bcd74691b0f8a24b57bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LEVELUPXPNEEDED: 
+  ATKPROGRESSION: 
+  HPMAXPROGRESSION: 
   hpmax: 20
   currenthp: 20
   atk: 2
@@ -53,6 +56,12 @@ MonoBehaviour:
   xp: 0
   lvl: 2024
   isalive: 1
+  drop_item:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  item_id: 0
+  is_defence: 0
 --- !u!1 &4405086069842338852
 GameObject:
   m_ObjectHideFlags: 0

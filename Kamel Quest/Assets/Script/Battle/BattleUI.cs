@@ -39,16 +39,27 @@ public class BattleUI : MonoBehaviour
 
     public void SetupHUD(Entity unit, Entity ally1, Entity ally2)
     {
-        nameText.text = unit.name;
-        lvlText.text = "Lvl " + unit.lvl;
-        hpSlider.maxValue = unit.hpmax;
-        hpSlider.value = unit.currenthp;
-        unitHpText.text = unit.currenthp + "/" + unit.hpmax;
-        
-        
+        if (unit.isalive)
+        {
+            nameText.text = unit.name;
+            lvlText.text = "Lvl " + unit.lvl;
+            hpSlider.maxValue = unit.hpmax;
+            hpSlider.value = unit.currenthp;
+            unitHpText.text = unit.currenthp + "/" + unit.hpmax;
+        }
+        else if (!unit.isalive)
+        {
+            nameText.text = "";
+            lvlText.text = "";
+            hpSlider.gameObject.SetActive(false);
+            hpSlider.value = 0;
+            unitHpText.text = "";
+        }
+
+
         //alliés
 
-        if (ally1 != null)
+        if (ally1 != null && ally1.isalive)
         {
             ally1NameText.text = ally1.name;
             ally1LvlText.text = "Lvl " + ally1.lvl;
@@ -57,7 +68,7 @@ public class BattleUI : MonoBehaviour
             ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
             Debug.Log("ca marche");
         }
-        else
+        else if (!ally1.isalive || ally1 == null)
         {
             ally1NameText.text = "";
             ally1LvlText.text = "";
@@ -66,7 +77,7 @@ public class BattleUI : MonoBehaviour
             ally1HpText.text = "";
         }
 
-        if (ally2 != null)
+        if (ally2 != null && ally2.isalive)
         {
             ally2NameText.text = ally2.name;
             ally2LvlText.text = "Lvl " + ally2.lvl;
@@ -74,7 +85,7 @@ public class BattleUI : MonoBehaviour
             ally2HpSlider.value = ally2.currenthp;
             ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
         }
-        else
+        else if (!ally2.isalive || ally2 == null)
         {
             ally2NameText.text = "";
             ally2LvlText.text = "";
