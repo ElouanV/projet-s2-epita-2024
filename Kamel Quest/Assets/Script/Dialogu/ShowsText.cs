@@ -43,7 +43,7 @@ public class ShowsText : MonoBehaviour
 	        if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
 	        else if (Index == SentencesList.Count)
 	        {
-		        if (battle) transform.parent.parent.GetComponent<EnterBattle>.is_active = true;
+		        if (battle) transform.parent.parent.GetComponent<EnterBattle>.EnterBattle();
 		        gameObject.SetActive(false);
 	        }
 			// This display the current sentence
