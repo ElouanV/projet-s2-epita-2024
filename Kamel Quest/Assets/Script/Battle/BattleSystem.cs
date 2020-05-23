@@ -73,6 +73,9 @@ public class BattleSystem : MonoBehaviour
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
+
+    /// count des drop
+    public int count_drop;
     
 
 
@@ -764,6 +767,24 @@ void changingStateEnemy(int selectEntity)
                     }
 
                     break;
+            }
+        }
+    }
+    public void Drop ()
+    {
+        foreach (GameObject enemy in enemyList)
+        {
+            Random random = new Random();
+            int nombre = random.Next(0,10);
+            Entity enemy2 = enemy.GetComponent<Entity>();
+            if (count_drop == 1)
+            {
+                playerPrefab .GetComponent<Player>().AddToInventory(enemy2.item_id);
+                count_drop = 0;
+            }
+            else 
+            {
+                count_drop += 1;
             }
         }
     }

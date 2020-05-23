@@ -23,7 +23,8 @@ public class Entity : MonoBehaviour
     public int lvl;
     public bool isalive;
     public GameObject[] drop_item = new GameObject[3];
-    
+    public int item_id;
+        
     //getter et setter
     public int Hpmax
     { 
@@ -53,6 +54,10 @@ public class Entity : MonoBehaviour
     public bool Isalive
     {
         get => isalive;
+    }
+    public int Item_Id
+    {
+        get => item_id;
     }
 
 
