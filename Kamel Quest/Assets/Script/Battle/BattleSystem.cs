@@ -30,7 +30,6 @@ public class BattleSystem : MonoBehaviour
     
     //gestion de team
     public Player player;
-    public GameObject[] team;
     public GameObject[] allyList;
     
     //private Team team;
@@ -74,18 +73,17 @@ public class BattleSystem : MonoBehaviour
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
-
-    //gestion du drop
-    public int luckcount = 0;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //desactivation de la caméra attachée au player
+        //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
+
         //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
-        team = player._team;
-        allyList = new GameObject[team.Length];
+        allyList = player._team;
         
         state = BattleState.START;
         SetupBattle();
