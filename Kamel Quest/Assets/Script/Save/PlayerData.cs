@@ -13,6 +13,7 @@ public class PlayerData
     public int playerMoney;
     public int playerKey;
     public float[] playerPosition;
+    public float[] playerCameraPosition;
     public int[] playerEquipmentsLevel;
 
 
@@ -23,7 +24,7 @@ public class PlayerData
     // Player's team
     [Header("Player's team")]
     public int[] playerTeamHp;
-    public int[] allyLevel;
+    public int[] allyxp;
 
     // Inventory
     [Header("Inventory")]
@@ -41,7 +42,7 @@ public class PlayerData
 
     public PlayerData(Player player)
     {   
-        // Player
+        // PLAYER
         playerLevel = player.lvl;
         playerXP = player.xp;
         playerMoney = player.argent;
@@ -52,25 +53,32 @@ public class PlayerData
         playerPosition[0] = player.transform.position.x;
         playerPosition[1] = player.transform.position.y;
         playerPosition[2] = player.transform.position.z;
+            // Pick up variable to define camera's position in  a float arrat
+        playerCameraPosition = new float[3];
+        GameObject camera = GameObject.FindWithTag("MainCamera");
+        playerCameraPosition[0] = camera.transform.position.x;
+        playerCameraPosition[1] = camera.transform.position.y;
+        playerCameraPosition[2] = camera.transform.position.z;
             // Pick up variable to define player's equipment levels
         playerEquipmentsLevel = new int[3];
         playerEquipmentsLevel[0] = player.armurelvl;
         playerEquipmentsLevel[1] = player.epeelvl;
         playerEquipmentsLevel[2] = player.bouclierlvl;
-        //Inventory
+
+        //INVENTORY
         inventoryCountSlots = player.inventoryCount;
         inventoryIDSlots = player.inventoryID;
-
-        // Player's team
+    
+        // TEAM
         playerTeamHp = new int[2];
         Entity ally1 = Player.team[0].GetComponent<Entity>();
         Entity ally2 = Player.team[1].GetComponent<Entity>();
         playerTeamHp[0] = ally1.currenthp;
         playerTeamHp[1] = ally2.currenthp;
-        allyLevel[0] = ally1.lvl;
-        allyLevel[1] = ally2.lvl;
+        allyxp[0] = ally1.xp;
+        allyxp[1] = ally2.xp;
 
-        //Quest Progress
+        // QUEST
         List<GameObject> prog = player.GetComponent<Progression>().Prog;
         int length = prog.Count;
         for (int i = 0; i < length; i++)
@@ -84,7 +92,8 @@ public class PlayerData
                 finishedquest[i] = false;
             }
         }
-        // Settings
+
+        // SETTINGS
         qualityIndex = QualitySettings.GetQualityLevel();
         isFullScreen = Screen.fullScreen;
         Resolution[] resolutions = Screen.resolutions;

@@ -12,7 +12,6 @@ public class Entity : MonoBehaviour
     public readonly int[] ATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
     public readonly int[] MAGICATKPROGRESSION = {3, 4, 6, 8, 11, 14, 18, 22, 27};
     public readonly int[] HPMAXPROGRESSION = {75, 150, 325, 600, 800, 1100, 1500, 1900, 2500};
-    #region constructor
     // Attribut de la classe Entity
     public int hpmax;
     public int currenthp;
@@ -66,10 +65,6 @@ public class Entity : MonoBehaviour
         isalive = true;
     }
     
-    #endregion
-    
-    
-
     public void GetHurt(int damage) // inflige damage points de dégats à l'entité
     {
         if (currenthp > damage)
@@ -95,27 +90,25 @@ public class Entity : MonoBehaviour
         }
     }
 
-    
-
     public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
         if (xp + xpearned >= LEVELUPXPNEEDED[lvl])
         {
             xp = xp + xpearned - LEVELUPXPNEEDED[lvl];
             LvlUp(xp);
-        
         }
         else
         {
             xp += xpearned;
         }
     }
+    
     protected void LvlUp(int setxp) // appelé si l'entité augmente de niveau
     {
         atk += ATKPROGRESSION[lvl];
         magicatk += MAGICATKPROGRESSION[lvl];
         hpmax += HPMAXPROGRESSION[lvl];
-        xp = setxp;
+        GetXp(setxp);
         lvl += 1;
     }
 }
