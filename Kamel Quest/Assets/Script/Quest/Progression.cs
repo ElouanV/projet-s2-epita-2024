@@ -12,7 +12,8 @@ public class Progression : MonoBehaviour
 
     public List<GameObject> ProgAnex;
     private int CurrentAnex;
-    private int[] ActiveQuest = new int[]{2};
+    private int[] ActiveQuest = new int[]{0,1, 2, 2};
+    public bool[] AnexCompleted = new bool[ProgAnex.Count];
     
     public int prog_percent;
 
@@ -34,13 +35,22 @@ public class Progression : MonoBehaviour
 
     public void InstallQuestAnex()
     {
-        ProgAnex[CurrentAnex].SetActive(true);
+        GameObject Quest = ProgAnex[CurrentAnex];
+        Quest.SetActive(true);
+        Quest.GetChild(0).GetChild(1).GetChild(1).GetComponent<Quest>().UpdateQuestID(CurrentAnex);
+        
         CurrentAnex++;
     }
 
     public void DeletedQuest()
     {
         Destroy(CurrentQuest);
+    }
+
+    public void UpdateAnexCompleted(GameObject QuestAnex, int QuestID)
+    {
+        Destroy(QuestAnex);
+        ProgAnex[QuestID] = true;
     }
 
     public void NextQuest()

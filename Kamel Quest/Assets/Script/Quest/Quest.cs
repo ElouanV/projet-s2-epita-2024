@@ -33,6 +33,8 @@ public class Quest : MonoBehaviour
     public int rewardID;
     public int rewardCount;
 
+	private string questID;
+
 	public bool BackToPNJ;
 	public bool anex;
 	public GameObject scene;
@@ -112,7 +114,7 @@ public class Quest : MonoBehaviour
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
-            if (anex) Destroy(scene);
+            if (anex) Player.GetComponent<Progression>().AnexCompleted(scene, questID);
 			else Player.GetComponent<Progression>().NextQuest();
 			
         }
@@ -179,6 +181,11 @@ public class Quest : MonoBehaviour
 		if (State == QuestState.STARTED) completed = CompletedGivingQuest(); 
 		if (completed) UpdateState();
 		return completed;
+	}
+
+	public void UpdateQuestID(int ID)
+	{
+		questID = ID;
 	}
 }
  

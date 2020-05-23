@@ -40,9 +40,10 @@ public class ShowsText : MonoBehaviour
 	    else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
 	        // Once all the sentence have been said, this will update the state of the quest
-	        if (Index == SentencesList.Count && quest) transform.GetComponent<Quest>().UpdateState();
-	        else if (Index == SentencesList.Count)
+	        if (Index == SentencesList.Count)
 	        {
+		        if (quest) transform.GetComponent<Quest>().UpdateState();
+		        else if (battle) transform.GetComponent<EnterBattle>.EnterBattlePlayer();
 		        gameObject.SetActive(false);
 	        }
 			// This display the current sentence
