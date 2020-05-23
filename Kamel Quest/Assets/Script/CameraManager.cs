@@ -27,11 +27,11 @@ public class CameraManager : MonoBehaviour
     ///</summary>
     public void ChangeCamerPosition(float camy, float camz, float camx = 0)
     {
-        Transform camera = transform.GetChild(0);
+        GameObject camera = GameObject.FindWithTag("MainCamera");
         Vector3 cameraposition;
         cameraposition.x = camx;
         cameraposition.y = camy;
         cameraposition.z = camz;
-        camera.position = cameraposition;
+        camera.transform.position = cameraposition;
     }
 }

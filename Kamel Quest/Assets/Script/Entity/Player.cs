@@ -21,6 +21,7 @@ public class Player : Entity
     public GameObject[] _team;
     public int nbrOfKey = 0;
 
+
     ///<summary>
     /// Constructor of player class which take in parameters all stat of player.
     ///</summary>
@@ -81,6 +82,30 @@ public class Player : Entity
         return total;
     }
 
+    public void AddToInventory(int ID)
+    {
+        bool added = false;
+        for (int i = 0; i < 20; i++)
+        {
+            if (inventoryID[i] == ID && inventoryCount[i] <64)
+            {
+                inventoryCount[i] +=1;
+                added = true;
+            }
+        }
+        if (!added)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (inventoryID[i] == 0)
+                {
+                    inventoryID[i] = ID;
+                    inventoryCount[i] = 1;
+                }
+            }
+        }
+    }
+
 
 // SAVE MANAGER
     ///<summary>
@@ -103,20 +128,31 @@ public class Player : Entity
 
     private void Start()
     {
-        // Open while data's are loading to fix the invisible sprite bug
-        Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
-        myinventory.ShowOrHideInventory();
+        
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
+            // Open while data's are loading to fix the invisible sprite bug
+            Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
+            myinventory.ShowOrHideInventory();
             LoadPlayerData();
+            // Hide inventory to start the game
+            myinventory.ShowOrHideInventory();
         }
-        if (PlayerPrefs.GetInt("LoadData",0) == 2)
+        if (PlayerPrefs.GetInt("LoadData",0) == 2) //  If the player want to start a new game
         {
+            // Open while data's are loading to fix the invisible sprite bug
+            Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
+            myinventory.ShowOrHideInventory();
             CreateNewParty();
+            // Hide inventory to start the game
+            myinventory.ShowOrHideInventory();
         }
-        // Hide inventory to start the game
-        myinventory.ShowOrHideInventory();
+        if (PlayerPrefs.GetInt("LoadData",0) == 3)
+        {
+            LoadPlayerForBattle();
+        }   // If the player start a battle
+        
         PlayerPrefs.DeleteKey("LoadData");
     }
 
@@ -128,8 +164,8 @@ public class Player : Entity
         // Load player statitics
         argent = data.playerMoney;
         lvl = data.playerLevel;
-        xp = data.playerXP;
-        
+        int playerxp = data.playerXP;
+        GetXp(playerxp);
         //Load equipments levels
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
@@ -153,6 +189,13 @@ public class Player : Entity
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
+        //Load Camera position
+        Vector3 cameraposition;
+        cameraposition.x = data.playerCameraPosition[0];
+        cameraposition.y = data.playerCameraPosition[1];
+        cameraposition.z = data.playerCameraPosition[2];
+        GameObject.FindWithTag("MainCamera").transform.position = cameraposition;
+
         Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
         Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
@@ -222,5 +265,51 @@ public class Player : Entity
         position.z = 0;
         transform.position = position;
     }
+
+    private void LoadPlayerForBattle()
+    {
+        Debug.Log("[LoaPlayBattle] : We are downloading your data, please wait");
+        //Get player data from binary save file
+        PlayerData data = SaveSystem.LoadPlayer();
+        // Load player statitics
+        argent = data.playerMoney;
+        lvl = data.playerLevel;
+        int playerxp = data.playerXP;
+        GetXp(playerxp);
+        
+        //Load equipments levels
+        armurelvl = data.playerEquipmentsLevel[0];
+        epeelvl = data.playerEquipmentsLevel[1];
+        bouclierlvl = data.playerEquipmentsLevel[2];
+        //Load player's inventory
+        inventoryCount = data.inventoryCountSlots;
+        inventoryID  = data.inventoryIDSlots;
+        //Load player's team
+            //TODO
+        // Load quest datas
+        for (int i = 0; i < data.finishedquest.Length; i++)
+        {
+            
+        }
+            //TODO LoadQuestProgress();
+        //Load player's position
+        Vector3 position;
+        position.x = data.playerPosition[0];
+        position.y = data.playerPosition[1];          
+        position.z = data.playerPosition[2];
+        transform.position = position;
+        //Load Camera position
+        Vector3 cameraposition;
+        cameraposition.x = data.playerCameraPosition[0];
+        cameraposition.y = data.playerCameraPosition[1];
+        cameraposition.z = data.playerCameraPosition[2];
+        GameObject PlayerCamera = GameObject.FindWithTag("MainCamera");
+        PlayerCamera.transform.position = cameraposition;
+
+
+        Debug.Log("[LoadPlayerBattle] : Your party have been load successfully ! You can play !");
+        Debug.Log("[LoadPlayerBattle] : Not all data have been loaded, this function have to be fixed");
+    }
+
 
 }
