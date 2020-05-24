@@ -94,7 +94,7 @@ public class Quest : MonoBehaviour
                     UpdateState();
                     Player.GetComponent<Progression>().NextQuest();
                     Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
-                else if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
+                else if (transform.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
                 Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             }
             else gameObject.SetActive(false);

@@ -19,11 +19,12 @@ public class QuestGiver: MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
-	    YesOrNo = new List<string> {"Acceptes-vous cette quête ?$					   	     [Y]- Yes		   [N]- No"};
+	    YesOrNo = new List<string> {"Acceptes-vous cette quête ?$					   	                                      [Y]- Yes		   [N]- No"};
     }
 	// Update what the PNG say depending of the quest state
 	public List<string> UpdateText()
 	{
+		Debug.Log("QuestGiver: UpdateText");
 		if (quest.type == QuestType.Giving) transform.GetComponent<Quest>().CheckInventoryGiving();
 		else if (quest.type == QuestType.Killing) transform.GetComponent<Quest>().CheckKilledEnemy();
 		List<string> current = new List<string> {};
