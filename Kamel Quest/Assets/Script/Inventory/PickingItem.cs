@@ -6,20 +6,16 @@ public class PickingItem : MonoBehaviour
 {
     public GameObject Player;
     public bool quest;
-    public bool active;
-
     // Only for the quest
     public GameObject questgiver;
 
 
     void OnTriggerEnter2D()
     {
-
-        if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
-        active = true;
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
-        Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
-        Debug.Log("[PickingItem] OnTriggerEnter2D: The item have been destroyed from the map and add to your inventory.");
+        Debug.Log("[PickingItem] OnTriggerEnter2D: The item have been picked.");
+        if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
+        else Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
     }
 }

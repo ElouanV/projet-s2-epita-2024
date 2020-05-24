@@ -137,6 +137,7 @@ public class Quest : MonoBehaviour
 				if (completed) UpdateState();
 				break;
 			case QuestType.Bringing:
+				Target.SetActive(true);
                 if (completed) UpdateState();
                 break;	
 			case QuestType.Giving:
@@ -150,8 +151,7 @@ public class Quest : MonoBehaviour
     public void CompletedQuest()
     { 
         completed = true;
-		if (type == QuestType.Bringing) Player.GetComponent<Inventory_test>().RemoveFromInventory(Target.GetComponent<Items>().itemID , 1);
-		Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
+        Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
         if (State == QuestState.STARTED) UpdateState();
     }
 

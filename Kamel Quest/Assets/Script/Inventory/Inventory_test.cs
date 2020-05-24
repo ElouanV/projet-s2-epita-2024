@@ -217,7 +217,7 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
     public bool RemoveFromInventory(int ID, int count)
     {
-        int i =20;
+        int i = 19;
         bool found = false;
         ItemSlots item = arrItemsSlot[i].GetComponent<ItemSlots>();
         while (i > 0 && !found && count != 0)

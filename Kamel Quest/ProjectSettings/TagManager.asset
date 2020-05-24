@@ -40,8 +40,14 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - TextUI
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 767995669
+    locked: 0
+  - name: TextUI
+    uniqueID: 3458100741
     locked: 0
