@@ -23,11 +23,6 @@ public class Progression : MonoBehaviour
         get => Current; 
         set => Current = value;
     }
-    public GameObject CurrentQuestGetSet
-    { 
-        get => CurrentQuest;
-        set => CurrentQuest = value;
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -69,14 +64,14 @@ public class Progression : MonoBehaviour
     {
         DeletedQuest();
         Current++;
-        Debug.Log("[NextQuest] : Current : " + Current);
-        Debug.Log("[LoadQuestProgress] : Nb_Quest : "  + Nb_Quest);
         prog_percent = (Current) * 100 / Prog.Count;
         if (Current < Nb_Quest)
         {
-            Debug.Log("Installing the next main quest");
+            Debug.Log("Installiing the next main quest");
             CurrentQuest = Prog[Current];
+
             InstallQuest();
+            
             if (ProgAnex.Count > 0) foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
         }
     }
