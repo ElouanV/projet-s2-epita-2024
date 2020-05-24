@@ -41,8 +41,6 @@ public class ShowShop : MonoBehaviour
     {
         ShopCanvas.SetActive(!is_shop&& !inventoryOpen);
         MainInterface.SetActive(is_shop);
-        
-
         Cursor.visible = !is_shop&& !inventoryOpen; 
         if (is_shop) 
         {

@@ -10,8 +10,11 @@ public class Player : Entity
 {
     public int argent;
     public int armurelvl;
+    public int[] armureboost = new int[3];
     public int epeelvl;
+    public int[] epeeboost = new int[3];
     public int bouclierlvl;
+    public int[] bouclierboost = new int[3];
     public int casquelvl;
     public int armure;
     public int[] inventoryID = new int[20];
@@ -165,36 +168,46 @@ public class Player : Entity
         Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
         PlayerData data = SaveSystem.LoadPlayer();
-        // Load player statitics
+
+        // PLAYER
         argent = data.playerMoney;
-        lvl = data.playerLevel;
+        nbrOfKey = data.playerKey;
         int playerxp = data.playerXP;
         GetXp(playerxp);
-        //Load equipments levels
+
+        //EQUIPMENTS
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
         bouclierlvl = data.playerEquipmentsLevel[2];
         LoadEquipment();
-        //Load player's inventory
+
+        //INVENTORY
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
         LoadInventory();
-        //Load player's team
-            //TODO
+        //TEAM
+        Entity ally1 = _team[0].GetComponent<Entity>();
+        Entity ally2 = _team[1].GetComponent<Entity>();
+        ally1.GetXp(playerxp);
+        ally2.GetXp(playerxp);
+        LoadEquipementTeam(ally1, ally2, lvl);
+        ally1.currenthp = data.playerTeamHp[0];
+        ally2.currenthp = data.playerTeamHp[1];
+        
         
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
         LoadQuestProgress(data.questfinish);
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
-            // Load quest datas
         
-        //Load player's position
+        //POSITION
         Vector3 position;
         position.x = data.playerPosition[0];
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
-        //Load Camera position
+
+        //CAMERA
         Vector3 cameraposition;
         cameraposition.x = data.playerCameraPosition[0];
         cameraposition.y = data.playerCameraPosition[1];
@@ -257,6 +270,16 @@ public class Player : Entity
         }
     }
 
+    private void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
+    {
+        int atkboost = epeeboost[lvl];
+        int hpboost = armureboost[lvl];
+        ally1.atk += atkboost;
+        ally2.atk += atkboost;
+        ally1.hpmax += hpboost;
+        ally1.hpmax += hpboost;
+    }
+
     private void CreateNewParty()
     {
         Debug.Log("We are creating a new party, please wait");
@@ -286,47 +309,55 @@ public class Player : Entity
 
     private void LoadPlayerForBattle()
     {
-        Debug.Log("[LoaPlayBattle] : We are downloading your data, please wait");
+        Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
         PlayerData data = SaveSystem.LoadPlayer();
-        // Load player statitics
+
+        // PLAYER
         argent = data.playerMoney;
-        lvl = data.playerLevel;
+        nbrOfKey = data.playerKey;
         int playerxp = data.playerXP;
         GetXp(playerxp);
-        
-        //Load equipments levels
+
+        //EQUIPMENTS
         armurelvl = data.playerEquipmentsLevel[0];
         epeelvl = data.playerEquipmentsLevel[1];
         bouclierlvl = data.playerEquipmentsLevel[2];
-        //Load player's inventory
+
+        //INVENTORY
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
-        //Load player's team
-            //TODO
-        // Load quest datas
-        for (int i = 0; i < data.finishedquestannex.Length; i++)
-        {
-            
-        }
-            //TODO LoadQuestProgress();
-        //Load player's position
+        //TEAM
+        Entity ally1 = _team[0].GetComponent<Entity>();
+        Entity ally2 = _team[1].GetComponent<Entity>();
+        ally1.GetXp(playerxp);
+        ally2.GetXp(playerxp);
+        LoadEquipementTeam(ally1, ally2, lvl);
+        ally1.currenthp = data.playerTeamHp[0];
+        ally2.currenthp = data.playerTeamHp[1];
+        
+        
+        // QUEST 
+        Progression progression = transform.GetComponent<Progression>();
+        progression.CurrentGetSet = data.questfinish;
+        progression.AnnexCompleted = data.finishedquestannex;
+        
+        //POSITION
         Vector3 position;
         position.x = data.playerPosition[0];
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
-        //Load Camera position
+
+        //CAMERA
         Vector3 cameraposition;
         cameraposition.x = data.playerCameraPosition[0];
         cameraposition.y = data.playerCameraPosition[1];
         cameraposition.z = data.playerCameraPosition[2];
-        GameObject PlayerCamera = GameObject.FindWithTag("MainCamera");
-        PlayerCamera.transform.position = cameraposition;
+        GameObject.FindWithTag("MainCamera").transform.position = cameraposition;
 
-
-        Debug.Log("[LoadPlayerBattle] : Your party have been load successfully ! You can play !");
-        Debug.Log("[LoadPlayerBattle] : Not all data have been loaded, this function have to be fixed");
+        Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
+        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 
 

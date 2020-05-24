@@ -44,64 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776fafd395d9e4eaabdfb2eab272366d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestGiver: {fileID: 5264638071185180127}
+  QuestGiver: {fileID: 0}
   IsQuest: 1
---- !u!114 &320308782438658484
+--- !u!114 &1378338936620812039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264638071185180127}
+  m_GameObject: {fileID: 4434942228764059295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4acd60820b04a45d7875b5773195061a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5095c2579c7b95a4498341dc066c69ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 0}
-  TextForNone: []
-  TextForStarted: []
-  TextForDeclined: []
-  TextForCompleted: []
-  TextForEnded: []
---- !u!114 &320308782438658485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264638071185180127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 125253488e208411aa6cba15297d7559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  State: 0
-  Target: {fileID: 4434942228764059295}
-  Player: {fileID: 0}
-  title: 
-  desc: 
-  exp: 0
-  rewardID: 0
-  rewardCount: 0
-  BackToPNJ: 0
-  anex: 0
-  scene: {fileID: 0}
---- !u!114 &320308782438658490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264638071185180127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0049bdf1a53c74603b61c3149cb5074e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 0.02
-  quest: 1
+  is_active: 0
 --- !u!1001 &320308782349850301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,6 +126,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3928102052891844268, guid: 27831065d483e4315a5816d04b127baa,
+        type: 3}
+      propertyPath: Bubble
+      value: 
+      objectReference: {fileID: 2616170134179744315}
     - target: {fileID: 4674837249642849820, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: TextForNone.Array.size
@@ -273,7 +235,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bubble
       value: 
-      objectReference: {fileID: 5264638071185180127}
+      objectReference: {fileID: 0}
     - target: {fileID: 6338500144624989526, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: PNG
@@ -293,9 +255,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 320308782349850301}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5264638071185180127 stripped
+--- !u!1 &2616170134179744315 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5583961392938685282, guid: 27831065d483e4315a5816d04b127baa,
+  m_CorrespondingSourceObject: {fileID: 2323707615531736198, guid: 27831065d483e4315a5816d04b127baa,
     type: 3}
   m_PrefabInstance: {fileID: 320308782349850301}
   m_PrefabAsset: {fileID: 0}
