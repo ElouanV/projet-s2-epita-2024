@@ -108,25 +108,32 @@ public class Entity : MonoBehaviour
 
     public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
-        Debug.Log("xp : " + xp + "xpearned : " + xpearned + "lvl : " + lvl );
-        Debug.Log(LEVELUPXPNEEDED.Length);
-        if (xp + xpearned >= LEVELUPXPNEEDED[lvl])
+        if (lvl < 10)
         {
-            xp = xp + xpearned - LEVELUPXPNEEDED[lvl];
-            LvlUp(xp);
+            Debug.Log("xp : " + xp + "xpearned : " + xpearned + "lvl : " + lvl );
+            Debug.Log(LEVELUPXPNEEDED.Length);
+            if (xp + xpearned >= LEVELUPXPNEEDED[lvl-1])
+            {
+                xpearned = xp + xpearned - LEVELUPXPNEEDED[lvl-1];
+                LvlUp(xpearned);
+            
+            }
+            else
+            {
+                xp += xpearned;
+            }
         }
-        else
-        {
-            xp += xpearned;
-        }
+        
     }
     
     protected void LvlUp(int setxp) // appellée si l'entité augmente de niveau
     {
-        atk += ATKPROGRESSION[lvl];
-        hpmax += HPMAXPROGRESSION[lvl];
-        GetXp(setxp);
+        atk += ATKPROGRESSION[lvl-1];
+        hpmax += HPMAXPROGRESSION[lvl-1];
         lvl += 1;
+        xp = LEVELUPXPNEEDED[lvl-1];
+        GetXp(setxp - LEVELUPXPNEEDED[lvl-1]);
+        
     }
 
     //effet possible et ajout dans la liste des effets

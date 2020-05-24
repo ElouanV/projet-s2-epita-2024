@@ -94,11 +94,11 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         SetupBattle();
     }
-
+     
     public void SetupBattle() //faire spawn les entités au bon endroit et mettre les UI a jour
     {
         Random random = new Random();
-        int numberEnemy = random.Next(1, 4);
+        int numberEnemy = 3;
         int wichEnemy = random.Next(0, 3);
         
         
@@ -131,7 +131,9 @@ public class BattleSystem : MonoBehaviour
             ally2Unit = null;
         }
 
-        
+        Debug.Log(PlayerPrefs.GetInt("Ennemy1",0));
+        Debug.Log(PlayerPrefs.GetInt("Ennemy2",0));
+        Debug.Log(PlayerPrefs.GetInt("Ennemy3",0));
         
 
         
@@ -139,11 +141,11 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 1)
         {
-            enemyPrefab = enemyList[wichEnemy];
+            enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
             wichEnemy = random.Next(0, 3);
-            enemy1Prefab = enemyList[wichEnemy];
+            enemy1Prefab = enemyList[PlayerPrefs.GetInt("Enemy2",0)];
             wichEnemy = random.Next(0, 3);
-            enemy2Prefab = enemyList[wichEnemy];
+            enemy2Prefab = enemyList[PlayerPrefs.GetInt("Enemy3",0)];
             
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
@@ -152,13 +154,11 @@ public class BattleSystem : MonoBehaviour
             enemy1Unit = enemy1Object.GetComponent<Entity>();
             enemy1Unit.isalive = false;
             enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
-            enemy1Unit = null;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
             enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
-            enemy2Unit = null;
         }
 
         if (numberEnemy == 2)
@@ -189,16 +189,15 @@ public class BattleSystem : MonoBehaviour
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
             enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
-            enemy2Unit = null;
         }
 
         if (numberEnemy == 3)
         {
-            enemyPrefab = enemyList[wichEnemy];
+            enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
             wichEnemy = random.Next(0, 2);
-            enemy1Prefab = enemyList[wichEnemy];
+            enemy1Prefab = enemyList[PlayerPrefs.GetInt("Enemy2",0)];
             wichEnemy = random.Next(0, 2);
-            enemy2Prefab = enemyList[wichEnemy];
+            enemy2Prefab = enemyList[PlayerPrefs.GetInt("Enemy3",0)];
             
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
@@ -208,6 +207,10 @@ public class BattleSystem : MonoBehaviour
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
+
+            enemyUnit.GetXp(player.Xp);
+            enemy1Unit.GetXp(player.Xp);
+            enemy2Unit.GetXp(player.Xp);
         }
 
 
@@ -224,12 +227,12 @@ public class BattleSystem : MonoBehaviour
 
         if (numberEnemy == 1)
         {
-            enemyHUD.SetupHUD(enemyUnit, null, null);
+            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
         }
 
         if (numberEnemy == 2)
         {
-            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, null);
+            enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
         }
 
         if (numberEnemy == 3)
@@ -507,6 +510,8 @@ public class BattleSystem : MonoBehaviour
     //End Battle
     void LoseBattle()
     {
+        SaveSystem.SavePlayer(player);
+        PlayerPrefs.SetInt("LoadData",1);
         SceneManager.LoadScene("Game");
     }
 
@@ -514,6 +519,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (loot) Drop();
         Xp();
+        SaveSystem.SavePlayer(player);
+        PlayerPrefs.SetInt("LoadData",1);
         SceneManager.LoadScene("Game");
     }
 

@@ -59,7 +59,7 @@ public class BattleUI : MonoBehaviour
 
         //alliés
 
-        if (ally1 != null)
+        if (ally1.isalive)
         {
             ally1NameText.text = ally1.name;
             ally1LvlText.text = "Lvl " + ally1.lvl;
@@ -77,7 +77,7 @@ public class BattleUI : MonoBehaviour
             ally1HpText.text = "";
         }
 
-        if (ally2 != null)
+        if (ally2.isalive)
         {
             ally2NameText.text = ally2.name;
             ally2LvlText.text = "Lvl " + ally2.lvl;
