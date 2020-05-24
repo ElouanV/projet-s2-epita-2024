@@ -547,7 +547,6 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
-        Drop();
         if (loot) Drop();
         Xp();
         SceneManager.LoadScene("Game");
@@ -833,7 +832,7 @@ void changingStateEnemy(int selectEntity)
     /// tableau des xp
     public readonly int[] LVL_MOB_TO_XP = {5, 15, 25};
 
-    public int Xp ()
+    public void Xp ()
     {
         int res = 0;
         foreach (GameObject enemy in enemyList)
@@ -841,7 +840,7 @@ void changingStateEnemy(int selectEntity)
             Entity enemy2 = enemy.GetComponent<Entity>();
             res += LVL_MOB_TO_XP[enemy2.lvl];
         }
-        return res;
+        playerPrefab.GetComponent<Player>().GetXp(enemy2.item_id);
     }
     
 
@@ -872,9 +871,6 @@ void changingStateEnemy(int selectEntity)
     {
         loot = unit.loot();
     }
-
-
-    
 }
 
 
