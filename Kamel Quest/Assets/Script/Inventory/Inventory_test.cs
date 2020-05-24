@@ -221,7 +221,7 @@ public class Inventory_test : MonoBehaviour
         int i = 19;
         bool found = false;
         ItemSlots item = arrItemsSlot[i].GetComponent<ItemSlots>();
-        while (i > 0 && !found && count != 0)
+        while (i >= 0 && !found && count != 0)
         {
             item = arrItemsSlot[i].GetComponent<ItemSlots>();
             if(item.itemID == ID)
