@@ -110,7 +110,7 @@ public class Quest : MonoBehaviour
         else if (State == QuestState.COMPLETED)
         {
 	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
-	        Player.GetXp(exp);
+	        Player.GetComponent<Player>().GetXp(exp);
 
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
@@ -186,11 +186,11 @@ public class Quest : MonoBehaviour
 
 	public bool CheckKilledEnemy()
 	{
-		completed = !(Target.GetComponent<Entity>().isalive());
+		completed = !(Target.GetComponent<Entity>().isalive);
 		if (completed)
 		{
 			State = QuestState.STARTED;
-			Target.IsKilled();
+			Target.GetComponent<IsKilled>().UpdateState();
 		}
 		return completed;	
 	}

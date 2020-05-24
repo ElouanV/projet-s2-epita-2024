@@ -25,7 +25,7 @@ public class QuestGiver: MonoBehaviour
 	public List<string> UpdateText()
 	{
 		if (quest.type == QuestType.Giving) transform.GetComponent<Quest>().CheckInventoryGiving();
-		else if (quest.type == QuestType.Killing) CheckKilledEnemy();
+		else if (quest.type == QuestType.Killing) transform.GetComponent<Quest>().CheckKilledEnemy();
 		List<string> current = new List<string> {};
 		if (quest.State == QuestState.NONE) current = TextForNone;
 		else if (quest.State == QuestState.ACCEPTED) current = YesOrNo;
