@@ -457,7 +457,7 @@ public class BattleSystem : MonoBehaviour
         {
             
         }
-        throw new NotImplementedException("FIXE ME BITCH !");
+        throw new NotImplementedException();
     }
 
 
@@ -623,6 +623,7 @@ public class BattleSystem : MonoBehaviour
 
 void changingStateEnemy(int selectEntity)
     {
+
         if (!enemyUnit.isalive && !enemy1Unit.isalive && !enemy2Unit.isalive)
         {
             state = BattleState.WIN;
@@ -888,7 +889,7 @@ void changingStateEnemy(int selectEntity)
     
     public void RegenerationEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHeal(2);
     }
     
     public void LootEffect(Entity unit)
@@ -898,17 +899,22 @@ void changingStateEnemy(int selectEntity)
 
     public void PoisonEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHurt(2);
     }
 
     public void DamageEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHurt(10);
     }
 
     public void StrengtheningEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.atk += 5;
+    }
+
+    public void removeEffect()
+    {
+        throw new NotImplementedException();
     }
     
 
