@@ -30,6 +30,7 @@
             <e p="Ally.cs" t="Include" />
             <e p="Ennemy.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
+            <e p="MovePnj.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="SpawnEntity.cs" t="Include" />
