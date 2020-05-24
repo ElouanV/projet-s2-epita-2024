@@ -835,12 +835,12 @@ void changingStateEnemy(int selectEntity)
     public void Xp ()
     {
         int res = 0;
+        
         foreach (GameObject enemy in enemyList)
         {
-            Entity enemy2 = enemy.GetComponent<Entity>();
-            res += LVL_MOB_TO_XP[enemy2.lvl];
+            res += LVL_MOB_TO_XP[enemy.GetComponent<Entity>().lvl];
         }
-        playerPrefab.GetComponent<Player>().GetXp(enemy2.item_id);
+        playerPrefab.GetComponent<Player>().GetXp(res);
     }
     
 
