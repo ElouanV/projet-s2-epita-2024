@@ -43,6 +43,7 @@ public class Inventory_test : MonoBehaviour
     public bool pauseMenuOpen = false;
     public bool inventoryOpen = false;
     public bool shopOpen = false;
+    public bool sellshopOpen = false;
     public GameObject itemList;
     
     [Header ("Button list")]
@@ -319,7 +320,7 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
     public void ShowOrHideInventory ()
     {
-        inventoryCanvas.SetActive(!inventoryOpen && !shopOpen && !pauseMenuOpen); // active l'inventaire ou le desactive
+        inventoryCanvas.SetActive(!inventoryOpen && !shopOpen && !sellshopOpen && !pauseMenuOpen); // active l'inventaire ou le desactive
 
             //Gestion du curseur
             // Rend le curseur visible si l'inventaire et ouvert, invisible si l'interface est fermé
@@ -335,7 +336,7 @@ public class Inventory_test : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
             // inverse le booléen inventoryOpen
-        inventoryOpen = (!inventoryOpen && !shopOpen && !pauseMenuOpen); 
+        inventoryOpen = (!inventoryOpen && !shopOpen && !sellshopOpen && !pauseMenuOpen); 
         shopPNJ.GetComponent<ShowShop>().inventoryOpen = inventoryOpen;
     }
 }

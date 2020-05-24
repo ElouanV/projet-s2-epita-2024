@@ -23,15 +23,15 @@ public class Bouton : MonoBehaviour
     public GameObject armor;
     
     //UGRADE
-    public int[] UGRADE_ARMURELVL = {100, 500, 1000};
-    public int[] UGRADE_EPEELVL = {100, 500, 1000};
-    public int[] UGRADE_BOUCLIERLVL = {100, 500, 1000};
-    public int[] UGRADE_CASQUELVL = {100, 500, 1000};
+    public int[] UGRADE_ARMURELVL = {100, 500, 1000, 101010};
+    public int[] UGRADE_EPEELVL = {100, 500, 1000, 101010};
+    public int[] UGRADE_BOUCLIERLVL = {100, 500, 1000, 101010};
+    public int[] UGRADE_CASQUELVL = {100, 500, 1000, 101010};
 
     //ADD CARACTERISTIQUE
-    public int[] ADD_ARMURE = {1, 5, 10};
-    public int[] ADD_ATTACK = {2, 4, 12};
-    public int[] ADD_HPMAX = {5, 500, 100};
+    public int[] ADD_ARMURE = {1, 5, 10, 101010};
+    public int[] ADD_ATTACK = {2, 4, 12, 101010};
+    public int[] ADD_HPMAX = {5, 500, 100, 101010};
 
 
     //DESCRIPTION

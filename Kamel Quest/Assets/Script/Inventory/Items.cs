@@ -28,5 +28,5 @@ public class Items : MonoBehaviour
     public string itemDescription;
     public int type;
     public Sprite sprite;
-
+    public int lvl;
 }
