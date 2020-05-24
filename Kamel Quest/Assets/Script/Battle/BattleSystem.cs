@@ -21,44 +21,55 @@ public enum BattleState
     WIN,
     LOSE
 }
+
 public class BattleSystem : MonoBehaviour
 {
     /*
      * je mettrai les commentaires XML plus tard
      */
+
+    public Image playerSpawnUI;
+    public Image ally1SpawnUI;
+    public Image ally2SpawnUI;
+    public Image enemySpawnUI;
+    public Image enemy1SpawnUI;
+    public Image enemy2SpawnUI;
+
+
+
     //compteur de tour
     private int nbTurn;
     private bool loot;
-    
-    
+
+
     //gestion de team
     public Player player;
     public GameObject[] allyList;
-    
+
     //private Team team;
 
     public GameObject[] enemyList = new GameObject[3];
     private Entity[] enemyteam = new Entity[3];
 
-    
+
     //prefab pour afficher les personnages dans le combat
     public GameObject playerPrefab; //joueur
-    private GameObject enemyPrefab;  // enemy
-    private GameObject enemy1Prefab;  // enemy
-    private GameObject enemy2Prefab;  // enemy
-    public GameObject ally1Prefab; 
+    private GameObject enemyPrefab; // enemy
+    private GameObject enemy1Prefab; // enemy
+    private GameObject enemy2Prefab; // enemy
+    public GameObject ally1Prefab;
     public GameObject ally2Prefab;
-    
-    
+
+
     public Transform playerSpawn; //position de spawn
-    public Transform enemySpawn;  //position de spawn
-    public Transform enemy1Spawn;  //position de spawn
-    public Transform enemy2Spawn;  //position de spawn
+    public Transform enemySpawn; //position de spawn
+    public Transform enemy1Spawn; //position de spawn
+    public Transform enemy2Spawn; //position de spawn
     public Transform ally1Spawn; //position de spawn
     public Transform ally2Spawn;
-    
-    
-    
+
+
+
 
     private Entity playerUnit;
     private Entity enemyUnit;
@@ -66,18 +77,18 @@ public class BattleSystem : MonoBehaviour
     private Entity enemy2Unit;
     private Entity ally1Unit;
     private Entity ally2Unit;
-    
-    
-    
+
+
+
     public BattleState state;
     public TextMeshProUGUI dialogue;
-    
+
     //gestion des HUD de combats (affichage)
     public BattleUI playerHUD;
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
-    
+
 
 
     // Start is called before the first frame update
@@ -86,14 +97,15 @@ public class BattleSystem : MonoBehaviour
         nbTurn = 0;
         //desactivation de la caméra attachée au player
         //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
-        
+
         allyList = player._team;
         //player.gameObject.SetActive(false);
-        
+
         state = BattleState.START;
         SetupBattle();
     }
-     
+    
+
     public void SetupBattle() //faire spawn les entités au bon endroit et mettre les UI a jour
     {
         Random random = new Random();
@@ -104,30 +116,36 @@ public class BattleSystem : MonoBehaviour
         
 
         playerPrefab.GetComponent<Transform>().localScale = new Vector3(0.4f, 0.4f, 1f);
-        GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerPrefab.GetComponent<Transform>().position = new Vector3(0f, 0f, 0f);
+        GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
         playerUnit = playerObject.GetComponent<Entity>();
+        playerSpawnUI.sprite = playerPrefab.GetComponent<SpriteRenderer>().sprite;
         if (!playerUnit.isalive)
         {
             playerUnit.GetComponentInChildren<Renderer>().enabled = false;
+            playerSpawnUI.enabled = false;
             playerUnit = null;
         }
         
         ally1Prefab = allyList[0];
         GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
         ally1Unit = ally1Object.GetComponent<Entity>();
+        ally1SpawnUI.sprite = ally1Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
         if (!ally1Unit.isalive)
         {
             ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
+            ally1SpawnUI.enabled = false;
             ally1Unit = null;
         }
         
         ally2Prefab = allyList[1];
         GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
         ally2Unit = ally2Object.GetComponent<Entity>();
+        ally2SpawnUI.sprite = ally2Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
         if (!ally2Unit.isalive)
         {
             ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
+            ally2SpawnUI.enabled = false;
             ally2Unit = null;
         }
 
@@ -135,7 +153,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(PlayerPrefs.GetInt("Ennemy2",0));
         Debug.Log(PlayerPrefs.GetInt("Ennemy3",0));
         
-
+        
         
 
 
@@ -202,14 +220,17 @@ public class BattleSystem : MonoBehaviour
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
             enemyteam[0] = enemyUnit;
+            enemySpawnUI.sprite = enemyPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
             enemyteam[1] = enemy1Unit;
+            enemy1SpawnUI.sprite = enemy1Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemyteam[2] = enemy2Unit;
+            enemy2SpawnUI.sprite = enemy2Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
             enemyUnit.GetXp(player.Xp);
             enemy1Unit.GetXp(player.Xp);
@@ -282,16 +303,19 @@ public class BattleSystem : MonoBehaviour
             if (!enUnit.isalive && enUnit == enemyUnit)
             {
                 enemyUnit.GetComponentInChildren<Renderer>().enabled = false;
-                
+                enemySpawnUI.enabled = false;
+
             }
             if (!enUnit.isalive && enUnit == enemy1Unit)
             {
                 enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
+                enemy1SpawnUI.enabled = false;
                 
             }
             if (!enUnit.isalive && enUnit == enemy2Unit)
             {
                 enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
+                enemy2SpawnUI.enabled = false;
                 
             }
             
@@ -364,16 +388,19 @@ public class BattleSystem : MonoBehaviour
             if (!plUnit.isalive && plUnit == playerUnit)
             {
                 playerUnit.GetComponentInChildren<Renderer>().enabled = false;
-                
+                playerSpawnUI.enabled = false;
+
             }
             if (!plUnit.isalive && plUnit == ally1Unit)
             {
                 ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
-                
+                ally1Unit.enabled = false;
+
             }
             if (!plUnit.isalive && plUnit == ally2Unit)
             {
                 ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
+                ally2Unit.enabled = false;
             }
 
             changingStatePlayer();
@@ -430,7 +457,7 @@ public class BattleSystem : MonoBehaviour
         {
             
         }
-        throw new NotImplementedException("FIXE ME BITCH !");
+        throw new NotImplementedException();
     }
 
 
@@ -596,6 +623,7 @@ public class BattleSystem : MonoBehaviour
 
 void changingStateEnemy(int selectEntity)
     {
+
         if (!enemyUnit.isalive && !enemy1Unit.isalive && !enemy2Unit.isalive)
         {
             state = BattleState.WIN;
@@ -861,7 +889,7 @@ void changingStateEnemy(int selectEntity)
     
     public void RegenerationEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHeal(2);
     }
     
     public void LootEffect(Entity unit)
@@ -871,17 +899,22 @@ void changingStateEnemy(int selectEntity)
 
     public void PoisonEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHurt(2);
     }
 
     public void DamageEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.GetHurt(10);
     }
 
     public void StrengtheningEffect(Entity unit)
     {
-        throw new  NotImplementedException();
+        unit.atk += 5;
+    }
+
+    public void removeEffect()
+    {
+        throw new NotImplementedException();
     }
     
 
