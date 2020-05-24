@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Kamel Quest/Assets/Script/SellShop.meta
 guid: 0502dee9e8e34cc46abb1449cedad9a0
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 0aba46a079385438d8d10a8226ce9d8a
+PrefabImporter:
+>>>>>>> 6182694aee1e12d5490a3ac71bb2c388777e8429:Kamel Quest/Assets/Prefab/Quest/Bringing fixed.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

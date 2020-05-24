@@ -29,6 +29,8 @@ public class Quest : MonoBehaviour
     
     public string title;
     public string desc;
+    
+    public int money;
     public int exp;
     public int rewardID;
     public int rewardCount;
@@ -94,7 +96,7 @@ public class Quest : MonoBehaviour
                     UpdateState();
                     Player.GetComponent<Progression>().NextQuest();
                     Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
-                else if (transform.parent.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
+                else if (transform.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
                 Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             }
             else gameObject.SetActive(false);
@@ -111,6 +113,8 @@ public class Quest : MonoBehaviour
         {
 	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
 	        Player.GetComponent<Player>().GetXp(exp);
+	        Player.GetComponent<Player>().argent += money;
+	        
 
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
@@ -137,6 +141,7 @@ public class Quest : MonoBehaviour
 				if (completed) UpdateState();
 				break;
 			case QuestType.Bringing:
+				Target.SetActive(true);
                 if (completed) UpdateState();
                 break;	
 			case QuestType.Giving:
@@ -150,8 +155,7 @@ public class Quest : MonoBehaviour
     public void CompletedQuest()
     { 
         completed = true;
-		if (type == QuestType.Bringing) Player.GetComponent<Inventory_test>().RemoveFromInventory(Target.GetComponent<Items>().itemID , 1);
-		Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
+        Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
         if (State == QuestState.STARTED) UpdateState();
     }
 

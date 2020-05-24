@@ -67,10 +67,12 @@ public class Progression : MonoBehaviour
         prog_percent = (Current) * 100 / Prog.Count;
         if (Current < Nb_Quest)
         {
+            Debug.Log("Installiing the next main quest");
             CurrentQuest = Prog[Current];
 
             InstallQuest();
-            foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
+            
+            if (ProgAnex.Count > 0) foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
         }
     }
 }
