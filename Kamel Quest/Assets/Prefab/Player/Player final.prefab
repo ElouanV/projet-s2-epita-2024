@@ -62,6 +62,7 @@ MonoBehaviour:
   LEVELUPXPNEEDED: 
   ATKPROGRESSION: 
   HPMAXPROGRESSION: 
+  effectList: []
   hpmax: 30
   currenthp: 28
   atk: 7
@@ -71,7 +72,6 @@ MonoBehaviour:
   xp: 0
   lvl: 1
   isalive: 1
-  drop_item: []
   item_id: 0
   is_defence: 0
   argent: 300
@@ -172,12 +172,12 @@ PrefabInstance:
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}

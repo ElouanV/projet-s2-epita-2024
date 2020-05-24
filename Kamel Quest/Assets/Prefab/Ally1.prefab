@@ -68,7 +68,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -3928852817709568141, guid: 199a9ccf9e2214ca0b388763dffd2ff8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,6 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3da387cc4bcd74691b0f8a24b57bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LEVELUPXPNEEDED: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ATKPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HPMAXPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  effectList: []
   hpmax: 20
   currenthp: 20
   atk: 1
@@ -133,4 +137,6 @@ MonoBehaviour:
   atkcost: 0
   xp: 0
   lvl: 2024
-  isalive: 1
+  isalive: 0
+  item_id: 0
+  is_defence: 0
