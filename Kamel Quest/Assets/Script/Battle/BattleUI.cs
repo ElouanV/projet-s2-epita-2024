@@ -47,7 +47,7 @@ public class BattleUI : MonoBehaviour
             hpSlider.value = unit.currenthp;
             unitHpText.text = unit.currenthp + "/" + unit.hpmax;
         }
-        else if (!unit.isalive)
+        else
         {
             nameText.text = "";
             lvlText.text = "";
@@ -59,7 +59,7 @@ public class BattleUI : MonoBehaviour
 
         //alliés
 
-        if (ally1 != null && ally1.isalive)
+        if (ally1 != null)
         {
             ally1NameText.text = ally1.name;
             ally1LvlText.text = "Lvl " + ally1.lvl;
@@ -68,7 +68,7 @@ public class BattleUI : MonoBehaviour
             ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
             Debug.Log("ca marche");
         }
-        else if (!ally1.isalive || ally1 == null)
+        else
         {
             ally1NameText.text = "";
             ally1LvlText.text = "";
@@ -77,7 +77,7 @@ public class BattleUI : MonoBehaviour
             ally1HpText.text = "";
         }
 
-        if (ally2 != null && ally2.isalive)
+        if (ally2 != null)
         {
             ally2NameText.text = ally2.name;
             ally2LvlText.text = "Lvl " + ally2.lvl;
@@ -85,7 +85,7 @@ public class BattleUI : MonoBehaviour
             ally2HpSlider.value = ally2.currenthp;
             ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
         }
-        else if (!ally2.isalive || ally2 == null)
+        else
         {
             ally2NameText.text = "";
             ally2LvlText.text = "";

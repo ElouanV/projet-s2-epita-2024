@@ -47,6 +47,7 @@ MonoBehaviour:
   LEVELUPXPNEEDED: 
   ATKPROGRESSION: 
   HPMAXPROGRESSION: 
+  effectList: []
   hpmax: 20
   currenthp: 20
   atk: 2
@@ -56,10 +57,6 @@ MonoBehaviour:
   xp: 0
   lvl: 2024
   isalive: 1
-  drop_item:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   item_id: 0
   is_defence: 0
 --- !u!1 &4405086069842338852
@@ -130,7 +127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -3928852817709568141, guid: 199a9ccf9e2214ca0b388763dffd2ff8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

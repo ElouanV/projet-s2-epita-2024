@@ -146,9 +146,6 @@ public class Entity : MonoBehaviour
         effectList.Remove(effect);
     }
     
-    
-    
-    
     public bool loot()
     {
         return true;

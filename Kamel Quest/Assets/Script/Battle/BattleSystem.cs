@@ -27,6 +27,7 @@ public class BattleSystem : MonoBehaviour
      * je mettrai les commentaires XML plus tard
      */
     
+    
     //compteur de tour
     private int nbTurn;
     private bool loot;
@@ -83,10 +84,10 @@ public class BattleSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nbTurn = 0;
         //desactivation de la caméra attachée au player
         //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
-
-        //team = GameObject.FindGameObjectWithTag("Player").GetComponent<Team>();
+        
         allyList = player._team;
         //player.gameObject.SetActive(false);
         
@@ -102,76 +103,35 @@ public class BattleSystem : MonoBehaviour
         
         
         
+
+        playerPrefab.GetComponent<Transform>().localScale = new Vector3(0.4f, 0.4f, 1f);
+        GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
+        playerUnit = playerObject.GetComponent<Entity>();
+        if (!playerUnit.isalive)
+        {
+            playerUnit.GetComponentInChildren<Renderer>().enabled = false;
+            playerUnit = null;
+        }
         
-
-        if (allyList.Length == 0)
+        ally1Prefab = allyList[0];
+        GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
+        ally1Unit = ally1Object.GetComponent<Entity>();
+        if (!ally1Unit.isalive)
         {
- 
-            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-            playerUnit = playerObject.GetComponent<Entity>();
-            
-            GameObject ally1Object = Instantiate(playerPrefab, ally1Spawn);
-            ally1Unit = ally1Object.GetComponent<Entity>();
-            ally1Unit.isalive = false;
             ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
-            
-            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
-            ally2Unit = ally2Object.GetComponent<Entity>();
-            ally2Unit.isalive = false;
-            ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
-            
-            
+            ally1Unit = null;
         }
-        if (allyList.Length == 1)
+        
+        ally2Prefab = allyList[1];
+        GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
+        ally2Unit = ally2Object.GetComponent<Entity>();
+        if (!ally2Unit.isalive)
         {
-            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-            playerUnit = playerObject.GetComponent<Entity>();
-            if (!playerUnit.isalive)
-            {
-                playerUnit.GetComponentInChildren<Renderer>().enabled = false;
-            }
-            
-            ally1Prefab = allyList[0];
-            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
-            ally1Unit = ally1Object.GetComponent<Entity>();
-            if (!ally1Unit.isalive)
-            {
-                ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
-            }
-
-
-            GameObject ally2Object = Instantiate(playerPrefab, ally2Spawn);
-            ally2Unit = ally2Object.GetComponent<Entity>();
-            ally2Unit.isalive = false;
             ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
+            ally2Unit = null;
         }
 
-        if (allyList.Length == 2)
-        {
-            GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-            playerUnit = playerObject.GetComponent<Entity>();
-            if (!playerUnit.isalive)
-            {
-                playerUnit.GetComponentInChildren<Renderer>().enabled = false;
-            }
-            
-            ally1Prefab = allyList[0];
-            GameObject ally1Object = Instantiate(ally1Prefab, ally1Spawn);
-            ally1Unit = ally1Object.GetComponent<Entity>();
-            if (!ally1Unit.isalive)
-            {
-                ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
-            }
-            
-            ally2Prefab = allyList[1];
-            GameObject ally2Object = Instantiate(ally2Prefab, ally2Spawn);
-            ally2Unit = ally2Object.GetComponent<Entity>();
-            if (!ally2Unit.isalive)
-            {
-                ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
-            }
-
-        }
+        
         
 
         
@@ -192,11 +152,13 @@ public class BattleSystem : MonoBehaviour
             enemy1Unit = enemy1Object.GetComponent<Entity>();
             enemy1Unit.isalive = false;
             enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
+            enemy1Unit = null;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
             enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
+            enemy2Unit = null;
         }
 
         if (numberEnemy == 2)
@@ -227,6 +189,7 @@ public class BattleSystem : MonoBehaviour
             enemy2Unit = enemy2Object.GetComponent<Entity>();
             enemy2Unit.isalive = false;
             enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
+            enemy2Unit = null;
         }
 
         if (numberEnemy == 3)
@@ -359,7 +322,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn(Entity plUnit, Entity enUnit)
     {
-        if (plUnit.is_defence)
+        /*if (plUnit.is_defence)
         {
             plUnit.GetHurt(enUnit.Atk/2);
             plUnit.is_defence = false;
@@ -367,7 +330,9 @@ public class BattleSystem : MonoBehaviour
         else
         {
             plUnit.GetHurt(enemyUnit.Atk);
-        }
+        }*/
+        
+        plUnit.GetHurt(enUnit.atk);
 
         if (plUnit == playerUnit)
         {
@@ -857,24 +822,60 @@ void changingStateEnemy(int selectEntity)
     }
 
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
+    public void Effect(string effect, Entity unit)
+    {
+        switch (effect)
+        {
+            case "Strengthening":
+                
+                break;
+            case "Regeneration":
+                break;
+            case "Weakness":
+                break;
+            case "Loot":
+                break;
+            case "Damage":
+                break;
+            case "Poison":
+                break;
+        }
+    }
+    
+    
     public void healPotion(Entity unit)
     {
         unit.GetHeal(5);
         changingStatePlayer();
     }
     
-    public void regenerationPotion(Entity unit, int nbTurn)
+    public void RegenerationEffect(Entity unit)
     {
         throw new  NotImplementedException();
     }
     
-    public void getloot(Entity unit)
+    public void LootEffect(Entity unit)
     {
         loot = unit.loot();
     }
 
+    public void PoisonEffect(Entity unit)
+    {
+        throw new  NotImplementedException();
+    }
 
+    public void DamageEffect(Entity unit)
+    {
+        throw new  NotImplementedException();
+    }
+
+    public void StrengtheningEffect(Entity unit)
+    {
+        throw new  NotImplementedException();
+    }
     
+
+
 }
 
 
