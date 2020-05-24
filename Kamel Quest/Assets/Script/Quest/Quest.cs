@@ -29,6 +29,8 @@ public class Quest : MonoBehaviour
     
     public string title;
     public string desc;
+    
+    public int money;
     public int exp;
     public int rewardID;
     public int rewardCount;
@@ -111,6 +113,8 @@ public class Quest : MonoBehaviour
         {
 	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
 	        Player.GetComponent<Player>().GetXp(exp);
+	        Player.GetComponent<Player>().argent += money;
+	        
 
             State = QuestState.ENDED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
