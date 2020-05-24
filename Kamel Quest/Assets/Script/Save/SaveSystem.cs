@@ -32,7 +32,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
         // Create path to %userprofile%\AppData\Local\Packages\<productname>\LocalState for Windows.
-        string path = Application.persistentDataPath + "/player/player_save.kq";
+        string path = Application.persistentDataPath + "/player_save.kq";
         // Create file stream
         FileStream stream = new FileStream(path,FileMode.Create);
         // Use the constructor of player data with player and audioMixer in parameter.
@@ -51,7 +51,7 @@ public static class SaveSystem
     public static PlayerData LoadPlayer()
     {
         // Get the path and load data only if file exist
-        string path = Application.persistentDataPath + "/player/player_save.kq";
+        string path = Application.persistentDataPath + "/player_save.kq";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

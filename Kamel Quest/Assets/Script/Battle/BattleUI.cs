@@ -10,8 +10,8 @@ using Slider = UnityEngine.UIElements.Slider;
 public class BattleUI : MonoBehaviour
 {
 
-     
-    
+
+
     //joueur
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI lvlText;
@@ -46,6 +46,7 @@ public class BattleUI : MonoBehaviour
             hpSlider.maxValue = unit.hpmax;
             hpSlider.value = unit.currenthp;
             unitHpText.text = unit.currenthp + "/" + unit.hpmax;
+
         }
         else
         {
@@ -54,6 +55,7 @@ public class BattleUI : MonoBehaviour
             hpSlider.gameObject.SetActive(false);
             hpSlider.value = 0;
             unitHpText.text = "";
+
         }
 
 
@@ -66,7 +68,7 @@ public class BattleUI : MonoBehaviour
             ally1HpSlider.maxValue = ally1.hpmax;
             ally1HpSlider.value = ally1.currenthp;
             ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
-            Debug.Log("ca marche");
+
         }
         else
         {
@@ -75,6 +77,7 @@ public class BattleUI : MonoBehaviour
             ally1HpSlider.gameObject.SetActive(false) ;
             ally1HpSlider.value = 0;
             ally1HpText.text = "";
+
         }
 
         if (ally2.isalive)
@@ -84,6 +87,7 @@ public class BattleUI : MonoBehaviour
             ally2HpSlider.maxValue = ally2.hpmax;
             ally2HpSlider.value = ally2.currenthp;
             ally2HpText.text = ally2.currenthp + "/" + ally2.hpmax;
+
         }
         else
         {
@@ -92,6 +96,7 @@ public class BattleUI : MonoBehaviour
             ally2HpSlider.gameObject.SetActive(false) ;
             ally2HpSlider.value = 0;
             ally2HpText.text = "";
+
         }
     }
     
