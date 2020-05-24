@@ -44,7 +44,7 @@ public class ShowsText : MonoBehaviour
 	        {
 		        if (quest) transform.GetComponent<Quest>().UpdateState();
 		        else if (battle) transform.GetComponent<EnterBattle>().EnterBattlePlayer();
-		        gameObject.SetActive(false);
+		        else gameObject.SetActive(false);
 	        }
 			// This display the current sentence
 			else
