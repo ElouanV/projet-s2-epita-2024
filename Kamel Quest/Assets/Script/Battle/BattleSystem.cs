@@ -88,6 +88,7 @@ public class BattleSystem : MonoBehaviour
     public BattleUI enemyHUD;
     public GameObject ChooseEnemyCanvas;
     public GameObject BattleButtonCanvas;
+    public GameObject InventoryCanvas;
 
 
 
@@ -453,11 +454,8 @@ public class BattleSystem : MonoBehaviour
 
     public void InventoryButton()
     {
-        if (state == BattleState.PLAYERTURN)
-        {
-            
-        }
-        throw new NotImplementedException();
+        BattleButtonCanvas.SetActive(false);
+        InventoryCanvas.SetActive(true);
     }
 
 
@@ -528,6 +526,21 @@ public class BattleSystem : MonoBehaviour
             case BattleState.PLAYERTURN2:
                 StartCoroutine(playerBasicAttack(ally2Unit, enemy2Unit));
                 break;
+        }
+    }
+    
+    //retour en arrière
+    public void BackButton()
+    {
+        if (ChooseEnemyCanvas.activeSelf)
+        {
+            ChooseEnemyCanvas.SetActive(false);
+            BattleButtonCanvas.SetActive(true);
+        }
+        else if (InventoryCanvas.activeSelf)
+        {
+            InventoryCanvas.SetActive(false);
+            BattleButtonCanvas.SetActive(true);
         }
     }
     
@@ -912,12 +925,49 @@ void changingStateEnemy(int selectEntity)
         unit.atk += 5;
     }
 
-    public void removeEffect()
+    public void RemoveEffect()
+    {
+        throw new NotImplementedException();
+    }
+
+
+
+    public void HealPotionButton()
+    {
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
+    }
+    
+    public void StrengthPotionButton()
     {
         throw new NotImplementedException();
     }
     
-
+    public void LootPotionButton()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public void PoisonPotionButton()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public void RegenerationPotionButton()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public void DamagePotionButton()
+    {
+        throw new NotImplementedException();
+    }
 
 
 }
