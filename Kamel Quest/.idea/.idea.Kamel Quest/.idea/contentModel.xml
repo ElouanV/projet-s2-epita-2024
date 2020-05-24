@@ -8,9 +8,6 @@
       <e p="Assets" t="Include">
         <e p="Flower.cs" t="Include" />
         <e p="Script" t="Include">
-          <e p="Ally" t="Include">
-            <e p="Team.cs" t="Include" />
-          </e>
           <e p="Battle" t="Include">
             <e p="BattleSystem.cs" t="Include" />
             <e p="BattleUI.cs" t="Include" />
@@ -27,8 +24,6 @@
             <e p="EndingScene.cs" t="Include" />
           </e>
           <e p="Entity" t="Include">
-            <e p="Ally.cs" t="Include" />
-            <e p="Ennemy.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
             <e p="MovePnj.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
@@ -75,6 +70,11 @@
             <e p="SaveSystem.cs" t="Include" />
           </e>
           <e p="SceneLoader.cs" t="Include" />
+          <e p="SellShop" t="Include">
+            <e p="BoutonSellShop.cs" t="Include" />
+            <e p="ShowInfoSellShop.cs" t="Include" />
+            <e p="ShowSellShop.cs" t="Include" />
+          </e>
           <e p="Shop" t="Include">
             <e p="Bouton.cs" t="Include" />
             <e p="ShowInfoShop.cs" t="Include" />
