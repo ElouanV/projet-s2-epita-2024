@@ -153,7 +153,10 @@ public class Player : Entity
     {
         SaveSystem.SavePlayer(this);
     }
-
+    ///<summary>
+    /// This methods is called one time at the first frame of the scene. it will be call every scene switch.
+    ///<remarks> This function load all player data in the scene corresponding to the need of the scene which is loading. </remarks>
+    ///</summary>
     private void Start()
     {
         
@@ -219,7 +222,9 @@ public class Player : Entity
         
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
+        Debug.Log("[Loading Datas] : Current data finish : "  + data.questfinish);
         LoadQuestProgress(data.questfinish);
+        Debug.Log("[Loading Datas] : Current data finish annex : "  + data.finishedquestannex);
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
         //POSITION
@@ -237,7 +242,6 @@ public class Player : Entity
         GameObject.FindWithTag("MainCamera").transform.position = cameraposition;
 
         Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
-        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 
     private void LoadInventory()
@@ -276,12 +280,16 @@ public class Player : Entity
 
     private void LoadQuestProgress(int lastquest)
     {
-        Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
+        Debug.Log("[LoadQuestProgress] : Method is running");
         Progression progression = transform.GetComponent<Progression>();
+        progression.CurrentQuestGetSet = progression.Prog[0];
         for (int i = 0; i < lastquest; i++)
         {
+            Debug.Log("[LoadQuestProgress] : Method is in the for loop at indice :" + i);
             progression.NextQuest();
+            Debug.Log("[LoadQuestProgress] : Method has call NextQuest.");
         }
+        Debug.Log("[LoadQuestProgress] : Method is finish");
     }
 
     private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
