@@ -111,6 +111,28 @@ public class Player : Entity
             }
         }
     }
+    public void RemoveFromInventory(int ID)
+    {
+        bool deleted = false;
+        int i = 19;
+        while (i>= 0 && !deleted)
+        {
+            if (inventoryID[i] == ID)
+            {
+                if (inventoryCount[i]>1)
+                {
+                    inventoryCount[i] -=1;
+                }
+                else
+                {
+                    inventoryCount[i] = 0;
+                    inventoryID[i] = 0;
+                }
+                deleted = true;
+            }
+            i +=1;
+        }
+    }
 
 
 // SAVE MANAGER

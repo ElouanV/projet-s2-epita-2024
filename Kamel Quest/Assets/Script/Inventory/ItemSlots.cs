@@ -93,7 +93,7 @@ public class ItemSlots : MonoBehaviour
     public void RemoveSprite()
     {
         Debug.Log(" Doit supprimer le sprite du slot");
-        GetComponent<Image>().color = new Color(1f,1f,1f,1f); // Rends le sprite transparant (Opacité à 0%)
+        GetComponent<Image>().color = new Color(1f,1f,1f,0f); // Rends le sprite transparant (Opacité à 0%)
     }
 
 }
