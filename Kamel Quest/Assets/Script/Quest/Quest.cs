@@ -186,11 +186,11 @@ public class Quest : MonoBehaviour
 
 	public bool CheckKilledEnemy()
 	{
-		completed = Target.GetComponent<Entity>().isalive();
+		completed = !(Target.GetComponent<Entity>().isalive());
 		if (completed)
 		{
 			State = QuestState.STARTED;
-			UpdateState();
+			Target.IsKilled();
 		}
 		return completed;	
 	}
