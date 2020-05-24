@@ -13,7 +13,6 @@ public class ShowShop : MonoBehaviour
     public GameObject Shop_MainInterface;
     public Player player;
     public bool inventoryOpen = false;
-    public int count = 0;
 
     void OnTriggerEnter2D()
     {
@@ -30,18 +29,11 @@ public class ShowShop : MonoBehaviour
     }
     void Update()
     {
-        if (is_trigger && Input.GetKeyUp(KeyCode.Space) && count == 0)
+        if (is_trigger && Input.GetKeyUp(KeyCode.Space))
         {
             
             Bubble.SetActive(false);
             showshop();
-            count += 1;
-        }
-        if (is_trigger && Input.GetKeyUp(KeyCode.Space) && count == 1)
-        {
-            showshop();
-            Bubble.SetActive(true);
-            count -= 1;
         }
     }
 
