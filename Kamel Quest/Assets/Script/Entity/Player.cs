@@ -272,8 +272,8 @@ public class Player : Entity
 
     private void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
     {
-        int atkboost = epeeboost[lvl];
-        int hpboost = armureboost[lvl];
+        int atkboost = epeeboost[epeelvl-1];
+        int hpboost = armureboost[armurelvl-1];
         ally1.atk += atkboost;
         ally2.atk += atkboost;
         ally1.hpmax += hpboost;

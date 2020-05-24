@@ -105,7 +105,7 @@ public class Entity : MonoBehaviour
             currenthp = hpmax;
         }
     }
-
+/*
     public void GetXp(int xpearned) // augmente l'xp de xpearned points
     {
         if (lvl < 10)
@@ -134,6 +134,14 @@ public class Entity : MonoBehaviour
         xp = LEVELUPXPNEEDED[lvl-1];
         GetXp(setxp - LEVELUPXPNEEDED[lvl-1]);
         
+    }*/
+    public void GetXp(int xpearned)
+    {
+        xp += xpearned;
+        while (xp > LEVELUPXPNEEDED[lvl -1]&& lvl <10)
+        {
+            lvl +=1;
+        }
     }
 
     //effet possible et ajout dans la liste des effets

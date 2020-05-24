@@ -26,8 +26,6 @@ public class BattleSystem : MonoBehaviour
     /*
      * je mettrai les commentaires XML plus tard
      */
-    
-    
     //compteur de tour
     private int nbTurn;
     private bool loot;
@@ -40,6 +38,7 @@ public class BattleSystem : MonoBehaviour
     //private Team team;
 
     public GameObject[] enemyList = new GameObject[3];
+    private Entity[] enemyteam = new Entity[3];
 
     
     //prefab pour afficher les personnages dans le combat
@@ -106,6 +105,7 @@ public class BattleSystem : MonoBehaviour
 
         playerPrefab.GetComponent<Transform>().localScale = new Vector3(0.4f, 0.4f, 1f);
         GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
+        playerPrefab.GetComponent<Transform>().position = new Vector3(0f, 0f, 0f);
         playerUnit = playerObject.GetComponent<Entity>();
         if (!playerUnit.isalive)
         {
@@ -201,12 +201,15 @@ public class BattleSystem : MonoBehaviour
             
             GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
             enemyUnit = enemyObject.GetComponent<Entity>();
+            enemyteam[0] = enemyUnit;
 
             GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
             enemy1Unit = enemy1Object.GetComponent<Entity>();
+            enemyteam[1] = enemy1Unit;
 
             GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
             enemy2Unit = enemy2Object.GetComponent<Entity>();
+            enemyteam[2] = enemy2Unit;
 
             enemyUnit.GetXp(player.Xp);
             enemy1Unit.GetXp(player.Xp);
@@ -802,7 +805,7 @@ void changingStateEnemy(int selectEntity)
     }
     
     /// tableau des xp
-    public readonly int[] LVL_MOB_TO_XP = {5, 15, 25};
+    public readonly int[] LVL_MOB_TO_XP = {3,4,5,7,8,9,10,11,12,13};
 
     public void Xp ()
     {
@@ -810,7 +813,7 @@ void changingStateEnemy(int selectEntity)
         
         foreach (GameObject enemy in enemyList)
         {
-            res += LVL_MOB_TO_XP[enemy.GetComponent<Entity>().lvl];
+            res += LVL_MOB_TO_XP[enemy.GetComponent<Entity>().lvl-1];
         }
         playerPrefab.GetComponent<Player>().GetXp(res);
     }
