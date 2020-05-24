@@ -523,6 +523,7 @@ public class BattleSystem : MonoBehaviour
         if (loot) Drop();
         Xp();
         SaveSystem.SavePlayer(player);
+        Debug.Log("[Battle system END] : data have been saved ");
         PlayerPrefs.SetInt("LoadData",1);
         SceneManager.LoadScene("Game");
     }
