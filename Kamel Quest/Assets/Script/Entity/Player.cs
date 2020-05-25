@@ -23,6 +23,7 @@ public class Player : Entity
     public static GameObject[] team = new GameObject[2];
     public GameObject[] _team;
     public int nbrOfKey = 0;
+    public bool[] beatenMonster;
 
 
     ///<summary>
@@ -158,7 +159,6 @@ public class Player : Entity
     {
         
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
-        Debug.Log("[Player] : Start : " + LEVELUPXPNEEDED.Length);
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
             // Open while data's are loading to fix the invisible sprite bug
@@ -280,6 +280,8 @@ public class Player : Entity
     {
         Debug.Log("[LoadQuestProgress] : Method is running");
         Progression progression = transform.GetComponent<Progression>();
+        progression.CurrentQuestGetSet = progression.Prog[0];
+        Debug.Log("[NextQuest] : Current :" + progression.CurrentQuestGetSet);
         for (int i = 0; i < lastquest; i++)
         {
             Debug.Log("[LoadingQuestProgress] : Appel de NexQuests a l'indice " + i);
