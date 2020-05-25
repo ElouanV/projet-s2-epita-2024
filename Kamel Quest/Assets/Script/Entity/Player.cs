@@ -350,9 +350,9 @@ public class Player : Entity
         // Load quest datas
         //Load player's position
         Vector3 position;
-        position.x = -36; // Position du tuto à set
-        position.y = -27; // Position du tuto à set      
-        position.z = 0;
+        position.x = 1.9f; // Position du tuto à set
+        position.y = -67.1f; // Position du tuto à set      
+        position.z = 0f;
         transform.position = position;
     }
 
