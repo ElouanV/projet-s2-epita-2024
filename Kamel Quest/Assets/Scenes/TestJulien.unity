@@ -7812,6 +7812,7 @@ MonoBehaviour:
   - {fileID: 879370508}
   ProgAnex:
   - {fileID: 578979274}
+  ActiveQuest: 
   AnnexCompleted: 
   prog_percent: 0
 --- !u!114 &278899640
@@ -7854,6 +7855,8 @@ MonoBehaviour:
   inventoryCount: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   _team: []
   nbrOfKey: 0
+  beatenMonster: []
+  fightprogress: 
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
   armorslot: {fileID: 0}
@@ -45785,7 +45788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1613148063
 Transform:
   m_ObjectHideFlags: 0
@@ -65183,6 +65186,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &320308780613920336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4434942228764059295, guid: 57d2f0c31d1fe4ba1b9d07f729c65438,
+    type: 3}
+  m_PrefabInstance: {fileID: 320308780613920333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &320308780613920337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320308780613920334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125253488e208411aa6cba15297d7559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  State: 0
+  Target: {fileID: 320308780613920336}
+  Player: {fileID: 0}
+  title: 
+  desc: 
+  money: 0
+  exp: 0
+  rewardID: 0
+  rewardCount: 0
+  BackToPNJ: 0
+  anex: 0
+  scene: {fileID: 0}
 --- !u!1001 &1998634433302744057
 PrefabInstance:
   m_ObjectHideFlags: 0

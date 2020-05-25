@@ -38,6 +38,7 @@ public class Quest : MonoBehaviour
 	private int questID;
 
 	public bool BackToPNJ;
+	public bool forced;
 	public bool anex;
 	public GameObject scene;
 
@@ -59,12 +60,14 @@ public class Quest : MonoBehaviour
         if (State == QuestState.NONE)
         {
             State = QuestState.ACCEPTED;
+            if (forced) State = QuestState.STARTED;
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             transform.GetComponent<ShowsText>().OnEnable();
         }
 
         else if (State == QuestState.ACCEPTED)
         {
+	        
             if (Input.GetKeyUp("y"))
             {
                 Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been accepted.");
@@ -77,11 +80,11 @@ public class Quest : MonoBehaviour
             }
             else if (Input.GetKeyUp("n"))
             {
-                Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been declined.");
+	            Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been declined.");
 
-                State = QuestState.DECLINED;
-                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
-                transform.GetComponent<ShowsText>().OnEnable();
+	            State = QuestState.DECLINED;
+	            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
+	            transform.GetComponent<ShowsText>().OnEnable();
             }
         }
 
@@ -110,8 +113,8 @@ public class Quest : MonoBehaviour
         }
 
         else if (State == QuestState.COMPLETED)
-        {
-	        Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
+        { 
+	        if (rewardID != 0) Player.GetComponent<Inventory_test>().AddToInventory(rewardID, rewardCount);
 	        Player.GetComponent<Player>().GetXp(exp);
 	        Player.GetComponent<Player>().argent += money;
 	        
