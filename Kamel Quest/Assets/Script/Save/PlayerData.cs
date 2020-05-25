@@ -88,6 +88,9 @@ public class PlayerData
         finishedquestannex = progression.AnnexCompleted;
 
 
+        // MONSTER
+        fightprogress = player.fightprogress;
+
         // SETTINGS
         qualityIndex = QualitySettings.GetQualityLevel();
         isFullScreen = Screen.fullScreen;
