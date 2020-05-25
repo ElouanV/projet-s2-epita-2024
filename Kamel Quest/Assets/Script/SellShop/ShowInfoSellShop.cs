@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// Author : Martin
 public class ShowInfoSellShop : MonoBehaviour
 {
     public Player player1;

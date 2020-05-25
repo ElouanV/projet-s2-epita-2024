@@ -12,7 +12,7 @@ public class Progression : MonoBehaviour
 
     public List<GameObject> ProgAnex;
     private int CurrentAnex;
-    private int[] ActiveQuest = new int[]{0,1, 2, 2};
+    public int[] ActiveQuest;   // = new int[]{0,1, 2, 2};
     public bool[] AnnexCompleted;
     
     public int prog_percent;
