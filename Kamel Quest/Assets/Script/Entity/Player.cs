@@ -219,7 +219,9 @@ public class Player : Entity
         
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
+        Debug.Log("[LoadingData] : Appel de LoadQuestProgress");
         LoadQuestProgress(data.questfinish);
+        Debug.Log("[LoadingData] : Appel de LoadQuestProgressAnnex");
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
         //POSITION
@@ -276,12 +278,15 @@ public class Player : Entity
 
     private void LoadQuestProgress(int lastquest)
     {
-        Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
+        Debug.Log("[LoadQuestProgress] : Method is running");
         Progression progression = transform.GetComponent<Progression>();
         for (int i = 0; i < lastquest; i++)
         {
+            Debug.Log("[LoadingQuestProgress] : Appel de NexQuests a l'indice " + i);
             progression.NextQuest();
+            Debug.Log("[LoadQuestProgress] : NextQuest a finis de tourner");
         }
+        Debug.Log("[LoadQuestProgress] : Method is finishing");
     }
 
     private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
@@ -323,8 +328,8 @@ public class Player : Entity
         // Load quest datas
         //Load player's position
         Vector3 position;
-        position.x = 0; // Position du tuto à set
-        position.y = 0; // Position du tuto à set      
+        position.x = -36; // Position du tuto à set
+        position.y = -27; // Position du tuto à set      
         position.z = 0;
         transform.position = position;
     }

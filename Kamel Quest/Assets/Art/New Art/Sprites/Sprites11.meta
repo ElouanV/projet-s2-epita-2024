@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Kamel Quest/Assets/Art/New Art/Sprites/Sprites11.meta
 guid: 78bec6a98661c15469ce86216371db70
+========
+guid: b6d5e5cd6a7fc014cb4a96a2ef07fe53
+>>>>>>>> 1793491d507bb2167fee9da06be76abe98ae6028:Kamel Quest/Assets/Script/Inventory/Items.meta
+=======
+guid: 2556a0bff2859ad469d27c4a59f090b0
+>>>>>>> 1793491d507bb2167fee9da06be76abe98ae6028
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
