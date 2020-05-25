@@ -103,11 +103,11 @@ public class BattleSystem : MonoBehaviour
         //player.gameObject.SetActive(false);
 
         state = BattleState.START;
-        SetupBattle();
+        StartCoroutine(SetupBattle());
     }
     
 
-    public void SetupBattle() //faire spawn les entités au bon endroit et mettre les UI a jour
+    IEnumerator SetupBattle() //faire spawn les entités au bon endroit et mettre les UI a jour
     {
         Random random = new Random();
         int numberEnemy = 3;
@@ -155,95 +155,33 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(PlayerPrefs.GetInt("Ennemy3",0));
         
         
+
+        enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
+        wichEnemy = random.Next(0, 2);
+        enemy1Prefab = enemyList[PlayerPrefs.GetInt("Enemy2",0)];
+        wichEnemy = random.Next(0, 2);
+        enemy2Prefab = enemyList[PlayerPrefs.GetInt("Enemy3",0)];
         
+        GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
+        enemyUnit = enemyObject.GetComponent<Entity>();
+        enemyteam[0] = enemyUnit;
+        enemySpawnUI.sprite = enemyPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
+        GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
+        enemy1Unit = enemy1Object.GetComponent<Entity>();
+        enemyteam[1] = enemy1Unit;
+        enemy1SpawnUI.sprite = enemy1Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
-        if (numberEnemy == 1)
-        {
-            enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
-            wichEnemy = random.Next(0, 3);
-            enemy1Prefab = enemyList[PlayerPrefs.GetInt("Enemy2",0)];
-            wichEnemy = random.Next(0, 3);
-            enemy2Prefab = enemyList[PlayerPrefs.GetInt("Enemy3",0)];
-            
-            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-            enemyUnit = enemyObject.GetComponent<Entity>();
+        GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
+        enemy2Unit = enemy2Object.GetComponent<Entity>();
+        enemyteam[2] = enemy2Unit;
+        enemy2SpawnUI.sprite = enemy2Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
 
-            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemy1Unit = enemy1Object.GetComponent<Entity>();
-            enemy1Unit.isalive = false;
-            enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
+        enemyUnit.GetXp(player.Xp);
+        enemy1Unit.GetXp(player.Xp);
+        enemy2Unit.GetXp(player.Xp);
 
-            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
-            enemy2Unit = enemy2Object.GetComponent<Entity>();
-            enemy2Unit.isalive = false;
-            enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
-        }
-
-        if (numberEnemy == 2)
-        {
-            enemyPrefab = enemyList[wichEnemy];
-            wichEnemy = random.Next(0, 3);
-            enemy1Prefab = enemyList[wichEnemy];
-            wichEnemy = random.Next(0, 3);
-            enemy2Prefab = enemyList[wichEnemy];
-            
-            /*GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-            enemyUnit = enemyObject.GetComponent<Entity>();
-
-            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemy1Unit = enemy1Object.GetComponent<Entity>();
-
-            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
-            enemy2Unit = enemy2Object.GetComponent<Entity>();
-            enemy2Unit.isalive = false;*/
-            
-            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-            enemyUnit = enemyObject.GetComponent<Entity>();
-
-            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemy1Unit = enemy1Object.GetComponent<Entity>();
-
-            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
-            enemy2Unit = enemy2Object.GetComponent<Entity>();
-            enemy2Unit.isalive = false;
-            enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
-        }
-
-        if (numberEnemy == 3)
-        {
-            enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
-            wichEnemy = random.Next(0, 2);
-            enemy1Prefab = enemyList[PlayerPrefs.GetInt("Enemy2",0)];
-            wichEnemy = random.Next(0, 2);
-            enemy2Prefab = enemyList[PlayerPrefs.GetInt("Enemy3",0)];
-            
-            GameObject enemyObject = Instantiate(enemyPrefab, enemySpawn);
-            enemyUnit = enemyObject.GetComponent<Entity>();
-            enemyteam[0] = enemyUnit;
-            enemySpawnUI.sprite = enemyPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
-
-            GameObject enemy1Object = Instantiate(enemy1Prefab, enemy1Spawn);
-            enemy1Unit = enemy1Object.GetComponent<Entity>();
-            enemyteam[1] = enemy1Unit;
-            enemy1SpawnUI.sprite = enemy1Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
-
-            GameObject enemy2Object = Instantiate(enemy2Prefab, enemy2Spawn);
-            enemy2Unit = enemy2Object.GetComponent<Entity>();
-            enemyteam[2] = enemy2Unit;
-            enemy2SpawnUI.sprite = enemy2Prefab.GetComponentInChildren<SpriteRenderer>().sprite;
-
-            enemyUnit.GetXp(player.Xp);
-            enemy1Unit.GetXp(player.Xp);
-            enemy2Unit.GetXp(player.Xp);
-        }
-
-
-
-
-
-
-
+        
 
         dialogue.text = "Vous entrez en combat !";
 
@@ -265,7 +203,10 @@ public class BattleSystem : MonoBehaviour
             enemyHUD.SetupHUD(enemyUnit, enemy1Unit, enemy2Unit);
         }
 
+        
+        yield return new WaitForSeconds(1f);
         state = BattleState.PLAYERTURN;
+        PlayerTurn();
     }
 
 
@@ -291,11 +232,14 @@ public class BattleSystem : MonoBehaviour
         {
             enemyHUD.UpdateHp(enUnit.currenthp, enUnit, enemyHUD.ally2HpSlider, enemyHUD.ally2HpText); 
         }
-        
+
+        dialogue.text = "Tu peux mieux faire quand même";
         yield return new WaitForSeconds(1f);
 
         if (!playerUnit.isalive && !ally1Unit.isalive && !ally2Unit.isalive )
         {
+            dialogue.text = "Zut ! Tu es mort";
+            yield return new WaitForSeconds(1f);
             state = BattleState.LOSE;
             LoseBattle();
         }
@@ -303,18 +247,24 @@ public class BattleSystem : MonoBehaviour
         {
             if (!enUnit.isalive && enUnit == enemyUnit)
             {
+                dialogue.text = enUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 enemyUnit.GetComponentInChildren<Renderer>().enabled = false;
                 enemySpawnUI.enabled = false;
 
             }
             if (!enUnit.isalive && enUnit == enemy1Unit)
             {
+                dialogue.text = enUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 enemy1Unit.GetComponentInChildren<Renderer>().enabled = false;
                 enemy1SpawnUI.enabled = false;
                 
             }
             if (!enUnit.isalive && enUnit == enemy2Unit)
             {
+                dialogue.text = enUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 enemy2Unit.GetComponentInChildren<Renderer>().enabled = false;
                 enemy2SpawnUI.enabled = false;
                 
@@ -362,12 +312,15 @@ public class BattleSystem : MonoBehaviour
         {
             plUnit.GetHurt(enemyUnit.Atk);
         }*/
+
+        dialogue.text = enUnit.name + " attaque !";
+        yield return new WaitForSeconds(1f);
         
         plUnit.GetHurt(enUnit.atk);
 
         if (plUnit == playerUnit)
         {
-            playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText); 
+            playerHUD.UpdateHp(playerUnit.currenthp, playerUnit, playerHUD.hpSlider, playerHUD.unitHpText);
         }
         if (plUnit == ally1Unit)
         {
@@ -377,10 +330,15 @@ public class BattleSystem : MonoBehaviour
         {
             playerHUD.UpdateHp(plUnit.currenthp, plUnit, playerHUD.ally2HpSlider, playerHUD.ally2HpText); 
         }
+
+        dialogue.text = "Ton adversaire est plus doué que toi...";
         yield return new WaitForSeconds(1f);
+        dialogue.text = "Que vas tu faires maintenant ?";
 
         if (!enemyUnit.isalive  && !enemy1Unit.isalive   && !enemy2Unit.isalive)
         {
+            dialogue.text = "Vous avez vaincu les monstres !";
+            yield return new WaitForSeconds(1f);
             state = BattleState.WIN;
             WinBattle();
         }
@@ -388,18 +346,24 @@ public class BattleSystem : MonoBehaviour
         {
             if (!plUnit.isalive && plUnit == playerUnit)
             {
+                dialogue.text = plUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 playerUnit.GetComponentInChildren<Renderer>().enabled = false;
                 playerSpawnUI.enabled = false;
 
             }
             if (!plUnit.isalive && plUnit == ally1Unit)
             {
+                dialogue.text = plUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 ally1Unit.GetComponentInChildren<Renderer>().enabled = false;
                 ally1Unit.enabled = false;
 
             }
             if (!plUnit.isalive && plUnit == ally2Unit)
             {
+                dialogue.text = plUnit.name + " est mort !";
+                yield return new WaitForSeconds(1f);
                 ally2Unit.GetComponentInChildren<Renderer>().enabled = false;
                 ally2Unit.enabled = false;
             }
@@ -461,13 +425,14 @@ public class BattleSystem : MonoBehaviour
 
     public void PlayerTurn() // update de l'HUD dialogue
     {
-        dialogue.text = "C'est votre tour";
+        dialogue.text = "A toi de jouer !";
     }
 
     public void ChooseEnemy()
     {
         if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemyUnit.isalive)
         {
+            dialogue.text = "Cet adversaire est déjà mort !";
             return;
         }
         ChooseEnemyCanvas.SetActive(false);
@@ -490,7 +455,9 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemy1Unit.isalive)
         {
+            dialogue.text = "Cet adversaire est déjà mort !";
             return;
+
         }
         ChooseEnemyCanvas.SetActive(false);
         BattleButtonCanvas.SetActive(true);
@@ -511,6 +478,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.ENEMYTURN || state == BattleState.ENEMYTURN1 || state == BattleState.ENEMYTURN2 || !enemy2Unit.isalive)
         {
+            dialogue.text = "Cet adversaire est déjà mort !";
             return;
         }
         ChooseEnemyCanvas.SetActive(false);
@@ -873,28 +841,33 @@ void changingStateEnemy(int selectEntity)
     }
 
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
-    public void Effect(string effect, Entity unit)
+    public void EffectWithTurn(string effect, Entity unit)
     {
         switch (effect)
         {
             case "Strengthening":
-                
+                StrengtheningEffect(unit);
                 break;
             case "Regeneration":
+                RegenerationEffect(unit);
                 break;
             case "Weakness":
+                
                 break;
             case "Loot":
+                LootEffect(unit);
                 break;
             case "Damage":
+                DamageEffect(unit);
                 break;
             case "Poison":
+                PoisonEffect(unit);
                 break;
         }
     }
     
     
-    public void healPotion(Entity unit)
+    public void HealPotion(Entity unit)
     {
         unit.GetHeal(5);
         changingStatePlayer();
@@ -937,6 +910,7 @@ void changingStateEnemy(int selectEntity)
         if (player.isInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
+            
         }
         else
         {
@@ -946,27 +920,63 @@ void changingStateEnemy(int selectEntity)
     
     public void StrengthPotionButton()
     {
-        throw new NotImplementedException();
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
+    
     }
     
     public void LootPotionButton()
     {
-        throw new NotImplementedException();
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
     }
     
     public void PoisonPotionButton()
     {
-        throw new NotImplementedException();
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
     }
     
     public void RegenerationPotionButton()
     {
-        throw new NotImplementedException();
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
     }
     
     public void DamagePotionButton()
     {
-        throw new NotImplementedException();
+        if (player.isInInventory(0, 1))
+        {
+            player.RemoveFromInventory(0);
+        }
+        else
+        {
+            
+        }
     }
 
 
