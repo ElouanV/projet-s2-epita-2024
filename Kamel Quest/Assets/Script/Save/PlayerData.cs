@@ -21,6 +21,10 @@ public class PlayerData
     [Header("Quest Progress")]
     public int questfinish;
     public bool[] finishedquestannex;
+
+    //Fight progression :
+    [Header("Fight progression")]
+    public bool[] fightprogress;
     
     // Player's team
     [Header("Player's team")]
@@ -83,6 +87,9 @@ public class PlayerData
             // Annex quest
         finishedquestannex = progression.AnnexCompleted;
 
+
+        // MONSTER
+        fightprogress = player.fightprogress;
 
         // SETTINGS
         qualityIndex = QualitySettings.GetQualityLevel();

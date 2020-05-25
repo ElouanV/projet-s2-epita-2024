@@ -23,6 +23,8 @@ public class Player : Entity
     public static GameObject[] team = new GameObject[2];
     public GameObject[] _team;
     public int nbrOfKey = 0;
+    public GameObject[] beatenMonster;
+    public bool[] fightprogress;
 
 
     ///<summary>
@@ -158,7 +160,6 @@ public class Player : Entity
     {
         
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
-        Debug.Log("[Player] : Start : " + LEVELUPXPNEEDED.Length);
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
             // Open while data's are loading to fix the invisible sprite bug
@@ -219,9 +220,15 @@ public class Player : Entity
         
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
+        Debug.Log("[LoadingData] : Appel de LoadQuestProgress");
         LoadQuestProgress(data.questfinish);
+        Debug.Log("[LoadingData] : Appel de LoadQuestProgressAnnex");
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
+        // MOSNTER
+        fightprogress = data.fightprogress;
+        LoadMonsterData();
+
         //POSITION
         Vector3 position;
         position.x = data.playerPosition[0];
@@ -276,12 +283,17 @@ public class Player : Entity
 
     private void LoadQuestProgress(int lastquest)
     {
-        Debug.Log("[LoadQuestProgress] : Method isn't implemented yet.");
+        Debug.Log("[LoadQuestProgress] : Method is running");
         Progression progression = transform.GetComponent<Progression>();
+        progression.CurrentQuestGetSet = progression.Prog[0];
+        Debug.Log("[NextQuest] : Current :" + progression.CurrentQuestGetSet);
         for (int i = 0; i < lastquest; i++)
         {
+            Debug.Log("[LoadingQuestProgress] : Appel de NexQuests a l'indice " + i);
             progression.NextQuest();
+            Debug.Log("[LoadQuestProgress] : NextQuest a finis de tourner");
         }
+        Debug.Log("[LoadQuestProgress] : Method is finishing");
     }
 
     private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
@@ -300,6 +312,21 @@ public class Player : Entity
         ally2.atk += atkboost;
         ally1.hpmax += hpboost;
         ally1.hpmax += hpboost;
+    }
+
+    private void LoadMonsterData()
+    {
+        for (int i = 0; i < fightprogress.Length; i++)
+        {
+            if (fightprogress[i] &&  beatenMonster[i].GetComponent<EnterBattle>().is_active)
+            {
+                Destroy(beatenMonster[i]);
+            }
+            if(fightprogress[i] && !beatenMonster[i].GetComponent<EnterBattle>().is_active)
+            {
+                Debug.Log("Le combat de ce ponstre esy terminé et contient une quete");
+            }
+        }
     }
 
     private void CreateNewParty()
@@ -323,9 +350,9 @@ public class Player : Entity
         // Load quest datas
         //Load player's position
         Vector3 position;
-        position.x = 0; // Position du tuto à set
-        position.y = 0; // Position du tuto à set      
-        position.z = 0;
+        position.x = 1.9f; // Position du tuto à set
+        position.y = -67.1f; // Position du tuto à set      
+        position.z = 0f;
         transform.position = position;
     }
 
