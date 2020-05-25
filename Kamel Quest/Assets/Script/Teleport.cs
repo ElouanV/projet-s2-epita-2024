@@ -15,16 +15,20 @@ public class Teleport : MonoBehaviour
     public bool is_active;
     // Define destination position :
     public float x;
-    public float y; 
+    public float y;
+
+    private bool activeAnim;
+    public GameObject Anim;
 
 
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")&& is_active)
-        {
-            TeleportPlayer(x,y);
-        }
+        if (other.CompareTag("Player")&& is_active) TeleportPlayer(x,y);
+        if (!activeAnim) Anim.SetActive(true);
+        else Anim.SetActive(false);
+        activeAnim = !activeAnim;
+
     }
 
     ///<summary>
