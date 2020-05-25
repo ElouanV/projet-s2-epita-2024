@@ -23,7 +23,8 @@ public class Player : Entity
     public static GameObject[] team = new GameObject[2];
     public GameObject[] _team;
     public int nbrOfKey = 0;
-    public bool[] beatenMonster;
+    public GameObject[] beatenMonster;
+    public bool[] fightprogress;
 
 
     ///<summary>
@@ -224,6 +225,10 @@ public class Player : Entity
         Debug.Log("[LoadingData] : Appel de LoadQuestProgressAnnex");
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
+        // MOSNTER
+        fightprogress = data.fightprogress;
+        LoadMonsterData();
+
         //POSITION
         Vector3 position;
         position.x = data.playerPosition[0];
@@ -309,6 +314,21 @@ public class Player : Entity
         ally1.hpmax += hpboost;
     }
 
+    private void LoadMonsterData()
+    {
+        for (int i = 0; i < fightprogress.Length; i++)
+        {
+            if (fightprogress[i] &&  beatenMonster[i].GetComponent<EnterBattle>().is_active)
+            {
+                Destroy(beatenMonster[i]);
+            }
+            if(fightprogress[i] && !beatenMonster[i].GetComponent<EnterBattle>().is_active)
+            {
+                Debug.Log("Le combat de ce ponstre esy terminé et contient une quete");
+            }
+        }
+    }
+
     private void CreateNewParty()
     {
         Debug.Log("We are creating a new party, please wait");
@@ -330,9 +350,9 @@ public class Player : Entity
         // Load quest datas
         //Load player's position
         Vector3 position;
-        position.x = -36; // Position du tuto à set
-        position.y = -27; // Position du tuto à set      
-        position.z = 0;
+        position.x = 1.9f; // Position du tuto à set
+        position.y = -67.1f; // Position du tuto à set      
+        position.z = 0f;
         transform.position = position;
     }
 
