@@ -13,7 +13,6 @@ public class PlayerData
     public int playerMoney;
     public int playerKey;
     public float[] playerPosition;
-    public float[] playerCameraPosition;
     public int[] playerEquipmentsLevel;
 
 
@@ -57,12 +56,6 @@ public class PlayerData
         playerPosition[0] = player.transform.position.x;
         playerPosition[1] = player.transform.position.y;
         playerPosition[2] = player.transform.position.z;
-            // Pick up variable to define camera's position in  a float arrat
-        playerCameraPosition = new float[3];
-        GameObject camera = GameObject.FindWithTag("MainCamera");
-        playerCameraPosition[0] = camera.transform.position.x;
-        playerCameraPosition[1] = camera.transform.position.y;
-        playerCameraPosition[2] = camera.transform.position.z;
             // Pick up variable to define player's equipment levels
         playerEquipmentsLevel = new int[3];
         playerEquipmentsLevel[0] = player.armurelvl;
