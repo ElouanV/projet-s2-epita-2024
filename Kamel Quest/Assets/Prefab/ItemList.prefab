@@ -40,14 +40,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434930753623105686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216e84470bef4c44db5ed9e281628bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: None
-  itemDescription: None
+  itemName: 
+  itemDescription: 
   type: 0
-  sprite: {fileID: 21300000, guid: 31c98d9fdf8b06640bce256f6d677974, type: 3}
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884584010741602
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +58,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884584010741601}
+  - component: {fileID: 5481431567140017028}
   m_Layer: 0
   m_Name: ItemInfo (13)
   m_TagString: Untagged
@@ -78,6 +80,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5481431567140017028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884584010741602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 14
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884584148453647
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884584148453646}
+  - component: {fileID: 7552979084633461770}
   m_Layer: 0
   m_Name: ItemInfo (7)
   m_TagString: Untagged
@@ -108,6 +129,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7552979084633461770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884584148453647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 8
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884584417982906
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884584417982905}
+  - component: {fileID: 563602071232671213}
   m_Layer: 0
   m_Name: ItemInfo (9)
   m_TagString: Untagged
@@ -138,6 +178,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563602071232671213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884584417982906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 10
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884584539805466
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884584539805465}
+  - component: {fileID: 4088742037769430328}
   m_Layer: 0
   m_Name: ItemInfo (8)
   m_TagString: Untagged
@@ -168,6 +227,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4088742037769430328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884584539805466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 9
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884584988514499
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,19 +285,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378884584988514499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4c97bac36ed674bae4af3359306d6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 2
-  itemName: Basic Sword
-  itemDescription: This sword is basic, but it still can help you to imporve your
-    strenght
-  type: 1
-  sprite: {fileID: 21300000, guid: 8a0e5a24ce07f2e44a21c30a6e021a9c, type: 3}
-  upgradeCost: 
-  upgradeValue: 
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
   lvl: 0
-  boostStat: 0
 --- !u!1 &3378884584994542442
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,15 +334,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378884584994542442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d839ef1bca5e84438daefc340057d55, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 3
-  itemName: Monster's relic
-  itemDescription: You've earn this relic by killing a monster, but no oen know how
-    you can use it
-  type: 2
-  sprite: {fileID: 21300000, guid: c0a42209c5f1cca499154c8be133abe3, type: 3}
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585133978394
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884585133978393}
+  - component: {fileID: 5440695226607766230}
   m_Layer: 0
   m_Name: ItemInfo (10)
   m_TagString: Untagged
@@ -300,6 +374,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5440695226607766230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884585133978394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 11
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585176703575
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884585176703574}
+  - component: {fileID: 2855540791023344928}
   m_Layer: 0
   m_Name: ItemInfo (12)
   m_TagString: Untagged
@@ -330,6 +423,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2855540791023344928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884585176703575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 13
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585229667952
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884585229667959}
+  - component: {fileID: 1129872338574223893}
   m_Layer: 0
   m_Name: ItemInfo (6)
   m_TagString: Untagged
@@ -360,6 +472,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129872338574223893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884585229667952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 7
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585242936091
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884585242936090}
+  - component: {fileID: 2040509367416544791}
   m_Layer: 0
   m_Name: ItemInfo (11)
   m_TagString: Untagged
@@ -390,6 +521,24 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040509367416544791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884585242936091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 12
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585434779901
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,14 +579,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378884585434779901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d839ef1bca5e84438daefc340057d55, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 5
-  itemName: buisson
+  itemName: 
   itemDescription: 
   type: 0
-  sprite: {fileID: -4297879534867113068, guid: 16dca9b0ebfb86a48bb73276fc2f796a, type: 3}
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585786150671
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,14 +628,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378884585786150671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d839ef1bca5e84438daefc340057d55, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 4
-  itemName: Flower
+  itemName: 
   itemDescription: 
   type: 0
-  sprite: {fileID: 6698220844333345315, guid: 16dca9b0ebfb86a48bb73276fc2f796a, type: 3}
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585811907435
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,14 +677,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3378884585811907435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216e84470bef4c44db5ed9e281628bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 1
-  itemName: Heal Potion
-  itemDescription: This potion can heal one of your unit during a fight
+  itemName: 
+  itemDescription: 
   type: 0
-  sprite: {fileID: 21300000, guid: 31c98d9fdf8b06640bce256f6d677974, type: 3}
+  sprite: {fileID: 0}
+  lvl: 0
 --- !u!1 &3378884585825875631
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378884585879900469}
+  - component: {fileID: 7443091893255994712}
   m_Layer: 0
   m_Name: ItemInfo (5)
   m_TagString: Untagged
@@ -609,3 +762,21 @@ Transform:
   m_Father: {fileID: 3378884585825875630}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7443091893255994712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378884585879900470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d92a18fb5e9a2b4e9220891a9cffcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 6
+  itemName: 
+  itemDescription: 
+  type: 0
+  sprite: {fileID: 0}
+  lvl: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 770af5e19dab55c41832589f13683746
+guid: e1ba568f912026d47b0f04b40316eda7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4580670938525849379
-    second: Bones_0
+      213: 9212540645981138735
+    second: Fox v2_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bones_0
+      name: Fox v2_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 60
-        width: 56
-        height: 19
+        x: 37
+        y: 48
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd4d0c0b5745c004ca81c3d4607f2e23
-      internalID: -4580670938525849379
+      spriteID: 145399213f0e2d9469189095ce7f8f65
+      internalID: 9212540645981138735
       vertices: []
       indices: 
       edges: []
@@ -124,7 +124,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e22f738b7c489b0458bfdebc0b9c4618
     internalID: 0
     vertices: []
     indices: 
