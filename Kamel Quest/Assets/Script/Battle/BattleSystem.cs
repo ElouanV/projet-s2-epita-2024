@@ -851,9 +851,6 @@ void changingStateEnemy(int selectEntity)
             case "Regeneration":
                 RegenerationEffect(unit);
                 break;
-            case "Weakness":
-                
-                break;
             case "Loot":
                 LootEffect(unit);
                 break;

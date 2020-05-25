@@ -42,11 +42,6 @@
               <e p="KeySlot.cs" t="Include" />
             </e>
             <e p="Inventory_test.cs" t="Include" />
-            <e p="Items" t="Include">
-              <e p="Other.cs" t="Include" />
-              <e p="Stuff.cs" t="Include" />
-              <e p="Usable.cs" t="Include" />
-            </e>
             <e p="Items.cs" t="Include" />
             <e p="ItemSlots.cs" t="Include" />
             <e p="PickingItem.cs" t="Include" />
