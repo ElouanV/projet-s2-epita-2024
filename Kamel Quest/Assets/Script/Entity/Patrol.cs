@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Patrol : MonoBehaviour
 {
     //vitesse et différentes positions possibles pour l'entité
-    public int speed;
+    public float speed;
     public Transform[] patrolPosition;
 
     //temps d'attente
