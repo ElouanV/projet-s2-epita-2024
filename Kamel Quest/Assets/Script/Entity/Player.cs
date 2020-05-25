@@ -236,13 +236,6 @@ public class Player : Entity
         position.z = data.playerPosition[2];
         transform.position = position;
 
-        //CAMERA
-        Vector3 cameraposition;
-        cameraposition.x = data.playerCameraPosition[0];
-        cameraposition.y = data.playerCameraPosition[1];
-        cameraposition.z = data.playerCameraPosition[2];
-        GameObject.FindWithTag("MainCamera").transform.position = cameraposition;
-
         Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
         Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
@@ -332,9 +325,8 @@ public class Player : Entity
     private void CreateNewParty()
     {
         Debug.Log("We are creating a new party, please wait");
-
         // Create player statitics
-        argent = 0;
+        argent = 150;
         lvl = 1;
         xp = 0;
         nbrOfKey = 0;
@@ -346,12 +338,14 @@ public class Player : Entity
         inventoryCount = new int[20];
         inventoryID  = new int[20];
         //Load player's team
-            //TODO
+            //Default values
         // Load quest datas
+            //Default valaues
         //Load player's position
         Vector3 position;
-        position.x = 1.9f; // Position du tuto à set
-        position.y = -67.1f; // Position du tuto à set      
+        // Tutorial position 
+        position.x = 1.9f;
+        position.y = -67.1f;     
         position.z = 0f;
         transform.position = position;
     }
@@ -376,6 +370,7 @@ public class Player : Entity
         //INVENTORY
         inventoryCount = data.inventoryCountSlots;
         inventoryID  = data.inventoryIDSlots;
+
         //TEAM
         Entity ally1 = _team[0].GetComponent<Entity>();
         Entity ally2 = _team[1].GetComponent<Entity>();
@@ -385,12 +380,14 @@ public class Player : Entity
         ally1.currenthp = data.playerTeamHp[0];
         ally2.currenthp = data.playerTeamHp[1];
         
-        
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
         progression.CurrentGetSet = data.questfinish;
         progression.AnnexCompleted = data.finishedquestannex;
         
+        // MOSNTER
+        fightprogress = data.fightprogress;
+
         //POSITION
         Vector3 position;
         position.x = data.playerPosition[0];
@@ -398,14 +395,8 @@ public class Player : Entity
         position.z = data.playerPosition[2];
         transform.position = position;
 
-        //CAMERA
-        Vector3 cameraposition;
-        cameraposition.x = data.playerCameraPosition[0];
-        cameraposition.y = data.playerCameraPosition[1];
-        cameraposition.z = data.playerCameraPosition[2];
-        GameObject.FindWithTag("MainCamera").transform.position = cameraposition;
 
-        Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
+        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT");
         Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 

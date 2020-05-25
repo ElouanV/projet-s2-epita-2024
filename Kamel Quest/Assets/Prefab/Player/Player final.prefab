@@ -64,6 +64,7 @@ MonoBehaviour:
   ATKPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
   HPMAXPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
   effectList: []
+  turnEffect: 
   hpmax: 30
   currenthp: 28
   atk: 7
@@ -90,7 +91,8 @@ MonoBehaviour:
   - {fileID: 3162261496189199295, guid: 32ce00dc9d3f4534f8181dd7b2d2e498, type: 3}
   - {fileID: 816219172268709440, guid: 31b3ba20b2d05c84797b56632bf3ae84, type: 3}
   nbrOfKey: 0
-  beatenMonster: 
+  beatenMonster: []
+  fightprogress: 
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
   armorslot: {fileID: 0}
@@ -120,6 +122,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1962520302724863041, guid: 7f15a35b76f5447818cc1cc64ec198e3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.x

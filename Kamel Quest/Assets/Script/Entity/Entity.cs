@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour
     //liste d'effet
     public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison"};
     public List<string> effectList = new List<string>();
-    
+    public List<int> turnEffect = new List<int>();
  
     // Attribut de la classe Entity
     public int hpmax;
