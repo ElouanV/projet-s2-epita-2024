@@ -25,6 +25,7 @@ public class Player : Entity
     public int nbrOfKey = 0;
     public GameObject[] beatenMonster;
     public bool[] fightprogress;
+    public int questfinish;
 
 
     ///<summary>
@@ -154,11 +155,11 @@ public class Player : Entity
     public void SavePlayerData()
     {
         SaveSystem.SavePlayer(this);
+        Debug.Log("SavePlayer");
     }
 
     private void Start()
     {
-        
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
@@ -237,7 +238,6 @@ public class Player : Entity
         transform.position = position;
 
         Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
-        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 
     private void LoadInventory()
@@ -297,7 +297,7 @@ public class Player : Entity
         }
     }
 
-    private void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
+    public void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
     {
         int atkboost = epeeboost[epeelvl-1];
         int hpboost = armureboost[armurelvl-1];
@@ -350,7 +350,7 @@ public class Player : Entity
         transform.position = position;
     }
 
-    private void LoadPlayerForBattle()
+    public void LoadPlayerForBattle()
     {
         Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
@@ -380,7 +380,7 @@ public class Player : Entity
         ally1.currenthp = data.playerTeamHp[0];
         ally2.currenthp = data.playerTeamHp[1];
         
-        // QUEST 
+
         Progression progression = transform.GetComponent<Progression>();
         progression.CurrentGetSet = data.questfinish;
         progression.AnnexCompleted = data.finishedquestannex;
@@ -396,8 +396,8 @@ public class Player : Entity
         transform.position = position;
 
 
-        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT");
-        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
+        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT" + this);
+
     }
 
 

@@ -71,7 +71,7 @@ public class BattleSystem : MonoBehaviour
 
 
 
-    private Entity playerUnit;
+    private Player playerUnit;
     private Entity enemyUnit;
     private Entity enemy1Unit;
     private Entity enemy2Unit;
@@ -98,7 +98,7 @@ public class BattleSystem : MonoBehaviour
         nbTurn = 0;
         //desactivation de la caméra attachée au player
         //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
-
+        
         allyList = player._team;
         //player.gameObject.SetActive(false);
 
@@ -116,10 +116,61 @@ public class BattleSystem : MonoBehaviour
         
         
 
-        playerPrefab.GetComponent<Transform>().localScale = new Vector3(0.4f, 0.4f, 1f);
-        playerPrefab.GetComponent<Transform>().position = new Vector3(0f, 0f, 0f);
-        GameObject playerObject = Instantiate(playerPrefab, playerSpawn);
-        playerUnit = playerObject.GetComponent<Entity>();
+
+        playerPrefab.GetComponent<Player>().LoadPlayerForBattle();
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        playerUnit = playerObject.GetComponent<Player>();
+        playerUnit.LoadPlayerForBattle();
+
+//---------------------------------------------------
+        Debug.Log("We are downloading your party, please wait");
+        //Get player data from binary save file
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        // PLAYER
+        playerUnit.argent = data.playerMoney;
+        playerUnit.nbrOfKey = data.playerKey;
+        int playerxp = data.playerXP;
+        playerUnit.GetXp(playerxp);
+
+        //EQUIPMENTS
+        playerUnit.armurelvl = data.playerEquipmentsLevel[0];
+        playerUnit.epeelvl = data.playerEquipmentsLevel[1];
+        playerUnit.bouclierlvl = data.playerEquipmentsLevel[2];
+
+        //INVENTORY
+        playerUnit.inventoryCount = data.inventoryCountSlots;
+        playerUnit.inventoryID  = data.inventoryIDSlots;
+
+        //TEAM
+        Entity ally1 = playerUnit._team[0].GetComponent<Entity>();
+        Entity ally2 = playerUnit._team[1].GetComponent<Entity>();
+        ally1.GetXp(playerxp);
+        ally2.GetXp(playerxp);
+        playerUnit.LoadEquipementTeam(ally1, ally2, playerUnit.lvl);
+        ally1.currenthp = data.playerTeamHp[0];
+        ally2.currenthp = data.playerTeamHp[1];
+        
+
+        Progression progression = playerUnit.transform.GetComponent<Progression>();
+        progression.CurrentGetSet = data.questfinish;
+        progression.AnnexCompleted = data.finishedquestannex;
+        
+        // MOSNTER
+        playerUnit.fightprogress = data.fightprogress;
+
+        //POSITION
+        Vector3 position;
+        position.x = data.playerPosition[0];
+        position.y = data.playerPosition[1];          
+        position.z = data.playerPosition[2];
+        playerUnit.transform.position = position;
+
+
+        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT" + this);
+
+
+//---------------------------------------------------------------------      
         playerSpawnUI.sprite = playerPrefab.GetComponent<SpriteRenderer>().sprite;
         if (!playerUnit.isalive)
         {
@@ -150,11 +201,6 @@ public class BattleSystem : MonoBehaviour
             ally2Unit = null;
         }
 
-        Debug.Log(PlayerPrefs.GetInt("Ennemy1",0));
-        Debug.Log(PlayerPrefs.GetInt("Ennemy2",0));
-        Debug.Log(PlayerPrefs.GetInt("Ennemy3",0));
-        
-        
 
         enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
         wichEnemy = random.Next(0, 2);
@@ -530,6 +576,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (loot) Drop();
         Xp();
+        player.fightprogress[PlayerPrefs.GetInt("monsterID")] = true;
+
         SaveSystem.SavePlayer(player);
         Debug.Log("[Battle system END] : data have been saved ");
         PlayerPrefs.SetInt("LoadData",1);
@@ -792,6 +840,7 @@ void changingStateEnemy(int selectEntity)
             }
         }
     }
+
     public void Drop ()
     {
         foreach (GameObject enemy in enemyList)
@@ -825,19 +874,20 @@ void changingStateEnemy(int selectEntity)
         {
             res += LVL_MOB_TO_XP[enemy.GetComponent<Entity>().lvl-1];
         }
-        playerPrefab.GetComponent<Player>().GetXp(res);
+        playerPrefab.GetComponent<Entity>().GetXp(res);
     }
     
 
-    //compteur de tour
-    private int countTurn(BattleState state, BattleState currentState, int i)
-    {
-        if (state == currentState)
-        {
-            
-        }
+    //compteur de tour et execute les effets ou retire ceux qui sont fini
 
-        throw new NotImplementedException();
+    public void ExecuteAllEffect(Entity unit)
+    {
+        foreach (var effect in unit.effectList)
+        {
+            if (effect.Item2 == nbTurn) unit.RemoveEffect(effect.Item1, unit);
+            else EffectWithTurn(effect.Item1, unit);
+        	nbTurn++;
+		}	
     }
 
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
@@ -845,21 +895,19 @@ void changingStateEnemy(int selectEntity)
     {
         switch (effect)
         {
-            case "Strengthening":
-                StrengtheningEffect(unit);
-                break;
             case "Regeneration":
                 RegenerationEffect(unit);
                 break;
-            case "Loot":
-                LootEffect(unit);
-                break;
-            case "Damage":
+			case "Damage":
                 DamageEffect(unit);
                 break;
             case "Poison":
                 PoisonEffect(unit);
                 break;
+            case "Heal":
+                HealPotion(unit);
+                break;
+            
         }
     }
     
@@ -894,6 +942,11 @@ void changingStateEnemy(int selectEntity)
     {
         unit.atk += 5;
     }
+    
+    public void WeaknessEffect(Entity unit)
+    {
+        unit.atk -= 5;
+    }
 
     public void RemoveEffect()
     {
@@ -907,6 +960,18 @@ void changingStateEnemy(int selectEntity)
         if (player.isInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
+            switch (state)
+            {
+                case BattleState.PLAYERTURN:
+                    playerUnit.AddEffect(("Heal", 1));
+                    break;
+                case BattleState.PLAYERTURN1:
+                    ally1Unit.AddEffect(("Heal", 1));
+                    break;
+                case BattleState.PLAYERTURN2:
+                    ally2Unit.AddEffect(("Heal", 1));
+                    break;
+            }
             
         }
         else

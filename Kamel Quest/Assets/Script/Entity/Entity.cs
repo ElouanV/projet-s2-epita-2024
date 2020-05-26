@@ -13,9 +13,8 @@ public class Entity : MonoBehaviour
     public int[] ATKPROGRESSION = new int[10];
     public int[] HPMAXPROGRESSION = new int[10];
     //liste d'effet
-    public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison"};
-    public List<string> effectList = new List<string>();
-    public List<int> turnEffect = new List<int>();
+    public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison","Heal"};
+    public List<(string,int)> effectList = new List<(string,int)>();
  
     // Attribut de la classe Entity
     public int hpmax;
@@ -105,36 +104,8 @@ public class Entity : MonoBehaviour
             currenthp = hpmax;
         }
     }
-/*
-    public void GetXp(int xpearned) // augmente l'xp de xpearned points
-    {
-        if (lvl < 10)
-        {
-            Debug.Log("xp : " + xp + "xpearned : " + xpearned + "lvl : " + lvl );
-            Debug.Log(LEVELUPXPNEEDED.Length);
-            if (xp + xpearned >= LEVELUPXPNEEDED[lvl-1])
-            {
-                xpearned = xp + xpearned - LEVELUPXPNEEDED[lvl-1];
-                LvlUp(xpearned);
-            
-            }
-            else
-            {
-                xp += xpearned;
-            }
-        }
-        
-    }
-    
-    protected void LvlUp(int setxp) // appellée si l'entité augmente de niveau
-    {
-        atk += ATKPROGRESSION[lvl-1];
-        hpmax += HPMAXPROGRESSION[lvl-1];
-        lvl += 1;
-        xp = LEVELUPXPNEEDED[lvl-1];
-        GetXp(setxp - LEVELUPXPNEEDED[lvl-1]);
-        
-    }*/
+
+
     public void GetXp(int xpearned)
     {
         xp += xpearned;
@@ -144,25 +115,53 @@ public class Entity : MonoBehaviour
         }
     }
 
-    //effet possible et ajout dans la liste des effets
+    // ajout dans la liste des effets et execute les effets dit "passif"
 
 
-    public void AddEffect(string effect)
+    public void AddEffect((string, int) effect)
     {
         effectList.Append(effect);
+		switch(effect.Item1)
+		{
+			case "Strengthening":
+                break;
+			case "Weakness":
+                break;
+			case "Loot":
+                break;
+		}
     }
+	// retire des effets et reinitialiser les effet "passif"
 
-    public void RemoveEffect(string effect)
+    public void RemoveEffect(string effect, Entity unit)
     {
-        if (!effectList.Contains(effect))
-        {
-            return;
-        }
-        effectList.Remove(effect);
-    }
+        int i = 0;
+		bool find = false;
+
+		while (i < unit.effectList.Count && !find)
+		{
+			find = unit.effectList[i].Item1 == effect;
+			if (find) 
+			{
+				unit.effectList.Remove(effectList[i]);
+			    //switch(CrrtEffect.Item1)
+                switch (effect)
+			    {
+			    	case "Weakness":
+
+			    		break;
+			    	case "Strengthening":
+
+			    		break;
+				}  
+			}
+			i++;
+		}
+	}
     
     public bool loot()
     {
         return true;
     }
+    
 }
