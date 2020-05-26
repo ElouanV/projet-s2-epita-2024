@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Progression : MonoBehaviour
 {
@@ -31,13 +32,18 @@ public class Progression : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AnnexCompleted = new bool[ProgAnex.Count];
-        prog_percent = 0;
-        Nb_Quest = Prog.Capacity;
-        Current = 0;
-        CurrentAnex = 0;
-        CurrentQuest = Prog[Current];
-        InstallQuest();
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name  != "FightScene")
+        {
+            AnnexCompleted = new bool[ProgAnex.Count];
+            prog_percent = 0;
+            Nb_Quest = Prog.Capacity;
+            Current = 0;
+            CurrentAnex = 0;
+            CurrentQuest = Prog[Current];
+            InstallQuest();
+        }
+        
     }
 
     public void InstallQuest()

@@ -66,7 +66,6 @@ public class BattleUI : MonoBehaviour
             ally1HpSlider.maxValue = ally1.hpmax;
             ally1HpSlider.value = ally1.currenthp;
             ally1HpText.text = ally1.currenthp + "/" + ally1.hpmax;
-            Debug.Log("ca marche");
         }
         else
         {

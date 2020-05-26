@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562921878336522722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 631ebe6272e4c0b4e8fda5134f8cc4ac, type: 3}
   m_Name: 
@@ -71,8 +71,8 @@ MonoBehaviour:
   name: Kamel
   magicatk: 3
   atkcost: 1
-  xp: 10
-  lvl: 1
+  xp: 37
+  lvl: 10
   isalive: 1
   item_id: 0
   is_defence: 0
@@ -93,6 +93,7 @@ MonoBehaviour:
   nbrOfKey: 0
   beatenMonster: []
   fightprogress: 
+  questfinish: 0
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
   armorslot: {fileID: 0}

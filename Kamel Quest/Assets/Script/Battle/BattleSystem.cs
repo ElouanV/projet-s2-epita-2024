@@ -98,7 +98,7 @@ public class BattleSystem : MonoBehaviour
         nbTurn = 0;
         //desactivation de la caméra attachée au player
         //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
-
+        player.LoadPlayerForBattle();
         allyList = player._team;
         //player.gameObject.SetActive(false);
 
@@ -150,11 +150,6 @@ public class BattleSystem : MonoBehaviour
             ally2Unit = null;
         }
 
-        Debug.Log(PlayerPrefs.GetInt("Ennemy1",0));
-        Debug.Log(PlayerPrefs.GetInt("Ennemy2",0));
-        Debug.Log(PlayerPrefs.GetInt("Ennemy3",0));
-        
-        
 
         enemyPrefab = enemyList[PlayerPrefs.GetInt("Enemy1",0)];
         wichEnemy = random.Next(0, 2);
