@@ -523,8 +523,8 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
-        if (loot) Drop();
-        Xp();
+        //if (loot) Drop();
+        //Xp();
         SaveSystem.SavePlayer(player);
         Debug.Log("[Battle system END] : data have been saved ");
         PlayerPrefs.SetInt("LoadData",1);
@@ -787,6 +787,7 @@ void changingStateEnemy(int selectEntity)
             }
         }
     }
+/*
     public void Drop ()
     {
         foreach (GameObject enemy in enemyList)
@@ -974,7 +975,7 @@ void changingStateEnemy(int selectEntity)
             
         }
     }
-
+*/
 
 }
 

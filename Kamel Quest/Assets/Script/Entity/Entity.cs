@@ -145,7 +145,7 @@ public class Entity : MonoBehaviour
 
     // ajout dans la liste des effets et execute les effets dit "passif"
 
-
+/*
     public void AddEffect((string, int) effect, Entity unit)
     {
         unit.effectList.Append(effect);
@@ -193,4 +193,5 @@ public class Entity : MonoBehaviour
     {
         return true;
     }
+    */
 }
