@@ -13,9 +13,8 @@ public class Entity : MonoBehaviour
     public int[] ATKPROGRESSION = new int[10];
     public int[] HPMAXPROGRESSION = new int[10];
     //liste d'effet
-    public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison"};
-    public List<string> effectList = new List<string>();
-    public List<int> turnEffect = new List<int>();
+    public static string[] allEffectList = new[] {"Strengthening", "Regeneration", "Weakness", "Loot", "Damage", "Poison","Heal"};
+    public List<(string,int)> effectList = new List<(string,int)>();
  
     // Attribut de la classe Entity
     public int hpmax;
@@ -150,16 +149,35 @@ public class Entity : MonoBehaviour
     public void AddEffect(string effect)
     {
         effectList.Append(effect);
+		switch(effect)
+		{
+			case "Strengthening":
+				StrengtheningEffect(this);
+				break;
+			case "Weakness":
+				WeaknessEffect(this);
+				break;
+			case "Loot":
+				LootEffect(this);
+				break;
+		}
     }
 
     public void RemoveEffect(string effect)
     {
-        if (!effectList.Contains(effect))
-        {
-            return;
-        }
+        if (!effectList.Contains(effect)) return;
+
         effectList.Remove(effect);
-    }
+		switch(effect)
+		{
+			case "Weakness":
+				StrengtheningEffect(this);
+				break;
+			case "Strengthening":
+				WeaknessEffect(this);
+				break;
+		}    
+	}
     
     public bool loot()
     {

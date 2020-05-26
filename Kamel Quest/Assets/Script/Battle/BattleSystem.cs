@@ -840,26 +840,33 @@ void changingStateEnemy(int selectEntity)
         throw new NotImplementedException();
     }
 
+    public void ExecuteAllEffect(Entity unit)
+    {
+        foreach (var effect in unit.effectList)
+        {
+            if (effect.Items2 == nbTurn) //RemoveEffect
+            else EffectWithTurn(effect.Item1, unit);
+        }
+    }
+
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
     public void EffectWithTurn(string effect, Entity unit)
     {
         switch (effect)
         {
-            case "Strengthening":
-                StrengtheningEffect(unit);
-                break;
             case "Regeneration":
                 RegenerationEffect(unit);
                 break;
-            case "Loot":
-                LootEffect(unit);
-                break;
-            case "Damage":
+			case "Damage":
                 DamageEffect(unit);
                 break;
             case "Poison":
                 PoisonEffect(unit);
                 break;
+            case "Heal":
+                HealPotion(unit);
+                break;
+            
         }
     }
     
@@ -893,6 +900,11 @@ void changingStateEnemy(int selectEntity)
     public void StrengtheningEffect(Entity unit)
     {
         unit.atk += 5;
+    }
+    
+    public void WeaknessEffect(Entity unit)
+    {
+        unit.atk -= 5;
     }
 
     public void RemoveEffect()
