@@ -577,6 +577,7 @@ public class BattleSystem : MonoBehaviour
         if (loot) Drop();
         Xp();
         player.fightprogress[PlayerPrefs.GetInt("monsterID")] = true;
+
         SaveSystem.SavePlayer(player);
         Debug.Log("[Battle system END] : data have been saved ");
         PlayerPrefs.SetInt("LoadData",1);
@@ -839,6 +840,7 @@ void changingStateEnemy(int selectEntity)
             }
         }
     }
+/*
     public void Drop ()
     {
         foreach (GameObject enemy in enemyList)
@@ -876,15 +878,16 @@ void changingStateEnemy(int selectEntity)
     }
     
 
-    //compteur de tour
-    private int countTurn(BattleState state, BattleState currentState, int i)
-    {
-        if (state == currentState)
-        {
-            
-        }
+    //compteur de tour et execute les effets ou retire ceux qui sont fini
 
-        throw new NotImplementedException();
+    public void ExecuteAllEffect(Entity unit)
+    {
+        foreach (var effect in unit.effectList)
+        {
+            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Item1);
+            else EffectWithTurn(effect.Item1, unit);
+        	nbTrun++;
+		}	
     }
 
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
@@ -892,21 +895,19 @@ void changingStateEnemy(int selectEntity)
     {
         switch (effect)
         {
-            case "Strengthening":
-                StrengtheningEffect(unit);
-                break;
             case "Regeneration":
                 RegenerationEffect(unit);
                 break;
-            case "Loot":
-                LootEffect(unit);
-                break;
-            case "Damage":
+			case "Damage":
                 DamageEffect(unit);
                 break;
             case "Poison":
                 PoisonEffect(unit);
                 break;
+            case "Heal":
+                HealPotion(unit);
+                break;
+            
         }
     }
     
@@ -940,6 +941,11 @@ void changingStateEnemy(int selectEntity)
     public void StrengtheningEffect(Entity unit)
     {
         unit.atk += 5;
+    }
+    
+    public void WeaknessEffect(Entity unit)
+    {
+        unit.atk -= 5;
     }
 
     public void RemoveEffect()
@@ -1022,7 +1028,7 @@ void changingStateEnemy(int selectEntity)
             
         }
     }
-
+*/
 
 }
 
