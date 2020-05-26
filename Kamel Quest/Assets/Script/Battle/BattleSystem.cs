@@ -98,7 +98,7 @@ public class BattleSystem : MonoBehaviour
         nbTurn = 0;
         //desactivation de la caméra attachée au player
         //player.GetComponentInChildren<Camera>().gameObject.SetActive(false);
-
+        player.LoadPlayerForBattle();
         allyList = player._team;
         //player.gameObject.SetActive(false);
 

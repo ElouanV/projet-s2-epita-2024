@@ -25,6 +25,7 @@ public class Player : Entity
     public int nbrOfKey = 0;
     public GameObject[] beatenMonster;
     public bool[] fightprogress;
+    public int questfinish;
 
 
     ///<summary>
@@ -154,6 +155,7 @@ public class Player : Entity
     public void SavePlayerData()
     {
         SaveSystem.SavePlayer(this);
+        Debug.Log("SavePlayer");
     }
 
     private void Start()
@@ -350,7 +352,7 @@ public class Player : Entity
         transform.position = position;
     }
 
-    private void LoadPlayerForBattle()
+    public void LoadPlayerForBattle()
     {
         Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
@@ -380,7 +382,7 @@ public class Player : Entity
         ally1.currenthp = data.playerTeamHp[0];
         ally2.currenthp = data.playerTeamHp[1];
         
-        // QUEST 
+
         Progression progression = transform.GetComponent<Progression>();
         progression.CurrentGetSet = data.questfinish;
         progression.AnnexCompleted = data.finishedquestannex;
