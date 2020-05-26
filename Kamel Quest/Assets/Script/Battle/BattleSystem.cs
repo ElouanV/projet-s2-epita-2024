@@ -574,8 +574,10 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
+        /*
         if (loot) Drop();
         Xp();
+        */
         player.fightprogress[PlayerPrefs.GetInt("monsterID")] = true;
 
         SaveSystem.SavePlayer(player);
