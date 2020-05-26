@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3378884584148453646}
   - component: {fileID: 7552979084633461770}
   m_Layer: 0
-  m_Name: ItemInfo (7)
+  m_Name: Token
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   itemName: 
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 3168031502801225939, guid: 7f98bf349edb11948a2d6ae771bc8502, type: 3}
   lvl: 0
 --- !u!1 &3378884584417982906
 GameObject:
@@ -240,10 +240,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 9
-  itemName: 
+  itemName: Fish
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 5044213156335822724, guid: 7f98bf349edb11948a2d6ae771bc8502, type: 3}
   lvl: 0
 --- !u!1 &3378884584988514499
 GameObject:
@@ -289,10 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 2
-  itemName: 
+  itemName: Sword
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c9af4b57949d1384681a88ee5259e284, type: 3}
   lvl: 0
 --- !u!1 &3378884584994542442
 GameObject:
@@ -338,10 +338,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 3
-  itemName: 
+  itemName: Monster relic
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: eecde764aca0a834fa4bae94b0565106, type: 3}
   lvl: 0
 --- !u!1 &3378884585133978394
 GameObject:
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 3378884585229667959}
   - component: {fileID: 1129872338574223893}
   m_Layer: 0
-  m_Name: ItemInfo (6)
+  m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,10 +485,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 7
-  itemName: 
+  itemName: Book
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: -6848833688144307511, guid: 7f98bf349edb11948a2d6ae771bc8502, type: 3}
   lvl: 0
 --- !u!1 &3378884585242936091
 GameObject:
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 3378884585434779900}
   - component: {fileID: 8418112576000469670}
   m_Layer: 0
-  m_Name: ItemInfo (4)
+  m_Name: Buisson
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,10 +681,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 1
-  itemName: 
+  itemName: Heal Potion
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 31c98d9fdf8b06640bce256f6d677974, type: 3}
   lvl: 0
 --- !u!1 &3378884585825875631
 GameObject:
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 3378884585879900469}
   - component: {fileID: 7443091893255994712}
   m_Layer: 0
-  m_Name: ItemInfo (5)
+  m_Name: Strenght potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,5 +778,5 @@ MonoBehaviour:
   itemName: 
   itemDescription: 
   type: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 951b6f3dc2d6e0d499722bbaf1741c89, type: 3}
   lvl: 0

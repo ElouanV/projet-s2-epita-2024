@@ -238,7 +238,6 @@ public class Player : Entity
         transform.position = position;
 
         Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
-        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
     }
 
     private void LoadInventory()
@@ -398,7 +397,7 @@ public class Player : Entity
 
 
         Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT");
-        Debug.Log("[LoadPlayerData] : Not all data have been loaded, this function have to be fixed");
+
     }
 
 
