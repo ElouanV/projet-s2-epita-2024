@@ -71,7 +71,7 @@ MonoBehaviour:
   name: Kamel
   magicatk: 3
   atkcost: 1
-  xp: 37
+  xp: 137
   lvl: 10
   isalive: 1
   item_id: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: 816219172268709440, guid: 31b3ba20b2d05c84797b56632bf3ae84, type: 3}
   nbrOfKey: 0
   beatenMonster: []
-  fightprogress: 
+  fightprogress: 01
   questfinish: 0
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
@@ -131,17 +131,17 @@ PrefabInstance:
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11.103257
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 14.979263
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}

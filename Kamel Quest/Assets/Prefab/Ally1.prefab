@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1916855797458098755}
   - component: {fileID: 7086671913663447911}
   m_Layer: 0
-  m_Name: Caml Quest hero-3_0
+  m_Name: mage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2131140920811803099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8040904043734163204}
   m_RootOrder: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3928852817709568141, guid: 199a9ccf9e2214ca0b388763dffd2ff8,
+  m_Sprite: {fileID: -7285376162372006033, guid: 5033baffecb210f4f98d6e94e33384c0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,7 +128,6 @@ MonoBehaviour:
   LEVELUPXPNEEDED: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
   ATKPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
   HPMAXPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
-  effectList: []
   hpmax: 20
   currenthp: 20
   atk: 1

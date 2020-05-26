@@ -297,7 +297,7 @@ public class Player : Entity
         }
     }
 
-    private void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
+    public void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
     {
         int atkboost = epeeboost[epeelvl-1];
         int hpboost = armureboost[armurelvl-1];
@@ -396,7 +396,7 @@ public class Player : Entity
         transform.position = position;
 
 
-        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT");
+        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT" + this);
 
     }
 
