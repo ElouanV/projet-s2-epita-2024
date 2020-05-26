@@ -160,7 +160,6 @@ public class Player : Entity
 
     private void Start()
     {
-        
         Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
