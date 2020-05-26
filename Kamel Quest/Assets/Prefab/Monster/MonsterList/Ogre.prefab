@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8735142747423166719
+--- !u!1 &8828771644884828811
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6825183253978825833}
-  - component: {fileID: 2765731305528631011}
-  - component: {fileID: 7710220128272473182}
-  - component: {fileID: 412622560077953370}
+  - component: {fileID: 4903611467260380934}
+  - component: {fileID: 2418145267840516279}
+  - component: {fileID: 5211988403222570357}
+  - component: {fileID: 4043952105068708055}
   m_Layer: 0
-  m_Name: Water Monster
+  m_Name: Ogre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6825183253978825833
+--- !u!4 &4903611467260380934
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735142747423166719}
+  m_GameObject: {fileID: 8828771644884828811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.779312, y: -1.2931712, z: 0}
+  m_LocalPosition: {x: 13.82, y: 4.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2765731305528631011
+--- !u!212 &2418145267840516279
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735142747423166719}
+  m_GameObject: {fileID: 8828771644884828811}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,24 +71,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 490102651181635052, guid: 687dbf26956817b48a5f1d06cb8af2c6, type: 3}
+  m_Sprite: {fileID: -7767761301985670045, guid: 687dbf26956817b48a5f1d06cb8af2c6,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.875, y: 2.375}
+  m_Size: {x: 2.5, y: 3.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7710220128272473182
+--- !u!114 &5211988403222570357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735142747423166719}
+  m_GameObject: {fileID: 8828771644884828811}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5095c2579c7b95a4498341dc066c69ed, type: 3}
@@ -97,15 +98,15 @@ MonoBehaviour:
   enemyid1: 0
   enemyid2: 0
   enemyid3: 0
-  monsterID: 4
+  monsterID: 0
   is_active: 0
---- !u!61 &412622560077953370
+--- !u!61 &4043952105068708055
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8735142747423166719}
+  m_GameObject: {fileID: 8828771644884828811}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -116,12 +117,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.875, y: 2.375}
-    newSize: {x: 1.875, y: 2.375}
+    oldSize: {x: 2.5, y: 3.25}
+    newSize: {x: 2.5, y: 3.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.875, y: 2.375}
+  m_Size: {x: 2.5, y: 3.25}
   m_EdgeRadius: 0
