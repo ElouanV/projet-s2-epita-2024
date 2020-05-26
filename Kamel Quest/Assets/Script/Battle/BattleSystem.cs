@@ -825,23 +825,15 @@ void changingStateEnemy(int selectEntity)
     
 
     //compteur de tour
-    private int countTurn(BattleState state, BattleState currentState, int i)
-    {
-        if (state == currentState)
-        {
-            
-        }
-
-        throw new NotImplementedException();
-    }
 
     public void ExecuteAllEffect(Entity unit)
     {
         foreach (var effect in unit.effectList)
         {
-            if (effect.Items2 == nbTurn) //RemoveEffect
+            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Items1)
             else EffectWithTurn(effect.Item1, unit);
-        }
+        nbTrun++;
+		}	
     }
 
     //Potions a utiliser dans le combat en fonction du nombre de tour passé
