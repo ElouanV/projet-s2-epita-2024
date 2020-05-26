@@ -105,7 +105,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    
+
     public void GetXp(int xpearned)
     {
         xp += xpearned;
@@ -117,21 +117,18 @@ public class Entity : MonoBehaviour
 
     // ajout dans la liste des effets et execute les effets dit "passif"
 
-/*
-    public void AddEffect((string, int) effect, Entity unit)
+
+    public void AddEffect((string, int) effect)
     {
-        unit.effectList.Append(effect);
+        effectList.Append(effect);
 		switch(effect.Item1)
 		{
 			case "Strengthening":
-				unit.StrengtheningEffect(this);
-				break;
+                break;
 			case "Weakness":
-				unit.WeaknessEffect(this);
-				break;
+                break;
 			case "Loot":
-				unit.LootEffect(this);
-				break;
+                break;
 		}
     }
 	// retire des effets et reinitialiser les effet "passif"
@@ -147,13 +144,14 @@ public class Entity : MonoBehaviour
 			if (find) 
 			{
 				unit.effectList.Remove(effectList[i]);
-			    switch(CrrtEffect.Item1)
+			    //switch(CrrtEffect.Item1)
+                switch (effect)
 			    {
 			    	case "Weakness":
-			    		unit.StrengtheningEffect(this);
+
 			    		break;
 			    	case "Strengthening":
-			    		unit.WeaknessEffect(this);
+
 			    		break;
 				}  
 			}
@@ -165,5 +163,5 @@ public class Entity : MonoBehaviour
     {
         return true;
     }
-    */
+    
 }
