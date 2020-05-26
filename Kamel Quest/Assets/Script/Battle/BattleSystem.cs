@@ -830,7 +830,7 @@ void changingStateEnemy(int selectEntity)
     {
         foreach (var effect in unit.effectList)
         {
-            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Items1)
+            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Items1);
             else EffectWithTurn(effect.Item1, unit);
         nbTrun++;
 		}	
