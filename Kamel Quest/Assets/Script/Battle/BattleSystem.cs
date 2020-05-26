@@ -787,7 +787,7 @@ void changingStateEnemy(int selectEntity)
             }
         }
     }
-/*
+
     public void Drop ()
     {
         foreach (GameObject enemy in enemyList)
@@ -821,7 +821,7 @@ void changingStateEnemy(int selectEntity)
         {
             res += LVL_MOB_TO_XP[enemy.GetComponent<Entity>().lvl-1];
         }
-        playerPrefab.GetComponent<Player>().GetXp(res);
+        playerPrefab.GetComponent<Entity>().GetXp(res);
     }
     
 
@@ -831,9 +831,9 @@ void changingStateEnemy(int selectEntity)
     {
         foreach (var effect in unit.effectList)
         {
-            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Item1);
+            if (effect.Item2 == nbTurn) unit.RemoveEffect(effect.Item1, unit);
             else EffectWithTurn(effect.Item1, unit);
-        	nbTrun++;
+        	nbTurn++;
 		}	
     }
 
@@ -907,6 +907,18 @@ void changingStateEnemy(int selectEntity)
         if (player.isInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
+            switch (state)
+            {
+                case BattleState.PLAYERTURN:
+                    playerUnit.AddEffect(("Heal", 1));
+                    break;
+                case BattleState.PLAYERTURN1:
+                    ally1Unit.AddEffect(("Heal", 1));
+                    break;
+                case BattleState.PLAYERTURN2:
+                    ally2Unit.AddEffect(("Heal", 1));
+                    break;
+            }
             
         }
         else
@@ -975,7 +987,7 @@ void changingStateEnemy(int selectEntity)
             
         }
     }
-*/
+
 
 }
 
