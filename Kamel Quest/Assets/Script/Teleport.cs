@@ -16,7 +16,7 @@ public class Teleport : MonoBehaviour
     // Define destination position :
     public float x;
     public float y;
-
+    public bool giveKey;
     private bool activeAnim;
     public GameObject Anim;
 
@@ -25,9 +25,12 @@ public class Teleport : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")&& is_active) TeleportPlayer(x,y);
-        if (!activeAnim) Anim.SetActive(true);
-        else Anim.SetActive(false);
-        activeAnim = !activeAnim;
+        if (Anim != null)
+        {
+            if (!activeAnim) Anim.SetActive(true);
+            else Anim.SetActive(false);
+            activeAnim = !activeAnim;
+        }
 
     }
 
@@ -45,6 +48,13 @@ public class Teleport : MonoBehaviour
         tpposition.z = tpz;
         player.GetComponent<Transform>().position = tpposition;
         Debug.Log("[TeleportPlayer] : Teleportation done");
+        if (giveKey)
+        {
+            Debug.Log("Give Key est a true");
+            player.nbrOfKey +=1;
+            GameObject toaddkey = player.keyslot;
+            toaddkey.GetComponent<KeySlot>().AddKey();
+        }
     }
 
 
