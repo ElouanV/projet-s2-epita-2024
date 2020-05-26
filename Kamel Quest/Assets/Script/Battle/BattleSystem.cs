@@ -824,15 +824,15 @@ void changingStateEnemy(int selectEntity)
     }
     
 
-    //compteur de tour
+    //compteur de tour et execute les effets ou retire ceux qui sont fini
 
     public void ExecuteAllEffect(Entity unit)
     {
         foreach (var effect in unit.effectList)
         {
-            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Items1);
+            if (effect.Items2 == nbTurn) unit.RemoveEffect(effect.Item1);
             else EffectWithTurn(effect.Item1, unit);
-        nbTrun++;
+        	nbTrun++;
 		}	
     }
 

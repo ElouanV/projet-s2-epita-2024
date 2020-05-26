@@ -143,40 +143,50 @@ public class Entity : MonoBehaviour
         }
     }
 
-    //effet possible et ajout dans la liste des effets
+    // ajout dans la liste des effets et execute les effets dit "passif"
 
 
-    public void AddEffect(string effect)
+    public void AddEffect((string, int) effect, Entity unit)
     {
-        effectList.Append(effect);
-		switch(effect)
+        unit.effectList.Append(effect);
+		switch(effect.Item1)
 		{
 			case "Strengthening":
-				StrengtheningEffect(this);
+				unit.StrengtheningEffect(this);
 				break;
 			case "Weakness":
-				WeaknessEffect(this);
+				unit.WeaknessEffect(this);
 				break;
 			case "Loot":
-				LootEffect(this);
+				unit.LootEffect(this);
 				break;
 		}
     }
+	// retire des effets et reinitialiser les effet "passif"
 
-    public void RemoveEffect(string effect)
+    public void RemoveEffect(string effect, Entity unit)
     {
-        if (!effectList.Contains(effect)) return;
+        int i = 0;
+		bool find = false;
 
-        effectList.Remove(effect);
-		switch(effect)
+		while (i < unit.effectList.Count && !find)
 		{
-			case "Weakness":
-				StrengtheningEffect(this);
-				break;
-			case "Strengthening":
-				WeaknessEffect(this);
-				break;
-		}    
+			find = unit.effectList[i].Item1 == effect;
+			if (find) 
+			{
+				unit.effectList.Remove(effectList[i]);
+			    switch(CrrtEffect.Item1)
+			    {
+			    	case "Weakness":
+			    		unit.StrengtheningEffect(this);
+			    		break;
+			    	case "Strengthening":
+			    		unit.WeaknessEffect(this);
+			    		break;
+				}  
+			}
+			i++;
+		}
 	}
     
     public bool loot()
