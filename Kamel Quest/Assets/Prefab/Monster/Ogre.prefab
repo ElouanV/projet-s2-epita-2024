@@ -98,7 +98,7 @@ MonoBehaviour:
   enemyid1: 0
   enemyid2: 0
   enemyid3: 0
-  monsterID: 0
+  monsterID: 2
   is_active: 0
 --- !u!61 &6279967166578182474
 BoxCollider2D:
