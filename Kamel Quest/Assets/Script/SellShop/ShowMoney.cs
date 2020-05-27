@@ -9,6 +9,13 @@ public class ShowMoney : MonoBehaviour
     public Text TxtArgent;
     public Player player;
 
+    /// <summary>
+    /// Fonction d'actualisation de l'argent du sell shop.
+    /// </summary>
+    /// <remarks>
+    /// <para>L'argent vien du player</para>
+    /// </remarks>
+
     // Update is called once per frame
     void Update()
     {

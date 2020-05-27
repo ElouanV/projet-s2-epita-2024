@@ -8,7 +8,12 @@ public class HealDialogue : MonoBehaviour
     public Player  player;
 	public bool is_trigger;
     
-
+    /// <summary>
+    /// Soinge la totalité de l'équipe du palyer
+    /// </summary>
+    /// <remarks>
+    /// <para>Déclenche si dialogues </para>
+    /// </remarks>
     
     void Update()
     {

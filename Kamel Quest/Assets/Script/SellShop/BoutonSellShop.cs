@@ -24,6 +24,15 @@ public class BoutonSellShop : MonoBehaviour
     public GameObject Item11;
     public GameObject Item12;
 
+    /// <summary>
+    /// Bouton du SellShop
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para>en fonction du lvl de l'item </para>
+    /// <para>12 idems en fonctions de l'id </para>
+    /// </remarks>
+
     ///VENTE
     public int[] LVL_TO_ARGENT = {10, 25, 40, 60, 100};
 
