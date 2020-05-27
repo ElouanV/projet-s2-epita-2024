@@ -43,14 +43,19 @@ public class Progression : MonoBehaviour
             CurrentQuest = Prog[Current];
             InstallQuest();
         }
-        
     }
 
+    /// <summary>
+    /// Cette fonction permet d'activer sur la scene Game la nouvelle quête principale
+    /// </summary>
     public void InstallQuest()
     {
         CurrentQuest.SetActive(true);
     }
 
+    /// <summary>
+    /// Cette fonction permet d'activer toutes les quêtes annexes qui se sont débloquées en même temps que quête principale actuelle
+    /// </summary>
     public void InstallQuestAnex()
     {
         GameObject Quest = ProgAnex[CurrentAnex];
@@ -61,22 +66,33 @@ public class Progression : MonoBehaviour
         CurrentAnex++;
     }
 
+    /// <summary>
+    /// Cette fonction permet de trouver toutes les quêtes annexes d'activant en même temps que la quête principale actuelle
+    /// </summary>
     public void ManageQquestAnnex()
     {
          if (ProgAnex.Count > 0) foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();   
     }
 
+    /// <summary>
+    /// Cette fonction permet de supprimer une quête de la scene Game
+    /// </summary>
     public void DeletedQuest()
     {
         Destroy(Prog[Current]);
     }
-
+    /// <summary>
+    /// Cette fonction permet de supprimer une quête annexe de la scene Game
+    /// </summary>
     public void UpdateAnexCompleted(GameObject QuestAnex, int QuestID)
     {
         Destroy(QuestAnex);
         AnnexCompleted[QuestID] = true;
     }
 
+    /// <summary>
+    /// Cette fonction permet de charger les quêtes suivantes et de supprimer la quête principale complétée
+    /// </summary>
     public void NextQuest()
     {
         DeletedQuest();

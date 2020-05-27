@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2223489901062168677}
   - component: {fileID: 1026589169082832457}
   - component: {fileID: 1074096029186099703}
+  - component: {fileID: -4105851586346042062}
   m_Layer: 0
   m_Name: Mask Monster
   m_TagString: Untagged
@@ -108,3 +109,21 @@ MonoBehaviour:
   isalive: 1
   item_id: 0
   is_defence: 0
+--- !u!114 &-4105851586346042062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865008559676475875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5095c2579c7b95a4498341dc066c69ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyid1: 0
+  enemyid2: 0
+  enemyid3: 0
+  monsterID: 1
+  is_active: 1
+  is_alive: 1

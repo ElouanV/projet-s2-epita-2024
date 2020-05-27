@@ -18,7 +18,9 @@ public class ShowsText : MonoBehaviour
 
 
 
-    // OnEnable is called every time the GO is active
+    /// <summary>
+    /// Cette fonction permet d'initialiser les valeurs du texte d'un pnj
+    /// </summary>
     public void OnEnable()
     {   
 		if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
@@ -31,12 +33,13 @@ public class ShowsText : MonoBehaviour
 		Index++;
     }
 
+	/// <summary>
+    /// Cette fonction permet de détécter les interactions du joueur avec le système de Dialogue
+    /// </summary>
     void Update()
     {
-	    // Needed to accept the quest with Y
 	    if (quest && transform.GetComponent<Quest>().State == QuestState.ACCEPTED && !Anim && Input.GetKeyUp("y") || Input.GetKeyUp("n"))
 			transform.GetComponent<Quest>().UpdateState();
-	    // Press space to show the next sentence
 	    else if (Input.GetKeyUp(KeyCode.Space) && !Anim)
         {
 	        // Once all the sentence have been said, this will update the state of the quest
@@ -48,7 +51,6 @@ public class ShowsText : MonoBehaviour
 		       
 		        else gameObject.SetActive(false);
 	        }
-			// This display the current sentence
 			else
 			{
 				string Sentence = SentencesList[Index].Replace("$", "\n");
@@ -59,7 +61,9 @@ public class ShowsText : MonoBehaviour
 	}
                                                                                                                              
 
-	// Display the text
+	/// <summary>
+    /// Cette fonction permet d'afficher le texte dans la bulle lettre par lettre avec la possiblité de passer l'animation
+    /// </summary>
     IEnumerator ShowsTxt(string Str)
     {
 	    Anim = true;

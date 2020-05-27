@@ -6,6 +6,9 @@ public class IsKilled : MonoBehaviour
 {
     public GameObject QuestGiver;
 
+    /// <summary>
+    /// Cette fonction Compléter une quête de type Killing
+    /// </summary>
     public void UpdateState()
     {
         QuestGiver.GetComponent<Quest>().State = QuestState.STARTED;

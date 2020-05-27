@@ -43,7 +43,7 @@ public class Quest : MonoBehaviour
 	public GameObject scene;
 
     private bool completed;
-
+	
 	public bool CompletedGet()
 	{ 
 		return completed;
@@ -53,8 +53,9 @@ public class Quest : MonoBehaviour
 	{
 		completed = value;
 	}
-
-    // This willupdate the state of the quest if it's needed
+	/// <summary>
+	/// Cette fonction permet d'actualiser l'état d'une quête et d'appliquer ses conséquences
+	/// </summary>
     public void UpdateState()
     {
         if (State == QuestState.NONE)
@@ -116,8 +117,10 @@ public class Quest : MonoBehaviour
         
     }
 
-    // This will active the target of the quest depending of the type
-    public void StartQuest(QuestType type)
+	/// <summary>
+	/// Cette fonction permet d'activer la cible d'une quête et elle vérifie si la quête à déjà était complétée
+	/// </summary>
+	public void StartQuest(QuestType type)
     {
         switch (type)
         {
@@ -138,14 +141,19 @@ public class Quest : MonoBehaviour
                 break;
         }
     }
-
-    // This function is call if the quest is completed
-    public void CompletedQuest()
+	
+	/// <summary>
+	/// Cette fonction permet de compléter tout type de quête
+	/// </summary>
+	public void CompletedQuest()
     { 
         completed = true;
         if (State == QuestState.STARTED) UpdateState();
     }
-
+	
+	/// <summary>
+	/// Cette fonction permet de vérifier si la quête giving est complétable et elle supprime l'item de l'inventaire
+	/// </summary>
 	public bool CompletedGivingQuest()
 	{
 		if (type == QuestType.Giving)                                                       
@@ -160,13 +168,18 @@ public class Quest : MonoBehaviour
 		return false;                                                                                
 	}
 
+	/// <summary>
+	/// Cette fonction permet de compléter la quête giving si les conditions sont réunis
+	/// </summary>
 	public bool CheckInventoryGiving()
 	{
 		if (State == QuestState.STARTED) completed = CompletedGivingQuest(); 
 		if (completed) UpdateState();
 		return completed;
 	}
-
+	/// <summary>
+	/// Cette fonction permet de compléter une quête killing
+	/// </summary>
 	public bool CheckKilledEnemy()
 	{
 		//completed = !(Target.GetComponent<>().isalive);
