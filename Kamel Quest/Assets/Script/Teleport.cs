@@ -41,16 +41,13 @@ public class Teleport : MonoBehaviour
     ///</summary>
     public void TeleportPlayer(float tpx, float tpy, float tpz = 0)
     {
-        Debug.Log("[TeleportPlayer] : Teleportation ...");
         Vector3 tpposition;
         tpposition.x = tpx;
         tpposition.y = tpy;
         tpposition.z = tpz;
         player.GetComponent<Transform>().position = tpposition;
-        Debug.Log("[TeleportPlayer] : Teleportation done");
         if (giveKey)
         {
-            Debug.Log("Give Key est a true");
             player.nbrOfKey +=1;
             GameObject toaddkey = player.keyslot;
             toaddkey.GetComponent<KeySlot>().AddKey();

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 //Author : Elouan
-
+///<summary>
+/// It's the main class <c>PlayerData</c> which tranform all information we need to save to bool, int float, stringg or arrays which are the only types supported by the binary serialization use in the save system
+///</summar>
 [System.Serializable]
 public class PlayerData
 {

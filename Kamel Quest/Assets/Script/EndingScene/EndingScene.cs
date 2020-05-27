@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 /// </item>
 /// <item>
 /// <term>LoadingEndingScene</term>
-/// <description>Is called after the final boss death, it load the ending scene</description>
+/// <description>Is called when the player enter is the collider of the last teleporter, it load the ending scene</description>
 /// </item>
 /// </list>
 /// </summary>
@@ -29,5 +29,15 @@ public class EndingScene : MonoBehaviour
     {
         SceneManager.LoadScene("EndingScene");
     }
+
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            LoadEndingScene();
+        }
+    }
+    
 }
 

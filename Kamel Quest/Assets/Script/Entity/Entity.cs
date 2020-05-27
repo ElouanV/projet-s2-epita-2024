@@ -80,6 +80,10 @@ public class Entity : MonoBehaviour
         isalive = true;
     }
     
+    ///<summary>
+    /// <param Name = "damage"> corresponding to the amount of damage to dealt to this entity </param>
+    /// <remarks> health point can not be under 0 </remarks>
+    ///</summary>
     public void GetHurt(int damage) // inflige damage points de dégats à l'entité
     {
         if (currenthp > damage)
@@ -93,6 +97,11 @@ public class Entity : MonoBehaviour
         }
     }
 
+
+    ///<summary> Heal the entity
+    ///<param Name = "heal"> Corresponding to the amount of healthh point to heal</param>
+    ///<remarks> The health point can not be over the maximum of health point </remaks>
+    ///</summary>
     public void GetHeal(int heal) // soigne l'entité de heal points de vie
     {
         if (currenthp + heal <= hpmax)
@@ -105,7 +114,10 @@ public class Entity : MonoBehaviour
         }
     }
 
-
+    ///<summary> Give xp to thhis entity
+    ///<param Name = "xp"> Corresponding to the amount of experience points to give to the entity</param>
+    ///<remarks> If xp is over the limit of a the xp needed to level up, the entity gain a level </remaks>
+    ///</summary>
     public void GetXp(int xpearned)
     {
         xp += xpearned;

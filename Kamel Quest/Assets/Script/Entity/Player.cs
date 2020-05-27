@@ -58,6 +58,11 @@ public class Player : Entity
 
 // FOR THE INVENTORY
 
+    ///<summary> Verify the presence  of an item in the player's inventory
+    ///<param Name = "id"> Corresponding to the ID of the item search </param>
+    ///<param Name = "needed"> The amount needed</param>
+    ///<remarks> This method can be call even in a scene where inventory gameobject are not present, in the FightScene for exemple </remaks>
+    ///</summary>
     public bool isInInventory(int ID, int needed)
     {
 
@@ -78,6 +83,10 @@ public class Player : Entity
             return false;
         }
     }
+    ///<summary> Remount the total amount of on given item in the player's inventory
+    ///<param Name = "id"> Corresponding to the ID of the item search </param>
+    ///<remarks> This method can be call even in a scene where inventory gameobject are not present, in the FightScene for exemple </remaks>
+    ///</summary>
     public int HowMuchInInventory(int ID)
     {
         int total = 0;
@@ -91,6 +100,10 @@ public class Player : Entity
         return total;
     }
 
+    ///<summary> Add one item corresponding to the ID given in the player inventory
+    ///<param Name = "id"> Corresponding to the ID of the item to add </param>
+    ///<remarks> This method can be call even in a scene where inventory gameobject are not present, in the FightScene for exemple </remaks>
+    ///</summary>
     public void AddToInventory(int ID)
     {
         bool added = false;
@@ -114,6 +127,10 @@ public class Player : Entity
             }
         }
     }
+    ///<summary> Remove one item corresponding to the ID given in the player inventory
+    ///<param Name = "id"> Corresponding to the ID of the item to remove </param>
+    ///<remarks> This method can be call even in a scene where inventory gameobject are not present, in the FightScene for exemple </remaks>
+    ///</summary>
     public void RemoveFromInventory(int ID)
     {
         bool deleted = false;
@@ -140,10 +157,10 @@ public class Player : Entity
 
 // SAVE MANAGER
     ///<summary>
-    ///
-    /// 
-    ///
-    ///
+    ///<remarks> To understand well this part, you should start to read <c>SaveSystem</c> and <c> PlayerData</c> classes </remarks>
+    ///<para> This part is use to load player data, methods called on the Start() function depands of the precedent action, assigned by the player pref. If the player  pref is equal to 1, the Start() will simply load the saved game.</para>
+    ///<para> If playerpref "loaddata" is equal to 2, it load a new party </para>
+    ///<para> If the player "loaddata" is equal to 3, it signify that we are loding data on the fightscene, and the methods  call will be different because on the fight scene, some gameobject are missing compare to the game scene. Inventory and quests are missing for exemple </para>
     ///
     ///</summary>
     [Header ("For save")]
@@ -152,15 +169,21 @@ public class Player : Entity
     public GameObject armorslot;
     public GameObject keyslot;
 
+    ///<summary>
+    /// This methods just called the methods of the SaveSystem with argument this player.
+    /// This methods wiill be called when the player want to go back to the main menu or before a scene switching
+    ///</summar>
     public void SavePlayerData()
     {
         SaveSystem.SavePlayer(this);
-        Debug.Log("SavePlayer");
-    }
 
+    }
+    ///<summary>
+    /// The Start() methods is called one the first frame of a scene, this one load require data in the player of the new scene. Method called depend of the value of the player pref "LoadData".
+    ///</summar>
     private void Start()
     {
-        Debug.Log("[Player] : [Start] : Player prefs load = "+ PlayerPrefs.GetInt("LoadData",0));
+
         if (PlayerPrefs.GetInt("LoadData",0) == 1) // If the player want to load a saved party
         {
             // Open while data's are loading to fix the invisible sprite bug
@@ -186,10 +209,12 @@ public class Player : Entity
         
         PlayerPrefs.DeleteKey("LoadData");
     }
-
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene
+    /// It load all progression datas of the player, monster killed, quest finished and position on the scene.
+    ///</summary>
     public void LoadPlayerData()
     {
-        Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
         PlayerData data = SaveSystem.LoadPlayer();
 
@@ -224,9 +249,7 @@ public class Player : Entity
 
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
-        Debug.Log("[LoadingData] : Appel de LoadQuestProgress");
         LoadQuestProgress(data.questfinish);
-        Debug.Log("[LoadingData] : Appel de LoadQuestProgressAnnex");
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
         
@@ -238,9 +261,12 @@ public class Player : Entity
         position.z = data.playerPosition[2];
         transform.position = position;
 
-        Debug.Log("[LoadPlayerData] :Your party have been load successfully ! You can play !");
     }
 
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene. 
+    /// It add item of the player's inventory in the inventory gameobject (which is the interface which display item contain in the inventory)
+    ///</summary>
     private void LoadInventory()
     {
         Inventory_test myinventory = gameObject.GetComponent<Inventory_test>();
@@ -251,9 +277,12 @@ public class Player : Entity
                 myinventory.AddToInventory(inventoryID[i], inventoryCount[i]);
             }
         }
-        Debug.Log("[LoadInventory] : The inventory have been loaded");
     }
 
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene. 
+    /// Same as LoadQuestProgress, but on annex quests.
+    ///</summary>
     private void LoadEquipment()
     {
         for (int i = 1; i < epeelvl; i++)
@@ -272,24 +301,28 @@ public class Player : Entity
         {
             keyslot.GetComponent<KeySlot>().AddKey();
         }
-        Debug.Log("[LoadEquipement] : The inventory have been loaded with equipments and keys");
     }
 
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene. 
+    /// It destroy achived quests and set active the current quest
+    ///</summary>
     private void LoadQuestProgress(int lastquest)
     {
-        Debug.Log("[LoadQuestProgress] : Method is running");
+
         Progression progression = transform.GetComponent<Progression>();
         progression.CurrentQuestGetSet = progression.Prog[0];
-        Debug.Log("[NextQuest] : Current :" + progression.CurrentQuestGetSet);
         for (int i = 0; i < lastquest; i++)
         {
-            Debug.Log("[LoadingQuestProgress] : Appel de NexQuests a l'indice " + i);
             progression.NextQuest();
-            Debug.Log("[LoadQuestProgress] : NextQuest a finis de tourner");
         }
-        Debug.Log("[LoadQuestProgress] : Method is finishing");
     }
 
+
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene and when we are on the fightscene
+    /// Load the lvl of the equipement of the player.
+    ///</summary>
     private void LoadQuestProgressAnnex(bool[] questprogress, Progression progression)
     {
         for (int i = 0; i < questprogress.Length; i++)
@@ -298,6 +331,10 @@ public class Player : Entity
         }
     }
 
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene. 
+    /// As LoadInventory, it load equipment lvl and sppirte on the inventory interface.
+    ///</summary>
     public void LoadEquipementTeam(Entity ally1, Entity ally2, int lvl)
     {
         int atkboost = epeeboost[epeelvl-1];
@@ -307,7 +344,10 @@ public class Player : Entity
         ally1.hpmax += hpboost;
         ally1.hpmax += hpboost;
     }
-
+    ///<summary>
+    /// This method is called if a save file exist and if we are loading data on the Game scene. 
+    /// Destroy all the monster already defeated.
+    ///</summary>
     private void LoadMonsterData()
     {
         for (int i = 0; i < fightprogress.Length; i++)
@@ -318,15 +358,16 @@ public class Player : Entity
             }
             if(fightprogress[i] && !beatenMonster[i].GetComponent<EnterBattle>().is_active)
             {
-                Debug.Log("Le combat de ce ponstre esy terminé et contient une quete");
                 beatenMonster[i].GetComponent<IsKilled>().UpdateState();
             }
         }
     }
 
+    ///<summary>
+    /// This method is called to create a new party on the Game scene
+    ///</summary>
     private void CreateNewParty()
     {
-        Debug.Log("We are creating a new party, please wait");
         // Create player statitics
         argent = 150;
         lvl = 1;
@@ -352,9 +393,12 @@ public class Player : Entity
         transform.position = position;
     }
 
+    ///<summary>
+    /// This method is called in the FightScene
+    /// It load only data require in the FightScene and keep save the data which we will need to load at the end of the fight.
+    ///</summary>
     public void LoadPlayerForBattle()
     {
-        Debug.Log("We are downloading your party, please wait");
         //Get player data from binary save file
         PlayerData data = SaveSystem.LoadPlayer();
 
@@ -396,9 +440,6 @@ public class Player : Entity
         position.y = data.playerPosition[1];          
         position.z = data.playerPosition[2];
         transform.position = position;
-
-
-        Debug.Log("[LoadPlayerData] :READY FOR THE FIGHT" + this);
 
     }
 

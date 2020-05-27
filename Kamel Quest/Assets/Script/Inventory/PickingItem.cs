@@ -14,7 +14,6 @@ public class PickingItem : MonoBehaviour
     {
         Items item = transform.GetComponent<Items>();
         Destroy(gameObject);
-        Debug.Log("[PickingItem] OnTriggerEnter2D: The item have been picked.");
         if (quest) questgiver.GetComponent<Quest>().CompletedQuest();
         else Player.GetComponent<Inventory_test>().AddToInventory(item.itemID, 1);
     }

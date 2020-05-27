@@ -49,12 +49,6 @@ public class Inventory_test : MonoBehaviour
     [Header ("Button list")]
     public string inventoryButton = "Inventory";
 
-
-    [Header("For Test")]
-    public string testButton = "Test";
-    public string test2Button = "Test2";
-    public string test3Button = "Test3";
-    public string MenuButton = "Menu";
     
     
     [Header("Inventory's Data")]
@@ -107,18 +101,7 @@ public class Inventory_test : MonoBehaviour
         {
             ShowOrHideInventory();
         }
-       if (Input.GetButtonDown(testButton))
-        {
-            AddToInventory(1,4);
-        }
-        if (Input.GetButtonDown(test2Button))
-        {
-           RemoveFromInventory(1,1);
-        }
-        if  (Input.GetButtonDown(test3Button))
-        {
-            AddToInventory(4,1);
-        }
+    
     }
     
     ///<summary>

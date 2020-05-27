@@ -107,7 +107,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
         SaveSystem.SavePlayer(player);
         PlayerPrefs.SetInt("SaveExist",1);
-        Debug.Log("[SaveAndQuit] : La partie a été sauvegardée");
     }
 
 }
