@@ -63,7 +63,7 @@ public class Player : Entity
     ///<param Name = "needed"> The amount needed</param>
     ///<remarks> This method can be call even in a scene where inventory gameobject are not present, in the FightScene for exemple </remaks>
     ///</summary>
-    public bool isInInventory(int ID, int needed)
+    public bool IsInInventory(int ID, int needed)
     {
 
         int total = 0;

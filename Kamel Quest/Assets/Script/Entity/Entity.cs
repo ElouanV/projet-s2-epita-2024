@@ -65,12 +65,6 @@ public class Entity : MonoBehaviour
     {
         get => item_id;
     }
-
-    void Start()
-    {
-        //Debug.Log(LEVELUPXPNEEDED.Length);
-    }
-        
     
     // Constructeur
     public Entity()
@@ -171,7 +165,7 @@ public class Entity : MonoBehaviour
 		}
 	}
     
-    public bool loot()
+    public bool Loot()
     {
         return true;
     }

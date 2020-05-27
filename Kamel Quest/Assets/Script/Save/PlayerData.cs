@@ -21,6 +21,7 @@ public class PlayerData
     // Quest Progress
     [Header("Quest Progress")]
     public int questfinish;
+    public int queststate;
     public bool[] finishedquestannex;
 
     //Fight progression :
@@ -81,6 +82,19 @@ public class PlayerData
         Progression progression = player.GetComponent<Progression>();
 
         questfinish = progression.CurrentGetSet;
+        Quest quest = progression.CurrentQuestGetSet.GetComponent<Quest>();
+        switch (quest.State)
+        {   
+            case (QuestState.STARTED):
+                queststate = 3;
+                break;
+            case (QuestState.COMPLETED) :
+                queststate = 4;
+                break;
+            default:
+                queststate = 0;
+                break;
+        }
             // Annex quest
         finishedquestannex = progression.AnnexCompleted;
 

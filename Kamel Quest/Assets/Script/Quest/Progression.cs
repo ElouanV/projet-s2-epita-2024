@@ -57,8 +57,14 @@ public class Progression : MonoBehaviour
         GameObject Quest = ProgAnex[CurrentAnex];
         Quest.SetActive(true);
         Quest.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Quest>().UpdateQuestID(CurrentAnex);
-        
+
+        ManageQquestAnnex();
         CurrentAnex++;
+    }
+
+    public void ManageQquestAnnex()
+    {
+         if (ProgAnex.Count > 0) foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();   
     }
 
     public void DeletedQuest()
@@ -87,7 +93,7 @@ public class Progression : MonoBehaviour
 
             InstallQuest();
             
-            if (ProgAnex.Count > 0) foreach (int i in ActiveQuest) if (Current == i) InstallQuestAnex();
+            ManageQquestAnnex();
         }
     }
 }
