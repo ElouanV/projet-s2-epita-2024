@@ -34,6 +34,12 @@ public class Bouton : MonoBehaviour
     public int[] ADD_HPMAX = {5, 500, 100, 101010};
 
 
+    /// <summary>
+    /// Fonction d'activation du texte
+    /// </summary>
+    /// <remarks>
+    /// <para>Active le texte quand le curseur et sur le bouton </para>
+    /// </remarks>
     //DESCRIPTION
     public void ActiveTextArmure ()
     {
@@ -76,7 +82,13 @@ public class Bouton : MonoBehaviour
     }
 
 
-   
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para>Soin </para>
+    /// </remarks>
     //BOUTONS
     public void PotionButton()
     {
@@ -96,19 +108,42 @@ public class Bouton : MonoBehaviour
       }
     }
 
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para>Potion de soin </para>
+    /// </remarks>
     public void Equipement()
     {
-      if(player.argent > 7)
+      if(player.argent > 10)
       {
-        player.argent -= 7;
+        player.argent -= 10;
         player1.GetComponent<Inventory_test>().AddToInventory(1, 1);
       }
     }
+
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para>Gain d'argent (dev mode) </para>
+    /// </remarks>
 
     public void Offrande42()
     {
         player.argent += 42;
     }
+
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para> Amélioré l'épée </para>
+    /// </remarks>
 
     public void Up_Epee()
     {
@@ -121,6 +156,14 @@ public class Bouton : MonoBehaviour
       } 
     }
 
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para> Amélioré l'armure </para>
+    /// </remarks>
+
     public void Up_Armure()
     {
       if (player.armurelvl < 3 && player.argent > UGRADE_ARMURELVL[player.armurelvl])
@@ -132,6 +175,14 @@ public class Bouton : MonoBehaviour
       } 
     }
 
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para> Amélioré le bouclier (pas dev) </para>
+    /// </remarks>
+
     public void Up_Bouclier()
     {
       if (player.bouclierlvl < 3 && player.argent > UGRADE_BOUCLIERLVL[player.bouclierlvl])
@@ -142,6 +193,14 @@ public class Bouton : MonoBehaviour
         shield.GetComponent<EquipementSlot>().Upgrade();
       }
     }
+
+    /// <summary>
+    /// Bouton
+    /// </summary>
+    /// <remarks>
+    /// <para>Est apppelllé lors d'un clique </para>
+    /// <para> Amélioré le casque </para>
+    /// </remarks>
 
     public void Up_Casque()
     {

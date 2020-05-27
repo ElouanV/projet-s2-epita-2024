@@ -35,7 +35,12 @@ public class ShowInfoSellShop : MonoBehaviour
 
     public int[] LVL_TO_ARGENT = {10, 25, 40, 60, 100};
 
-    
+    /// <summary>
+    /// Fonction d'actualisation de des informations de chaque boutons du sell shop.
+    /// </summary>
+    /// <remarks>
+    /// <para>Cela se déclanche au survole</para>
+    /// </remarks>    
 
     /// transform.parent.GetComponent<BoutonSellShop>().LVL_TO_ARGENT[Item1.lvl]
     // Update is called once per frame

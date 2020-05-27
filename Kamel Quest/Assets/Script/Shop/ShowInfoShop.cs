@@ -21,7 +21,12 @@ public class ShowInfoShop : MonoBehaviour
     {
 
     }
-
+    /// <summary>
+    /// L'actualisation
+    /// </summary>
+    /// <remarks>
+    /// <para>Actualise les texte du Shop </para>
+    /// </remarks>
     // Update is called once per frame
     void Update()
     {

@@ -27,6 +27,12 @@ public class ShowShop : MonoBehaviour
             showshop();
         }
     }
+    /// <summary>
+    /// L'actualisaion.
+    /// </summary>
+    /// <remarks>
+    /// <para>Active le panel du pnj</para>
+    /// </remarks>
     void Update()
     {
         if (is_trigger && Input.GetKeyUp(KeyCode.Space))
@@ -37,6 +43,12 @@ public class ShowShop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// L'aspect graphique.
+    /// </summary>
+    /// <remarks>
+    /// <para>Regule les aspect graphique (main interface) </para>
+    /// </remarks>
     void showshop()
     {
         ShopCanvas.SetActive(!is_shop&& !inventoryOpen);

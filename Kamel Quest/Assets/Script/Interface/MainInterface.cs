@@ -29,6 +29,13 @@ public class MainInterface : MonoBehaviour
         Test = !Test;
     }
 
+    /// <summary>
+    /// Atualisé l'overlay en fonction des variable du player
+    /// </summary>
+    /// <remarks>
+    /// <para>La première est l'argent</para>
+    /// <para>La seconde et la vie </para>
+    /// </remarks>
 
     // Update is called once per frame
     void Update()
