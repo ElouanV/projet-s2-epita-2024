@@ -21,7 +21,6 @@ public class ShowsText : MonoBehaviour
     // OnEnable is called every time the GO is active
     public void OnEnable()
     {   
-		Debug.Log("Starting ShowsText");
 		if (quest) SentencesList = transform.GetComponent<QuestGiver>().UpdateText();
 		else SentencesList = transform.GetComponent<Dialogue>().SentencesList;
 	    Index = 0;
@@ -63,7 +62,6 @@ public class ShowsText : MonoBehaviour
 	// Display the text
     IEnumerator ShowsTxt(string Str)
     {
-	    Debug.Log("[ShowsText] ShowsTxt: Displaying sentence "+(Index+1)+"/"+SentencesList.Count+".");
 	    Anim = true;
         Txt.text = "";
         int Nb_Char = Str.Length;

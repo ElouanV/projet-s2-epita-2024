@@ -122,10 +122,8 @@ public class Inventory_test : MonoBehaviour
     ///</summary>
 
     // Ajoute un élèment pas encore présent dans l'inventaire
-    // Debug.Log pour tester la fonction
     public bool AddToInventory(int ID, int counttoadd)
     {
-
         int i = 0;
         bool done = false;
         ItemSlots item = arrItemsSlot[0].GetComponent<ItemSlots>();
@@ -244,8 +242,6 @@ public class Inventory_test : MonoBehaviour
         if (count != 0)
         {
             // Si le nombre d'item présent dans l'inventaire n'était pas suffisant
-            Debug.Log("[Remove from inventory] : You ask to remove to much time the item or you try to remove an item which was'nt in the inventory."
-            +"All counter of this item have been set to 0 and items which correcpund to the enter ID have been removed");
             return false;
         }
         else

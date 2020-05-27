@@ -61,7 +61,6 @@ public class Quest : MonoBehaviour
         {
             State = QuestState.ACCEPTED;
             if (forced) State = QuestState.STARTED;
-            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             transform.GetComponent<ShowsText>().OnEnable();
         }
 
@@ -70,20 +69,14 @@ public class Quest : MonoBehaviour
 	        
             if (Input.GetKeyUp("y"))
             {
-                Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been accepted.");
-
                 State = QuestState.STARTED;
-                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
                 transform.GetComponent<ShowsText>().OnEnable();
 
                 StartQuest(type);
             }
             else if (Input.GetKeyUp("n"))
             {
-	            Debug.Log("[Quest] UpdateState: The quest '"+title+"' have been declined.");
-
 	            State = QuestState.DECLINED;
-	            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
 	            transform.GetComponent<ShowsText>().OnEnable();
             }
         }
@@ -94,12 +87,8 @@ public class Quest : MonoBehaviour
             {
                 completed = false;
                 State = QuestState.COMPLETED;
-                if (!BackToPNJ)
-                {
-                    UpdateState();
-                    Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
+                if (!BackToPNJ) UpdateState();
                 else if (transform.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
-                Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             }
             else gameObject.SetActive(false);
         }
@@ -107,7 +96,6 @@ public class Quest : MonoBehaviour
         else if (State == QuestState.DECLINED)
         {
             State = QuestState.NONE;
-            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
         }
 
@@ -119,7 +107,6 @@ public class Quest : MonoBehaviour
 	        
 
             State = QuestState.ENDED;
-            Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
             if (anex) Player.GetComponent<Progression>().UpdateAnexCompleted(scene, questID);
 			else Player.GetComponent<Progression>().NextQuest();			
@@ -156,7 +143,6 @@ public class Quest : MonoBehaviour
     public void CompletedQuest()
     { 
         completed = true;
-        Debug.Log("[Quest] CompletedQuest: The quest '"+title+"' have been completed.");
         if (State == QuestState.STARTED) UpdateState();
     }
 
@@ -166,17 +152,9 @@ public class Quest : MonoBehaviour
 		{                                                                                   
 			int ID = GetComponent<GivingExpected>().ID;                                      
 			int Count = GetComponent<GivingExpected>().Count; 
-			Debug.Log("Looking for item '"+ID+"' in Count : "+Count+".");           
 			bool tmp = Player.GetComponent<Inventory_test>().isInInventory(ID, Count);  
-			Debug.Log("isInInventory return "+tmp);           
   
-			if (tmp)
-			{
-				Debug.Log("Items Found");
-				Debug.Log(Count+" item '"+ID+"' have been removed from your inventory");
-				Player.GetComponent<Inventory_test>().RemoveFromInventory(ID, Count);
-			}
-			else Debug.Log("Items not Found"); 
+			if (tmp) Player.GetComponent<Inventory_test>().RemoveFromInventory(ID, Count);
 			return tmp;
 		}   
 		return false;                                                                                

@@ -39,7 +39,6 @@ public class Progression : MonoBehaviour
             prog_percent = 0;
             Nb_Quest = Prog.Capacity;
             Current = 0;
-            Debug.Log("Current =  0");
             CurrentAnex = 0;
             CurrentQuest = Prog[Current];
             InstallQuest();
@@ -69,7 +68,6 @@ public class Progression : MonoBehaviour
 
     public void DeletedQuest()
     {
-        Debug.Log("[Destroy] : PIFIOUFF §" + Current);
         Destroy(Prog[Current]);
     }
 
@@ -83,16 +81,11 @@ public class Progression : MonoBehaviour
     {
         DeletedQuest();
         Current++;
-        Debug.Log("[NextQuest] : Current :" + Current);
-        Debug.Log("[NextQuest] : Nbr_quest :" + Prog.Capacity);
         prog_percent = (Current) * 100 / Prog.Capacity;
         if (Current < Prog.Capacity)
         {
-            Debug.Log("Installiing the next main quest");
             CurrentQuest = Prog[Current];
-
             InstallQuest();
-            
             ManageQquestAnnex();
         }
     }
