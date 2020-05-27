@@ -45,7 +45,7 @@ public class ShowsText : MonoBehaviour
 	        // Once all the sentence have been said, this will update the state of the quest
 	        if (Index == SentencesList.Count)
 	        {
-                if (battle) transform.parent.GetComponent<EnterBattle>().EnterBattlePlayer();
+                if (battle) transform.parent.GetComponent<EnterBattle>().is_active = true;
 		        else if (quest) transform.GetComponent<Quest>().UpdateState();
                 else if (TargetMeeting) transform.parent.GetComponent<MeetingPNG>().questgiver.GetComponent<Quest>().CompletedQuest();
 		       

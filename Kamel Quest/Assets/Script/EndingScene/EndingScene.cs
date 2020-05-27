@@ -33,6 +33,7 @@ public class EndingScene : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("should load ending scene");
         if (other.CompareTag("Player"))
         {
             LoadEndingScene();

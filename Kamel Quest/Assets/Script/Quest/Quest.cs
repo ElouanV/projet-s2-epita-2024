@@ -61,7 +61,11 @@ public class Quest : MonoBehaviour
         if (State == QuestState.NONE)
         {
             State = QuestState.ACCEPTED;
-            if (forced) State = QuestState.STARTED;
+            if (forced)
+            {
+                State = QuestState.STARTED;
+                StartQuest(type);
+            }
             transform.GetComponent<ShowsText>().OnEnable();
         }
 
@@ -128,7 +132,6 @@ public class Quest : MonoBehaviour
                 Target.GetComponent<MeetingPNG>().is_active = true;
                 break;
             case QuestType.Killing:
-				Target.GetComponent<EnterBattle>().is_active = true;
 				if (completed) UpdateState();
 				break;
 			case QuestType.Bringing:

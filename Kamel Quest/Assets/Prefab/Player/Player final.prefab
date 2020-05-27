@@ -22,10 +22,6 @@ MonoBehaviour:
   sellshopOpen: 0
   itemList: {fileID: 0}
   inventoryButton: Inventory
-  testButton: Test
-  test2Button: Test2
-  test3Button: Test3
-  MenuButton: Menu
   inventorySlots: {fileID: 0}
   arrItemsSlot:
   - {fileID: 0}
@@ -88,9 +84,9 @@ MonoBehaviour:
   _team:
   - {fileID: 3162261496189199295, guid: 32ce00dc9d3f4534f8181dd7b2d2e498, type: 3}
   - {fileID: 816219172268709440, guid: 31b3ba20b2d05c84797b56632bf3ae84, type: 3}
-  nbrOfKey: 0
+  nbrOfKey: 2
   beatenMonster: []
-  fightprogress: 00
+  fightprogress: 00000000000000000000000000000100
   questfinish: 0
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
@@ -113,7 +109,7 @@ MonoBehaviour:
   Current: 0
   ProgAnex: []
   ActiveQuest: 
-  AnnexCompleted: 000000
+  AnnexCompleted: 00000000
   prog_percent: 0
 --- !u!1001 &8343094994226060709
 PrefabInstance:
@@ -130,17 +126,17 @@ PrefabInstance:
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -365.93094
+      value: -178.4522
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -35.96759
+      value: -283.8039
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
