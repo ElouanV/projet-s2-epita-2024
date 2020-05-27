@@ -97,7 +97,6 @@ public class Quest : MonoBehaviour
                 if (!BackToPNJ)
                 {
                     UpdateState();
-                    Player.GetComponent<Progression>().NextQuest();
                     Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");                }
                 else if (transform.parent.GetComponent<ShowsBubbleText>().is_trigger) transform.GetComponent<ShowsText>().OnEnable();
                 Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
@@ -123,8 +122,7 @@ public class Quest : MonoBehaviour
             Debug.Log("[Quest] UpdateState: The state of the quest '"+title+"' have been update to '"+State+"'.");
             gameObject.SetActive(false);
             if (anex) Player.GetComponent<Progression>().UpdateAnexCompleted(scene, questID);
-			else Player.GetComponent<Progression>().NextQuest();
-			
+			else Player.GetComponent<Progression>().NextQuest();			
         }
 
         else if (State == QuestState.ENDED) gameObject.SetActive(false);
@@ -193,7 +191,7 @@ public class Quest : MonoBehaviour
 
 	public bool CheckKilledEnemy()
 	{
-		completed = !(Target.GetComponent<Entity>().isalive);
+		//completed = !(Target.GetComponent<>().isalive);
 		if (completed)
 		{
 			State = QuestState.STARTED;

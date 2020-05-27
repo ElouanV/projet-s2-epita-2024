@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2223489901062168677}
   - component: {fileID: 1026589169082832457}
-  - component: {fileID: 7839354558677256014}
-  - component: {fileID: 7326047518385687440}
+  - component: {fileID: 1074096029186099703}
   m_Layer: 0
   m_Name: Mask Monster
   m_TagString: Untagged
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -6593140385856150118, guid: 687dbf26956817b48a5f1d06cb8af2c6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.5, y: 2}
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7839354558677256014
+--- !u!114 &1074096029186099703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,37 +91,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5865008559676475875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5095c2579c7b95a4498341dc066c69ed, type: 3}
+  m_Script: {fileID: 11500000, guid: cb3da387cc4bcd74691b0f8a24b57bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyid1: 0
-  enemyid2: 0
-  enemyid3: 0
-  monsterID: 0
-  is_active: 0
---- !u!61 &7326047518385687440
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5865008559676475875}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2}
-    newSize: {x: 1.5, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
+  LEVELUPXPNEEDED: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ATKPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HPMAXPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hpmax: 20
+  currenthp: 2
+  atk: 2
+  name: The Mask
+  magicatk: 0
+  atkcost: 0
+  xp: 0
+  lvl: 1
+  isalive: 1
+  item_id: 0
+  is_defence: 0

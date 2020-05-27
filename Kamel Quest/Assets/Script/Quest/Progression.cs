@@ -8,7 +8,7 @@ public class Progression : MonoBehaviour
     public List<GameObject> Prog;
     private GameObject CurrentQuest;
     private int Nb_Quest;
-    private int Current;
+    public int Current;
     
 
     public List<GameObject> ProgAnex;
@@ -30,7 +30,7 @@ public class Progression : MonoBehaviour
         set => CurrentQuest = value;
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name  != "FightScene")
@@ -39,6 +39,7 @@ public class Progression : MonoBehaviour
             prog_percent = 0;
             Nb_Quest = Prog.Capacity;
             Current = 0;
+            Debug.Log("Current =  0");
             CurrentAnex = 0;
             CurrentQuest = Prog[Current];
             InstallQuest();

@@ -82,6 +82,7 @@ MonoBehaviour:
   Speed: 0.02
   quest: 0
   battle: 0
+  TargetMeeting: 0
 --- !u!114 &793994086198563276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   Speed: 0.02
   quest: 1
   battle: 0
+  TargetMeeting: 0
 --- !u!114 &793994086198563266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,10 +196,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   title: 
   desc: 
+  money: 0
   exp: 0
   rewardID: 5
   rewardCount: 1
   BackToPNJ: 1
+  forced: 0
   anex: 0
   scene: {fileID: 0}
 --- !u!114 &793994086198563293
@@ -283,7 +287,7 @@ PrefabInstance:
     - target: {fileID: 2323707615531736198, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2439522007959865490, guid: 27831065d483e4315a5816d04b127baa,
         type: 3}

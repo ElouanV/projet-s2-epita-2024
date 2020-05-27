@@ -100,6 +100,7 @@ public class Bouton : MonoBehaviour
     {
       if(player.argent > 7)
       {
+        player.argent -= 7;
         player1.GetComponent<Inventory_test>().AddToInventory(1, 1);
       }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4925480407792655823}
   - component: {fileID: 665195697928789874}
   - component: {fileID: 7458776432183130742}
+  - component: {fileID: -4657394063237427153}
   m_Layer: 0
   m_Name: Water Monster
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   enemyid3: 0
   monsterID: 0
   is_active: 0
+  is_alive: 1
 --- !u!61 &7458776432183130742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +127,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.875, y: 2.375}
   m_EdgeRadius: 0
+--- !u!114 &-4657394063237427153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946256123294798803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3da387cc4bcd74691b0f8a24b57bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LEVELUPXPNEEDED: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ATKPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HPMAXPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hpmax: 5
+  currenthp: 5
+  atk: 3
+  name: 
+  magicatk: 5
+  atkcost: 1
+  xp: 0
+  lvl: 1
+  isalive: 1
+  item_id: 0
+  is_defence: 0

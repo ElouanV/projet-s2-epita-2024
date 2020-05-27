@@ -13,6 +13,7 @@ public class EnterBattle : MonoBehaviour
     public int monsterID;
     // Start is called before the first frame update
     public bool is_active;
+    public bool is_alive = true;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && is_active)

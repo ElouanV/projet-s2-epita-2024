@@ -41,18 +41,18 @@ public class ShowInfoSellShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TxtInfoItem1t.text = "Tu gagneras : ";
-        TxtInfoItem2t.text =  "Item2";
-        TxtInfoItem3t.text =  "Item3";
-        TxtInfoItem4t.text =  "Item4";
-        TxtInfoItem5t.text =  "Item5";
-        TxtInfoItem6t.text =  "Item6";
-        TxtInfoItem7t.text =  "Item7";
-        TxtInfoItem8t.text =  "Item8";
-        TxtInfoItem9t.text =  "Item9";
-        TxtInfoItem10t.text =  "Item10";
-        TxtInfoItem11t.text =  "Item11";
-        TxtInfoItem12t.text =  "Item12";
+        TxtInfoItem1t.text = "Vend ta potion de soin est gagne : 10KC";
+        TxtInfoItem2t.text =  "Vend ta relic de monstre est gagne : 10KC";
+        TxtInfoItem3t.text =  "Vend ta Buission est gagne : 10KC";
+        TxtInfoItem4t.text =  "Vend ta Strenght est gagne : 10KC";
+        TxtInfoItem5t.text =  "Vend ta bougie est gagne : 25KC";
+        TxtInfoItem6t.text =  "Vend ta potion de dégat est gagne : 10KC";
+        TxtInfoItem7t.text =  "Vend ton armure usée est gagne : 25KC";
+        TxtInfoItem8t.text =  "Vend ta poisson est gagne : 10KC";
+        TxtInfoItem9t.text =  "Vend ta bûche rouge est gagne : 10KC";
+        TxtInfoItem10t.text =  "Vend ton fleur est gagne : 25KC";
+        TxtInfoItem11t.text =  "Vend tes gant usée est gagne : 40KC";
+        TxtInfoItem12t.text =  "Vend ta bottes usées est gagne : 25KC";
     }
 
     public void ActiveTextItem1 () /// == potion

@@ -14,6 +14,7 @@ public class ShowsText : MonoBehaviour
     private bool Anim;
 
     public bool battle;
+    public bool TargetMeeting;
 
 
 
@@ -42,8 +43,10 @@ public class ShowsText : MonoBehaviour
 	        // Once all the sentence have been said, this will update the state of the quest
 	        if (Index == SentencesList.Count)
 	        {
-		        if (quest) transform.GetComponent<Quest>().UpdateState();
-		        else if (battle) transform.GetComponent<EnterBattle>().EnterBattlePlayer();
+                if (battle) transform.parent.GetComponent<EnterBattle>().EnterBattlePlayer();
+		        else if (quest) transform.GetComponent<Quest>().UpdateState();
+                else if (TargetMeeting) transform.parent.GetComponent<MeetingPNG>().questgiver.GetComponent<Quest>().CompletedQuest();
+		       
 		        else gameObject.SetActive(false);
 	        }
 			// This display the current sentence

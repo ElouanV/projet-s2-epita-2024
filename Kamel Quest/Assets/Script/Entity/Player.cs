@@ -218,7 +218,10 @@ public class Player : Entity
         ally1.currenthp = data.playerTeamHp[0];
         ally2.currenthp = data.playerTeamHp[1];
         
-        
+        // MOSNTER
+        fightprogress = data.fightprogress;
+        LoadMonsterData();
+
         // QUEST 
         Progression progression = transform.GetComponent<Progression>();
         Debug.Log("[LoadingData] : Appel de LoadQuestProgress");
@@ -226,9 +229,7 @@ public class Player : Entity
         Debug.Log("[LoadingData] : Appel de LoadQuestProgressAnnex");
         LoadQuestProgressAnnex(data.finishedquestannex, progression);
         
-        // MOSNTER
-        fightprogress = data.fightprogress;
-        LoadMonsterData();
+        
 
         //POSITION
         Vector3 position;
@@ -318,6 +319,7 @@ public class Player : Entity
             if(fightprogress[i] && !beatenMonster[i].GetComponent<EnterBattle>().is_active)
             {
                 Debug.Log("Le combat de ce ponstre esy terminé et contient une quete");
+                beatenMonster[i].GetComponent<IsKilled>().UpdateState();
             }
         }
     }

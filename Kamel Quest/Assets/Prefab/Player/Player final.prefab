@@ -63,8 +63,6 @@ MonoBehaviour:
   LEVELUPXPNEEDED: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
   ATKPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
   HPMAXPROGRESSION: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
-  effectList: []
-  turnEffect: 
   hpmax: 30
   currenthp: 28
   atk: 7
@@ -92,7 +90,7 @@ MonoBehaviour:
   - {fileID: 816219172268709440, guid: 31b3ba20b2d05c84797b56632bf3ae84, type: 3}
   nbrOfKey: 0
   beatenMonster: []
-  fightprogress: 01
+  fightprogress: 00
   questfinish: 0
   swordslot: {fileID: 0}
   shieldslot: {fileID: 0}
@@ -112,9 +110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prog:
   - {fileID: 0}
+  Current: 0
   ProgAnex: []
   ActiveQuest: 
-  AnnexCompleted: 
+  AnnexCompleted: 000000
   prog_percent: 0
 --- !u!1001 &8343094994226060709
 PrefabInstance:
@@ -131,12 +130,12 @@ PrefabInstance:
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.103257
+      value: -365.93094
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.979263
+      value: -35.96759
       objectReference: {fileID: 0}
     - target: {fileID: 1962520302724863043, guid: 7f15a35b76f5447818cc1cc64ec198e3,
         type: 3}

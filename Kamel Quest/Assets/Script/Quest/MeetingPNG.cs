@@ -12,6 +12,5 @@ public class MeetingPNG : MonoBehaviour
     {
         if (!is_active) transform.GetComponent<ShowsBubbleText>().ExecuteTriggerExit2D();
         Debug.Log("[MeetingPNG] OnTriggerEnter2D: The target have been trigger.");
-        if (is_active) questgiver.GetComponent<Quest>().CompletedQuest();
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2418145267840516279}
   - component: {fileID: 5211988403222570357}
   - component: {fileID: 4043952105068708055}
+  - component: {fileID: -7534137350898633996}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Untagged
@@ -100,6 +101,7 @@ MonoBehaviour:
   enemyid3: 0
   monsterID: 0
   is_active: 0
+  is_alive: 1
 --- !u!61 &4043952105068708055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +128,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 3.25}
   m_EdgeRadius: 0
+--- !u!114 &-7534137350898633996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828771644884828811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3da387cc4bcd74691b0f8a24b57bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LEVELUPXPNEEDED: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ATKPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HPMAXPROGRESSION: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hpmax: 20
+  currenthp: 5
+  atk: 5
+  name: 
+  magicatk: 0
+  atkcost: 0
+  xp: 100
+  lvl: 1
+  isalive: 1
+  item_id: 0
+  is_defence: 0
