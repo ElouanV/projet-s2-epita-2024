@@ -927,7 +927,7 @@ void changingStateEnemy(int selectEntity)
     
     public void LootEffect(Entity unit)
     {
-        loot = unit.loot();
+        loot = unit.Loot();
     }
 
     public void PoisonEffect(Entity unit)
@@ -959,7 +959,7 @@ void changingStateEnemy(int selectEntity)
 
     public void HealPotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
             switch (state)
@@ -984,7 +984,7 @@ void changingStateEnemy(int selectEntity)
     
     public void StrengthPotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
         }
@@ -997,7 +997,7 @@ void changingStateEnemy(int selectEntity)
     
     public void LootPotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
         }
@@ -1009,7 +1009,7 @@ void changingStateEnemy(int selectEntity)
     
     public void PoisonPotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
         }
@@ -1021,7 +1021,7 @@ void changingStateEnemy(int selectEntity)
     
     public void RegenerationPotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
         }
@@ -1033,7 +1033,7 @@ void changingStateEnemy(int selectEntity)
     
     public void DamagePotionButton()
     {
-        if (player.isInInventory(0, 1))
+        if (player.IsInInventory(0, 1))
         {
             player.RemoveFromInventory(0);
         }
